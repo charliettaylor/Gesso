@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://canvas.instructure.com/doc/api/</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/index.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.graphql.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.changelog.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.object_ids.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.pagination.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.throttling.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.compound_documents.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.file_uploads.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.endpoint_attributes.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.masquerading.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.oauth.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.oauth_endpoints.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.developer_keys.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/all_resources.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/account_calendars.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/account_domain_lookups.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/account_notifications.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/account_reports.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/accounts.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/accounts_(lti).html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/admins.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/analytics.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/announcement_external_feeds.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/announcements.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/api_token_scopes.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/appointment_groups.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/assignment_extensions.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/assignment_groups.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/assignments.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/authentication_providers.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/authentications_log.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/blackout_dates.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/blueprint_courses.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/bookmarks.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/brand_configs.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/calendar_events.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/collaborations.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/comm_messages.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/communication_channels.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/conferences.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/content_exports.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/content_migrations.html</loc>
+  <lastmod>2022-11-10T14:30:52+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/content_security_policy_settings.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/content_shares.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/conversations.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/course_audit_log.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/course_quiz_extensions.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/courses.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/custom_gradebook_columns.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/discussion_topics.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/enrollment_terms.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/enrollments.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/e_portfolios.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/e_pub_exports.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/error_reports.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/external_tools.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/favorites.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/feature_flags.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/files.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/grade_change_log.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/gradebook_history.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/grading_period_sets.html</loc>
+  <lastmod>2022-11-10T14:30:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/grading_periods.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/grading_standards.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/group_categories.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/groups.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/history.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/image_search.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/immersive_reader.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/inst_access_tokens.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/jw_ts.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/late_policy.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/line_items.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/live_assessments.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/logins.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/media_objects.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/moderated_grading.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/modules.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/names_and_role.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/notification_preferences.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/originality_reports.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/outcome_groups.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/outcome_imports.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/outcome_results.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/outcomes.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/pages.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/peer_reviews.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/planner.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/poll_sessions.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/poll_choices.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/polls.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/poll_submissions.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/proficiency_ratings.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/progress.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/public_jwk.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quiz_assignment_overrides.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quiz_extensions.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quiz_ip_filters.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quiz_question_groups.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quiz_questions.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quiz_reports.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quiz_statistics.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quiz_submission_events.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quiz_submission_files.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quiz_submission_questions.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quiz_submission_user_list.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quiz_submissions.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/quizzes.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/result.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/roles.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/rubrics.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/score.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/search.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/sections.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/services.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/shared_brand_configs.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/sis_import_errors.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/sis_imports.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/sis_integration.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/submission_comments.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/submissions.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/tabs.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/user_observees.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/users.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.outcomes_csv.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.group_category_csv.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.sis_csv.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.tools_intro.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.lti_dev_key_config.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.tools_variable_substitutions.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.content_item.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.assignment_tools.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.provisioning.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.lti_window_post_message.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.navigation_tools.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.homework_submission_placement.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.editor_button_placement.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.migration_selection_placement.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.link_selection_placement.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.assignment_selection_placement.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.collaborations_placement.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.xapi.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.canvas_roles.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.plagiarism_platform.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/plagiarism_detection_platform_assignments.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/plagiarism_detection_platform_users.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/plagiarism_detection_submissions.html</loc>
+  <lastmod>2022-11-10T14:30:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/webhooks_subscriptions_for_plagiarism_platform.html</loc>
+  <lastmod>2022-11-10T14:30:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.jwt_access_tokens.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_introduction.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_setup.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_caliper_structure.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_event_metadata.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_account.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_asset.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_assignment.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_attachment.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_content.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_conversation.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_course.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_discussion.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_enrollment.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_grade.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_group.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_learning.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_logged.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_module.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_outcome.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_plagiarism.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_quiz.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_sis.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_submission.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_syllabus.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_user.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_canvas_wiki.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_caliper_assessment.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_caliper_basic.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_caliper_forum.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_caliper_grading.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_caliper_navigation_events.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file.data_service_caliper_session.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/oauth.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/object_ids.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/oauth_endpoints.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/file_uploads.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://canvas.instructure.com/doc/api/jwt_access_tokens.html</loc>
+  <lastmod>2022-11-10T14:30:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
