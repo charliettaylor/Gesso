@@ -1,0 +1,18 @@
+{
+  
+  "id": 16,
+  
+  "address": "sheldon@caltech.example.com",
+  
+  
+  
+  "type": "email",
+  
+  
+  "position": 1,
+  
+  "user_id": 1,
+  
+  
+  "workflow_state": "active"
+}

@@ -1,0 +1,60 @@
+{
+  
+  "id": 17,
+  
+  "name": "Math Group 1",
+  
+  "description": null,
+  
+  
+  
+  "is_public": false,
+  
+  "followed_by_user": false,
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  "join_level": "invitation_only",
+  
+  "members_count": 0,
+  
+  "avatar_url": "https://<canvas>/files/avatar_image.png",
+  
+  
+  
+  
+  "context_type": "Course",
+  "course_id": 3,
+  
+  
+  
+  "role": null,
+  
+  "group_category_id": 4,
+  
+  
+  "sis_group_id": "group4a",
+  
+  
+  "sis_import_id": 14,
+  
+  "storage_quota_mb": 50,
+  
+  
+  "permissions": {"create_discussion_topic":true,"create_announcement":true},
+  
+  
+  
+  
+  
+  "users": null
+}

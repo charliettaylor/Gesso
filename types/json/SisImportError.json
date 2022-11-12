@@ -1,0 +1,13 @@
+{
+  
+  "sis_import_id": 1,
+  
+  "file": "courses.csv",
+  
+  "message": "No short_name given for course C001",
+  
+  "row_info": "account_1, Sub account 1,, active ",
+  
+  
+  "row": 34
+}

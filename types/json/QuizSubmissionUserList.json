@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "$ref": "QuizSubmissionUserListMeta",
+    "description": "contains meta information (such as pagination) for the list of users"
+  },
+  "users": {
+    "$ref": "User",
+    "description": "list of users that match the query"
+  }
+}

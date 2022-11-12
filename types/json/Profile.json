@@ -1,0 +1,32 @@
+
+{
+  
+  "id": 1234,
+  
+  "name": "Sample User",
+  
+  "short_name": "Sample User",
+  
+  "sortable_name": "user, sample",
+  "title": null,
+  "bio": null,
+  
+  "primary_email": "sample_user@example.com",
+  
+  "login_id": "sample_user@example.com",
+  
+  "sis_user_id": "sis1",
+  "lti_user_id": null,
+  
+  
+  "avatar_url": "..url..",
+  "calendar": null,
+  
+  
+  "time_zone": "America/Denver",
+  
+  "locale": null,
+  
+  
+  "k5_user": true
+}

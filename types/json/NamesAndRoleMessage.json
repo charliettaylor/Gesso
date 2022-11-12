@@ -1,0 +1,16 @@
+
+
+{
+  
+  
+  "https://purl.imsglobal.org/spec/lti/claim/message_type": "LtiResourceLinkRequest",
+  
+  "locale": "en",
+  
+  "https://www.instructure.com/canvas_user_id": 1,
+  
+  "https://www.instructure.com/canvas_user_login_id": "showell@school.edu",
+  
+  
+  "https://purl.imsglobal.org/spec/lti/claim/custom": {"message_locale":"en","person_address_timezone":"America\/Denver"}
+}

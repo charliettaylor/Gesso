@@ -1,0 +1,24 @@
+{
+  "accounts": 0,
+  "terms": 3,
+  "abstract_courses": 0,
+  "courses": 121,
+  "sections": 278,
+  "xlists": 0,
+  "users": 346,
+  "enrollments": 1542,
+  "groups": 0,
+  "group_memberships": 0,
+  "grade_publishing_results": 0,
+  
+  
+  "batch_courses_deleted": 11,
+  
+  
+  "batch_sections_deleted": 0,
+  
+  
+  "batch_enrollments_deleted": 150,
+  "error_count": 0,
+  "warning_count": 0
+}

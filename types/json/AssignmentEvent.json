@@ -1,0 +1,38 @@
+{
+  
+  "id": "assignment_987",
+  
+  "title": "Essay",
+  
+  "start_at": "2012-07-19T23:59:00-06:00",
+  
+  "end_at": "2012-07-19T23:59:00-06:00",
+  
+  "description": "<b>Write an essay. Whatever you want.</b>",
+  
+  "context_code": "course_123",
+  
+  "workflow_state": "published",
+  
+  
+  "url": "https://example.com/api/v1/calendar_events/assignment_987",
+  
+  "html_url": "http://example.com/courses/123/assignments/987",
+  
+  "all_day_date": "2012-07-19",
+  
+  
+  "all_day": true,
+  
+  "created_at": "2012-07-12T10:55:20-06:00",
+  
+  "updated_at": "2012-07-12T10:55:20-06:00",
+  
+  "assignment": null,
+  
+  
+  
+  "assignment_overrides": null,
+  
+  "important_dates": true
+}

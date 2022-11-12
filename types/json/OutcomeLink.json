@@ -1,0 +1,22 @@
+{
+  
+  "url": "/api/v1/accounts/1/outcome_groups/1/outcomes/1",
+  
+  
+  
+  "context_id": 1,
+  "context_type": "Account",
+  
+  
+  "outcome_group": null,
+  
+  
+  "outcome": null,
+  
+  
+  
+  "assessed": true,
+  
+  
+  "can_unlink": null
+}

@@ -1,0 +1,27 @@
+{
+  
+  "id": 4,
+  
+  "assignment_id": 123,
+  
+  
+  "student_ids": [1, 2, 3],
+  
+  
+  "group_id": 2,
+  
+  
+  "course_section_id": 1,
+  
+  "title": "an assignment override",
+  
+  "due_at": "2012-07-01T23:59:00-06:00",
+  
+  "all_day": true,
+  
+  "all_day_date": "2012-07-01",
+  
+  "unlock_at": "2012-07-01T23:59:00-06:00",
+  
+  "lock_at": "2012-07-01T23:59:00-06:00"
+}

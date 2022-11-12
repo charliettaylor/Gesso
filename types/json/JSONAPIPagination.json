@@ -1,0 +1,27 @@
+{
+  "per_page": {
+    "type": "integer",
+    "description": "number of results per page",
+    "example": 10
+  },
+  "page": {
+    "type": "integer",
+    "description": "the current page passed as the ?page= parameter",
+    "example": 1
+  },
+  "template": {
+    "type": "string",
+    "description": "URL template for building out other paged URLs for this endpoint",
+    "example": "https://example.instructure.com/api/v1/courses/1/quizzes/1/submission_users?page={page}"
+  },
+  "page_count": {
+    "type": "integer",
+    "description": "number of pages for this collection",
+    "example": 10
+  },
+  "count": {
+    "type": "integer",
+    "description": "total number of items in this collection",
+    "example": 100
+  }
+}

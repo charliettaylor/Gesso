@@ -1,0 +1,11 @@
+{
+  "id": 42,
+  "user_id": 1,
+  "media_object_id": 14,
+  "kind": "subtitles",
+  "locale": "es",
+  "content": "1]\\n00:00:00,000 --> 00:00:01,251\nI'm spanish",
+  "created_at": "Mon, 24 Feb 2020 16:04:02 EST -05:00",
+  "updated_at": "Mon, 24 Feb 2020 16:59:05 EST -05:00",
+  "webvtt_content": "WEBVTT\n\n1]\\n00:00:00.000 --> 00:00:01.251\nI'm spanish"
+}

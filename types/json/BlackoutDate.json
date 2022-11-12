@@ -1,0 +1,15 @@
+
+
+{
+  
+  "id": 1,
+  
+  "context_id": 1,
+  "context_type": "Course",
+  
+  "start_date": "2022-01-01",
+  
+  "end_date": "2022-01-02",
+  
+  "event_title": "some title"
+}

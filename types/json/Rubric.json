@@ -1,0 +1,27 @@
+{
+  
+  "id": 1,
+  
+  "title": "some title",
+  
+  "context_id": 1,
+  "context_type": "Course",
+  "points_possible": 10.0,
+  "reusable": false,
+  "read_only": true,
+  
+  "free_form_criterion_comments": true,
+  "hide_score_total": true,
+  
+  "data": null,
+  
+  
+  
+  
+  "assessments": null,
+  
+  
+  
+  
+  "associations": null
+}

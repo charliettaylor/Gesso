@@ -1,0 +1,22 @@
+{
+  "name": "gesso",
+  "version": "1.0.0",
+  "description": "A Node.js API client for Canvas LMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Peekoe/Gesso.git"
+  },
+  "author": "Charlie Taylor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Peekoe/Gesso/issues"
+  },
+  "homepage": "https://github.com/Peekoe/Gesso#readme",
+  "devDependencies": {
+    "quicktype": "^15.1.0"
+  }
+}

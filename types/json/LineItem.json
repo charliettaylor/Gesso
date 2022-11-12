@@ -1,0 +1,22 @@
+{
+  
+  "id": "http://institution.canvas.com/api/lti/courses/5/line_items/2",
+  
+  "scoreMaximum": 50,
+  
+  "label": "50",
+  
+  "tag": "50",
+  
+  
+  "resourceId": "50",
+  
+  "resourceLinkId": "50",
+  
+  
+  "https://canvas.instructure.com/lti/submission_type": {
+  	"type":"external_tool",
+  	"external_tool_url":"https://my.launch.url"
+  },
+  "https://canvas.instructure.com/lti/launch_url": "https://my.tool.url/launch"
+}

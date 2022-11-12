@@ -1,0 +1,52 @@
+{
+  
+  "id": 1000000000040,
+  
+  "is_lti_key": true,
+  
+  "visible": true,
+  
+  "account_name": "The Academy",
+  
+  "public_jwk": {
+  	"kty":"RSA",
+  	"e":"AQAB",
+  	"n":"ufmgt156hs168mgdhy168jrsydt168ju816rtahesuvdbmnrtd87t7h8ser",
+  	"alg":"RS256",
+  	"use":"sig",
+  	"kid":"Se68gr16s6tj_87sdr98g489dsfjy-547a6eht1"
+  },
+  
+  "vendor_code": "fi5689s9avewr68",
+  
+  "last_used_at": "2019-06-07T20:34:33Z",
+  
+  "access_token_count": 0,
+  
+  "redirect_uris": "https://redirect.to.here.com",
+  
+  "redirect_uri": "https://redirect.to.here.com",
+  
+  "api_key": "sd45fg648sr546tgh15S15df5se56r4xdf45asef456",
+  
+  "notes": "Used for sorting graded assignments",
+  
+  "name": "Tool 1",
+  
+  "user_id": "tu816dnrs6zdsg148918dmu",
+  
+  "created_at": "2019-06-07T20:34:33Z",
+  
+  "user_name": "johnsmith",
+  
+  "email": "johnsmith@instructure.com",
+  
+  
+  "require_scopes": true,
+  
+  "icon_url": "null",
+  
+  "scopes": "https://canvas.instructure.com/lti/public_jwk/scope/update",
+  
+  "workflow_state": "active"
+}

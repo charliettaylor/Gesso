@@ -1,0 +1,27 @@
+
+{
+  
+  "asset_code": "assignment_123",
+  
+  "asset_name": "Test Assignment",
+  
+  
+  
+  
+  "asset_icon": "icon-assignment",
+  
+  "asset_readable_category": "Assignment",
+  
+  
+  "context_type": "Course",
+  
+  "context_id": 123,
+  
+  "context_name": "Something 101",
+  
+  "visited_url": "https://canvas.example.com/courses/123/assignments/456",
+  
+  "visited_at": "2019-08-01T19:49:47Z",
+  
+  "interaction_seconds": 400
+}

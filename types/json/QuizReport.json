@@ -1,0 +1,37 @@
+{
+  
+  "id": 5,
+  
+  "quiz_id": 4,
+  
+  
+  "report_type": "student_analysis",
+  
+  "readable_type": "Student Analysis",
+  
+  
+  "includes_all_versions": true,
+  
+  
+  "anonymous": false,
+  
+  
+  "generatable": true,
+  
+  "created_at": "2013-05-01T12:34:56-07:00",
+  
+  "updated_at": "2013-05-01T12:34:56-07:00",
+  
+  "url": "http://canvas.example.com/api/v1/courses/1/quizzes/1/reports/1",
+  
+  
+  "file": null,
+  
+  
+  
+  "progress_url": null,
+  
+  
+  
+  "progress": null
+}

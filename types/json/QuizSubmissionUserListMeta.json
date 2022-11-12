@@ -1,0 +1,6 @@
+{
+  "pagination": {
+    "$ref": "JSONAPIPagination",
+    "description": "contains pagination information for the list of users"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  
+  "id": 1,
+  
+  "rubric_id": 1,
+  "rubric_association_id": 2,
+  "score": 5.0,
+  
+  "artifact_type": "Submission",
+  
+  "artifact_id": 3,
+  
+  "artifact_attempt": 2,
+  
+  
+  "assessment_type": "grading",
+  
+  "assessor_id": 6,
+  
+  
+  
+  "data": null,
+  
+  
+  
+  "comments": null
+}

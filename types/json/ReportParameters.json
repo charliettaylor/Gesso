@@ -1,0 +1,44 @@
+
+{
+  
+  "enrollment_term_id": 2,
+  
+  
+  "include_deleted": false,
+  
+  "course_id": 2,
+  
+  "order": "users",
+  
+  "users": false,
+  
+  
+  "accounts": false,
+  
+  "terms": false,
+  
+  "courses": false,
+  
+  
+  "sections": false,
+  
+  
+  "enrollments": false,
+  
+  "groups": false,
+  
+  
+  "xlist": false,
+  "sis_terms_csv": 1,
+  "sis_accounts_csv": 1,
+  
+  
+  "include_enrollment_state": false,
+  
+  
+  "enrollment_state": ["all"],
+  
+  "start_at": "2012-07-13T10:55:20-06:00",
+  
+  "end_at": "2012-07-13T10:55:20-06:00"
+}

@@ -1,0 +1,22 @@
+
+
+{
+  
+  "asset_id": 2,
+  
+  
+  
+  
+  "asset_type": "assignment",
+  
+  "asset_name": "Some Assignment",
+  
+  "change_type": "created",
+  
+  "html_url": "https://canvas.example.com/courses/101/assignments/2",
+  
+  "locked": false,
+  
+  
+  "exceptions": [{"course_id":101,"conflicting_changes":["points"]}]
+}

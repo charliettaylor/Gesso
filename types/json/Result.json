@@ -1,0 +1,15 @@
+{
+  
+  "id": "http://institution.canvas.com/api/lti/courses/5/line_items/2/results/1",
+  
+  "userId": "50 | 'abcasdf'",
+  
+  "resultScore": 50,
+  
+  
+  "resultMaximum": 50,
+  
+  "comment": null,
+  
+  "scoreOf": "http://institution.canvas.com/api/lti/courses/5/line_items/2"
+}

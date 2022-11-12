@@ -1,0 +1,21 @@
+{
+  
+  "enabled": true,
+  
+  "locked": false,
+  
+  
+  "applies_to_self": true,
+  
+  
+  "applies_to_descendants": false,
+  
+  
+  "readonly": false,
+  
+  
+  "explicit": true,
+  
+  
+  "prior_default": false
+}

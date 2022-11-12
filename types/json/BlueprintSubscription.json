@@ -1,0 +1,9 @@
+
+{
+  
+  "id": 101,
+  
+  "template_id": 1,
+  
+  "blueprint_course": {"id":2,"name":"Biology 100 Blueprint","course_code":"BIOL 100 BP","term_name":"Default term"}
+}

@@ -1,0 +1,11 @@
+
+{
+  
+  "user_id": 2,
+  
+  "code": "abc123",
+  
+  "expires_at": "2012-05-30T17:45:25Z",
+  
+  "workflow_state": "active"
+}

@@ -1,0 +1,12 @@
+{
+  "html_url": "/courses/1/external_tools/4",
+  "id": "context_external_tool_4",
+  "label": "WordPress",
+  "type": "external",
+  
+  "hidden": true,
+  
+  "visibility": "public",
+  
+  "position": 2
+}

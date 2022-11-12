@@ -1,0 +1,69 @@
+{
+  
+  "id": 1,
+  
+  "created_at": "2013-12-01T23:59:00-06:00",
+  
+  "ended_at": "2013-12-02T00:03:21-06:00",
+  
+  "updated_at": "2013-12-02T00:03:21-06:00",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  "workflow_state": "imported",
+  
+  "data": null,
+  
+  "statistics": null,
+  
+  
+  "progress": "100",
+  
+  
+  "errors_attachment": null,
+  
+  "user": null,
+  
+  
+  "processing_warnings": [["students.csv", "user John Doe has already claimed john_doe's requested login information, skipping"]],
+  
+  "processing_errors": [["students.csv", "Error while importing CSV. Please contact support."]],
+  
+  "batch_mode": true,
+  
+  "batch_mode_term_id": "1234",
+  
+  
+  "multi_term_batch_mode": false,
+  
+  "skip_deletes": false,
+  
+  "override_sis_stickiness": false,
+  
+  "add_sis_stickiness": false,
+  
+  "clear_sis_stickiness": false,
+  
+  "diffing_threshold_exceeded": true,
+  
+  "diffing_data_set_identifier": "account-5-enrollments",
+  
+  "diffing_remaster": false,
+  
+  "diffed_against_import_id": 1,
+  
+  "csv_attachments": []
+}

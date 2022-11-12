@@ -1,0 +1,49 @@
+{
+  
+  
+  "id": 6656,
+  
+  "answer_text": "Constantinople",
+  
+  
+  "answer_weight": 100,
+  
+  "answer_comments": "Remember to check your spelling prior to submitting this answer.",
+  
+  "text_after_answers": " is the capital of Utah.",
+  
+  
+  "answer_match_left": "Salt Lake City",
+  
+  
+  
+  "answer_match_right": "Utah",
+  
+  
+  "matching_answer_incorrect_matches": "Nevada
+  California
+  Washington",
+  
+  
+  "numerical_answer_type": "exact_answer",
+  
+  
+  "exact": 42,
+  
+  
+  "margin": 4,
+  
+  
+  "approximate": 1234600000.0,
+  
+  
+  "precision": 4,
+  
+  
+  "start": 1,
+  
+  
+  "end": 10,
+  
+  "blank_id": 1170
+}

@@ -1,0 +1,13 @@
+
+
+
+
+
+{
+  "name": [null, "Course 1"],
+  "start_at": [null, "2012-01-19T15:00:00-06:00"],
+  "conclude_at": [null, "2012-01-19T15:00:00-08:00"],
+  "is_public": [null, false],
+  
+  "created_source": "manual|sis|api"
+}

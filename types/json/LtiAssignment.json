@@ -1,0 +1,14 @@
+
+{
+  "id": 4,
+  "name": "Midterm Review",
+  "description": "<p>Do the following:</p>...",
+  "points_possible": 10,
+  
+  
+  
+  "due_at": "2012-07-01T23:59:00-06:00",
+  "lti_id": "86157096483e6b3a50bfedc6bac902c0b20a824f",
+  "course_id": 10000000000060,
+  "lti_course_id": "66157096483e6b3a50bfedc6bac902c0b20a8241"
+}
