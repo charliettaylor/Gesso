@@ -21,7 +21,7 @@ def remove_comments(string):
 with open("endpoints.txt", "r") as f:
   endpoints = f.readlines()
 
-for end in endpoints:
+for end in ['https://canvas.instructure.com/doc/api/account_calendars.html']:
   page = requests.get(end.strip())
   soup = BeautifulSoup(page.content, 'html.parser')
   tags = soup.find_all('div', class_='object_definition')
@@ -30,7 +30,7 @@ for end in endpoints:
     name = tag.find('a')['name']
     content = remove_comments(
       tag.find('pre', class_='example code prettyprint').string)
-    with open(f"types/json/{name}.json", "w") as f:
+    with open(f"../types/json/{name}.json", "w") as f:
       f.write(content)
-
+  # they temporarily ban you if you make too many requests
   sleep(0.1)
