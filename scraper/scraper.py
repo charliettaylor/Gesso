@@ -21,7 +21,7 @@ def remove_comments(string):
 with open("endpoints.txt", "r") as f:
   endpoints = f.readlines()
 
-for end in ['https://canvas.instructure.com/doc/api/account_calendars.html']:
+for end in endpoints:
   page = requests.get(end.strip())
   soup = BeautifulSoup(page.content, 'html.parser')
   tags = soup.find_all('div', class_='object_definition')
