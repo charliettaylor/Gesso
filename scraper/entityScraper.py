@@ -1,4 +1,4 @@
-from asyncio import sleep
+from time import sleep
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -18,19 +18,23 @@ def remove_comments(string):
   return regex.sub(_replacer, string)
 
 
-with open("endpoints.txt", "r") as f:
-  endpoints = f.readlines()
+def main():
+  with open("endpoints.txt", "r") as f:
+    endpoints = f.readlines()
 
-for end in endpoints:
-  page = requests.get(end.strip())
-  soup = BeautifulSoup(page.content, 'html.parser')
-  tags = soup.find_all('div', class_='object_definition')
+  for end in endpoints:
+    page = requests.get(end.strip())
+    soup = BeautifulSoup(page.content, 'html.parser')
+    tags = soup.find_all('div', class_='object_definition')
 
-  for tag in tags:
-    name = tag.find('a')['name']
-    content = remove_comments(
-      tag.find('pre', class_='example code prettyprint').string)
-    with open(f"../types/json/{name}.json", "w") as f:
-      f.write(content)
-  # they temporarily ban you if you make too many requests
-  sleep(0.1)
+    for tag in tags:
+      name = tag.find('a')['name']
+      content = remove_comments(
+        tag.find('pre', class_='example code prettyprint').string)
+      with open(f"../types/json/{name}.json", "w") as f:
+        f.write(content)
+    # they temporarily ban you if you make too many requests
+    sleep(0.1)
+
+if __name__ == "__main__":
+  main()
