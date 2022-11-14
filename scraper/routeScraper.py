@@ -17,6 +17,8 @@ class Param:
 @dataclass
 class Route:
   name: str
+  funcName: str
+  paramName: str
   route: str
   method: str
   params: list[Param]
@@ -121,22 +123,38 @@ def create_class(className: str, routes: list[Route]):
     out += create_function(route, f'{route.name}Params')
 
   out += '}\n'
+
+  print(out)
   # with open(f"../types/params.ts", "a") as f:
   #   f.write(f'../entities/{route.name}.ts', out)
 
 
 def create_function(route: Route, paramsInterfaceName: str) -> str:
   method = route.method.lower()
-
-  function = f'''public async function {route.name}(params: {paramsInterfaceName}) {{
-  const endpoint = '{route.route}';
-  const response = await this.get(endpoint, {{ params }});
-  return response.data;
-  }}\n\n
+  funcParams = parse_route_parameters(route.route)
+  function = f'''public async function {route.funcName}({funcParams}params: {route.paramName}) {{
+    const endpoint = '{route.route}';
+    const response = await this.{method}(endpoint, {{ params }});
+    return response.data;
+  }}\n
   '''
   function = textwrap.indent(function, '  ')
 
   return function
+
+
+def parse_route_parameters(route: str):
+  chunks = route.split('/')
+
+  if len(chunks) <= 2:
+    return ''
+
+  params = []
+  for chunk in chunks:
+    if chunk.startswith(':'):
+      params.append(chunk[1:])
+
+  return ': str, '.join(params) + ': str, '
 
 
 # stackoverflow: https://stackoverflow.com/questions/3173320/text-progress-bar-in-terminal-with-block-characters
@@ -192,10 +210,10 @@ def create_params_and_route(tag):
 
     params.append(Param(row_text[0], row_text[2], row_text[3]))
 
-  route = Route(routeName, endpoint, method, params)
-
   # write interfaces to params file
   paramName = f"{''.join([x.capitalize() for x in routeNameList])}Params.ts"
+
+  route = Route(routeName, clean_text(routeName), clean_text(f"{paramName[:-9]}Params"), endpoint, method, params)
   
   if len(route.params) > 0:
     with open(f"../types/params.ts", "a") as f:
@@ -211,7 +229,7 @@ def main():
   progCount = 0
   total = len(endpoints)
 
-  for end in endpoints:
+  for end in ['https://canvas.instructure.com/doc/api/account_calendars.html']:
     page = requests.get(end.strip())
 
     if page.status_code == 403:
