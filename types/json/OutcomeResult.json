@@ -1,15 +1,11 @@
-
 {
-  
   "id": 42,
-  
+
   "score": 6,
-  
-  
+
   "submitted_or_assessed_at": "2013-02-01T00:00:00-06:00",
-  
-  "links": {"user":"3","learning_outcome":"97","alignment":"53"},
-  
-  
+
+  "links": { "user": "3", "learning_outcome": "97", "alignment": "53" },
+
   "percent": 0.65
 }

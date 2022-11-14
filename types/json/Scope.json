@@ -1,14 +1,13 @@
 {
-  
   "resource": "courses",
-  
+
   "resource_name": "Courses",
-  
+
   "controller": "courses",
-  
+
   "action": "index",
-  
+
   "verb": "GET",
-  
+
   "scope": "url:GET|/api/v1/courses"
 }

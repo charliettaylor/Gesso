@@ -1,30 +1,35 @@
-
 {
-  
   "status": "Active",
-  
-  
+
   "name": "Sienna Howell",
-  
+
   "picture": "https://example.instructure.com/images/messages/avatar-50.png",
-  
-  
+
   "given_name": "Sienna",
-  
-  
+
   "family_name": "Howell",
-  
-  
+
   "email": "showell@school.edu",
-  
-  
+
   "lis_person_sourcedid": "1238.8763.00",
-  
+
   "user_id": "535fa085f22b4655f48cd5a36a9215f64c062838",
-  
-  "roles": ["http://purl.imsglobal.org/vocab/lis/v2/membership#Instructor", "http://purl.imsglobal.org/vocab/lis/v2/membership#ContentDeveloper"],
-  
-  
-  
-  "message": [{"https:\/\/purl.imsglobal.org\/spec\/lti\/claim\/message_type":"LtiResourceLinkRequest","locale":"en","https:\/\/www.instructure.com\/canvas_user_id":1,"https:\/\/www.instructure.com\/canvas_user_login_id":"showell@school.edu","https:\/\/purl.imsglobal.org\/spec\/lti\/claim\/custom":{"message_locale":"en","person_address_timezone":"America\/Denver"}}]
+
+  "roles": [
+    "http://purl.imsglobal.org/vocab/lis/v2/membership#Instructor",
+    "http://purl.imsglobal.org/vocab/lis/v2/membership#ContentDeveloper"
+  ],
+
+  "message": [
+    {
+      "https://purl.imsglobal.org/spec/lti/claim/message_type": "LtiResourceLinkRequest",
+      "locale": "en",
+      "https://www.instructure.com/canvas_user_id": 1,
+      "https://www.instructure.com/canvas_user_login_id": "showell@school.edu",
+      "https://purl.imsglobal.org/spec/lti/claim/custom": {
+        "message_locale": "en",
+        "person_address_timezone": "America/Denver"
+      }
+    }
+  ]
 }

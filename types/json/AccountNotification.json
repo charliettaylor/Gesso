@@ -1,18 +1,15 @@
 {
-  
   "subject": "Attention Students",
-  
+
   "message": "This is a test of the notification system.",
-  
+
   "start_at": "2013-08-28T23:59:00-06:00",
-  
+
   "end_at": "2013-08-29T23:59:00-06:00",
-  
+
   "icon": "information",
-  
-  
+
   "roles": ["StudentEnrollment"],
-  
-  
+
   "role_ids": [1]
 }

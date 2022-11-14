@@ -1,21 +1,17 @@
 {
-  
   "id": 1,
-  
+
   "rubric_id": 1,
-  
+
   "association_id": 1,
-  
+
   "association_type": "Course",
-  
+
   "use_for_grading": true,
   "summary_data": "",
-  
-  
-  
+
   "purpose": "grading",
-  
-  
+
   "hide_score_total": true,
   "hide_points": true,
   "hide_outcome_results": true

@@ -1,25 +1,23 @@
 {
-  
   "id": 1,
-  
+
   "quiz_id": 2,
-  
+
   "position": 1,
-  
+
   "question_name": "Prime Number Identification",
-  
+
   "question_type": "multiple_choice_question",
-  
+
   "question_text": "Which of the following is NOT a prime number?",
-  
-  
+
   "points_possible": 5,
-  
+
   "correct_comments": "That's correct!",
-  
+
   "incorrect_comments": "Unfortunately, that IS a prime number.",
-  
+
   "neutral_comments": "Goldbach's conjecture proposes that every even integer greater than 2 can be expressed as the sum of two prime numbers.",
-  
+
   "answers": null
 }

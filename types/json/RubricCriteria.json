@@ -1,11 +1,10 @@
 {
   "points": 10,
-  
+
   "id": "crit1",
-  
+
   "learning_outcome_id": "1234",
-  
-  
+
   "vendor_guid": "abdsfjasdfne3jsdfn2",
   "description": "Criterion 1",
   "long_description": "Criterion 1 more details",

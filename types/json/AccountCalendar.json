@@ -1,26 +1,25 @@
 {
-  
   "id": 204,
-  
+
   "name": "Department of Chemistry",
-  
+
   "parent_account_id": 1,
-  
+
   "root_account_id": 1,
-  
+
   "visible": true,
-  
+
   "sub_account_count": 0,
-  
+
   "asset_string": "account_4",
-  
+
   "type": "account",
-  
+
   "calendar_event_url": "/accounts/2/calendar_events/%7B%7B%20id%20%7D%7D",
-  
+
   "can_create_calendar_events": true,
-  
+
   "create_calendar_event_url": "/accounts/2/calendar_events",
-  
+
   "new_calendar_event_url": "/accounts/6/calendar_events/new"
 }

@@ -1,16 +1,15 @@
 {
-  
   "id": 101,
-  
+
   "created_at": "2014-01-01T00:00:00Z",
-  
-  
-  "attachment": {"url":"https:\/\/example.com\/api\/v1\/attachments\/789?download_frd=1\u0026verifier=bG9sY2F0cyEh"},
-  
+
+  "attachment": {
+    "url": "https://example.com/api/v1/attachments/789?download_frd=1\u0026verifier=bG9sY2F0cyEh"
+  },
+
   "progress_url": "https://example.com/api/v1/progress/4",
-  
+
   "user_id": 4,
-  
-  
+
   "workflow_state": "exported"
 }

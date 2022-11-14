@@ -1,11 +1,9 @@
 {
   "href": "https://canvas.instructure.com/users/1/communication_channels/email/student@example.edu/notification_preferences/new_announcement",
-  
+
   "notification": "new_announcement",
-  
+
   "category": "announcement",
-  
-  
-  
+
   "frequency": "daily"
 }

@@ -1,23 +1,19 @@
 {
-  
   "id": 4,
-  
+
   "file_id": 8,
-  
+
   "originality_score": 0.16,
-  
-  
+
   "originality_report_file_id": 23,
-  
+
   "originality_report_url": "http://www.example.com/report",
-  
-  
+
   "tool_setting": null,
-  
-  
+
   "error_report": null,
-  
+
   "submission_time": null,
-  
+
   "root_account_id": 1
 }

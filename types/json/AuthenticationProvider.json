@@ -1,43 +1,40 @@
 {
-  
   "identifier_format": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-  
+
   "auth_type": "saml",
-  
+
   "id": 1649,
-  
+
   "log_out_url": "http://example.com/saml1/slo",
-  
+
   "log_in_url": "http://example.com/saml1/sli",
-  
+
   "certificate_fingerprint": "111222",
-  
+
   "requested_authn_context": null,
-  
+
   "auth_host": "127.0.0.1",
-  
+
   "auth_filter": "filter1",
-  
+
   "auth_over_tls": null,
-  
+
   "auth_base": null,
-  
+
   "auth_username": "username1",
-  
+
   "auth_port": null,
-  
+
   "position": 1,
-  
+
   "idp_entity_id": "http://example.com/saml1",
-  
+
   "login_attribute": "nameid",
-  
+
   "sig_alg": "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256",
-  
-  
+
   "jit_provisioning": null,
   "federated_attributes": null,
-  
-  
+
   "mfa_required": null
 }

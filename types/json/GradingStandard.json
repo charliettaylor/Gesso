@@ -1,13 +1,16 @@
 {
-  
   "title": "Account Standard",
-  
+
   "id": 1,
-  
+
   "context_type": "Account",
-  
+
   "context_id": 1,
-  
-  
-  "grading_scheme": [{"name":"A","value":0.9}, {"name":"B","value":0.8}, {"name":"C","value":0.7}, {"name":"D","value":0.6}]
+
+  "grading_scheme": [
+    { "name": "A", "value": 0.9 },
+    { "name": "B", "value": 0.8 },
+    { "name": "C", "value": 0.7 },
+    { "name": "D", "value": 0.6 }
+  ]
 }

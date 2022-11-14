@@ -1,18 +1,13 @@
-
 {
-  
-  
   "id": 1,
-  
+
   "due_at": "2014-02-21T06:59:59Z",
-  
+
   "unlock_at": null,
-  
-  
+
   "lock_at": "2014-02-21T06:59:59Z",
-  
+
   "title": "Project X",
-  
-  
+
   "base": true
 }

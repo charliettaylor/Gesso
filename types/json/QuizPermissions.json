@@ -1,17 +1,15 @@
-
 {
-  
   "read": true,
-  
+
   "submit": true,
-  
+
   "create": true,
-  
+
   "manage": true,
-  
+
   "read_statistics": true,
-  
+
   "review_grades": true,
-  
+
   "update": true
 }

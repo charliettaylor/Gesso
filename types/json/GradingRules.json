@@ -1,8 +1,7 @@
 {
-  
   "drop_lowest": 1,
-  
+
   "drop_highest": 1,
-  
+
   "never_drop": [33, 17, 24]
 }

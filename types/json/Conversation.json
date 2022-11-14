@@ -1,45 +1,33 @@
 {
-  
   "id": 2,
-  
+
   "subject": "2",
-  
+
   "workflow_state": "unread",
-  
+
   "last_message": "sure thing, here's the file",
-  
+
   "start_at": "2011-09-02T12:00:00Z",
-  
+
   "message_count": 2,
-  
+
   "subscribed": true,
-  
+
   "private": true,
-  
+
   "starred": true,
-  
-  
-  
+
   "properties": null,
-  
-  
-  
+
   "audience": null,
-  
-  
-  
+
   "audience_contexts": null,
-  
-  
+
   "avatar_url": "https://canvas.instructure.com/images/messages/avatar-group-50.png",
-  
+
   "participants": null,
-  
-  
-  
-  
-  
+
   "visible": true,
-  
+
   "context_name": "Canvas 101"
 }

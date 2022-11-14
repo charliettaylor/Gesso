@@ -1,36 +1,35 @@
 {
-  
   "id": 170,
-  
+
   "conference_type": "AdobeConnect",
-  
+
   "conference_key": "abcdjoelisgreatxyz",
-  
+
   "description": "Conference Description",
-  
+
   "duration": 60,
-  
+
   "ended_at": "2013-12-13T17:23:26Z",
-  
+
   "started_at": "2013-12-12T23:02:17Z",
-  
+
   "title": "Test conference",
-  
+
   "users": [1, 7, 8, 9, 10],
-  
+
   "has_advanced_settings": false,
-  
+
   "long_running": false,
-  
-  "user_settings": {"record":true},
-  
+
+  "user_settings": { "record": true },
+
   "recordings": null,
-  
+
   "url": null,
-  
+
   "join_url": null,
-  
+
   "context_type": null,
-  
+
   "context_id": null
 }

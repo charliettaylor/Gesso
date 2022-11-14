@@ -1,14 +1,13 @@
 {
-  
   "id": "instructor_question",
-  
+
   "text": "Ask Your Instructor a Question",
-  
+
   "subtext": "Questions are submitted to your instructor",
-  
+
   "url": "#teacher_feedback",
-  
+
   "type": "default",
-  
+
   "available_to": ["user", "student", "teacher", "admin", "observer", "unenrolled"]
 }

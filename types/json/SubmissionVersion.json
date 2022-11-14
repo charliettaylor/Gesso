@@ -1,54 +1,47 @@
-
-
-
 {
-  
   "assignment_id": 22604,
-  
+
   "assignment_name": "some assignment",
-  
+
   "body": "text from the submission",
-  
+
   "current_grade": "100",
-  
+
   "current_graded_at": "2013-01-31T18:16:31Z",
-  
+
   "current_grader": "Grader Name",
-  
+
   "grade_matches_current_submission": true,
-  
+
   "graded_at": "2013-01-31T18:16:31Z",
-  
+
   "grader": "Grader Name",
-  
+
   "grader_id": 67379,
-  
+
   "id": 11607,
-  
+
   "new_grade": "100",
-  
-  
+
   "new_graded_at": "2013-01-31T18:16:31Z",
-  
+
   "new_grader": "Grader Name",
-  
+
   "previous_grade": "90",
-  
-  
+
   "previous_graded_at": "2013-01-29T12:12:12Z",
-  
-  
+
   "previous_grader": "Graded on submission",
-  
+
   "score": 100,
-  
+
   "user_name": "student@example.com",
-  
+
   "submission_type": "online",
-  
+
   "url": null,
-  
+
   "user_id": 67376,
-  
+
   "workflow_state": "unsubmitted"
 }

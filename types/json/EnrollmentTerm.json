@@ -1,22 +1,24 @@
 {
-  
   "id": 1,
-  
-  
+
   "sis_term_id": "Sp2014",
-  
-  
+
   "sis_import_id": 34,
-  
+
   "name": "Spring 2014",
-  
+
   "start_at": "2014-01-06T08:00:00-05:00",
-  
+
   "end_at": "2014-05-16T05:00:00-04:00",
-  
+
   "workflow_state": "active",
-  
-  "overrides": {"StudentEnrollment":{"start_at":"2014-01-07T08:00:00-05:00","end_at":"2014-05-14T05:00:00-04:0"}},
-  
+
+  "overrides": {
+    "StudentEnrollment": {
+      "start_at": "2014-01-07T08:00:00-05:00",
+      "end_at": "2014-05-14T05:00:00-04:0"
+    }
+  },
+
   "course_count": 80
 }

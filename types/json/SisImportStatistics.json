@@ -1,40 +1,29 @@
 {
-  
-  
-  
-  
-  
-  
-  
   "total_state_changes": 382,
-  
+
   "Account": null,
-  
+
   "EnrollmentTerm": null,
-  
-  
+
   "CommunicationChannel": null,
-  
+
   "AbstractCourse": null,
-  
+
   "Course": null,
-  
+
   "CourseSection": null,
-  
+
   "Enrollment": null,
-  
+
   "GroupCategory": null,
-  
+
   "Group": null,
-  
-  
+
   "GroupMembership": null,
-  
-  
-  
+
   "Pseudonym": null,
-  
+
   "UserObserver": null,
-  
+
   "AccountUser": null
 }

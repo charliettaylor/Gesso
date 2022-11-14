@@ -1,66 +1,53 @@
 {
-  
   "id": 543,
-  
+
   "title": "Final Presentation",
-  
+
   "start_at": "2012-07-20T15:00:00-06:00",
-  
+
   "end_at": "2012-07-20T17:00:00-06:00",
-  
+
   "description": "Es muy importante",
-  
+
   "location_name": "El Tigre Chino's office",
-  
+
   "location_address": "Room 234",
-  
+
   "participant_count": 2,
-  
-  
-  "reserved_times": [{"id":987,"start_at":"2012-07-20T15:00:00-06:00","end_at":"2012-07-20T15:00:00-06:00"}],
-  
-  
+
+  "reserved_times": [
+    { "id": 987, "start_at": "2012-07-20T15:00:00-06:00", "end_at": "2012-07-20T15:00:00-06:00" }
+  ],
+
   "context_codes": ["course_123"],
-  
-  
+
   "sub_context_codes": ["course_section_234"],
-  
-  
-  
+
   "workflow_state": "active",
-  
-  
-  
+
   "requiring_action": true,
-  
+
   "appointments_count": 2,
-  
-  
+
   "appointments": [],
-  
-  
+
   "new_appointments": [],
-  
+
   "max_appointments_per_participant": 1,
-  
-  
+
   "min_appointments_per_participant": 1,
-  
-  
+
   "participants_per_appointment": 1,
-  
-  
+
   "participant_visibility": "private",
-  
-  
-  
+
   "participant_type": "User",
-  
+
   "url": "https://example.com/api/v1/appointment_groups/543",
-  
+
   "html_url": "http://example.com/appointment_groups/1",
-  
+
   "created_at": "2012-07-13T10:55:20-06:00",
-  
+
   "updated_at": "2012-07-13T10:55:20-06:00"
 }

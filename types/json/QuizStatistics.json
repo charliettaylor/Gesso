@@ -1,28 +1,21 @@
 {
-  
   "id": 1,
-  
-  
+
   "quiz_id": 2,
-  
-  
+
   "multiple_attempts_exist": true,
-  
-  
+
   "includes_all_versions": true,
-  
-  
+
   "generated_at": "2013-01-23T23:59:00-07:00",
-  
+
   "url": "http://canvas.example.edu/api/v1/courses/1/quizzes/2/statistics",
-  
+
   "html_url": "http://canvas.example.edu/courses/1/quizzes/2/statistics",
-  
+
   "question_statistics": null,
-  
+
   "submission_statistics": null,
-  
-  
-  
+
   "links": null
 }

@@ -1,145 +1,95 @@
 {
-  
   "id": 1,
-  
+
   "course_id": 1,
-  
-  
-  
+
   "sis_course_id": "SHEL93921",
-  
-  
+
   "course_integration_id": "SHEL93921",
-  
+
   "course_section_id": 1,
-  
-  
+
   "section_integration_id": "SHEL93921",
-  
-  
-  
+
   "sis_account_id": "SHEL93921",
-  
-  
-  
+
   "sis_section_id": "SHEL93921",
-  
-  
-  
+
   "sis_user_id": "SHEL93921",
-  
+
   "enrollment_state": "active",
-  
+
   "limit_privileges_to_course_section": true,
-  
-  
+
   "sis_import_id": 83,
-  
+
   "root_account_id": 1,
-  
-  
+
   "type": "StudentEnrollment",
-  
+
   "user_id": 1,
-  
-  
+
   "associated_user_id": null,
-  
-  
+
   "role": "StudentEnrollment",
-  
+
   "role_id": 1,
-  
+
   "created_at": "2012-04-18T23:08:51Z",
-  
+
   "updated_at": "2012-04-18T23:08:51Z",
-  
+
   "start_at": "2012-04-18T23:08:51Z",
-  
+
   "end_at": "2012-04-18T23:08:51Z",
-  
+
   "last_activity_at": "2012-04-18T23:08:51Z",
-  
-  
+
   "last_attended_at": "2012-04-18T23:08:51Z",
-  
+
   "total_activity_time": 260,
-  
+
   "html_url": "https://...",
-  
-  
-  "grades": {"html_url":"https:\/\/...","current_score":35,"current_grade":null,"final_score":6.67,"final_grade":null},
-  
-  "user": {"id":3,"name":"Student 1","sortable_name":"1, Student","short_name":"Stud 1"},
-  
+
+  "grades": {
+    "html_url": "https://...",
+    "current_score": 35,
+    "current_grade": null,
+    "final_score": 6.67,
+    "final_grade": null
+  },
+
+  "user": { "id": 3, "name": "Student 1", "sortable_name": "1, Student", "short_name": "Stud 1" },
+
   "override_grade": "A",
-  
+
   "override_score": 99.99,
-  
-  
-  
+
   "unposted_current_grade": "",
-  
-  
-  
+
   "unposted_final_grade": "",
-  
-  
-  
+
   "unposted_current_score": "",
-  
-  
-  
+
   "unposted_final_score": "",
-  
-  
-  
+
   "has_grading_periods": true,
-  
-  
-  
+
   "totals_for_all_grading_periods_option": true,
-  
-  
-  
-  
+
   "current_grading_period_title": "Fall Grading Period",
-  
-  
-  
-  
+
   "current_grading_period_id": 5,
-  
+
   "current_period_override_grade": "A",
-  
+
   "current_period_override_score": 99.99,
-  
-  
-  
-  
-  
-  
+
   "current_period_unposted_current_score": 95.8,
-  
-  
-  
-  
-  
-  
-  
+
   "current_period_unposted_final_score": 85.25,
-  
-  
-  
-  
-  
-  
+
   "current_period_unposted_current_grade": "A",
-  
-  
-  
-  
-  
-  
+
   "current_period_unposted_final_grade": "B"
 }

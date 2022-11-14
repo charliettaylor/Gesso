@@ -1,17 +1,15 @@
 {
-  
   "provisional_grade_id": 23,
-  
+
   "score": 90,
-  
+
   "grade": "A-",
-  
-  
+
   "grade_matches_current_submission": true,
-  
+
   "graded_at": "2015-11-01T00:03:21-06:00",
-  
+
   "final": false,
-  
+
   "speedgrader_url": "http://www.example.com/courses/123/gradebook/speed_grader?..."
 }

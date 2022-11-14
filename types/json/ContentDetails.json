@@ -5,5 +5,10 @@
   "lock_at": "2012-12-31T06:00:00-06:00",
   "locked_for_user": true,
   "lock_explanation": "This quiz is part of an unpublished module and is not available yet.",
-  "lock_info": {"asset_string":"assignment_4","unlock_at":"2012-12-31T06:00:00-06:00","lock_at":"2012-12-31T06:00:00-06:00","context_module":{}}
+  "lock_info": {
+    "asset_string": "assignment_4",
+    "unlock_at": "2012-12-31T06:00:00-06:00",
+    "lock_at": "2012-12-31T06:00:00-06:00",
+    "context_module": {}
+  }
 }

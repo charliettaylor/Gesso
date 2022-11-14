@@ -1,21 +1,15 @@
-
 {
-  
   "subject": "File upload breaking",
-  
+
   "comments": "When I went to upload a .mov file to my files page, I got an error.  Retrying didn't help, other file types seem ok",
-  
-  
-  
+
   "user_perceived_severity": "just_a_comment",
-  
+
   "email": "name@example.com",
-  
+
   "url": "https://canvas.instructure.com/courses/1",
-  
-  
+
   "context_asset_string": "user_1",
-  
-  
+
   "user_roles": "user,teacher,admin"
 }

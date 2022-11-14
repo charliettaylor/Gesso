@@ -1,41 +1,31 @@
-
 {
-  
   "id": 4,
-  
+
   "course_id": 6,
-  
+
   "name": "some assignment",
-  
+
   "created_at": "2012-07-01T23:59:00-06:00",
-  
-  
-  
+
   "due_at": "2012-07-01T23:59:00-06:00",
-  
+
   "unlock_at": "2013-01-01T00:00:00-06:00",
-  
+
   "lock_at": "2013-02-01T00:00:00-06:00",
-  
+
   "points_possible": 12,
-  
-  
-  
-  
+
   "submission_types": ["online_text_entry"],
-  
+
   "integration_id": "12341234",
-  
+
   "integration_data": "other_data",
-  
+
   "include_in_final_grade": true,
-  
-  
+
   "assignment_group": null,
-  
-  
+
   "sections": null,
-  
-  
+
   "user_overrides": null
 }

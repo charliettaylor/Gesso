@@ -3,10 +3,10 @@
   "id": "context_external_tool_4",
   "label": "WordPress",
   "type": "external",
-  
+
   "hidden": true,
-  
+
   "visibility": "public",
-  
+
   "position": 2
 }

@@ -1,17 +1,36 @@
 {
-  
   "label": "New Role",
-  
+
   "role": "New Role",
-  
-  
-  
+
   "base_role_type": "AccountMembership",
-  
-  "account": {"id":1019,"name":"CGNU","parent_account_id":73,"root_account_id":1,"sis_account_id":"cgnu"},
-  
+
+  "account": {
+    "id": 1019,
+    "name": "CGNU",
+    "parent_account_id": 73,
+    "root_account_id": 1,
+    "sis_account_id": "cgnu"
+  },
+
   "workflow_state": "active",
-  
-  
-  "permissions": {"read_course_content":{"enabled":true,"locked":false,"readonly":false,"explicit":true,"prior_default":false},"read_course_list":{"enabled":true,"locked":true,"readonly":true,"explicit":false},"read_question_banks":{"enabled":false,"locked":true,"readonly":false,"explicit":true,"prior_default":false},"read_reports":{"enabled":true,"locked":false,"readonly":false,"explicit":false}}
+
+  "permissions": {
+    "read_course_content": {
+      "enabled": true,
+      "locked": false,
+      "readonly": false,
+      "explicit": true,
+      "prior_default": false
+    },
+    "read_course_list": { "enabled": true, "locked": true, "readonly": true, "explicit": false },
+    "read_question_banks": {
+      "enabled": false,
+      "locked": true,
+      "readonly": false,
+      "explicit": true,
+      "prior_default": false
+    },
+    "read_reports": { "enabled": true, "locked": false, "readonly": false, "explicit": false }
+  }
 }

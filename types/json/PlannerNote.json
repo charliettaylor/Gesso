@@ -1,25 +1,23 @@
-
 {
-  
   "id": 234,
-  
+
   "title": "Bring books tomorrow",
-  
+
   "description": "I need to bring books tomorrow for my course on biology",
-  
+
   "user_id": 1578941,
-  
+
   "workflow_state": "active",
-  
+
   "course_id": 1578941,
-  
+
   "todo_date": "2017-05-09T10:12:00Z",
-  
+
   "linked_object_type": "assignment",
-  
+
   "linked_object_id": 131072,
-  
+
   "linked_object_html_url": "https://canvas.example.com/courses/1578941/assignments/131072",
-  
+
   "linked_object_url": "https://canvas.example.com/api/v1/courses/1578941/assignments/131072"
 }

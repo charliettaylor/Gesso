@@ -1,14 +1,13 @@
 {
-  
   "id": 2,
-  
+
   "name": "Canvas Account",
-  
+
   "uuid": "WvAHhY5FINzq5IyRIJybGeiXyFkG3SqHUPb7jZY5",
-  
+
   "parent_account_id": 1,
-  
+
   "root_account_id": 1,
-  
+
   "workflow_state": "active"
 }

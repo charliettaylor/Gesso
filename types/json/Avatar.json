@@ -1,24 +1,17 @@
-
 {
-  
-  
   "type": "gravatar",
-  
+
   "url": "https://secure.gravatar.com/avatar/2284...",
-  
-  
-  
-  
-  
+
   "token": "<opaque_token>",
-  
+
   "display_name": "user, sample",
-  
+
   "id": 12,
-  
+
   "content-type": "image/jpeg",
-  
+
   "filename": "profile.jpg",
-  
+
   "size": 32649
 }

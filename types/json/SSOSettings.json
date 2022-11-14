@@ -1,19 +1,9 @@
-
-
 {
-  
   "login_handle_name": "Username",
-  
-  
+
   "change_password_url": "https://example.com/reset_password",
-  
-  
-  
-  
-  
+
   "auth_discovery_url": "https://example.com/which_account",
-  
-  
-  
+
   "unknown_user_url": "https://example.com/register_for_canvas"
 }

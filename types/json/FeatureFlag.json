@@ -1,17 +1,11 @@
 {
-  
-  
-  
   "context_type": "Account",
-  
-  
+
   "context_id": 1038,
-  
+
   "feature": "fancy_wickets",
-  
-  
+
   "state": "allowed",
-  
-  
+
   "locked": false
 }

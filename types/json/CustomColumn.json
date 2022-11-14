@@ -1,15 +1,13 @@
 {
-  
   "id": 2,
-  
-  
+
   "teacher_notes": false,
-  
+
   "title": "Stuff",
-  
+
   "position": 1,
-  
+
   "hidden": false,
-  
+
   "read_only": true
 }

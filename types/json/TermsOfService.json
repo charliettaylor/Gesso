@@ -1,14 +1,13 @@
 {
-  
   "id": 1,
-  
+
   "terms_type": "default",
-  
+
   "passive": false,
-  
+
   "account_id": 1,
-  
+
   "content": "To be or not to be that is the question",
-  
+
   "self_registration_type": ["none", "observer", "all"]
 }

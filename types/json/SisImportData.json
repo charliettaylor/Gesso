@@ -1,8 +1,7 @@
 {
-  
   "import_type": "instructure_csv",
-  
+
   "supplied_batches": ["term", "course", "section", "user", "enrollment"],
-  
+
   "counts": null
 }

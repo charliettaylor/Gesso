@@ -1,28 +1,23 @@
-
-
 {
-  
   "id": 234,
-  
+
   "plannable_type": "Assignment",
-  
+
   "plannable_id": 1578941,
-  
+
   "user_id": 1578941,
-  
+
   "assignment_id": 1578941,
-  
+
   "workflow_state": "published",
-  
-  
+
   "marked_complete": false,
-  
-  
+
   "dismissed": false,
-  
+
   "created_at": "2017-05-09T10:12:00Z",
-  
+
   "updated_at": "2017-05-09T10:12:00Z",
-  
+
   "deleted_at": "2017-05-15T12:12:00Z"
 }
