@@ -28,7 +28,7 @@ class Route:
 
 def get_entities():
   entities = []
-  with open('../types/entities.txt', 'r') as f:
+  with open('../temp/entities.txt', 'r') as f:
     for line in f.readlines():
       entities.append(line.strip())
   return entities
@@ -174,11 +174,12 @@ def create_interface(route: Route, interfaceName: str):
 
 
 def create_class(className: str, routes: list[Route]) -> str:
+  className = className.replace('(', '').replace(')', '')
   entities = []
   
   for route in routes:
-    type = route.returnType
-    if not type.endswith('[]') and type != 'any' and type not in entities:
+    type = route.returnType.replace('[]', '')
+    if type != 'any' and type not in entities:
       entities.append(type)
   
   params = [route.paramName for route in routes]
@@ -191,10 +192,13 @@ def create_class(className: str, routes: list[Route]) -> str:
     if param not in paramsText:
       params.remove(param)
 
+  entitiesImport = f"import {{ {', '.join(entities)} }} from '../types/models';"
+  paramImports = f"import {{ {', '.join(set(params))} }} from '../types/params';"
+
   out = f'''import {{ BaseApi }} from './BaseApi';
 import {{ Configuration }} from './Configuration';
-import {{ {', '.join(entities)} }} from '../types/models';
-import {{ {', '.join(set(params))} }} from '../types/params';
+{entitiesImport if len(entities) > 0 else ''}
+{paramImports if len(params) > 0 else ''}
   
 export class {className} extends BaseApi {{
   constructor(config: Configuration) {{
@@ -234,7 +238,7 @@ def create_function(route: Route) -> str:
 
     return Promise.reject(response);
   }}\n
-  '''
+'''
   # function = textwrap.indent(function, '  ')
 
   return function
@@ -246,14 +250,14 @@ def replace_route_params(route: str):
   paramDict = {}
   for p in routeParams:
     paramDict[p] = f'${{{p[1:]}}}'
-  
+
   routeWithParams = []
   for chunk in route.split('/'):
     if chunk in paramDict:
       routeWithParams.append(paramDict[chunk])
     else:
       routeWithParams.append(chunk)
-  
+
   return '/'.join(routeWithParams)
 
 
@@ -268,7 +272,7 @@ def parse_route_parameters(route: str):
     if chunk.startswith(':'):
       params.append(chunk[1:])
 
-  return ': string, '.join(params) + ': string,'
+  return ': string, '.join(params) + ': string,' if len(params) else ''
 
 
 # stackoverflow: https://stackoverflow.com/questions/3173320/text-progress-bar-in-terminal-with-block-characters
@@ -302,7 +306,7 @@ def main():
   progCount = 0
   total = len(endpoints)
 
-  for end in ['https://canvas.instructure.com/doc/api/account_calendars.html']:
+  for end in endpoints:
     page = requests.get(end.strip())
 
     if page.status_code == 403:

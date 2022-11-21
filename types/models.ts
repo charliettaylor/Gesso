@@ -782,6 +782,20 @@ export interface ContentShare {
   content_export: ContentExportClass;
 }
 
+export interface ContentExport {
+  id: number;
+  created_at: Date;
+  export_type: string;
+  attachment: Attachment;
+  progress_url: string;
+  user_id: number;
+  workflow_state: string;
+}
+
+export interface Attachment {
+  url: string;
+}
+
 export interface ContentExportClass {
   id: number;
 }
@@ -1425,6 +1439,10 @@ export interface HistoryEntry {
   visited_url: string;
   visited_at: Date;
   interaction_seconds: number;
+}
+
+export interface InstAccessToken {
+  token: string;
 }
 
 export interface Jwt {
@@ -3864,15 +3882,11 @@ export class Convert {
     return JSON.stringify(uncast(value, r('QuizAssignmentOverrideSet')), null, 2);
   }
 
-  public static toQuizAssignmentOverrideSetContainer(
-    json: string,
-  ): QuizAssignmentOverrideSetContainer {
+  public static toQuizAssignmentOverrideSetContainer(json: string): QuizAssignmentOverrideSetContainer {
     return cast(JSON.parse(json), r('QuizAssignmentOverrideSetContainer'));
   }
 
-  public static quizAssignmentOverrideSetContainerToJson(
-    value: QuizAssignmentOverrideSetContainer,
-  ): string {
+  public static quizAssignmentOverrideSetContainerToJson(value: QuizAssignmentOverrideSetContainer): string {
     return JSON.stringify(uncast(value, r('QuizAssignmentOverrideSetContainer')), null, 2);
   }
 
@@ -3932,15 +3946,11 @@ export class Convert {
     return JSON.stringify(uncast(value, r('QuizStatistics')), null, 2);
   }
 
-  public static toQuizStatisticsAnswerPointBiserial(
-    json: string,
-  ): QuizStatisticsAnswerPointBiserial {
+  public static toQuizStatisticsAnswerPointBiserial(json: string): QuizStatisticsAnswerPointBiserial {
     return cast(JSON.parse(json), r('QuizStatisticsAnswerPointBiserial'));
   }
 
-  public static quizStatisticsAnswerPointBiserialToJson(
-    value: QuizStatisticsAnswerPointBiserial,
-  ): string {
+  public static quizStatisticsAnswerPointBiserialToJson(value: QuizStatisticsAnswerPointBiserial): string {
     return JSON.stringify(uncast(value, r('QuizStatisticsAnswerPointBiserial')), null, 2);
   }
 
@@ -3948,9 +3958,7 @@ export class Convert {
     return cast(JSON.parse(json), r('QuizStatisticsAnswerStatistics'));
   }
 
-  public static quizStatisticsAnswerStatisticsToJson(
-    value: QuizStatisticsAnswerStatistics,
-  ): string {
+  public static quizStatisticsAnswerStatisticsToJson(value: QuizStatisticsAnswerStatistics): string {
     return JSON.stringify(uncast(value, r('QuizStatisticsAnswerStatistics')), null, 2);
   }
 
@@ -3966,21 +3974,15 @@ export class Convert {
     return cast(JSON.parse(json), r('QuizStatisticsQuestionStatistics'));
   }
 
-  public static quizStatisticsQuestionStatisticsToJson(
-    value: QuizStatisticsQuestionStatistics,
-  ): string {
+  public static quizStatisticsQuestionStatisticsToJson(value: QuizStatisticsQuestionStatistics): string {
     return JSON.stringify(uncast(value, r('QuizStatisticsQuestionStatistics')), null, 2);
   }
 
-  public static toQuizStatisticsSubmissionStatistics(
-    json: string,
-  ): QuizStatisticsSubmissionStatistics {
+  public static toQuizStatisticsSubmissionStatistics(json: string): QuizStatisticsSubmissionStatistics {
     return cast(JSON.parse(json), r('QuizStatisticsSubmissionStatistics'));
   }
 
-  public static quizStatisticsSubmissionStatisticsToJson(
-    value: QuizStatisticsSubmissionStatistics,
-  ): string {
+  public static quizStatisticsSubmissionStatisticsToJson(value: QuizStatisticsSubmissionStatistics): string {
     return JSON.stringify(uncast(value, r('QuizStatisticsSubmissionStatistics')), null, 2);
   }
 
@@ -4160,15 +4162,11 @@ export class Convert {
     return JSON.stringify(uncast(value, r('Section')), null, 2);
   }
 
-  public static toSectionAssignmentOverrideAttributes(
-    json: string,
-  ): SectionAssignmentOverrideAttributes {
+  public static toSectionAssignmentOverrideAttributes(json: string): SectionAssignmentOverrideAttributes {
     return cast(JSON.parse(json), r('SectionAssignmentOverrideAttributes'));
   }
 
-  public static sectionAssignmentOverrideAttributesToJson(
-    value: SectionAssignmentOverrideAttributes,
-  ): string {
+  public static sectionAssignmentOverrideAttributesToJson(value: SectionAssignmentOverrideAttributes): string {
     return JSON.stringify(uncast(value, r('SectionAssignmentOverrideAttributes')), null, 2);
   }
 
@@ -4352,9 +4350,7 @@ export class Convert {
     return cast(JSON.parse(json), r('UserAssignmentOverrideAttributes'));
   }
 
-  public static userAssignmentOverrideAttributesToJson(
-    value: UserAssignmentOverrideAttributes,
-  ): string {
+  public static userAssignmentOverrideAttributesToJson(value: UserAssignmentOverrideAttributes): string {
     return JSON.stringify(uncast(value, r('UserAssignmentOverrideAttributes')), null, 2);
   }
 
@@ -4385,11 +4381,7 @@ export class Convert {
 
 function invalidValue(typ: any, val: any, key: any = ''): never {
   if (key) {
-    throw Error(
-      `Invalid value for key "${key}". Expected type ${JSON.stringify(
-        typ,
-      )} but got ${JSON.stringify(val)}`,
-    );
+    throw Error(`Invalid value for key "${key}". Expected type ${JSON.stringify(typ)} but got ${JSON.stringify(val)}`);
   }
   throw Error(`Invalid value ${JSON.stringify(val)} for type ${JSON.stringify(typ)}`);
 }
@@ -5619,10 +5611,7 @@ const typeMap: any = {
     ],
     false,
   ),
-  Overrides: o(
-    [{ json: 'StudentEnrollment', js: 'StudentEnrollment', typ: r('StudentEnrollment') }],
-    false,
-  ),
+  Overrides: o([{ json: 'StudentEnrollment', js: 'StudentEnrollment', typ: r('StudentEnrollment') }], false),
   StudentEnrollment: o(
     [
       { json: 'start_at', js: 'start_at', typ: Date },
@@ -5630,10 +5619,7 @@ const typeMap: any = {
     ],
     false,
   ),
-  EnrollmentTermsList: o(
-    [{ json: 'enrollment_terms', js: 'enrollment_terms', typ: a('any') }],
-    false,
-  ),
+  EnrollmentTermsList: o([{ json: 'enrollment_terms', js: 'enrollment_terms', typ: a('any') }], false),
   ErrorReport: o(
     [
       { json: 'subject', js: 'subject', typ: '' },

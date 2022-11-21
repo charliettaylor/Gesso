@@ -1,4 +1,4 @@
-import { Configuration } from "./Configuration";
+import { Configuration } from './Configuration';
 
 export class BaseApi {
   private configuration: Configuration;
@@ -17,9 +17,14 @@ export class BaseApi {
     return await fetch(endpoint, this.makeRequest('POST', body));
   }
 
-  public async update(route: string, params?: {}, body?: any) {
+  public async patch(route: string, params?: {}, body?: any) {
     const endpoint = this.configuration.apiDomain + route + this.serializeParams(params);
     return await fetch(endpoint, this.makeRequest('PATCH', body));
+  }
+
+  public async put(route: string, params?: {}, body?: any) {
+    const endpoint = this.configuration.apiDomain + route + this.serializeParams(params);
+    return await fetch(endpoint, this.makeRequest('PUT', body));
   }
 
   public async delete(route: string, params?: {}, body?: any) {
@@ -29,30 +34,30 @@ export class BaseApi {
 
   private makeRequest(method: string, body?: {}): RequestInit {
     return {
-      method: method,
+      method,
       headers: new Headers({
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': this.resolveAuth()
+        Authorization: this.resolveAuth(),
       }),
       body: body ? JSON.stringify(body) : null,
     };
   }
 
   private serializeParams(params) {
-    var str: string[] = [];
-    for (var p in params)
+    let str: string[] = [];
+    for (let p in params)
       if (params.hasOwnProperty(p)) {
-        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(params[p]));
+        str.push(encodeURIComponent(p) + '=' + encodeURIComponent(params[p]));
       }
-    return '?' + str.join("&");
+    return '?' + str.join('&');
   }
 
   private resolveAuth() {
     if (this.configuration.apiKey) {
-      return 'Bearer ' + this.configuration.apiKey
+      return 'Bearer ' + this.configuration.apiKey;
     } else if (this.configuration.tokens) {
-      return 'Bearer ' + this.configuration.tokens.accessToken
+      return 'Bearer ' + this.configuration.tokens.accessToken;
     } else {
       // Make custom auth error
       throw new Error();

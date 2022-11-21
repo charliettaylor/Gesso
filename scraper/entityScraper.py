@@ -23,7 +23,7 @@ def main():
     endpoints = f.readlines()
 
   # empty file
-  with open(f"../types/entities.txt", "r+") as f:
+  with open(f"../temp/entities.txt", "r+") as f:
     f.truncate(0)
 
   for end in endpoints:
@@ -38,7 +38,7 @@ def main():
       # with open(f"../types/json/{name}.json", "w") as f:
       #   f.write(content)
 
-      with open(f"../types/entities.txt", "a") as f:
+      with open(f"../temp/entities.txt", "a") as f:
         f.write(f'{name}\n')
     # they temporarily ban you if you make too many requests
     sleep(0.1)
