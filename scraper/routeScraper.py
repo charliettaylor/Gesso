@@ -121,6 +121,8 @@ def create_interface(route: Route, interfaceName: str):
   names = []
   typeDict = {
     "integer": "number",
+    # some strings are String, so let's make sure it's lowercase
+    "string": "string",
     "datetime": "Date",
     "date": "Date",
     "float": "number",
@@ -129,8 +131,9 @@ def create_interface(route: Route, interfaceName: str):
     "array": "any[]",
     "hash": "any",
     "serializedhash": "any",
-    "json": "any",
+    "json": "object",
     "numeric": "number",
+    "object": "object",
   }
 
   for param in route.params:
@@ -146,8 +149,7 @@ def create_interface(route: Route, interfaceName: str):
         type = typeDict[removedBrackets]
       type = f'{type}[]'
     else:
-      type = typeDict[param.type.lower()] if param.type.lower(
-      ) in typeDict else param.type
+      type = typeDict[param.type.lower()] if param.type.lower() in typeDict else param.type
 
     if name[-1] == ']' and name[-2] == '[':
       name = name[:-2]
@@ -166,7 +168,7 @@ def create_interface(route: Route, interfaceName: str):
       continue
 
     interface += f'  /**\n{format_description(param.description)} */\n'
-    interface += f'  {name}: {type};\n'
+    interface += f'  {name}?: {type};\n'
     names.append(name)
 
   interface += '}\n\n'
@@ -217,21 +219,35 @@ export class {className} extends BaseApi {{
 
 def create_function(route: Route) -> str:
   method = route.method.lower()
-  funcParams = parse_route_parameters(route.route)
-  params = f'params: {route.paramName}' if len(route.params) > 0 else ''
+  routeParams = parse_route_parameters(route.route)
+  queryParams = f'params?: {route.paramName}' if len(route.params) > 0 else ''
+  body = 'body?: any'
   
   routeWithParams = replace_route_params(route.route)
-  requestParams = '' if params == '' else f', params'
+  requestParams = '' if queryParams == '' else f', params'
 
-  if len(params) > 0 and len(funcParams) > 0:
-    funcParams += ' '
-  elif len(params) == 0 and len(funcParams) > 0:
-    funcParams = funcParams[:-1]
-  funcParams = funcParams + params
+  if len(queryParams) > 0 and len(routeParams) > 0:
+    routeParams += ' '
+  elif len(queryParams) == 0 and len(routeParams) > 0:
+    routeParams = routeParams[:-1]
 
-  function = f'''public async {route.funcName}({funcParams}): Promise<{route.returnType}> {{
+  finalRouteParams = routeParams + queryParams + ', ' + body
+
+  if len(routeParams) == 0 and len(queryParams) == 0:
+    finalRouteParams = body
+
+  paramsSetter = '''if (params !== undefined) {{
+  for (const [key, value] of Object.entries(params)) {{
+    url.searchParams.set(key, JSON.stringify(value));
+  }}
+}}'''
+
+  function = f'''public async {route.funcName}({finalRouteParams}): Promise<{route.returnType}> {{
     const endpoint = `{routeWithParams}`;
-    const response = await this.{method}(endpoint{requestParams});
+    const url = new URL(endpoint, this.configuration.apiDomain);
+    {paramsSetter if len(routeParams) > len(body) else ''}
+
+    const response = await this.{method}(url, JSON.stringify(body));
     if (response.ok) {{
       return await response.json();
     }}
@@ -239,6 +255,7 @@ def create_function(route: Route) -> str:
     return Promise.reject(response);
   }}\n
 '''
+ 
   # function = textwrap.indent(function, '  ')
 
   return function
