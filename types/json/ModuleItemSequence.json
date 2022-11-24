@@ -2,8 +2,18 @@
   "items": [
     {
       "prev": null,
-      "current": { "id": 768, "module_id": 123, "title": "A lonely page", "type": "Page" },
-      "next": { "id": 769, "module_id": 127, "title": "Project 1", "type": "Assignment" },
+      "current": {
+        "id": 768,
+        "module_id": 123,
+        "title": "A lonely page",
+        "type": "Page"
+      },
+      "next": {
+        "id": 769,
+        "module_id": 127,
+        "title": "Project 1",
+        "type": "Assignment"
+      },
       "mastery_path": {
         "locked": true,
         "assignment_sets": [],

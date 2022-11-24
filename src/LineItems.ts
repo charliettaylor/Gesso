@@ -1,14 +1,23 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-import { ShowLineItemParams, ListLineItemsParams, UpdateLineItemParams, CreateLineItemParams } from '../types/params';
-  
+import {
+  CreateLineItemParams,
+  ListLineItemsParams,
+  ShowLineItemParams,
+  UpdateLineItemParams,
+} from "../types/params.ts";
+
 export class LineItems extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async createLineItem(course_id: string, params?: CreateLineItemParams, body?: any): Promise<any> {
+  public async createLineItem(
+    course_id: string,
+    params?: CreateLineItemParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,7 +33,12 @@ export class LineItems extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateLineItem(course_id: string, id: string, params?: UpdateLineItemParams, body?: any): Promise<any> {
+  public async updateLineItem(
+    course_id: string,
+    id: string,
+    params?: UpdateLineItemParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -40,7 +54,12 @@ export class LineItems extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showLineItem(course_id: string, id: string, params?: ShowLineItemParams, body?: any): Promise<any> {
+  public async showLineItem(
+    course_id: string,
+    id: string,
+    params?: ShowLineItemParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -56,7 +75,11 @@ export class LineItems extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listLineItems(course_id: string, params?: ListLineItemsParams, body?: any): Promise<any> {
+  public async listLineItems(
+    course_id: string,
+    params?: ListLineItemsParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -72,10 +95,14 @@ export class LineItems extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteLineItem(course_id: string, id: string, body?: any): Promise<any> {
+  public async deleteLineItem(
+    course_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -83,5 +110,4 @@ export class LineItems extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

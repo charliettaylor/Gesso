@@ -23,7 +23,11 @@
 
   "new_tab": false,
 
-  "completion_requirement": { "type": "min_score", "min_score": 10, "completed": true },
+  "completion_requirement": {
+    "type": "min_score",
+    "min_score": 10,
+    "completed": true
+  },
 
   "content_details": {
     "points_possible": 20,

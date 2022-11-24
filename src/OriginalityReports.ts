@@ -1,15 +1,24 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
-import { Report } from '../types/models';
-import { EditAnOriginalityReportParams, CreateAnOriginalityReportParams } from '../types/params';
-  
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { Report } from "../types/models.ts";
+import {
+  CreateAnOriginalityReportParams,
+  EditAnOriginalityReportParams,
+} from "../types/params.ts";
+
 export class OriginalityReports extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async createAnOriginalityReport(assignment_id: string, submission_id: string, params?: CreateAnOriginalityReportParams, body?: any): Promise<Report> {
-    const endpoint = `/api/v1/api/lti/assignments/${assignment_id}/submissions/${submission_id}/originality_report`;
+  public async createAnOriginalityReport(
+    assignment_id: string,
+    submission_id: string,
+    params?: CreateAnOriginalityReportParams,
+    body?: unknown,
+  ): Promise<Report> {
+    const endpoint =
+      `/api/v1/api/lti/assignments/${assignment_id}/submissions/${submission_id}/originality_report`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -24,8 +33,15 @@ export class OriginalityReports extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async editAnOriginalityReport(assignment_id: string, submission_id: string, id: string, params?: EditAnOriginalityReportParams, body?: any): Promise<Report> {
-    const endpoint = `/api/v1/api/lti/assignments/${assignment_id}/submissions/${submission_id}/originality_report/${id}`;
+  public async editAnOriginalityReport(
+    assignment_id: string,
+    submission_id: string,
+    id: string,
+    params?: EditAnOriginalityReportParams,
+    body?: unknown,
+  ): Promise<Report> {
+    const endpoint =
+      `/api/v1/api/lti/assignments/${assignment_id}/submissions/${submission_id}/originality_report/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -40,10 +56,16 @@ export class OriginalityReports extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showAnOriginalityReport(assignment_id: string, submission_id: string, id: string, body?: any): Promise<Report> {
-    const endpoint = `/api/v1/api/lti/assignments/${assignment_id}/submissions/${submission_id}/originality_report/${id}`;
+  public async showAnOriginalityReport(
+    assignment_id: string,
+    submission_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<Report> {
+    const endpoint =
+      `/api/v1/api/lti/assignments/${assignment_id}/submissions/${submission_id}/originality_report/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -51,5 +73,4 @@ export class OriginalityReports extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

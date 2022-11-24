@@ -1,15 +1,21 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-import { FetchingTheLatestQuizStatisticsParams } from '../types/params';
-  
+import { FetchingTheLatestQuizStatisticsParams } from "../types/params.ts";
+
 export class QuizStatistics extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async fetchingTheLatestQuizStatistics(course_id: string, quiz_id: string, params?: FetchingTheLatestQuizStatisticsParams, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/quizzes/${quiz_id}/statistics`;
+  public async fetchingTheLatestQuizStatistics(
+    course_id: string,
+    quiz_id: string,
+    params?: FetchingTheLatestQuizStatisticsParams,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/quizzes/${quiz_id}/statistics`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -23,5 +29,4 @@ export class QuizStatistics extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

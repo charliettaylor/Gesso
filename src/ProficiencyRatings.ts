@@ -1,14 +1,18 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-import { CreateProficiencyRatingsParams } from '../types/params';
-  
+import { CreateProficiencyRatingsParams } from "../types/params.ts";
+
 export class ProficiencyRatings extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async createProficiencyRatings(account_id: string, params?: CreateProficiencyRatingsParams, body?: any): Promise<any> {
+  public async createProficiencyRatings(
+    account_id: string,
+    params?: CreateProficiencyRatingsParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/accounts/${account_id}/outcome_proficiency`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,10 +28,13 @@ export class ProficiencyRatings extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getProficiencyRatings(account_id: string, body?: any): Promise<any> {
+  public async getProficiencyRatings(
+    account_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/accounts/${account_id}/outcome_proficiency`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -35,5 +42,4 @@ export class ProficiencyRatings extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

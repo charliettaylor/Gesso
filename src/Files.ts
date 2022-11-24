@@ -1,17 +1,33 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-import { UpdateFolderParams, UpdateFileParams, GetPublicInlinePreviewUrlParams, DeleteFileParams, CreateFolderParams, CopyFileParams, CopyFolderParams, RemoveUsageRightsParams, GetFileParams, DeleteFolderParams, SetUsageRightsParams, ListFilesParams } from '../types/params';
-  
+import {
+  CopyFileParams,
+  CopyFolderParams,
+  CreateFolderParams,
+  DeleteFileParams,
+  DeleteFolderParams,
+  GetFileParams,
+  GetPublicInlinePreviewUrlParams,
+  ListFilesParams,
+  RemoveUsageRightsParams,
+  SetUsageRightsParams,
+  UpdateFileParams,
+  UpdateFolderParams,
+} from "../types/params.ts";
+
 export class Files extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async getQuotaInformation(course_id: string, body?: any): Promise<any> {
+  public async getQuotaInformation(
+    course_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/files/quota`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -20,7 +36,11 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listFiles(course_id: string, params?: ListFilesParams, body?: any): Promise<any[]> {
+  public async listFiles(
+    course_id: string,
+    params?: ListFilesParams,
+    body?: unknown,
+  ): Promise<unknown[]> {
     const endpoint = `/api/v1/courses/${course_id}/files`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -36,7 +56,11 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getPublicInlinePreviewUrl(id: string, params?: GetPublicInlinePreviewUrlParams, body?: any): Promise<any> {
+  public async getPublicInlinePreviewUrl(
+    id: string,
+    params?: GetPublicInlinePreviewUrlParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/files/${id}/public_url`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -52,7 +76,11 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getFile(id: string, params?: GetFileParams, body?: any): Promise<any> {
+  public async getFile(
+    id: string,
+    params?: GetFileParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/files/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -68,10 +96,15 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async translateFileReference(course_id: string, migration_id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/files/file_ref/${migration_id}`;
+  public async translateFileReference(
+    course_id: string,
+    migration_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/files/file_ref/${migration_id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -80,7 +113,11 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateFile(id: string, params?: UpdateFileParams, body?: any): Promise<any> {
+  public async updateFile(
+    id: string,
+    params?: UpdateFileParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/files/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -96,7 +133,11 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteFile(id: string, params?: DeleteFileParams, body?: any): Promise<any> {
+  public async deleteFile(
+    id: string,
+    params?: DeleteFileParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/files/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -112,10 +153,10 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getIconMetadata(id: string, body?: any): Promise<any> {
+  public async getIconMetadata(id: string, body?: unknown): Promise<unknown> {
     const endpoint = `/api/v1/files/${id}/icon_metadata`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -124,10 +165,10 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async resetLinkVerifier(id: string, body?: any): Promise<any> {
+  public async resetLinkVerifier(id: string, body?: unknown): Promise<unknown> {
     const endpoint = `/api/v1/files/${id}/reset_verifier`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -136,10 +177,10 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listFolders(id: string, body?: any): Promise<any[]> {
+  public async listFolders(id: string, body?: unknown): Promise<unknown[]> {
     const endpoint = `/api/v1/folders/${id}/folders`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -148,10 +189,10 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listAllFolders(course_id: string, body?: any): Promise<any[]> {
+  public async listAllFolders(course_id: string, body?: unknown): Promise<unknown[]> {
     const endpoint = `/api/v1/courses/${course_id}/folders`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -160,10 +201,10 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async resolvePath(course_id: string, body?: any): Promise<any[]> {
+  public async resolvePath(course_id: string, body?: unknown): Promise<unknown[]> {
     const endpoint = `/api/v1/courses/${course_id}/folders/by_path/*full_path`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -172,10 +213,14 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getFolder(course_id: string, id: string, body?: any): Promise<any> {
+  public async getFolder(
+    course_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/folders/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -184,7 +229,11 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateFolder(id: string, params?: UpdateFolderParams, body?: any): Promise<any> {
+  public async updateFolder(
+    id: string,
+    params?: UpdateFolderParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/folders/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -200,7 +249,11 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createFolder(course_id: string, params?: CreateFolderParams, body?: any): Promise<any> {
+  public async createFolder(
+    course_id: string,
+    params?: CreateFolderParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/folders`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -216,7 +269,11 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteFolder(id: string, params?: DeleteFolderParams, body?: any): Promise<any> {
+  public async deleteFolder(
+    id: string,
+    params?: DeleteFolderParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/folders/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -232,10 +289,10 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async uploadFile(folder_id: string, body?: any): Promise<any> {
+  public async uploadFile(folder_id: string, body?: unknown): Promise<unknown> {
     const endpoint = `/api/v1/folders/${folder_id}/files`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -244,7 +301,11 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async copyFile(dest_folder_id: string, params?: CopyFileParams, body?: any): Promise<any> {
+  public async copyFile(
+    dest_folder_id: string,
+    params?: CopyFileParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/folders/${dest_folder_id}/copy_file`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -260,7 +321,11 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async copyFolder(dest_folder_id: string, params?: CopyFolderParams, body?: any): Promise<any> {
+  public async copyFolder(
+    dest_folder_id: string,
+    params?: CopyFolderParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/folders/${dest_folder_id}/copy_folder`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -276,10 +341,13 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getUploadedMediaFolderForUser(course_id: string, body?: any): Promise<any> {
+  public async getUploadedMediaFolderForUser(
+    course_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/folders/media`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -288,7 +356,11 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async setUsageRights(course_id: string, params?: SetUsageRightsParams, body?: any): Promise<any> {
+  public async setUsageRights(
+    course_id: string,
+    params?: SetUsageRightsParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/usage_rights`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -304,7 +376,11 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async removeUsageRights(course_id: string, params?: RemoveUsageRightsParams, body?: any): Promise<any> {
+  public async removeUsageRights(
+    course_id: string,
+    params?: RemoveUsageRightsParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/usage_rights`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -320,10 +396,10 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listLicenses(course_id: string, body?: any): Promise<any[]> {
+  public async listLicenses(course_id: string, body?: unknown): Promise<unknown[]> {
     const endpoint = `/api/v1/courses/${course_id}/content_licenses`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -331,5 +407,4 @@ export class Files extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

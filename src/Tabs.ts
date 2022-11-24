@@ -1,14 +1,21 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-import { ListAvailableTabsForCourseOrGroupParams, UpdateTabForCourseParams } from '../types/params';
-  
+import {
+  ListAvailableTabsForCourseOrGroupParams,
+  UpdateTabForCourseParams,
+} from "../types/params.ts";
+
 export class Tabs extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listAvailableTabsForCourseOrGroup(account_id: string, params?: ListAvailableTabsForCourseOrGroupParams, body?: any): Promise<any> {
+  public async listAvailableTabsForCourseOrGroup(
+    account_id: string,
+    params?: ListAvailableTabsForCourseOrGroupParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/accounts/${account_id}/tabs`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,7 +31,12 @@ export class Tabs extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateTabForCourse(course_id: string, tab_id: string, params?: UpdateTabForCourseParams, body?: any): Promise<any> {
+  public async updateTabForCourse(
+    course_id: string,
+    tab_id: string,
+    params?: UpdateTabForCourseParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/tabs/${tab_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -39,5 +51,4 @@ export class Tabs extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

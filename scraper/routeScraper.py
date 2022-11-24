@@ -194,11 +194,11 @@ def create_class(className: str, routes: list[Route]) -> str:
     if param not in paramsText:
       params.remove(param)
 
-  entitiesImport = f"import {{ {', '.join(entities)} }} from '../types/models';"
-  paramImports = f"import {{ {', '.join(set(params))} }} from '../types/params';"
+  entitiesImport = f"import {{ {', '.join(entities)} }} from '../types/models.ts';"
+  paramImports = f"import {{ {', '.join(set(params))} }} from '../types/params.ts';"
 
-  out = f'''import {{ BaseApi }} from './BaseApi';
-import {{ Configuration }} from './Configuration';
+  out = f'''import {{ BaseApi }} from './BaseApi.ts';
+import {{ Configuration }} from './Configuration.ts';
 {entitiesImport if len(entities) > 0 else ''}
 {paramImports if len(params) > 0 else ''}
   
@@ -226,7 +226,7 @@ def create_function(route: Route) -> str:
     params.append(f"params?: {route.paramName}")
     paramSet = True
 
-  params.append('body?: any')
+  params.append('body?: unknown')
   
   routeWithParams = replace_route_params(route.route)
 
@@ -332,6 +332,7 @@ def main():
     if className is not None:
       className = className.find('h1').string.replace('API', '').split()
       className = ''.join(className)
+      className = className.replace('(', '').replace(')', '')
     else:
       className = 'NoWorkClass'
 

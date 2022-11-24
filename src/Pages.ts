@@ -1,17 +1,24 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-import { ListPagesParams, ShowRevisionParams, RevertToRevisionParams, CreatePageParams, UpdateFrontPageParams, UpdatePageParams } from '../types/params';
-  
+import {
+  CreatePageParams,
+  ListPagesParams,
+  RevertToRevisionParams,
+  ShowRevisionParams,
+  UpdateFrontPageParams,
+  UpdatePageParams,
+} from "../types/params.ts";
+
 export class Pages extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async showFrontPage(course_id: string, body?: any): Promise<any> {
+  public async showFrontPage(course_id: string, body?: unknown): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/front_page`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -20,10 +27,15 @@ export class Pages extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async duplicatePage(course_id: string, url_or_id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/pages/${url_or_id}/duplicate`;
+  public async duplicatePage(
+    course_id: string,
+    url_or_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/pages/${url_or_id}/duplicate`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -32,7 +44,11 @@ export class Pages extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateFrontPage(course_id: string, params?: UpdateFrontPageParams, body?: any): Promise<any> {
+  public async updateFrontPage(
+    course_id: string,
+    params?: UpdateFrontPageParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/front_page`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -48,7 +64,11 @@ export class Pages extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listPages(course_id: string, params?: ListPagesParams, body?: any): Promise<any[]> {
+  public async listPages(
+    course_id: string,
+    params?: ListPagesParams,
+    body?: unknown,
+  ): Promise<unknown[]> {
     const endpoint = `/api/v1/courses/${course_id}/pages`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -64,7 +84,11 @@ export class Pages extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createPage(course_id: string, params?: CreatePageParams, body?: any): Promise<any> {
+  public async createPage(
+    course_id: string,
+    params?: CreatePageParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/pages`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -80,10 +104,14 @@ export class Pages extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showPage(course_id: string, url_or_id: string, body?: any): Promise<any> {
+  public async showPage(
+    course_id: string,
+    url_or_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/pages/${url_or_id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -92,7 +120,12 @@ export class Pages extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updatePage(course_id: string, url_or_id: string, params?: UpdatePageParams, body?: any): Promise<any> {
+  public async updatePage(
+    course_id: string,
+    url_or_id: string,
+    params?: UpdatePageParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/pages/${url_or_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -108,10 +141,14 @@ export class Pages extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deletePage(course_id: string, url_or_id: string, body?: any): Promise<any> {
+  public async deletePage(
+    course_id: string,
+    url_or_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/pages/${url_or_id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -120,10 +157,15 @@ export class Pages extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listRevisions(course_id: string, url_or_id: string, body?: any): Promise<any[]> {
-    const endpoint = `/api/v1/courses/${course_id}/pages/${url_or_id}/revisions`;
+  public async listRevisions(
+    course_id: string,
+    url_or_id: string,
+    body?: unknown,
+  ): Promise<unknown[]> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/pages/${url_or_id}/revisions`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -132,8 +174,14 @@ export class Pages extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showRevision(course_id: string, url_or_id: string, params?: ShowRevisionParams, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/pages/${url_or_id}/revisions/latest`;
+  public async showRevision(
+    course_id: string,
+    url_or_id: string,
+    params?: ShowRevisionParams,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/pages/${url_or_id}/revisions/latest`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -148,8 +196,15 @@ export class Pages extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async revertToRevision(course_id: string, url_or_id: string, revision_id: string, params?: RevertToRevisionParams, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/pages/${url_or_id}/revisions/${revision_id}`;
+  public async revertToRevision(
+    course_id: string,
+    url_or_id: string,
+    revision_id: string,
+    params?: RevertToRevisionParams,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/pages/${url_or_id}/revisions/${revision_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -163,5 +218,4 @@ export class Pages extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

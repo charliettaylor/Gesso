@@ -55,7 +55,10 @@
 
   "apply_assignment_group_weights": true,
 
-  "permissions": { "create_discussion_topic": true, "create_announcement": true },
+  "permissions": {
+    "create_discussion_topic": true,
+    "create_announcement": true
+  },
   "is_public": true,
   "is_public_to_auth_users": true,
   "public_syllabus": true,

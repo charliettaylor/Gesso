@@ -23,7 +23,12 @@
       "explicit": true,
       "prior_default": false
     },
-    "read_course_list": { "enabled": true, "locked": true, "readonly": true, "explicit": false },
+    "read_course_list": {
+      "enabled": true,
+      "locked": true,
+      "readonly": true,
+      "explicit": false
+    },
     "read_question_banks": {
       "enabled": false,
       "locked": true,
@@ -31,6 +36,11 @@
       "explicit": true,
       "prior_default": false
     },
-    "read_reports": { "enabled": true, "locked": false, "readonly": false, "explicit": false }
+    "read_reports": {
+      "enabled": true,
+      "locked": false,
+      "readonly": false,
+      "explicit": false
+    }
   }
 }

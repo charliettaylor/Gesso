@@ -1,14 +1,29 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-import { CreateModuleItemParams, SelectMasteryPathParams, UpdateModuleItemParams, GetModuleItemSequenceParams, ShowModuleParams, UpdateModuleParams, ListModuleItemsParams, CreateModuleParams, ShowModuleItemParams, ListModulesParams } from '../types/params';
-  
+import {
+  CreateModuleItemParams,
+  CreateModuleParams,
+  GetModuleItemSequenceParams,
+  ListModuleItemsParams,
+  ListModulesParams,
+  SelectMasteryPathParams,
+  ShowModuleItemParams,
+  ShowModuleParams,
+  UpdateModuleItemParams,
+  UpdateModuleParams,
+} from "../types/params.ts";
+
 export class Modules extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listModules(course_id: string, params?: ListModulesParams, body?: any): Promise<any[]> {
+  public async listModules(
+    course_id: string,
+    params?: ListModulesParams,
+    body?: unknown,
+  ): Promise<unknown[]> {
     const endpoint = `/api/v1/courses/${course_id}/modules`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,7 +39,12 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showModule(course_id: string, id: string, params?: ShowModuleParams, body?: any): Promise<any> {
+  public async showModule(
+    course_id: string,
+    id: string,
+    params?: ShowModuleParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/modules/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -40,7 +60,11 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createModule(course_id: string, params?: CreateModuleParams, body?: any): Promise<any> {
+  public async createModule(
+    course_id: string,
+    params?: CreateModuleParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/modules`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -56,7 +80,12 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateModule(course_id: string, id: string, params?: UpdateModuleParams, body?: any): Promise<any> {
+  public async updateModule(
+    course_id: string,
+    id: string,
+    params?: UpdateModuleParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/modules/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -72,10 +101,14 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteModule(course_id: string, id: string, body?: any): Promise<any> {
+  public async deleteModule(
+    course_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/modules/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -84,10 +117,14 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async relockModuleProgressions(course_id: string, id: string, body?: any): Promise<any> {
+  public async relockModuleProgressions(
+    course_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/modules/${id}/relock`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -96,7 +133,12 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listModuleItems(course_id: string, module_id: string, params?: ListModuleItemsParams, body?: any): Promise<any[]> {
+  public async listModuleItems(
+    course_id: string,
+    module_id: string,
+    params?: ListModuleItemsParams,
+    body?: unknown,
+  ): Promise<unknown[]> {
     const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -112,8 +154,15 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showModuleItem(course_id: string, module_id: string, id: string, params?: ShowModuleItemParams, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}`;
+  public async showModuleItem(
+    course_id: string,
+    module_id: string,
+    id: string,
+    params?: ShowModuleItemParams,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -128,7 +177,12 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createModuleItem(course_id: string, module_id: string, params?: CreateModuleItemParams, body?: any): Promise<any> {
+  public async createModuleItem(
+    course_id: string,
+    module_id: string,
+    params?: CreateModuleItemParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -144,8 +198,15 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateModuleItem(course_id: string, module_id: string, id: string, params?: UpdateModuleItemParams, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}`;
+  public async updateModuleItem(
+    course_id: string,
+    module_id: string,
+    id: string,
+    params?: UpdateModuleItemParams,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -160,8 +221,15 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async selectMasteryPath(course_id: string, module_id: string, id: string, params?: SelectMasteryPathParams, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}/select_mastery_path`;
+  public async selectMasteryPath(
+    course_id: string,
+    module_id: string,
+    id: string,
+    params?: SelectMasteryPathParams,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}/select_mastery_path`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -176,10 +244,16 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteModuleItem(course_id: string, module_id: string, id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}`;
+  public async deleteModuleItem(
+    course_id: string,
+    module_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -188,10 +262,16 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async markModuleItemAsDoneDone(course_id: string, module_id: string, id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}/done`;
+  public async markModuleItemAsDoneDone(
+    course_id: string,
+    module_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}/done`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -200,7 +280,11 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getModuleItemSequence(course_id: string, params?: GetModuleItemSequenceParams, body?: any): Promise<any> {
+  public async getModuleItemSequence(
+    course_id: string,
+    params?: GetModuleItemSequenceParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/module_item_sequence`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -216,10 +300,16 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async markModuleItemRead(course_id: string, module_id: string, id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}/mark_read`;
+  public async markModuleItemRead(
+    course_id: string,
+    module_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}/mark_read`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -227,5 +317,4 @@ export class Modules extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

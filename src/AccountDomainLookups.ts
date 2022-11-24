@@ -1,15 +1,18 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-import { SearchAccountDomainsParams } from '../types/params';
-  
+import { SearchAccountDomainsParams } from "../types/params.ts";
+
 export class AccountDomainLookups extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async searchAccountDomains(params?: SearchAccountDomainsParams, body?: any): Promise<any[]> {
-    const endpoint = '/api/v1/accounts/search';
+  public async searchAccountDomains(
+    params?: SearchAccountDomainsParams,
+    body?: unknown,
+  ): Promise<unknown[]> {
+    const endpoint = "/api/v1/accounts/search";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -23,5 +26,4 @@ export class AccountDomainLookups extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

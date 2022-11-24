@@ -1,15 +1,21 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-import { SendMessageToUnsubmittedOrSubmittedUsersForTheQuizParams } from '../types/params';
-  
+import { SendMessageToUnsubmittedOrSubmittedUsersForTheQuizParams } from "../types/params.ts";
+
 export class QuizSubmissionUserList extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async sendMessageToUnsubmittedOrSubmittedUsersForTheQuiz(course_id: string, id: string, params?: SendMessageToUnsubmittedOrSubmittedUsersForTheQuizParams, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/quizzes/${id}/submission_users/message`;
+  public async sendMessageToUnsubmittedOrSubmittedUsersForTheQuiz(
+    course_id: string,
+    id: string,
+    params?: SendMessageToUnsubmittedOrSubmittedUsersForTheQuizParams,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/quizzes/${id}/submission_users/message`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -23,5 +29,4 @@ export class QuizSubmissionUserList extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

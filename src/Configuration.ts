@@ -5,7 +5,13 @@ export class Configuration {
   public tokens: Tokens | undefined;
   public apiKey: string | undefined;
 
-  constructor(config: { domain: string; tokens?: { accessToken: string; refreshToken: string }; apiKey?: string }) {
+  constructor(
+    config: {
+      domain: string;
+      tokens?: { accessToken: string; refreshToken: string };
+      apiKey?: string;
+    },
+  ) {
     this.domain = config.domain;
     this.tokens = config.tokens;
     this.apiKey = config.apiKey;

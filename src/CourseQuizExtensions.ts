@@ -1,14 +1,18 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-import { SetExtensionsForStudentQuizSubmissionsParams } from '../types/params';
-  
+import { SetExtensionsForStudentQuizSubmissionsParams } from "../types/params.ts";
+
 export class CourseQuizExtensions extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async setExtensionsForStudentQuizSubmissions(course_id: string, params?: SetExtensionsForStudentQuizSubmissionsParams, body?: any): Promise<any> {
+  public async setExtensionsForStudentQuizSubmissions(
+    course_id: string,
+    params?: SetExtensionsForStudentQuizSubmissionsParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/quiz_extensions`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -23,5 +27,4 @@ export class CourseQuizExtensions extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

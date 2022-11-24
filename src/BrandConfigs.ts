@@ -1,17 +1,17 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-
-  
 export class BrandConfigs extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async getTheBrandConfigVariablesThatShouldBeUsedForThisDomain(body?: any): Promise<any> {
-    const endpoint = '/api/v1/brand_variables';
+  public async getTheBrandConfigVariablesThatShouldBeUsedForThisDomain(
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint = "/api/v1/brand_variables";
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -19,5 +19,4 @@ export class BrandConfigs extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

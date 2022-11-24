@@ -1,17 +1,17 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
-import { Account } from '../types/models';
-import { SetFeatureFlagParams } from '../types/params';
-  
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { Account } from "../types/models.ts";
+import { SetFeatureFlagParams } from "../types/params.ts";
+
 export class FeatureFlags extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listFeatures(course_id: string, body?: any): Promise<any[]> {
+  public async listFeatures(course_id: string, body?: unknown): Promise<unknown[]> {
     const endpoint = `/api/v1/courses/${course_id}/features`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -20,10 +20,13 @@ export class FeatureFlags extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listEnabledFeatures(course_id: string, body?: any): Promise<Account> {
+  public async listEnabledFeatures(
+    course_id: string,
+    body?: unknown,
+  ): Promise<Account> {
     const endpoint = `/api/v1/courses/${course_id}/features/enabled`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -32,10 +35,10 @@ export class FeatureFlags extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listEnvironmentFeatures(body?: any): Promise<any> {
-    const endpoint = '/api/v1/features/environment';
+  public async listEnvironmentFeatures(body?: unknown): Promise<unknown> {
+    const endpoint = "/api/v1/features/environment";
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -44,10 +47,14 @@ export class FeatureFlags extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getFeatureFlag(course_id: string, feature: string, body?: any): Promise<any> {
+  public async getFeatureFlag(
+    course_id: string,
+    feature: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/features/flags/${feature}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -56,7 +63,12 @@ export class FeatureFlags extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async setFeatureFlag(course_id: string, feature: string, params?: SetFeatureFlagParams, body?: any): Promise<any> {
+  public async setFeatureFlag(
+    course_id: string,
+    feature: string,
+    params?: SetFeatureFlagParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/features/flags/${feature}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -72,10 +84,14 @@ export class FeatureFlags extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async removeFeatureFlag(course_id: string, feature: string, body?: any): Promise<any> {
+  public async removeFeatureFlag(
+    course_id: string,
+    feature: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/features/flags/${feature}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -83,5 +99,4 @@ export class FeatureFlags extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

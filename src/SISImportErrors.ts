@@ -1,14 +1,19 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-import { GetSisImportErrorListParams } from '../types/params';
-  
+import { GetSisImportErrorListParams } from "../types/params.ts";
+
 export class SISImportErrors extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async getSisImportErrorList(account_id: string, id: string, params?: GetSisImportErrorListParams, body?: any): Promise<any[]> {
+  public async getSisImportErrorList(
+    account_id: string,
+    id: string,
+    params?: GetSisImportErrorListParams,
+    body?: unknown,
+  ): Promise<unknown[]> {
     const endpoint = `/api/v1/accounts/${account_id}/sis_imports/${id}/errors`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -23,5 +28,4 @@ export class SISImportErrors extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

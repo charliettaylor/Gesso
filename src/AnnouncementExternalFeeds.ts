@@ -1,17 +1,20 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
 
-import { CreateAnExternalFeedParams } from '../types/params';
-  
+import { CreateAnExternalFeedParams } from "../types/params.ts";
+
 export class AnnouncementExternalFeeds extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listExternalFeeds(course_id: string, body?: any): Promise<any[]> {
+  public async listExternalFeeds(
+    course_id: string,
+    body?: unknown,
+  ): Promise<unknown[]> {
     const endpoint = `/api/v1/courses/${course_id}/external_feeds`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -20,7 +23,11 @@ export class AnnouncementExternalFeeds extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createAnExternalFeed(course_id: string, params?: CreateAnExternalFeedParams, body?: any): Promise<any> {
+  public async createAnExternalFeed(
+    course_id: string,
+    params?: CreateAnExternalFeedParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/external_feeds`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -36,10 +43,15 @@ export class AnnouncementExternalFeeds extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteAnExternalFeed(course_id: string, external_feed_id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/external_feeds/${external_feed_id}`;
+  public async deleteAnExternalFeed(
+    course_id: string,
+    external_feed_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/external_feeds/${external_feed_id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -47,5 +59,4 @@ export class AnnouncementExternalFeeds extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }
