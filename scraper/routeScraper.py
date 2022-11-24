@@ -219,22 +219,16 @@ export class {className} extends BaseApi {{
 
 def create_function(route: Route) -> str:
   method = route.method.lower()
-  routeParams = parse_route_parameters(route.route)
-  queryParams = f'params?: {route.paramName}' if len(route.params) > 0 else ''
-  body = 'body?: any'
+  params = parse_route_parameters(route.route)
+  paramSet = False
+  
+  if len(route.params) > 0:
+    params.append(f"params?: {route.paramName}")
+    paramSet = True
+
+  params.append('body?: any')
   
   routeWithParams = replace_route_params(route.route)
-  requestParams = '' if queryParams == '' else f', params'
-
-  if len(queryParams) > 0 and len(routeParams) > 0:
-    routeParams += ' '
-  elif len(queryParams) == 0 and len(routeParams) > 0:
-    routeParams = routeParams[:-1]
-
-  finalRouteParams = routeParams + queryParams + ', ' + body
-
-  if len(routeParams) == 0 and len(queryParams) == 0:
-    finalRouteParams = body
 
   paramsSetter = '''if (params !== undefined) {{
   for (const [key, value] of Object.entries(params)) {{
@@ -242,18 +236,19 @@ def create_function(route: Route) -> str:
   }}
 }}'''
 
-  function = f'''public async {route.funcName}({finalRouteParams}): Promise<{route.returnType}> {{
-    const endpoint = `{routeWithParams}`;
-    const url = new URL(endpoint, this.configuration.apiDomain);
-    {paramsSetter if len(routeParams) > len(body) else ''}
+  joinParams = ', '.join(params)
 
+  function = f'''public async {route.funcName}({joinParams}): Promise<{route.returnType}> {{
+    const endpoint = `/api/v1{routeWithParams}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    {paramsSetter if paramSet else ''}
     const response = await this.{method}(url, JSON.stringify(body));
     if (response.ok) {{
       return await response.json();
     }}
 
     return Promise.reject(response);
-  }}\n
+  }}
 '''
  
   # function = textwrap.indent(function, '  ')
@@ -278,18 +273,18 @@ def replace_route_params(route: str):
   return '/'.join(routeWithParams)
 
 
-def parse_route_parameters(route: str):
+def parse_route_parameters(route: str) -> list[str]:
   chunks = route.split('/')
 
   if len(chunks) <= 2:
-    return ''
+    return []
 
   params = []
   for chunk in chunks:
     if chunk.startswith(':'):
-      params.append(chunk[1:])
+      params.append(f'{chunk[1:]}: string')
 
-  return ': string, '.join(params) + ': string,' if len(params) else ''
+  return params
 
 
 # stackoverflow: https://stackoverflow.com/questions/3173320/text-progress-bar-in-terminal-with-block-characters
@@ -323,7 +318,7 @@ def main():
   progCount = 0
   total = len(endpoints)
 
-  for end in endpoints:
+  for end in ['https://canvas.instructure.com/doc/api/courses.html']:
     page = requests.get(end.strip())
 
     if page.status_code == 403:
@@ -344,7 +339,6 @@ def main():
     for tag in tags:
       routes.append(create_params_and_route(tag))
 
-    
     # write output of create_class to file
     with open(f"../src/{className}.ts", "w") as f:
       f.write(create_class(className, routes))

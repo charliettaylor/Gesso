@@ -5,6 +5,7 @@
   "module": "true",
   "main": "index.js",
   "scripts": {
+    "format": "npx eslint . --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

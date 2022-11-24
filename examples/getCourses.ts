@@ -1,27 +1,18 @@
-import { Courses } from '../src/Courses';
 import { Configuration } from '../src/Configuration';
-import { Accounts } from '../src/Accounts';
+import { Courses } from '../src/Courses';
 
 async function getCourses() {
 
   const thing = {
     domain: 'https://csufullerton.instructure.com', 
-    apiKey: '349~haw4l0jOktRNQ2P8NTLq9e329W9wmzKyWyAqnf7a4GfF7V6DN8M0jqgGaZMErT41'
-  }
+    apiKey: ''
+  };
 
-  console.log('thing:')
-  console.log(JSON.stringify(thing));
-
-  const config = new Configuration({
-    domain: 'https://csufullerton.instructure.com', 
-    apiKey: '349~haw4l0jOktRNQ2P8NTLq9e329W9wmzKyWyAqnf7a4GfF7V6DN8M0jqgGaZMErT41'
-  });
-  const courseApi = new Accounts(config);
+  const config = new Configuration(thing);
+  const courseApi = new Courses(config);
   
   try {
-    return await courseApi.listAccounts({
-      include: ['services']
-    });
+    return await courseApi.listCourses();
   } catch (error) {
     return error;
   }
