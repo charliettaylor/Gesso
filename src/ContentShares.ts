@@ -1,16 +1,22 @@
-import { ContentShare, Scope } from '../types/models';
-import { AddUsersToContentShareParams, CreateContentShareParams, UpdateContentShareParams } from '../types/params';
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
 
+import { AddUsersToContentShareParams, CreateContentShareParams, UpdateContentShareParams } from '../types/params';
+  
 export class ContentShares extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async createContentShare(user_id: string, params: CreateContentShareParams): Promise<ContentShare> {
-    const endpoint = `/users/${user_id}/content_shares`;
-    const response = await this.post(endpoint, params);
+  public async createContentShare(user_id: string, params?: CreateContentShareParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/users/${user_id}/content_shares`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -18,9 +24,11 @@ export class ContentShares extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listContentShares(user_id: string): Promise<ContentShare[]> {
-    const endpoint = `/users/${user_id}/content_shares/sent`;
-    const response = await this.get(endpoint);
+  public async listContentShares(user_id: string, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/users/${user_id}/content_shares/sent`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -28,9 +36,11 @@ export class ContentShares extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getUnreadSharesCount(user_id: string): Promise<Scope> {
-    const endpoint = `/users/${user_id}/content_shares/unread_count`;
-    const response = await this.get(endpoint);
+  public async getUnreadSharesCount(user_id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/users/${user_id}/content_shares/unread_count`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -38,9 +48,11 @@ export class ContentShares extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getContentShare(user_id: string, id: string): Promise<ContentShare> {
-    const endpoint = `/users/${user_id}/content_shares/${id}`;
-    const response = await this.get(endpoint);
+  public async getContentShare(user_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/users/${user_id}/content_shares/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -48,9 +60,11 @@ export class ContentShares extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async removeContentShare(user_id: string, id: string): Promise<Scope> {
-    const endpoint = `/users/${user_id}/content_shares/${id}`;
-    const response = await this.delete(endpoint);
+  public async removeContentShare(user_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/users/${user_id}/content_shares/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -58,13 +72,15 @@ export class ContentShares extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async addUsersToContentShare(
-    user_id: string,
-    id: string,
-    params: AddUsersToContentShareParams,
-  ): Promise<ContentShare> {
-    const endpoint = `/users/${user_id}/content_shares/${id}/add_users`;
-    const response = await this.post(endpoint, params);
+  public async addUsersToContentShare(user_id: string, id: string, params?: AddUsersToContentShareParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/users/${user_id}/content_shares/${id}/add_users`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -72,17 +88,20 @@ export class ContentShares extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateContentShare(
-    user_id: string,
-    id: string,
-    params: UpdateContentShareParams,
-  ): Promise<ContentShare> {
-    const endpoint = `/users/${user_id}/content_shares/${id}`;
-    const response = await this.put(endpoint, params);
+  public async updateContentShare(user_id: string, id: string, params?: UpdateContentShareParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/users/${user_id}/content_shares/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

@@ -1,24 +1,27 @@
-import { Scope } from '../types/models';
-import { SendMessageToUnsubmittedOrSubmittedUsersForTheQuizParams } from '../types/params';
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
 
+import { SendMessageToUnsubmittedOrSubmittedUsersForTheQuizParams } from '../types/params';
+  
 export class QuizSubmissionUserList extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async sendMessageToUnsubmittedOrSubmittedUsersForTheQuiz(
-    course_id: string,
-    id: string,
-    params: SendMessageToUnsubmittedOrSubmittedUsersForTheQuizParams,
-  ): Promise<Scope> {
-    const endpoint = `/courses/${course_id}/quizzes/${id}/submission_users/message`;
-    const response = await this.post(endpoint, params);
+  public async sendMessageToUnsubmittedOrSubmittedUsersForTheQuiz(course_id: string, id: string, params?: SendMessageToUnsubmittedOrSubmittedUsersForTheQuizParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/quizzes/${id}/submission_users/message`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

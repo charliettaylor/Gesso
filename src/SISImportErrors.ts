@@ -1,24 +1,27 @@
-import { SisImportError } from '../types/models';
-import { GetSisImportErrorListParams } from '../types/params';
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
 
+import { GetSisImportErrorListParams } from '../types/params';
+  
 export class SISImportErrors extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async getSisImportErrorList(
-    account_id: string,
-    id: string,
-    params: GetSisImportErrorListParams,
-  ): Promise<SisImportError[]> {
-    const endpoint = `/accounts/${account_id}/sis_imports/${id}/errors`;
-    const response = await this.get(endpoint, params);
+  public async getSisImportErrorList(account_id: string, id: string, params?: GetSisImportErrorListParams, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/accounts/${account_id}/sis_imports/${id}/errors`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

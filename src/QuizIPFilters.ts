@@ -1,20 +1,23 @@
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
-import { Scope } from '../types/models';
-import {} from '../types/params';
 
+
+  
 export class QuizIPFilters extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async getAvailableQuizIpFilters(course_id: string, quiz_id: string): Promise<Scope[]> {
-    const endpoint = `/courses/${course_id}/quizzes/${quiz_id}/ip_filters`;
-    const response = await this.get(endpoint);
+  public async getAvailableQuizIpFilters(course_id: string, quiz_id: string, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/courses/${course_id}/quizzes/${quiz_id}/ip_filters`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

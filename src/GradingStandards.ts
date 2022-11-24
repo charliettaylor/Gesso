@@ -1,19 +1,22 @@
-import { GradingStandard } from '../types/models';
-import { CreateNewGradingStandardParams } from '../types/params';
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
 
+import { CreateNewGradingStandardParams } from '../types/params';
+  
 export class GradingStandards extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async createNewGradingStandard(
-    account_id: string,
-    params: CreateNewGradingStandardParams,
-  ): Promise<GradingStandard> {
-    const endpoint = `/accounts/${account_id}/grading_standards`;
-    const response = await this.post(endpoint, params);
+  public async createNewGradingStandard(account_id: string, params?: CreateNewGradingStandardParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/accounts/${account_id}/grading_standards`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -21,9 +24,11 @@ export class GradingStandards extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listTheGradingStandardsAvailableInContext(course_id: string): Promise<GradingStandard[]> {
-    const endpoint = `/courses/${course_id}/grading_standards`;
-    const response = await this.get(endpoint);
+  public async listTheGradingStandardsAvailableInContext(course_id: string, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/courses/${course_id}/grading_standards`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -31,16 +36,16 @@ export class GradingStandards extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getSingleGradingStandardInContext(
-    course_id: string,
-    grading_standard_id: string,
-  ): Promise<GradingStandard> {
-    const endpoint = `/courses/${course_id}/grading_standards/${grading_standard_id}`;
-    const response = await this.get(endpoint);
+  public async getSingleGradingStandardInContext(course_id: string, grading_standard_id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/grading_standards/${grading_standard_id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

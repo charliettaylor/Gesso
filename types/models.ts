@@ -248,7 +248,7 @@ export interface AccountNotification {
 export interface Admin {
   id: number;
   role: string;
-  user: null;
+  user: any;
   workflow_state: string;
 }
 
@@ -308,7 +308,7 @@ export interface AppointmentGroup {
 export interface Term {
   id: number;
   start_at: Date;
-  end_at: Date | null;
+  end_at: Date | any;
   name?: string;
 }
 
@@ -328,7 +328,7 @@ export interface Assignment {
   lock_at: Date;
   unlock_at: Date;
   has_overrides: boolean;
-  all_dates: null;
+  all_dates: any;
   course_id: number;
   html_url: string;
   submissions_download_url: string;
@@ -338,9 +338,9 @@ export interface Assignment {
   max_name_length: number;
   turnitin_enabled: boolean;
   vericite_enabled: boolean;
-  turnitin_settings: null;
+  turnitin_settings: any;
   grade_group_students_individually: boolean;
-  external_tool_tag_attributes: null;
+  external_tool_tag_attributes: any;
   peer_reviews: boolean;
   automatic_peer_reviews: boolean;
   peer_review_count: number;
@@ -357,25 +357,25 @@ export interface Assignment {
   submission_types: string[];
   has_submitted_submissions: boolean;
   grading_type: string;
-  grading_standard_id: null;
+  grading_standard_id: any;
   published: boolean;
   unpublishable: boolean;
   only_visible_to_overrides: boolean;
   locked_for_user: boolean;
-  lock_info: null;
+  lock_info: any;
   lock_explanation: string;
   quiz_id: number;
   anonymous_submissions: boolean;
-  discussion_topic: null;
+  discussion_topic: any;
   freeze_on_copy: boolean;
   frozen: boolean;
   frozen_attributes: string[];
-  submission: null;
+  submission: any;
   use_rubric_for_grading: boolean;
   rubric_settings: RubricSettings;
-  rubric: null;
+  rubric: any;
   assignment_visibility: number[];
-  overrides: null;
+  overrides: any;
   omit_from_final_grade: boolean;
   moderated_grading: boolean;
   grader_count: number;
@@ -386,9 +386,9 @@ export interface Assignment {
   anonymous_grading: boolean;
   allowed_attempts: number;
   post_manually: boolean;
-  score_statistics: null;
+  score_statistics: any;
   can_submit: boolean;
-  annotatable_attachment_id: null;
+  annotatable_attachment_id: any;
   anonymize_students: boolean;
   require_lockdown_browser: boolean;
   important_dates: boolean;
@@ -413,9 +413,9 @@ export interface UserAssignmentOverrideAttributes {
   base?: boolean;
   title: string;
   due_at: Date;
-  unlock_at: Date | null;
+  unlock_at: Date | any;
   lock_at: Date;
-  students?: null;
+  students?: any;
 }
 
 export interface AssignmentEvent {
@@ -432,8 +432,8 @@ export interface AssignmentEvent {
   all_day: boolean;
   created_at: Date;
   updated_at: Date;
-  assignment: null;
-  assignment_overrides: null;
+  assignment: any;
+  assignment_overrides: any;
   important_dates: boolean;
 }
 
@@ -451,7 +451,7 @@ export interface AssignmentGroup {
   sis_source_id: string;
   integration_data: IntegrationData;
   assignments: any[];
-  rules: null;
+  rules: any;
 }
 
 export interface AssignmentGroupAttributes {
@@ -491,20 +491,20 @@ export interface AuthenticationProvider {
   log_out_url: string;
   log_in_url: string;
   certificate_fingerprint: string;
-  requested_authn_context: null;
+  requested_authn_context: any;
   auth_host: string;
   auth_filter: string;
-  auth_over_tls: null;
-  auth_base: null;
+  auth_over_tls: any;
+  auth_base: any;
   auth_username: string;
-  auth_port: null;
+  auth_port: any;
   position: number;
   idp_entity_id: string;
   login_attribute: string;
   sig_alg: string;
-  jit_provisioning: null;
-  federated_attributes: null;
-  mfa_required: null;
+  jit_provisioning: any;
+  federated_attributes: any;
+  mfa_required: any;
 }
 
 export interface Avatar {
@@ -558,7 +558,7 @@ export interface BlueprintTemplate {
   course_id: number;
   last_export_completed_at: Date;
   associated_course_count: number;
-  latest_migration: null;
+  latest_migration: any;
 }
 
 export interface Bookmark {
@@ -582,34 +582,34 @@ export interface CalendarEvent {
   location_name: string;
   location_address: string;
   context_code: string;
-  effective_context_code: null;
+  effective_context_code: any;
   context_name: string;
   all_context_codes: string;
   workflow_state: string;
   hidden: boolean;
-  parent_event_id: null;
+  parent_event_id: any;
   child_events_count: number;
-  child_events: null;
+  child_events: any;
   url: string;
   html_url: string;
   all_day_date: Date;
   all_day: boolean;
   created_at: Date;
   updated_at: Date;
-  appointment_group_id: null;
-  appointment_group_url: null;
+  appointment_group_id: any;
+  appointment_group_url: any;
   own_reservation: boolean;
-  reserve_url: null;
+  reserve_url: any;
   reserved: boolean;
   participant_type: string;
-  participants_per_appointment: null;
-  available_slots: null;
-  user: null;
-  group: null;
+  participants_per_appointment: any;
+  available_slots: any;
+  user: any;
+  group: any;
   important_dates: boolean;
-  series_uuid: null;
-  rrule: null;
-  series_natural_language: null;
+  series_uuid: any;
+  rrule: any;
+  series_natural_language: any;
   blackout_date: boolean;
 }
 
@@ -639,13 +639,13 @@ export interface Collaboration {
   user_id: number;
   context_id: number;
   context_type: string;
-  url: null;
+  url: any;
   created_at: Date;
   updated_at: Date;
-  description: null;
-  title: null;
+  description: any;
+  title: any;
   type: string;
-  update_url: null;
+  update_url: any;
   user_name: string;
 }
 
@@ -696,11 +696,11 @@ export interface Conference {
   has_advanced_settings: boolean;
   long_running: boolean;
   user_settings: UserSettings;
-  recordings: null;
-  url: null;
-  join_url: null;
-  context_type: null;
-  context_id: null;
+  recordings: any;
+  url: any;
+  join_url: any;
+  context_type: any;
+  context_id: any;
 }
 
 export interface UserSettings {
@@ -729,10 +729,8 @@ export interface LockInfoClass {
   asset_string: string;
   unlock_at: Date;
   lock_at: Date;
-  context_module: ContextModule;
+  context_module: any;
 }
-
-export interface ContextModule {}
 
 export interface EpubExport {
   id: number;
@@ -765,7 +763,7 @@ export interface ContentMigration {
 export interface PreAttachment {
   upload_url: string;
   message: string;
-  upload_params: ContextModule;
+  upload_params: any;
 }
 
 export interface ContentShare {
@@ -780,20 +778,6 @@ export interface ContentShare {
   source_course: SourceCourse;
   read_state: string;
   content_export: ContentExportClass;
-}
-
-export interface ContentExport {
-  id: number;
-  created_at: Date;
-  export_type: string;
-  attachment: Attachment;
-  progress_url: string;
-  user_id: number;
-  workflow_state: string;
-}
-
-export interface Attachment {
-  url: string;
 }
 
 export interface ContentExportClass {
@@ -823,11 +807,11 @@ export interface Conversation {
   subscribed: boolean;
   private: boolean;
   starred: boolean;
-  properties: null;
-  audience: null;
-  audience_contexts: null;
+  properties: any;
+  audience: any;
+  audience_contexts: any;
   avatar_url: string;
-  participants: null;
+  participants: any;
   visible: boolean;
   context_name: string;
 }
@@ -841,9 +825,9 @@ export interface ConversationParticipant {
 
 export interface Course {
   id: number;
-  sis_course_id: null;
+  sis_course_id: any;
   uuid: string;
-  integration_id: null;
+  integration_id: any;
   sis_import_id: number;
   name: string;
   course_code: string;
@@ -852,21 +836,21 @@ export interface Course {
   account_id: number;
   root_account_id: number;
   enrollment_term_id: number;
-  grading_periods: null;
+  grading_periods: any;
   grading_standard_id: number;
   grade_passback_setting: string;
   created_at: Date;
   start_at: Date;
   end_at: Date;
   locale: string;
-  enrollments: null;
+  enrollments: any;
   total_students: number;
-  calendar: null;
+  calendar: any;
   default_view: string;
   syllabus_body: string;
   needs_grading_count: number;
-  term: null;
-  course_progress: null;
+  term: any;
+  course_progress: any;
   apply_assignment_group_weights: boolean;
   permissions: CoursePermissions;
   is_public: boolean;
@@ -929,7 +913,7 @@ export interface CourseAttributes {
 export interface CourseEpubExport {
   id: number;
   name: string;
-  epub_export: null;
+  epub_export: any;
 }
 
 export interface CourseEvent {
@@ -979,10 +963,10 @@ export interface QuizExtension {
 }
 
 export interface CreatedEventData {
-  name: Array<null | string>;
-  start_at: Array<Date | null>;
-  conclude_at: Array<Date | null>;
-  is_public: Array<boolean | null>;
+  name: Array<any | string>;
+  start_at: Array<Date | any>;
+  conclude_at: Array<Date | any>;
+  is_public: Array<boolean | any>;
   created_source: string;
 }
 
@@ -1047,23 +1031,23 @@ export interface DiscussionTopic {
   unread_count: number;
   subscribed: boolean;
   subscription_hold: string;
-  assignment_id: null;
-  delayed_post_at: null;
+  assignment_id: any;
+  delayed_post_at: any;
   published: boolean;
-  lock_at: null;
+  lock_at: any;
   locked: boolean;
   pinned: boolean;
   locked_for_user: boolean;
-  lock_info: null;
+  lock_info: any;
   lock_explanation: string;
   user_name: string;
   topic_children: number[];
   group_topic_children: GroupTopicChild[];
-  root_topic_id: null;
+  root_topic_id: any;
   podcast_url: string;
   discussion_type: string;
-  group_category_id: null;
-  attachments: null;
+  group_category_id: any;
+  attachments: any;
   permissions: DiscussionTopicPermissions;
   allow_rating: boolean;
   only_graders_can_rate: boolean;
@@ -1095,7 +1079,7 @@ export interface Enrollment {
   root_account_id: number;
   type: string;
   user_id: number;
-  associated_user_id: null;
+  associated_user_id: any;
   role: string;
   role_id: number;
   created_at: Date;
@@ -1129,9 +1113,9 @@ export interface Enrollment {
 export interface Grades {
   html_url: string;
   current_score: number;
-  current_grade: null;
+  current_grade: any;
   final_score: number;
-  final_grade: null;
+  final_grade: any;
 }
 
 export interface UserClass {
@@ -1226,17 +1210,17 @@ export interface FederatedAttributeConfig {
 }
 
 export interface FederatedAttributesConfig {
-  admin_roles: null;
-  display_name: null;
-  email: null;
-  given_name: null;
-  integration_id: null;
-  locale: null;
-  name: null;
-  sis_user_id: null;
-  sortable_name: null;
-  surname: null;
-  timezone: null;
+  admin_roles: any;
+  display_name: any;
+  email: any;
+  given_name: any;
+  integration_id: any;
+  locale: any;
+  name: any;
+  sis_user_id: any;
+  sortable_name: any;
+  surname: any;
+  timezone: any;
 }
 
 export interface File {
@@ -1271,7 +1255,7 @@ export interface Folder {
   name: string;
   parent_folder_id: number;
   created_at: Date;
-  unlock_at: null;
+  unlock_at: any;
   hidden: boolean;
   hidden_for_user: boolean;
   locked: boolean;
@@ -1304,7 +1288,7 @@ export interface GradeChangeEvent {
   graded_anonymously: boolean;
   version_number: string;
   request_id: string;
-  links: null;
+  links: any;
 }
 
 export interface GradeChangeEventLinks {
@@ -1359,7 +1343,7 @@ export interface GradingSchemeEntry {
 export interface Group {
   id: number;
   name: string;
-  description: null;
+  description: any;
   is_public: boolean;
   followed_by_user: boolean;
   join_level: string;
@@ -1367,27 +1351,27 @@ export interface Group {
   avatar_url: string;
   context_type: string;
   course_id: number;
-  role: null;
+  role: any;
   group_category_id: number;
   sis_group_id: string;
   sis_import_id: number;
   storage_quota_mb: number;
   permissions: CoursePermissions;
-  users: null;
+  users: any;
 }
 
 export interface GroupCategory {
   id: number;
   name: string;
   role: string;
-  self_signup: null;
-  auto_leader: null;
+  self_signup: any;
+  auto_leader: any;
   context_type: string;
   account_id: number;
-  group_limit: null;
-  sis_group_category_id: null;
-  sis_import_id: null;
-  progress: null;
+  group_limit: any;
+  sis_group_category_id: any;
+  sis_import_id: any;
+  progress: any;
 }
 
 export interface GroupMembership {
@@ -1439,10 +1423,6 @@ export interface HistoryEntry {
   visited_url: string;
   visited_at: Date;
   interaction_seconds: number;
-}
-
-export interface InstAccessToken {
-  token: string;
 }
 
 export interface Jwt {
@@ -1605,10 +1585,10 @@ export interface Module {
   prerequisite_module_ids: number[];
   items_count: number;
   items_url: string;
-  items: null;
+  items: any;
   state: string;
-  completed_at: null;
-  publish_final_grade: null;
+  completed_at: any;
+  publish_final_grade: any;
   published: boolean;
 }
 
@@ -1650,7 +1630,7 @@ export interface ModuleItemSequence {
 }
 
 export interface ModuleItemSequenceNode {
-  prev: null;
+  prev: any;
   current: Current;
   next: Current;
   mastery_path: MasteryPath;
@@ -1666,7 +1646,7 @@ export interface Current {
 export interface MasteryPath {
   locked: boolean;
   assignment_sets: any[];
-  selected_set_id: null;
+  selected_set_id: any;
   awaiting_choice: boolean;
   still_processing: boolean;
   modules_url: string;
@@ -1725,9 +1705,9 @@ export interface OriginalityReport {
   originality_score: number;
   originality_report_file_id: number;
   originality_report_url: string;
-  tool_setting: null;
-  error_report: null;
-  submission_time: null;
+  tool_setting: any;
+  error_report: any;
+  submission_time: any;
   root_account_id: number;
 }
 
@@ -1744,7 +1724,7 @@ export interface Outcome {
   mastery_points: number;
   calculation_method: string;
   calculation_int: number;
-  ratings: null;
+  ratings: any;
   can_edit: boolean;
   can_unlink: boolean;
   assessed: boolean;
@@ -1763,7 +1743,7 @@ export interface OutcomeAlignment {
 export interface OutcomeGroup {
   id: number;
   url: string;
-  parent_outcome_group: null;
+  parent_outcome_group: any;
   context_id: number;
   context_type: string;
   title: string;
@@ -1782,9 +1762,9 @@ export interface OutcomeImport {
   ended_at: Date;
   updated_at: Date;
   workflow_state: string;
-  data: null;
+  data: any;
   progress: string;
-  user: null;
+  user: any;
   processing_errors: Array<Array<number | string>>;
 }
 
@@ -1796,15 +1776,15 @@ export interface OutcomeLink {
   url: string;
   context_id: number;
   context_type: string;
-  outcome_group: null;
-  outcome: null;
+  outcome_group: any;
+  outcome: any;
   assessed: boolean;
-  can_unlink: null;
+  can_unlink: any;
 }
 
 export interface OutcomePath {
   id: number;
-  parts: null;
+  parts: any;
 }
 
 export interface OutcomePathPart {
@@ -1826,7 +1806,7 @@ export interface OutcomeResultLinks {
 }
 
 export interface OutcomeRollup {
-  scores: null;
+  scores: any;
   name: string;
   links: OutcomeRollupLinks;
 }
@@ -1859,13 +1839,13 @@ export interface Page {
   updated_at: Date;
   hide_from_students: boolean;
   editing_roles: string;
-  last_edited_by: null;
+  last_edited_by: any;
   body: string;
   published: boolean;
   publish_at: Date;
   front_page: boolean;
   locked_for_user: boolean;
-  lock_info: null;
+  lock_info: any;
   lock_explanation: string;
 }
 
@@ -1873,7 +1853,7 @@ export interface PageRevision {
   revision_id: number;
   updated_at: Date;
   latest: boolean;
-  edited_by: null;
+  edited_by: any;
   url: string;
   title: string;
   body: string;
@@ -1985,7 +1965,7 @@ export interface PollSession {
   has_public_results: boolean;
   created_at: Date;
   results: { [key: string]: number };
-  poll_submissions: null;
+  poll_submissions: any;
 }
 
 export interface PollSubmission {
@@ -2011,16 +1991,16 @@ export interface Profile {
   name: string;
   short_name: string;
   sortable_name: string;
-  title: null;
-  bio: null;
+  title: any;
+  bio: any;
   primary_email: string;
   login_id: string;
   sis_user_id: string;
-  lti_user_id: null;
+  lti_user_id: any;
   avatar_url: string;
-  calendar: null;
+  calendar: any;
   time_zone: string;
-  locale: null;
+  locale: any;
   k5_user: boolean;
 }
 
@@ -2079,17 +2059,17 @@ export interface Quiz {
   access_code: string;
   ip_filter: string;
   due_at: Date;
-  lock_at: null;
+  lock_at: any;
   unlock_at: Date;
   published: boolean;
   unpublishable: boolean;
   locked_for_user: boolean;
-  lock_info: null;
+  lock_info: any;
   lock_explanation: string;
   speedgrader_url: string;
   quiz_extensions_url: string;
-  permissions: null;
-  all_dates: null;
+  permissions: any;
+  all_dates: any;
   version_number: number;
   question_types: string[];
   anonymous_submissions: boolean;
@@ -2097,12 +2077,12 @@ export interface Quiz {
 
 export interface QuizAssignmentOverrideSet {
   quiz_id: string;
-  due_dates: null;
-  all_dates: null;
+  due_dates: any;
+  all_dates: any;
 }
 
 export interface QuizAssignmentOverrideSetContainer {
-  quiz_assignment_overrides: null;
+  quiz_assignment_overrides: any;
 }
 
 export interface QuizGroup {
@@ -2142,7 +2122,7 @@ export interface QuizQuestion {
   correct_comments: string;
   incorrect_comments: string;
   neutral_comments: string;
-  answers: null;
+  answers: any;
 }
 
 export interface QuizReport {
@@ -2156,9 +2136,9 @@ export interface QuizReport {
   created_at: Date;
   updated_at: Date;
   url: string;
-  file: null;
-  progress_url: null;
-  progress: null;
+  file: any;
+  progress_url: any;
+  progress: any;
 }
 
 export interface QuizStatistics {
@@ -2169,9 +2149,9 @@ export interface QuizStatistics {
   generated_at: Date;
   url: string;
   html_url: string;
-  question_statistics: null;
-  submission_statistics: null;
-  links: null;
+  question_statistics: any;
+  submission_statistics: any;
+  links: any;
 }
 
 export interface QuizStatisticsAnswerPointBiserial {
@@ -2194,7 +2174,7 @@ export interface QuizStatisticsLinks {
 
 export interface QuizStatisticsQuestionStatistics {
   responses: number;
-  answers: null;
+  answers: any;
 }
 
 export interface QuizStatisticsSubmissionStatistics {
@@ -2244,8 +2224,8 @@ export interface EventData {
 export interface QuizSubmissionQuestion {
   id: number;
   flagged: boolean;
-  answer: null;
-  answers: null;
+  answer: any;
+  answers: any;
 }
 
 export interface QuizSubmissionUserList {
@@ -2263,22 +2243,22 @@ export interface QuizSubmissionUserListMeta {
 }
 
 export interface QuizUserConversation {
-  body: Body;
+  body:       Body;
   recipients: Body;
-  subject: Body;
+  subject:    Body;
 }
 
 export interface Body {
-  type: string;
+  type:        string;
   description: string;
-  example: string;
+  example:     string;
 }
 
 export interface Report {
   id: number;
   report: string;
   file_url: string;
-  attachment: null;
+  attachment: any;
   status: string;
   created_at: Date;
   started_at: Date;
@@ -2320,7 +2300,7 @@ export interface Result {
   userId: string;
   resultScore: number;
   resultMaximum: number;
-  comment: null;
+  comment: any;
   scoreOf: string;
 }
 
@@ -2382,9 +2362,9 @@ export interface Rubric {
   read_only: boolean;
   free_form_criterion_comments: boolean;
   hide_score_total: boolean;
-  data: null;
-  assessments: null;
-  associations: null;
+  data: any;
+  assessments: any;
+  associations: any;
 }
 
 export interface RubricAssessment {
@@ -2397,8 +2377,8 @@ export interface RubricAssessment {
   artifact_attempt: number;
   assessment_type: string;
   assessor_id: number;
-  data: null;
-  comments: null;
+  data: any;
+  comments: any;
 }
 
 export interface RubricAssociation {
@@ -2422,24 +2402,24 @@ export interface RubricCriteria {
   description: string;
   long_description: string;
   criterion_use_range: boolean;
-  ratings: null;
+  ratings: any;
   ignore_for_scoring: boolean;
 }
 
 export interface RubricCriterion {
   id: string;
-  description: null;
-  long_description: null;
+  description: any;
+  long_description: any;
   points: number;
   criterion_use_range: boolean;
-  ratings: null;
+  ratings: any;
 }
 
 export interface RubricRating {
   id: string;
   criterion_id: string;
-  description: null;
-  long_description: null;
+  description: any;
+  long_description: any;
   points: number;
 }
 
@@ -2463,7 +2443,7 @@ export interface Score {
   userId: string;
   scoreGiven: number;
   scoreMaximum: number;
-  comment: null;
+  comment: any;
   timestamp: Date;
   activityProgress: string;
   gradingProgress: string;
@@ -2487,9 +2467,9 @@ export interface Section {
   course_id: number;
   sis_course_id: string;
   start_at: Date;
-  end_at: null;
-  restrict_enrollments_to_section_dates: null;
-  nonxlist_course_id: null;
+  end_at: any;
+  restrict_enrollments_to_section_dates: any;
+  nonxlist_course_id: any;
   total_students: number;
 }
 
@@ -2498,9 +2478,9 @@ export interface SectionAttributes {
   name: string;
   sis_id: string;
   integration_id: string;
-  origin_course: null;
-  xlist_course: null;
-  override: null;
+  origin_course: any;
+  xlist_course: any;
+  override: any;
 }
 
 export interface SharedBrandConfig {
@@ -2525,9 +2505,9 @@ export interface SisAssignment {
   integration_id: string;
   integration_data: string;
   include_in_final_grade: boolean;
-  assignment_group: null;
-  sections: null;
-  user_overrides: null;
+  assignment_group: any;
+  sections: any;
+  user_overrides: any;
 }
 
 export interface SisImport {
@@ -2536,11 +2516,11 @@ export interface SisImport {
   ended_at: Date;
   updated_at: Date;
   workflow_state: string;
-  data: null;
-  statistics: null;
+  data: any;
+  statistics: any;
   progress: string;
-  errors_attachment: null;
-  user: null;
+  errors_attachment: any;
+  user: any;
   processing_warnings: Array<string[]>;
   processing_errors: Array<string[]>;
   batch_mode: boolean;
@@ -2560,7 +2540,7 @@ export interface SisImport {
 export interface SisImportData {
   import_type: string;
   supplied_batches: string[];
-  counts: null;
+  counts: any;
 }
 
 export interface SisImportError {
@@ -2592,11 +2572,11 @@ export interface Submission {
   body: string;
   submission_type: string;
   submitted_at: Date;
-  url: null;
+  url: any;
   user_id: number;
   eula_agreement_timestamp: string;
   workflow_state: string;
-  attachments: null;
+  attachments: any;
 }
 
 export interface SubmissionComment {
@@ -2607,12 +2587,12 @@ export interface SubmissionComment {
   comment: string;
   created_at: Date;
   edited_at: Date;
-  media_comment: null;
+  media_comment: any;
 }
 
 export interface SubmissionHistory {
   submission_id: number;
-  versions: null;
+  versions: any;
 }
 
 export interface SubmissionVersion {
@@ -2636,7 +2616,7 @@ export interface SubmissionVersion {
   score: number;
   user_name: string;
   submission_type: string;
-  url: null;
+  url: any;
   user_id: number;
   workflow_state: string;
 }
@@ -2705,7 +2685,7 @@ export interface User {
   login_id: string;
   avatar_url: string;
   avatar_state: string;
-  enrollments: null;
+  enrollments: any;
   email: string;
   locale: string;
   last_login: Date;
@@ -2722,7 +2702,7 @@ export interface EPortfolio {
   updated_at: Date;
   workflow_state: string;
   deleted_at: Date;
-  spam_status: null;
+  spam_status: any;
 }
 
 export interface EPortfolioPage {
@@ -4476,10 +4456,10 @@ function transform(val: any, typ: any, getProps: any, key: any = ''): any {
     return typ.hasOwnProperty('unionMembers')
       ? transformUnion(typ.unionMembers, val)
       : typ.hasOwnProperty('arrayItems')
-      ? transformArray(typ.arrayItems, val)
-      : typ.hasOwnProperty('props')
-      ? transformObject(getProps(typ), typ.additional, val)
-      : invalidValue(typ, val);
+        ? transformArray(typ.arrayItems, val)
+        : typ.hasOwnProperty('props')
+          ? transformObject(getProps(typ), typ.additional, val)
+          : invalidValue(typ, val);
   }
   // Numbers can be parsed by Date but shouldn't be.
   if (typ === Date && typeof val !== 'number') return transformDate(val);
@@ -4581,11 +4561,7 @@ const typeMap: any = {
       { json: 'text_after_answers', js: 'text_after_answers', typ: '' },
       { json: 'answer_match_left', js: 'answer_match_left', typ: '' },
       { json: 'answer_match_right', js: 'answer_match_right', typ: '' },
-      {
-        json: 'matching_answer_incorrect_matches',
-        js: 'matching_answer_incorrect_matches',
-        typ: '',
-      },
+      { json: 'matching_answer_incorrect_matches', js: 'matching_answer_incorrect_matches', typ: '' },
       { json: 'numerical_answer_type', js: 'numerical_answer_type', typ: '' },
       { json: 'exact', js: 'exact', typ: 0 },
       { json: 'margin', js: 'margin', typ: 0 },
@@ -4666,11 +4642,7 @@ const typeMap: any = {
       { json: 'turnitin_enabled', js: 'turnitin_enabled', typ: true },
       { json: 'vericite_enabled', js: 'vericite_enabled', typ: true },
       { json: 'turnitin_settings', js: 'turnitin_settings', typ: null },
-      {
-        json: 'grade_group_students_individually',
-        js: 'grade_group_students_individually',
-        typ: true,
-      },
+      { json: 'grade_group_students_individually', js: 'grade_group_students_individually', typ: true },
       { json: 'external_tool_tag_attributes', js: 'external_tool_tag_attributes', typ: null },
       { json: 'peer_reviews', js: 'peer_reviews', typ: true },
       { json: 'automatic_peer_reviews', js: 'automatic_peer_reviews', typ: true },
@@ -4679,11 +4651,7 @@ const typeMap: any = {
       { json: 'intra_group_peer_reviews', js: 'intra_group_peer_reviews', typ: true },
       { json: 'group_category_id', js: 'group_category_id', typ: 0 },
       { json: 'needs_grading_count', js: 'needs_grading_count', typ: 0 },
-      {
-        json: 'needs_grading_count_by_section',
-        js: 'needs_grading_count_by_section',
-        typ: a(r('NeedsGradingCount')),
-      },
+      { json: 'needs_grading_count_by_section', js: 'needs_grading_count_by_section', typ: a(r('NeedsGradingCount')) },
       { json: 'position', js: 'position', typ: 0 },
       { json: 'post_to_sis', js: 'post_to_sis', typ: true },
       { json: 'integration_id', js: 'integration_id', typ: '' },
@@ -4715,17 +4683,9 @@ const typeMap: any = {
       { json: 'moderated_grading', js: 'moderated_grading', typ: true },
       { json: 'grader_count', js: 'grader_count', typ: 0 },
       { json: 'final_grader_id', js: 'final_grader_id', typ: 0 },
-      {
-        json: 'grader_comments_visible_to_graders',
-        js: 'grader_comments_visible_to_graders',
-        typ: true,
-      },
+      { json: 'grader_comments_visible_to_graders', js: 'grader_comments_visible_to_graders', typ: true },
       { json: 'graders_anonymous_to_graders', js: 'graders_anonymous_to_graders', typ: true },
-      {
-        json: 'grader_names_visible_to_final_grader',
-        js: 'grader_names_visible_to_final_grader',
-        typ: true,
-      },
+      { json: 'grader_names_visible_to_final_grader', js: 'grader_names_visible_to_final_grader', typ: true },
       { json: 'anonymous_grading', js: 'anonymous_grading', typ: true },
       { json: 'allowed_attempts', js: 'allowed_attempts', typ: 0 },
       { json: 'post_manually', js: 'post_manually', typ: true },
@@ -5264,20 +5224,12 @@ const typeMap: any = {
       { json: 'allow_student_forum_attachments', js: 'allow_student_forum_attachments', typ: true },
       { json: 'open_enrollment', js: 'open_enrollment', typ: true },
       { json: 'self_enrollment', js: 'self_enrollment', typ: true },
-      {
-        json: 'restrict_enrollments_to_course_dates',
-        js: 'restrict_enrollments_to_course_dates',
-        typ: true,
-      },
+      { json: 'restrict_enrollments_to_course_dates', js: 'restrict_enrollments_to_course_dates', typ: true },
       { json: 'course_format', js: 'course_format', typ: '' },
       { json: 'access_restricted_by_date', js: 'access_restricted_by_date', typ: true },
       { json: 'time_zone', js: 'time_zone', typ: '' },
       { json: 'blueprint', js: 'blueprint', typ: true },
-      {
-        json: 'blueprint_restrictions',
-        js: 'blueprint_restrictions',
-        typ: r('BlueprintRestriction'),
-      },
+      { json: 'blueprint_restrictions', js: 'blueprint_restrictions', typ: r('BlueprintRestriction') },
       {
         json: 'blueprint_restrictions_by_object_type',
         js: 'blueprint_restrictions_by_object_type',
@@ -5517,11 +5469,7 @@ const typeMap: any = {
       { json: 'sis_section_id', js: 'sis_section_id', typ: '' },
       { json: 'sis_user_id', js: 'sis_user_id', typ: '' },
       { json: 'enrollment_state', js: 'enrollment_state', typ: '' },
-      {
-        json: 'limit_privileges_to_course_section',
-        js: 'limit_privileges_to_course_section',
-        typ: true,
-      },
+      { json: 'limit_privileges_to_course_section', js: 'limit_privileges_to_course_section', typ: true },
       { json: 'sis_import_id', js: 'sis_import_id', typ: 0 },
       { json: 'root_account_id', js: 'root_account_id', typ: 0 },
       { json: 'type', js: 'type', typ: '' },
@@ -5546,35 +5494,15 @@ const typeMap: any = {
       { json: 'unposted_current_score', js: 'unposted_current_score', typ: '' },
       { json: 'unposted_final_score', js: 'unposted_final_score', typ: '' },
       { json: 'has_grading_periods', js: 'has_grading_periods', typ: true },
-      {
-        json: 'totals_for_all_grading_periods_option',
-        js: 'totals_for_all_grading_periods_option',
-        typ: true,
-      },
+      { json: 'totals_for_all_grading_periods_option', js: 'totals_for_all_grading_periods_option', typ: true },
       { json: 'current_grading_period_title', js: 'current_grading_period_title', typ: '' },
       { json: 'current_grading_period_id', js: 'current_grading_period_id', typ: 0 },
       { json: 'current_period_override_grade', js: 'current_period_override_grade', typ: '' },
       { json: 'current_period_override_score', js: 'current_period_override_score', typ: 3.14 },
-      {
-        json: 'current_period_unposted_current_score',
-        js: 'current_period_unposted_current_score',
-        typ: 3.14,
-      },
-      {
-        json: 'current_period_unposted_final_score',
-        js: 'current_period_unposted_final_score',
-        typ: 3.14,
-      },
-      {
-        json: 'current_period_unposted_current_grade',
-        js: 'current_period_unposted_current_grade',
-        typ: '',
-      },
-      {
-        json: 'current_period_unposted_final_grade',
-        js: 'current_period_unposted_final_grade',
-        typ: '',
-      },
+      { json: 'current_period_unposted_current_score', js: 'current_period_unposted_current_score', typ: 3.14 },
+      { json: 'current_period_unposted_final_score', js: 'current_period_unposted_final_score', typ: 3.14 },
+      { json: 'current_period_unposted_current_grade', js: 'current_period_unposted_current_grade', typ: '' },
+      { json: 'current_period_unposted_final_grade', js: 'current_period_unposted_final_grade', typ: '' },
     ],
     false,
   ),
@@ -5823,11 +5751,7 @@ const typeMap: any = {
     [
       { json: 'title', js: 'title', typ: '' },
       { json: 'weighted', js: 'weighted', typ: true },
-      {
-        json: 'display_totals_for_all_grading_periods',
-        js: 'display_totals_for_all_grading_periods',
-        typ: true,
-      },
+      { json: 'display_totals_for_all_grading_periods', js: 'display_totals_for_all_grading_periods', typ: true },
     ],
     false,
   ),
@@ -5986,24 +5910,12 @@ const typeMap: any = {
     [
       { json: 'id', js: 'id', typ: 0 },
       { json: 'course_id', js: 'course_id', typ: 0 },
-      {
-        json: 'missing_submission_deduction_enabled',
-        js: 'missing_submission_deduction_enabled',
-        typ: true,
-      },
+      { json: 'missing_submission_deduction_enabled', js: 'missing_submission_deduction_enabled', typ: true },
       { json: 'missing_submission_deduction', js: 'missing_submission_deduction', typ: 3.14 },
-      {
-        json: 'late_submission_deduction_enabled',
-        js: 'late_submission_deduction_enabled',
-        typ: true,
-      },
+      { json: 'late_submission_deduction_enabled', js: 'late_submission_deduction_enabled', typ: true },
       { json: 'late_submission_deduction', js: 'late_submission_deduction', typ: 3.14 },
       { json: 'late_submission_interval', js: 'late_submission_interval', typ: '' },
-      {
-        json: 'late_submission_minimum_percent_enabled',
-        js: 'late_submission_minimum_percent_enabled',
-        typ: true,
-      },
+      { json: 'late_submission_minimum_percent_enabled', js: 'late_submission_minimum_percent_enabled', typ: true },
       { json: 'late_submission_minimum_percent', js: 'late_submission_minimum_percent', typ: 3.14 },
       { json: 'created_at', js: 'created_at', typ: Date },
       { json: 'updated_at', js: 'updated_at', typ: Date },
@@ -6187,16 +6099,8 @@ const typeMap: any = {
       { json: 'page_url', js: 'page_url', typ: '' },
       { json: 'external_url', js: 'external_url', typ: '' },
       { json: 'new_tab', js: 'new_tab', typ: true },
-      {
-        json: 'completion_requirement',
-        js: 'completion_requirement',
-        typ: r('CompletionRequirement'),
-      },
-      {
-        json: 'content_details',
-        js: 'content_details',
-        typ: r('SectionAssignmentOverrideAttributes'),
-      },
+      { json: 'completion_requirement', js: 'completion_requirement', typ: r('CompletionRequirement') },
+      { json: 'content_details', js: 'content_details', typ: r('SectionAssignmentOverrideAttributes') },
       { json: 'published', js: 'published', typ: true },
     ],
     false,
@@ -6296,11 +6200,7 @@ const typeMap: any = {
         typ: '',
       },
       { json: 'locale', js: 'locale', typ: '' },
-      {
-        json: 'https://www.instructure.com/canvas_user_id',
-        js: 'https://www.instructure.com/canvas_user_id',
-        typ: 0,
-      },
+      { json: 'https://www.instructure.com/canvas_user_id', js: 'https://www.instructure.com/canvas_user_id', typ: 0 },
       {
         json: 'https://www.instructure.com/canvas_user_login_id',
         js: 'https://www.instructure.com/canvas_user_login_id',
@@ -6697,11 +6597,7 @@ const typeMap: any = {
       { json: 'provisional_grade_id', js: 'provisional_grade_id', typ: 0 },
       { json: 'score', js: 'score', typ: 0 },
       { json: 'grade', js: 'grade', typ: '' },
-      {
-        json: 'grade_matches_current_submission',
-        js: 'grade_matches_current_submission',
-        typ: true,
-      },
+      { json: 'grade_matches_current_submission', js: 'grade_matches_current_submission', typ: true },
       { json: 'graded_at', js: 'graded_at', typ: Date },
       { json: 'final', js: 'final', typ: true },
       { json: 'speedgrader_url', js: 'speedgrader_url', typ: '' },
@@ -6722,11 +6618,7 @@ const typeMap: any = {
       { json: 'shuffle_answers', js: 'shuffle_answers', typ: true },
       { json: 'hide_results', js: 'hide_results', typ: '' },
       { json: 'show_correct_answers', js: 'show_correct_answers', typ: true },
-      {
-        json: 'show_correct_answers_last_attempt',
-        js: 'show_correct_answers_last_attempt',
-        typ: true,
-      },
+      { json: 'show_correct_answers_last_attempt', js: 'show_correct_answers_last_attempt', typ: true },
       { json: 'show_correct_answers_at', js: 'show_correct_answers_at', typ: Date },
       { json: 'hide_correct_answers_at', js: 'hide_correct_answers_at', typ: Date },
       { json: 'one_time_results', js: 'one_time_results', typ: true },
@@ -7201,11 +7093,7 @@ const typeMap: any = {
       { json: 'sis_course_id', js: 'sis_course_id', typ: '' },
       { json: 'start_at', js: 'start_at', typ: Date },
       { json: 'end_at', js: 'end_at', typ: null },
-      {
-        json: 'restrict_enrollments_to_section_dates',
-        js: 'restrict_enrollments_to_section_dates',
-        typ: null,
-      },
+      { json: 'restrict_enrollments_to_section_dates', js: 'restrict_enrollments_to_section_dates', typ: null },
       { json: 'nonxlist_course_id', js: 'nonxlist_course_id', typ: null },
       { json: 'total_students', js: 'total_students', typ: 0 },
     ],
@@ -7363,11 +7251,7 @@ const typeMap: any = {
       { json: 'current_grade', js: 'current_grade', typ: '' },
       { json: 'current_graded_at', js: 'current_graded_at', typ: Date },
       { json: 'current_grader', js: 'current_grader', typ: '' },
-      {
-        json: 'grade_matches_current_submission',
-        js: 'grade_matches_current_submission',
-        typ: true,
-      },
+      { json: 'grade_matches_current_submission', js: 'grade_matches_current_submission', typ: true },
       { json: 'graded_at', js: 'graded_at', typ: Date },
       { json: 'grader', js: 'grader', typ: '' },
       { json: 'grader_id', js: 'grader_id', typ: 0 },

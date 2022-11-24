@@ -69,7 +69,7 @@ def create_params_and_route(tag: PageElement) -> Route:
   if routeName is not None:
     routeName = routeName.a.string.strip()
   else:
-    routeName = "FUCK ROUTE NAME"
+    routeName = "NoRouteName"
 
   routeNameList = convert_to_func_name(routeName)
   routeName = ''.join(routeNameList)
@@ -79,7 +79,7 @@ def create_params_and_route(tag: PageElement) -> Route:
   if thing is not None:
     method, endpoint = thing.string.strip().split()
   else:
-    method, endpoint = "FUCK METHOD", "FUCK ENDPOINT"
+    method, endpoint = "NoMethod", "NoEndpoint"
 
   endpoint = endpoint.replace("api/v1/", "")
 
@@ -121,6 +121,8 @@ def create_interface(route: Route, interfaceName: str):
   names = []
   typeDict = {
     "integer": "number",
+    # some strings are String, so let's make sure it's lowercase
+    "string": "string",
     "datetime": "Date",
     "date": "Date",
     "float": "number",
@@ -129,8 +131,9 @@ def create_interface(route: Route, interfaceName: str):
     "array": "any[]",
     "hash": "any",
     "serializedhash": "any",
-    "json": "any",
+    "json": "object",
     "numeric": "number",
+    "object": "object",
   }
 
   for param in route.params:
@@ -146,8 +149,7 @@ def create_interface(route: Route, interfaceName: str):
         type = typeDict[removedBrackets]
       type = f'{type}[]'
     else:
-      type = typeDict[param.type.lower()] if param.type.lower(
-      ) in typeDict else param.type
+      type = typeDict[param.type.lower()] if param.type.lower() in typeDict else param.type
 
     if name[-1] == ']' and name[-2] == '[':
       name = name[:-2]
@@ -166,7 +168,7 @@ def create_interface(route: Route, interfaceName: str):
       continue
 
     interface += f'  /**\n{format_description(param.description)} */\n'
-    interface += f'  {name}: {type};\n'
+    interface += f'  {name}?: {type};\n'
     names.append(name)
 
   interface += '}\n\n'
@@ -217,21 +219,30 @@ export class {className} extends BaseApi {{
 
 def create_function(route: Route) -> str:
   method = route.method.lower()
-  funcParams = parse_route_parameters(route.route)
-  params = f'params: {route.paramName}' if len(route.params) > 0 else ''
+  params = parse_route_parameters(route.route)
+  paramSet = False
+  
+  if len(route.params) > 0:
+    params.append(f"params?: {route.paramName}")
+    paramSet = True
+
+  params.append('body?: any')
   
   routeWithParams = replace_route_params(route.route)
-  requestParams = '' if params == '' else f', params'
 
-  if len(params) > 0 and len(funcParams) > 0:
-    funcParams += ' '
-  elif len(params) == 0 and len(funcParams) > 0:
-    funcParams = funcParams[:-1]
-  funcParams = funcParams + params
+  paramsSetter = '''if (params !== undefined) {
+  for (const [key, value] of Object.entries(params)) {
+    url.searchParams.set(key, JSON.stringify(value));
+  }
+}'''
 
-  function = f'''public async {route.funcName}({funcParams}): Promise<{route.returnType}> {{
-    const endpoint = `{routeWithParams}`;
-    const response = await this.{method}(endpoint{requestParams});
+  joinParams = ', '.join(params)
+
+  function = f'''public async {route.funcName}({joinParams}): Promise<{route.returnType}> {{
+    const endpoint = `/api/v1{routeWithParams}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    {paramsSetter if paramSet else ''}
+    const response = await this.{method}(url, JSON.stringify(body));
     if (response.ok) {{
       return await response.json();
     }}
@@ -239,7 +250,8 @@ def create_function(route: Route) -> str:
     return Promise.reject(response);
   }}\n
 '''
-  # function = textwrap.indent(function, '  ')
+ 
+  function = textwrap.indent(function, '  ')
 
   return function
 
@@ -261,18 +273,18 @@ def replace_route_params(route: str):
   return '/'.join(routeWithParams)
 
 
-def parse_route_parameters(route: str):
+def parse_route_parameters(route: str) -> list[str]:
   chunks = route.split('/')
 
   if len(chunks) <= 2:
-    return ''
+    return []
 
   params = []
   for chunk in chunks:
     if chunk.startswith(':'):
-      params.append(chunk[1:])
+      params.append(f'{chunk[1:]}: string')
 
-  return ': string, '.join(params) + ': string,' if len(params) else ''
+  return params
 
 
 # stackoverflow: https://stackoverflow.com/questions/3173320/text-progress-bar-in-terminal-with-block-characters
@@ -321,13 +333,12 @@ def main():
       className = className.find('h1').string.replace('API', '').split()
       className = ''.join(className)
     else:
-      className = 'FUCK CLASS NAME'
+      className = 'NoWorkClass'
 
     routes = []
     for tag in tags:
       routes.append(create_params_and_route(tag))
 
-    
     # write output of create_class to file
     with open(f"../src/{className}.ts", "w") as f:
       f.write(create_class(className, routes))

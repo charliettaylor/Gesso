@@ -1,4 +1,5 @@
 # Gesso
-*A Node.js API client for Canvas LMS*
+
+_An ESM library for Canvas LMS_
 
 👷‍♂️🏗**UNDER CONSTRUCTION**👷‍♀️🔨
