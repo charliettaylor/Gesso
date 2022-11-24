@@ -36,7 +36,7 @@ export class Conversations extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Conversation[];
     }
 
     return Promise.reject(response);
@@ -55,7 +55,7 @@ export class Conversations extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -67,7 +67,7 @@ export class Conversations extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Conversation;
     }
 
     return Promise.reject(response);
@@ -87,7 +87,7 @@ export class Conversations extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Submission;
     }
 
     return Promise.reject(response);
@@ -107,7 +107,7 @@ export class Conversations extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -119,7 +119,7 @@ export class Conversations extends BaseApi {
 
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -131,7 +131,7 @@ export class Conversations extends BaseApi {
 
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -151,7 +151,7 @@ export class Conversations extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Admin;
     }
 
     return Promise.reject(response);
@@ -171,7 +171,7 @@ export class Conversations extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -191,7 +191,7 @@ export class Conversations extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -210,7 +210,7 @@ export class Conversations extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Progress;
     }
 
     return Promise.reject(response);
@@ -222,7 +222,7 @@ export class Conversations extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -234,7 +234,7 @@ export class Conversations extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);

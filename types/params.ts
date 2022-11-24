@@ -4,6 +4,7 @@ import {
   AssignmentOverride,
   BlueprintRestriction,
   QuizSubmissionQuestion,
+  QuizUserConversation,
   RubricAssessment,
 } from "./models.ts";
 

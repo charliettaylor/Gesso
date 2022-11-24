@@ -21,7 +21,7 @@ export class CommMessages extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as CommMessage[];
     }
 
     return Promise.reject(response);

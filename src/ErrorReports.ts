@@ -21,7 +21,7 @@ export class ErrorReports extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Report;
     }
 
     return Promise.reject(response);

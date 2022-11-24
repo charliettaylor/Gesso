@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-import { LatePolicy, Scope } from "../types/models.ts";
+import { LatePolicy as LatePolicyModel, Scope } from "../types/models.ts";
 import {
   CreateLatePolicyParams,
   PatchLatePolicyParams,
@@ -11,13 +11,16 @@ export class LatePolicy extends BaseApi {
     super(config);
   }
 
-  public async getLatePolicy(id: string, body?: unknown): Promise<LatePolicy> {
+  public async getLatePolicy(
+    id: string,
+    body?: unknown,
+  ): Promise<LatePolicyModel> {
     const endpoint = `/api/v1/courses/${id}/late_policy`;
     const url = new URL(endpoint, this.configuration.domain);
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as LatePolicyModel;
     }
 
     return Promise.reject(response);
@@ -37,7 +40,7 @@ export class LatePolicy extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -57,7 +60,7 @@ export class LatePolicy extends BaseApi {
     }
     const response = await this.patch(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);

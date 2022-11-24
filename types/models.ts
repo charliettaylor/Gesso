@@ -725,6 +725,20 @@ export interface ContentDetails {
   lock_info: LockInfoClass;
 }
 
+export interface ContentExport {
+  id: number;
+  created_at: Date;
+  export_type: string;
+  attachment: Attachment;
+  progress_url: string;
+  user_id: number;
+  workflow_state: string;
+}
+
+export interface Attachment {
+  url: string;
+}
+
 export interface LockInfoClass {
   asset_string: string;
   unlock_at: Date;
@@ -740,10 +754,6 @@ export interface EpubExport {
   progress_url: string;
   user_id: number;
   workflow_state: string;
-}
-
-export interface Attachment {
-  url: string;
 }
 
 export interface ContentMigration {
@@ -1423,6 +1433,10 @@ export interface HistoryEntry {
   visited_url: string;
   visited_at: Date;
   interaction_seconds: number;
+}
+
+export interface InstAccessToken {
+  token: string;
 }
 
 export interface Jwt {

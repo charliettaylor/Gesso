@@ -26,7 +26,7 @@ export class AccountNotifications extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as AccountNotification[];
     }
 
     return Promise.reject(response);
@@ -43,7 +43,7 @@ export class AccountNotifications extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as AccountNotification;
     }
 
     return Promise.reject(response);
@@ -60,7 +60,7 @@ export class AccountNotifications extends BaseApi {
 
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as AccountNotification;
     }
 
     return Promise.reject(response);
@@ -80,7 +80,7 @@ export class AccountNotifications extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as AccountNotification;
     }
 
     return Promise.reject(response);
@@ -102,7 +102,7 @@ export class AccountNotifications extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as AccountNotification;
     }
 
     return Promise.reject(response);

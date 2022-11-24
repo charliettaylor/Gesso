@@ -17,7 +17,7 @@ export class Conferences extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Conference[];
     }
 
     return Promise.reject(response);
@@ -36,7 +36,7 @@ export class Conferences extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Conference[];
     }
 
     return Promise.reject(response);

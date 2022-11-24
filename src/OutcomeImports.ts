@@ -15,17 +15,16 @@ export class OutcomeImports extends BaseApi {
     body?: unknown,
   ): Promise<OutcomeImport> {
     const endpoint =
-      `/api/v1/accounts/${account_id}/outcome_imports(/group/${learning_outcome_group_id})`;
+      `/api/v1/accounts/${account_id}/outcome_imports/group/${learning_outcome_group_id})`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
         url.searchParams.set(key, JSON.stringify(value));
       }
     }
-
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as OutcomeImport;
     }
 
     return Promise.reject(response);
@@ -38,17 +37,16 @@ export class OutcomeImports extends BaseApi {
     body?: unknown,
   ): Promise<OutcomeImport> {
     const endpoint =
-      `/api/v1/accounts/${course_id}/outcome_imports(/group/${learning_outcome_group_id})`;
+      `/api/v1/accounts/${course_id}/outcome_imports/group/${learning_outcome_group_id})`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
         url.searchParams.set(key, JSON.stringify(value));
       }
     }
-
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as OutcomeImport;
     }
 
     return Promise.reject(response);
@@ -64,7 +62,7 @@ export class OutcomeImports extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as OutcomeImport;
     }
 
     return Promise.reject(response);
@@ -81,7 +79,7 @@ export class OutcomeImports extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);

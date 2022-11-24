@@ -22,7 +22,7 @@ export class SharedBrandConfigs extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as SharedBrandConfig;
     }
 
     return Promise.reject(response);
@@ -39,7 +39,7 @@ export class SharedBrandConfigs extends BaseApi {
 
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as SharedBrandConfig;
     }
 
     return Promise.reject(response);
@@ -54,7 +54,7 @@ export class SharedBrandConfigs extends BaseApi {
 
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as SharedBrandConfig;
     }
 
     return Promise.reject(response);

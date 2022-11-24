@@ -7,25 +7,31 @@ export class Progress extends BaseApi {
     super(config);
   }
 
-  public async queryProgress(id: string, body?: unknown): Promise<ProgressModel> {
+  public async queryProgress(
+    id: string,
+    body?: unknown,
+  ): Promise<ProgressModel> {
     const endpoint = `/api/v1/progress/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as ProgressModel;
     }
 
     return Promise.reject(response);
   }
 
-  public async cancelProgress(id: string, body?: unknown): Promise<ProgressModel> {
+  public async cancelProgress(
+    id: string,
+    body?: unknown,
+  ): Promise<ProgressModel> {
     const endpoint = `/api/v1/progress/${id}/cancel`;
     const url = new URL(endpoint, this.configuration.domain);
 
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as ProgressModel;
     }
 
     return Promise.reject(response);
@@ -41,7 +47,7 @@ export class Progress extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as ProgressModel;
     }
 
     return Promise.reject(response);

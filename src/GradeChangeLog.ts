@@ -28,7 +28,7 @@ export class GradeChangeLog extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Grade[];
     }
 
     return Promise.reject(response);
@@ -48,7 +48,7 @@ export class GradeChangeLog extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Grade[];
     }
 
     return Promise.reject(response);
@@ -68,7 +68,7 @@ export class GradeChangeLog extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Grade[];
     }
 
     return Promise.reject(response);
@@ -88,7 +88,7 @@ export class GradeChangeLog extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Grade[];
     }
 
     return Promise.reject(response);
@@ -107,7 +107,7 @@ export class GradeChangeLog extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Grade[];
     }
 
     return Promise.reject(response);

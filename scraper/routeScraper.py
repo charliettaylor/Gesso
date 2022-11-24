@@ -244,7 +244,7 @@ def create_function(route: Route) -> str:
     {paramsSetter if paramSet else ''}
     const response = await this.{method}(url, JSON.stringify(body));
     if (response.ok) {{
-      return await response.json();
+      return await response.json() as {route.returnType};
     }}
 
     return Promise.reject(response);

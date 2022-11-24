@@ -17,7 +17,7 @@ export class CommunicationChannels extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as CommunicationChannel[];
     }
 
     return Promise.reject(response);
@@ -37,7 +37,7 @@ export class CommunicationChannels extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as CommunicationChannel;
     }
 
     return Promise.reject(response);
@@ -53,7 +53,7 @@ export class CommunicationChannels extends BaseApi {
 
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as CommunicationChannel;
     }
 
     return Promise.reject(response);
@@ -65,7 +65,7 @@ export class CommunicationChannels extends BaseApi {
 
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);

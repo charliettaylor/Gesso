@@ -22,7 +22,7 @@ export class PlagiarismDetectionPlatformAssignments extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Assignment;
     }
 
     return Promise.reject(response);

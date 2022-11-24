@@ -32,7 +32,7 @@ export class GradebookHistory extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Day[];
     }
 
     return Promise.reject(response);
@@ -53,7 +53,7 @@ export class GradebookHistory extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Grade[];
     }
 
     return Promise.reject(response);
@@ -77,7 +77,7 @@ export class GradebookHistory extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as SubmissionHistory[];
     }
 
     return Promise.reject(response);
@@ -97,7 +97,7 @@ export class GradebookHistory extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as SubmissionVersion[];
     }
 
     return Promise.reject(response);

@@ -21,7 +21,7 @@ export class PublicJWK extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as DeveloperKey;
     }
 
     return Promise.reject(response);

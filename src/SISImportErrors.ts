@@ -23,7 +23,7 @@ export class SISImportErrors extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as SisImportError[];
     }
 
     return Promise.reject(response);

@@ -28,7 +28,7 @@ export class Analytics extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Course;
     }
 
     return Promise.reject(response);
@@ -45,7 +45,7 @@ export class Analytics extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Grade;
     }
 
     return Promise.reject(response);
@@ -62,7 +62,7 @@ export class Analytics extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as unknown;
     }
 
     return Promise.reject(response);
@@ -79,7 +79,7 @@ export class Analytics extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as unknown;
     }
 
     return Promise.reject(response);
@@ -94,7 +94,7 @@ export class Analytics extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Page;
     }
 
     return Promise.reject(response);
@@ -114,7 +114,7 @@ export class Analytics extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Assignment[];
     }
 
     return Promise.reject(response);
@@ -134,7 +134,7 @@ export class Analytics extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as unknown;
     }
 
     return Promise.reject(response);
@@ -151,7 +151,7 @@ export class Analytics extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as unknown;
     }
 
     return Promise.reject(response);
@@ -168,7 +168,7 @@ export class Analytics extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Assignment[];
     }
 
     return Promise.reject(response);
@@ -185,7 +185,7 @@ export class Analytics extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Conversation;
     }
 
     return Promise.reject(response);

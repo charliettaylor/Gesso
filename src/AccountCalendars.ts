@@ -25,7 +25,7 @@ export class AccountCalendars extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as AccountCalendar[];
     }
 
     return Promise.reject(response);
@@ -40,7 +40,7 @@ export class AccountCalendars extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as AccountCalendar;
     }
 
     return Promise.reject(response);
@@ -60,7 +60,7 @@ export class AccountCalendars extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as AccountCalendar;
     }
 
     return Promise.reject(response);
@@ -75,7 +75,7 @@ export class AccountCalendars extends BaseApi {
 
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as AccountCalendar;
     }
 
     return Promise.reject(response);
@@ -95,7 +95,7 @@ export class AccountCalendars extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as AccountCalendar[];
     }
 
     return Promise.reject(response);
@@ -110,7 +110,7 @@ export class AccountCalendars extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as unknown;
     }
 
     return Promise.reject(response);

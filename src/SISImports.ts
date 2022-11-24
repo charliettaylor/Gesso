@@ -26,7 +26,7 @@ export class SISImports extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as SisImport[];
     }
 
     return Promise.reject(response);
@@ -41,7 +41,7 @@ export class SISImports extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as SisImport;
     }
 
     return Promise.reject(response);
@@ -61,7 +61,7 @@ export class SISImports extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as SisImport;
     }
 
     return Promise.reject(response);
@@ -77,7 +77,7 @@ export class SISImports extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as SisImport;
     }
 
     return Promise.reject(response);
@@ -99,7 +99,7 @@ export class SISImports extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Progress;
     }
 
     return Promise.reject(response);
@@ -115,7 +115,7 @@ export class SISImports extends BaseApi {
 
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as SisImport;
     }
 
     return Promise.reject(response);
@@ -131,7 +131,7 @@ export class SISImports extends BaseApi {
 
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);

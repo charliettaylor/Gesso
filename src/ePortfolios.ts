@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-import { ePortfolio, Scope } from "../types/models.ts";
+import { EPortfolio, Scope } from "../types/models.ts";
 import {
   GetAllEportfoliosForUserParams,
   ModerateAllEportfoliosForUserParams,
@@ -16,7 +16,7 @@ export class ePortfolios extends BaseApi {
     user_id: string,
     params?: GetAllEportfoliosForUserParams,
     body?: unknown,
-  ): Promise<ePortfolio[]> {
+  ): Promise<EPortfolio[]> {
     const endpoint = `/api/v1/users/${user_id}/eportfolios`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -26,7 +26,7 @@ export class ePortfolios extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as EPortfolio[];
     }
 
     return Promise.reject(response);
@@ -35,13 +35,13 @@ export class ePortfolios extends BaseApi {
   public async getAnEportfolio(
     id: string,
     body?: unknown,
-  ): Promise<ePortfolio> {
+  ): Promise<EPortfolio> {
     const endpoint = `/api/v1/eportfolios/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as EPortfolio;
     }
 
     return Promise.reject(response);
@@ -50,13 +50,13 @@ export class ePortfolios extends BaseApi {
   public async deleteAnEportfolio(
     id: string,
     body?: unknown,
-  ): Promise<ePortfolio> {
+  ): Promise<EPortfolio> {
     const endpoint = `/api/v1/eportfolios/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as EPortfolio;
     }
 
     return Promise.reject(response);
@@ -65,13 +65,13 @@ export class ePortfolios extends BaseApi {
   public async getEportfolioPages(
     eportfolio_id: string,
     body?: unknown,
-  ): Promise<ePortfolio[]> {
+  ): Promise<EPortfolio[]> {
     const endpoint = `/api/v1/eportfolios/${eportfolio_id}/pages`;
     const url = new URL(endpoint, this.configuration.domain);
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as EPortfolio[];
     }
 
     return Promise.reject(response);
@@ -81,7 +81,7 @@ export class ePortfolios extends BaseApi {
     eportfolio_id: string,
     params?: ModerateAnEportfolioParams,
     body?: unknown,
-  ): Promise<ePortfolio> {
+  ): Promise<EPortfolio> {
     const endpoint = `/api/v1/eportfolios/${eportfolio_id}/moderate`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -91,7 +91,7 @@ export class ePortfolios extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as EPortfolio;
     }
 
     return Promise.reject(response);
@@ -111,7 +111,7 @@ export class ePortfolios extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -120,13 +120,13 @@ export class ePortfolios extends BaseApi {
   public async restoreDeletedEportfolio(
     eportfolio_id: string,
     body?: unknown,
-  ): Promise<ePortfolio> {
+  ): Promise<EPortfolio> {
     const endpoint = `/api/v1/eportfolios/${eportfolio_id}/restore`;
     const url = new URL(endpoint, this.configuration.domain);
 
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as EPortfolio;
     }
 
     return Promise.reject(response);

@@ -22,7 +22,7 @@ export class CourseAuditlog extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as CourseEvent[];
     }
 
     return Promise.reject(response);
@@ -42,7 +42,7 @@ export class CourseAuditlog extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as CourseEvent[];
     }
 
     return Promise.reject(response);

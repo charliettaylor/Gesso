@@ -13,7 +13,7 @@ export class InstAccesstokens extends BaseApi {
 
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as InstAccessToken;
     }
 
     return Promise.reject(response);

@@ -17,7 +17,7 @@ export class Collaborations extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Collaboration[];
     }
 
     return Promise.reject(response);
@@ -37,7 +37,7 @@ export class Collaborations extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Collaborator[];
     }
 
     return Promise.reject(response);
@@ -52,7 +52,7 @@ export class Collaborations extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as User[];
     }
 
     return Promise.reject(response);

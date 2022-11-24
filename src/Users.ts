@@ -49,7 +49,7 @@ export class Users extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as User[];
     }
 
     return Promise.reject(response);
@@ -68,7 +68,7 @@ export class Users extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Assignment;
     }
 
     return Promise.reject(response);
@@ -80,7 +80,7 @@ export class Users extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Conversation;
     }
 
     return Promise.reject(response);
@@ -99,7 +99,7 @@ export class Users extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -118,7 +118,7 @@ export class Users extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -132,7 +132,7 @@ export class Users extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -152,7 +152,7 @@ export class Users extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Assignment[];
     }
 
     return Promise.reject(response);
@@ -164,7 +164,7 @@ export class Users extends BaseApi {
 
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -176,7 +176,7 @@ export class Users extends BaseApi {
 
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -188,7 +188,7 @@ export class Users extends BaseApi {
 
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -208,7 +208,7 @@ export class Users extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as User;
     }
 
     return Promise.reject(response);
@@ -228,7 +228,7 @@ export class Users extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as User;
     }
 
     return Promise.reject(response);
@@ -248,7 +248,7 @@ export class Users extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as User;
     }
 
     return Promise.reject(response);
@@ -268,7 +268,7 @@ export class Users extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -280,7 +280,7 @@ export class Users extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as unknown;
     }
 
     return Promise.reject(response);
@@ -296,7 +296,7 @@ export class Users extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as unknown;
     }
 
     return Promise.reject(response);
@@ -317,7 +317,7 @@ export class Users extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -332,7 +332,7 @@ export class Users extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as unknown;
     }
 
     return Promise.reject(response);
@@ -347,7 +347,7 @@ export class Users extends BaseApi {
 
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -367,7 +367,7 @@ export class Users extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as User;
     }
 
     return Promise.reject(response);
@@ -382,7 +382,7 @@ export class Users extends BaseApi {
 
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -398,7 +398,7 @@ export class Users extends BaseApi {
 
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as User;
     }
 
     return Promise.reject(response);
@@ -413,7 +413,7 @@ export class Users extends BaseApi {
 
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as User[];
     }
 
     return Promise.reject(response);
@@ -432,7 +432,7 @@ export class Users extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as unknown;
     }
 
     return Promise.reject(response);
@@ -447,7 +447,7 @@ export class Users extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -462,7 +462,7 @@ export class Users extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Profile;
     }
 
     return Promise.reject(response);
@@ -477,7 +477,7 @@ export class Users extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Avatar[];
     }
 
     return Promise.reject(response);
@@ -497,7 +497,7 @@ export class Users extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Page[];
     }
 
     return Promise.reject(response);
@@ -517,7 +517,7 @@ export class Users extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -537,7 +537,7 @@ export class Users extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -557,7 +557,7 @@ export class Users extends BaseApi {
     }
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -569,7 +569,7 @@ export class Users extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Course[];
     }
 
     return Promise.reject(response);
@@ -584,7 +584,7 @@ export class Users extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Course;
     }
 
     return Promise.reject(response);
@@ -604,7 +604,7 @@ export class Users extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Course;
     }
 
     return Promise.reject(response);
@@ -619,7 +619,7 @@ export class Users extends BaseApi {
 
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Course;
     }
 
     return Promise.reject(response);
@@ -631,7 +631,7 @@ export class Users extends BaseApi {
 
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);

@@ -25,7 +25,7 @@ export class Tabs extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Grade;
     }
 
     return Promise.reject(response);
@@ -46,7 +46,7 @@ export class Tabs extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Tab;
     }
 
     return Promise.reject(response);

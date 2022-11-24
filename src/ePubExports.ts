@@ -15,7 +15,7 @@ export class ePubExports extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Course[];
     }
 
     return Promise.reject(response);
@@ -30,7 +30,7 @@ export class ePubExports extends BaseApi {
 
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as EpubExport;
     }
 
     return Promise.reject(response);
@@ -46,7 +46,7 @@ export class ePubExports extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as EpubExport;
     }
 
     return Promise.reject(response);

@@ -25,7 +25,7 @@ export class NamesandRole extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as NamesAndRoleMembership;
     }
 
     return Promise.reject(response);
@@ -45,7 +45,7 @@ export class NamesandRole extends BaseApi {
     }
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as NamesAndRoleMembership;
     }
 
     return Promise.reject(response);

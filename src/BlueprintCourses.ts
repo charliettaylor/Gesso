@@ -30,7 +30,7 @@ export class BlueprintCourses extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as BlueprintTemplate;
     }
 
     return Promise.reject(response);
@@ -47,7 +47,7 @@ export class BlueprintCourses extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Course[];
     }
 
     return Promise.reject(response);
@@ -69,7 +69,7 @@ export class BlueprintCourses extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope[];
     }
 
     return Promise.reject(response);
@@ -91,7 +91,7 @@ export class BlueprintCourses extends BaseApi {
     }
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as BlueprintMigration;
     }
 
     return Promise.reject(response);
@@ -113,7 +113,7 @@ export class BlueprintCourses extends BaseApi {
     }
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as Scope;
     }
 
     return Promise.reject(response);
@@ -130,7 +130,7 @@ export class BlueprintCourses extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as ChangeRecord[];
     }
 
     return Promise.reject(response);
@@ -147,7 +147,7 @@ export class BlueprintCourses extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as BlueprintMigration[];
     }
 
     return Promise.reject(response);
@@ -165,7 +165,7 @@ export class BlueprintCourses extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as BlueprintMigration;
     }
 
     return Promise.reject(response);
@@ -183,7 +183,7 @@ export class BlueprintCourses extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as ChangeRecord[];
     }
 
     return Promise.reject(response);
@@ -198,7 +198,7 @@ export class BlueprintCourses extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as BlueprintSubscription[];
     }
 
     return Promise.reject(response);
@@ -215,7 +215,7 @@ export class BlueprintCourses extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as BlueprintMigration[];
     }
 
     return Promise.reject(response);
@@ -233,7 +233,7 @@ export class BlueprintCourses extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as BlueprintMigration;
     }
 
     return Promise.reject(response);
@@ -251,7 +251,7 @@ export class BlueprintCourses extends BaseApi {
 
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
-      return await response.json();
+      return await response.json() as ChangeRecord[];
     }
 
     return Promise.reject(response);
