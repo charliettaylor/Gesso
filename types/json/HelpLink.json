@@ -9,5 +9,12 @@
 
   "type": "default",
 
-  "available_to": ["user", "student", "teacher", "admin", "observer", "unenrolled"]
+  "available_to": [
+    "user",
+    "student",
+    "teacher",
+    "admin",
+    "observer",
+    "unenrolled"
+  ]
 }

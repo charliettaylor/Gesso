@@ -1,15 +1,18 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { CommMessage } from "../types/models.ts";
+import { ListOfCommmessagesForUserParams } from "../types/params.ts";
 
-import { ListOfCommmessagesForUserParams } from '../types/params';
-  
 export class CommMessages extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listOfCommmessagesForUser(params?: ListOfCommmessagesForUserParams, body?: any): Promise<any[]> {
-    const endpoint = '/api/v1/comm_messages';
+  public async listOfCommmessagesForUser(
+    params?: ListOfCommmessagesForUserParams,
+    body?: unknown,
+  ): Promise<CommMessage[]> {
+    const endpoint = "/api/v1/comm_messages";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -23,5 +26,4 @@ export class CommMessages extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

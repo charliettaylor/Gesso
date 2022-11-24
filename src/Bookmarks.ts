@@ -1,17 +1,17 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { Bookmark, Folder, Scope } from "../types/models.ts";
+import { CreateBookmarkParams, UpdateBookmarkParams } from "../types/params.ts";
 
-import { UpdateBookmarkParams, CreateBookmarkParams } from '../types/params';
-  
 export class Bookmarks extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listBookmarks(body?: any): Promise<any[]> {
-    const endpoint = '/api/v1/users/self/bookmarks';
+  public async listBookmarks(body?: unknown): Promise<Bookmark[]> {
+    const endpoint = "/api/v1/users/self/bookmarks";
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -20,8 +20,11 @@ export class Bookmarks extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createBookmark(params?: CreateBookmarkParams, body?: any): Promise<any> {
-    const endpoint = '/api/v1/users/self/bookmarks';
+  public async createBookmark(
+    params?: CreateBookmarkParams,
+    body?: unknown,
+  ): Promise<Bookmark> {
+    const endpoint = "/api/v1/users/self/bookmarks";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -36,10 +39,10 @@ export class Bookmarks extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getBookmark(id: string, body?: any): Promise<any> {
+  public async getBookmark(id: string, body?: unknown): Promise<Bookmark> {
     const endpoint = `/api/v1/users/self/bookmarks/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -48,7 +51,11 @@ export class Bookmarks extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateBookmark(id: string, params?: UpdateBookmarkParams, body?: any): Promise<any> {
+  public async updateBookmark(
+    id: string,
+    params?: UpdateBookmarkParams,
+    body?: unknown,
+  ): Promise<Folder> {
     const endpoint = `/api/v1/users/self/bookmarks/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -64,10 +71,10 @@ export class Bookmarks extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteBookmark(id: string, body?: any): Promise<any> {
+  public async deleteBookmark(id: string, body?: unknown): Promise<Scope> {
     const endpoint = `/api/v1/users/self/bookmarks/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -75,5 +82,4 @@ export class Bookmarks extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

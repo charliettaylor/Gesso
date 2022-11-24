@@ -1,14 +1,18 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { CourseEvent } from "../types/models.ts";
+import { QueryByAccountParams, QueryByCourseParams } from "../types/params.ts";
 
-import { QueryByCourseParams, QueryByAccountParams } from '../types/params';
-  
 export class CourseAuditlog extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async queryByCourse(course_id: string, params?: QueryByCourseParams, body?: any): Promise<any[]> {
+  public async queryByCourse(
+    course_id: string,
+    params?: QueryByCourseParams,
+    body?: unknown,
+  ): Promise<CourseEvent[]> {
     const endpoint = `/api/v1/audit/course/courses/${course_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,7 +28,11 @@ export class CourseAuditlog extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async queryByAccount(account_id: string, params?: QueryByAccountParams, body?: any): Promise<any[]> {
+  public async queryByAccount(
+    account_id: string,
+    params?: QueryByAccountParams,
+    body?: unknown,
+  ): Promise<CourseEvent[]> {
     const endpoint = `/api/v1/audit/course/accounts/${account_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -39,5 +47,4 @@ export class CourseAuditlog extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

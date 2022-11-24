@@ -1,14 +1,22 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { MediaObject, MediaTrack, Scope } from "../types/models.ts";
+import {
+  ListMediaObjectsParams,
+  ListMediaTracksForMediaObjectParams,
+  UpdateMediaTracksParams,
+} from "../types/params.ts";
 
-import { UpdateMediaTracksParams, ListMediaObjectsParams, ListMediaTracksForMediaObjectParams } from '../types/params';
-  
 export class MediaObjects extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listMediaTracksForMediaObject(media_object_id: string, params?: ListMediaTracksForMediaObjectParams, body?: any): Promise<any[]> {
+  public async listMediaTracksForMediaObject(
+    media_object_id: string,
+    params?: ListMediaTracksForMediaObjectParams,
+    body?: unknown,
+  ): Promise<MediaTrack[]> {
     const endpoint = `/api/v1/media_objects/${media_object_id}/media_tracks`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,7 +32,11 @@ export class MediaObjects extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateMediaTracks(media_object_id: string, params?: UpdateMediaTracksParams, body?: any): Promise<any> {
+  public async updateMediaTracks(
+    media_object_id: string,
+    params?: UpdateMediaTracksParams,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/media_objects/${media_object_id}/media_tracks`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -40,8 +52,11 @@ export class MediaObjects extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listMediaObjects(params?: ListMediaObjectsParams, body?: any): Promise<any[]> {
-    const endpoint = '/api/v1/media_objects';
+  public async listMediaObjects(
+    params?: ListMediaObjectsParams,
+    body?: unknown,
+  ): Promise<MediaObject[]> {
+    const endpoint = "/api/v1/media_objects";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -56,10 +71,13 @@ export class MediaObjects extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateMediaObject(media_object_id: string, body?: any): Promise<any> {
+  public async updateMediaObject(
+    media_object_id: string,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/media_objects/${media_object_id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -67,5 +85,4 @@ export class MediaObjects extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

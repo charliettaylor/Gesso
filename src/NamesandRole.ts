@@ -1,14 +1,21 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { NamesAndRoleMembership } from "../types/models.ts";
+import {
+  ListCourseMembershipsParams,
+  ListGroupMembershipsParams,
+} from "../types/params.ts";
 
-import { ListCourseMembershipsParams, ListGroupMembershipsParams } from '../types/params';
-  
 export class NamesandRole extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listCourseMemberships(course_id: string, params?: ListCourseMembershipsParams, body?: any): Promise<any> {
+  public async listCourseMemberships(
+    course_id: string,
+    params?: ListCourseMembershipsParams,
+    body?: unknown,
+  ): Promise<NamesAndRoleMembership> {
     const endpoint = `/api/v1/api/lti/courses/${course_id}/names_and_roles`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,7 +31,11 @@ export class NamesandRole extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listGroupMemberships(group_id: string, params?: ListGroupMembershipsParams, body?: any): Promise<any> {
+  public async listGroupMemberships(
+    group_id: string,
+    params?: ListGroupMembershipsParams,
+    body?: unknown,
+  ): Promise<NamesAndRoleMembership> {
     const endpoint = `/api/v1/api/lti/groups/${group_id}/names_and_roles`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -39,5 +50,4 @@ export class NamesandRole extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

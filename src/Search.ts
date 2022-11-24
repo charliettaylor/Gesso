@@ -1,15 +1,18 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { Scope } from "../types/models.ts";
+import { FindRecipientsParams, ListAllCoursesParams } from "../types/params.ts";
 
-import { ListAllCoursesParams, FindRecipientsParams } from '../types/params';
-  
 export class Search extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async findRecipients(params?: FindRecipientsParams, body?: any): Promise<any> {
-    const endpoint = '/api/v1/conversations/find_recipients';
+  public async findRecipients(
+    params?: FindRecipientsParams,
+    body?: unknown,
+  ): Promise<Scope> {
+    const endpoint = "/api/v1/conversations/find_recipients";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -24,8 +27,11 @@ export class Search extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listAllCourses(params?: ListAllCoursesParams, body?: any): Promise<any> {
-    const endpoint = '/api/v1/search/all_courses';
+  public async listAllCourses(
+    params?: ListAllCoursesParams,
+    body?: unknown,
+  ): Promise<Scope> {
+    const endpoint = "/api/v1/search/all_courses";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -39,5 +45,4 @@ export class Search extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

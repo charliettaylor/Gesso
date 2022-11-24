@@ -59,7 +59,12 @@
     "final_grade": null
   },
 
-  "user": { "id": 3, "name": "Student 1", "sortable_name": "1, Student", "short_name": "Stud 1" },
+  "user": {
+    "id": 3,
+    "name": "Student 1",
+    "sortable_name": "1, Student",
+    "short_name": "Stud 1"
+  },
 
   "override_grade": "A",
 

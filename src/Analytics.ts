@@ -1,17 +1,31 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import {
+  Assignment,
+  Conversation,
+  Course,
+  Grade,
+  Page,
+} from "../types/models.ts";
+import {
+  GetCourselevelAssignmentDataParams,
+  GetCourselevelStudentSummaryDataParams,
+} from "../types/params.ts";
 
-import { GetCourselevelStudentSummaryDataParams, GetCourselevelAssignmentDataParams } from '../types/params';
-  
 export class Analytics extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async getDepartmentlevelParticipationData(account_id: string, term_id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/accounts/${account_id}/analytics/terms/${term_id}/activity`;
+  public async getDepartmentlevelParticipationData(
+    account_id: string,
+    term_id: string,
+    body?: unknown,
+  ): Promise<Course> {
+    const endpoint =
+      `/api/v1/accounts/${account_id}/analytics/terms/${term_id}/activity`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -20,10 +34,15 @@ export class Analytics extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getDepartmentlevelGradeData(account_id: string, term_id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/accounts/${account_id}/analytics/terms/${term_id}/grades`;
+  public async getDepartmentlevelGradeData(
+    account_id: string,
+    term_id: string,
+    body?: unknown,
+  ): Promise<Grade> {
+    const endpoint =
+      `/api/v1/accounts/${account_id}/analytics/terms/${term_id}/grades`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -32,10 +51,15 @@ export class Analytics extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getDepartmentlevelStatistics(account_id: string, term_id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/accounts/${account_id}/analytics/terms/${term_id}/statistics`;
+  public async getDepartmentlevelStatistics(
+    account_id: string,
+    term_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/accounts/${account_id}/analytics/terms/${term_id}/statistics`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -44,10 +68,15 @@ export class Analytics extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getDepartmentlevelStatisticsBrokenDownBySubaccount(account_id: string, term_id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/accounts/${account_id}/analytics/terms/${term_id}/statistics_by_subaccount`;
+  public async getDepartmentlevelStatisticsBrokenDownBySubaccount(
+    account_id: string,
+    term_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/accounts/${account_id}/analytics/terms/${term_id}/statistics_by_subaccount`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -56,10 +85,13 @@ export class Analytics extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getCourselevelParticipationData(course_id: string, body?: any): Promise<any> {
+  public async getCourselevelParticipationData(
+    course_id: string,
+    body?: unknown,
+  ): Promise<Page> {
     const endpoint = `/api/v1/courses/${course_id}/analytics/activity`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -68,7 +100,11 @@ export class Analytics extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getCourselevelAssignmentData(course_id: string, params?: GetCourselevelAssignmentDataParams, body?: any): Promise<any[]> {
+  public async getCourselevelAssignmentData(
+    course_id: string,
+    params?: GetCourselevelAssignmentDataParams,
+    body?: unknown,
+  ): Promise<Assignment[]> {
     const endpoint = `/api/v1/courses/${course_id}/analytics/assignments`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -84,7 +120,11 @@ export class Analytics extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getCourselevelStudentSummaryData(course_id: string, params?: GetCourselevelStudentSummaryDataParams, body?: any): Promise<any> {
+  public async getCourselevelStudentSummaryData(
+    course_id: string,
+    params?: GetCourselevelStudentSummaryDataParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/analytics/student_summaries`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -100,10 +140,15 @@ export class Analytics extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getUserinacourselevelParticipationData(course_id: string, student_id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/analytics/users/${student_id}/activity`;
+  public async getUserinacourselevelParticipationData(
+    course_id: string,
+    student_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/analytics/users/${student_id}/activity`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -112,10 +157,15 @@ export class Analytics extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getUserinacourselevelAssignmentData(course_id: string, student_id: string, body?: any): Promise<any[]> {
-    const endpoint = `/api/v1/courses/${course_id}/analytics/users/${student_id}/assignments`;
+  public async getUserinacourselevelAssignmentData(
+    course_id: string,
+    student_id: string,
+    body?: unknown,
+  ): Promise<Assignment[]> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/analytics/users/${student_id}/assignments`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -124,10 +174,15 @@ export class Analytics extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getUserinacourselevelMessagingData(course_id: string, student_id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/analytics/users/${student_id}/communication`;
+  public async getUserinacourselevelMessagingData(
+    course_id: string,
+    student_id: string,
+    body?: unknown,
+  ): Promise<Conversation> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/analytics/users/${student_id}/communication`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -135,5 +190,4 @@ export class Analytics extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

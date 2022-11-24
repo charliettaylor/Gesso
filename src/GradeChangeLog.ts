@@ -1,14 +1,24 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { Grade } from "../types/models.ts";
+import {
+  AdvancedQueryParams,
+  QueryByAssignmentParams,
+  QueryByCourseParams,
+  QueryByGraderParams,
+  QueryByStudentParams,
+} from "../types/params.ts";
 
-import { QueryByCourseParams, QueryByAssignmentParams, QueryByStudentParams, AdvancedQueryParams, QueryByGraderParams } from '../types/params';
-  
 export class GradeChangeLog extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async queryByAssignment(assignment_id: string, params?: QueryByAssignmentParams, body?: any): Promise<any[]> {
+  public async queryByAssignment(
+    assignment_id: string,
+    params?: QueryByAssignmentParams,
+    body?: unknown,
+  ): Promise<Grade[]> {
     const endpoint = `/api/v1/audit/grade_change/assignments/${assignment_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,7 +34,11 @@ export class GradeChangeLog extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async queryByCourse(course_id: string, params?: QueryByCourseParams, body?: any): Promise<any[]> {
+  public async queryByCourse(
+    course_id: string,
+    params?: QueryByCourseParams,
+    body?: unknown,
+  ): Promise<Grade[]> {
     const endpoint = `/api/v1/audit/grade_change/courses/${course_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -40,7 +54,11 @@ export class GradeChangeLog extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async queryByStudent(student_id: string, params?: QueryByStudentParams, body?: any): Promise<any[]> {
+  public async queryByStudent(
+    student_id: string,
+    params?: QueryByStudentParams,
+    body?: unknown,
+  ): Promise<Grade[]> {
     const endpoint = `/api/v1/audit/grade_change/students/${student_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -56,7 +74,11 @@ export class GradeChangeLog extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async queryByGrader(grader_id: string, params?: QueryByGraderParams, body?: any): Promise<any[]> {
+  public async queryByGrader(
+    grader_id: string,
+    params?: QueryByGraderParams,
+    body?: unknown,
+  ): Promise<Grade[]> {
     const endpoint = `/api/v1/audit/grade_change/graders/${grader_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -72,8 +94,11 @@ export class GradeChangeLog extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async advancedQuery(params?: AdvancedQueryParams, body?: any): Promise<any[]> {
-    const endpoint = '/api/v1/audit/grade_change';
+  public async advancedQuery(
+    params?: AdvancedQueryParams,
+    body?: unknown,
+  ): Promise<Grade[]> {
+    const endpoint = "/api/v1/audit/grade_change";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -87,5 +112,4 @@ export class GradeChangeLog extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

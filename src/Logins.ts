@@ -1,17 +1,20 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { Scope } from "../types/models.ts";
+import { CreateUserLoginParams, EditUserLoginParams } from "../types/params.ts";
 
-import { EditUserLoginParams, CreateUserLoginParams } from '../types/params';
-  
 export class Logins extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listUserLogins(account_id: string, body?: any): Promise<any> {
+  public async listUserLogins(
+    account_id: string,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/accounts/${account_id}/logins`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -20,10 +23,10 @@ export class Logins extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async kickoffPasswordRecoveryFlow(body?: any): Promise<any> {
-    const endpoint = '/api/v1/users/reset_password';
+  public async kickoffPasswordRecoveryFlow(body?: unknown): Promise<Scope> {
+    const endpoint = "/api/v1/users/reset_password";
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -32,7 +35,11 @@ export class Logins extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createUserLogin(account_id: string, params?: CreateUserLoginParams, body?: any): Promise<any> {
+  public async createUserLogin(
+    account_id: string,
+    params?: CreateUserLoginParams,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/accounts/${account_id}/logins`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -48,7 +55,12 @@ export class Logins extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async editUserLogin(account_id: string, id: string, params?: EditUserLoginParams, body?: any): Promise<any> {
+  public async editUserLogin(
+    account_id: string,
+    id: string,
+    params?: EditUserLoginParams,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/accounts/${account_id}/logins/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -64,10 +76,14 @@ export class Logins extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteUserLogin(user_id: string, id: string, body?: any): Promise<any> {
+  public async deleteUserLogin(
+    user_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${user_id}/logins/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -75,5 +91,4 @@ export class Logins extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

@@ -1,14 +1,22 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { Term } from "../types/models.ts";
+import {
+  CreateEnrollmentTermParams,
+  ListEnrollmentTermsParams,
+  UpdateEnrollmentTermParams,
+} from "../types/params.ts";
 
-import { CreateEnrollmentTermParams, ListEnrollmentTermsParams, UpdateEnrollmentTermParams } from '../types/params';
-  
 export class EnrollmentTerms extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async createEnrollmentTerm(account_id: string, params?: CreateEnrollmentTermParams, body?: any): Promise<any> {
+  public async createEnrollmentTerm(
+    account_id: string,
+    params?: CreateEnrollmentTermParams,
+    body?: unknown,
+  ): Promise<Term> {
     const endpoint = `/api/v1/accounts/${account_id}/terms`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,7 +32,12 @@ export class EnrollmentTerms extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateEnrollmentTerm(account_id: string, id: string, params?: UpdateEnrollmentTermParams, body?: any): Promise<any> {
+  public async updateEnrollmentTerm(
+    account_id: string,
+    id: string,
+    params?: UpdateEnrollmentTermParams,
+    body?: unknown,
+  ): Promise<Term> {
     const endpoint = `/api/v1/accounts/${account_id}/terms/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -40,10 +53,14 @@ export class EnrollmentTerms extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteEnrollmentTerm(account_id: string, id: string, body?: any): Promise<any> {
+  public async deleteEnrollmentTerm(
+    account_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<Term> {
     const endpoint = `/api/v1/accounts/${account_id}/terms/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -52,7 +69,11 @@ export class EnrollmentTerms extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listEnrollmentTerms(account_id: string, params?: ListEnrollmentTermsParams, body?: any): Promise<any> {
+  public async listEnrollmentTerms(
+    account_id: string,
+    params?: ListEnrollmentTermsParams,
+    body?: unknown,
+  ): Promise<Term> {
     const endpoint = `/api/v1/accounts/${account_id}/terms`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -68,10 +89,14 @@ export class EnrollmentTerms extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async retrieveEnrollmentTerm(account_id: string, id: string, body?: any): Promise<any> {
+  public async retrieveEnrollmentTerm(
+    account_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<Term> {
     const endpoint = `/api/v1/accounts/${account_id}/terms/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -79,5 +104,4 @@ export class EnrollmentTerms extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

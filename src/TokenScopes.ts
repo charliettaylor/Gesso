@@ -1,14 +1,18 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { Scope } from "../types/models.ts";
+import { ListScopesParams } from "../types/params.ts";
 
-import { ListScopesParams } from '../types/params';
-  
 export class TokenScopes extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listScopes(account_id: string, params?: ListScopesParams, body?: any): Promise<any[]> {
+  public async listScopes(
+    account_id: string,
+    params?: ListScopesParams,
+    body?: unknown,
+  ): Promise<Scope[]> {
     const endpoint = `/api/v1/accounts/${account_id}/scopes`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -23,5 +27,4 @@ export class TokenScopes extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

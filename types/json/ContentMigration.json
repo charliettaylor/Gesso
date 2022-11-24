@@ -7,7 +7,9 @@
 
   "migration_issues_url": "https://example.com/api/v1/courses/1/content_migrations/1/migration_issues",
 
-  "attachment": { "url": "https://example.com/api/v1/courses/1/content_migrations/1/download" },
+  "attachment": {
+    "url": "https://example.com/api/v1/courses/1/content_migrations/1/download"
+  },
 
   "progress_url": "https://example.com/api/v1/progress/4",
 
@@ -19,5 +21,9 @@
 
   "finished_at": "2012-06-01T00:00:00-06:00",
 
-  "pre_attachment": { "upload_url": "", "message": "file exceeded quota", "upload_params": {} }
+  "pre_attachment": {
+    "upload_url": "",
+    "message": "file exceeded quota",
+    "upload_params": {}
+  }
 }

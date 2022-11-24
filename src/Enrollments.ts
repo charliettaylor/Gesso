@@ -1,14 +1,23 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { Enrollment, Scope } from "../types/models.ts";
+import {
+  ConcludeDeactivateOrDeleteAnEnrollmentParams,
+  EnrollmentByIdParams,
+  EnrollUserParams,
+  ListEnrollmentsParams,
+} from "../types/params.ts";
 
-import { EnrollUserParams, ConcludeDeactivateOrDeleteAnEnrollmentParams, EnrollmentByIdParams, ListEnrollmentsParams } from '../types/params';
-  
 export class Enrollments extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listEnrollments(course_id: string, params?: ListEnrollmentsParams, body?: any): Promise<any[]> {
+  public async listEnrollments(
+    course_id: string,
+    params?: ListEnrollmentsParams,
+    body?: unknown,
+  ): Promise<Enrollment[]> {
     const endpoint = `/api/v1/courses/${course_id}/enrollments`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,7 +33,12 @@ export class Enrollments extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async enrollmentById(account_id: string, id: string, params?: EnrollmentByIdParams, body?: any): Promise<any> {
+  public async enrollmentById(
+    account_id: string,
+    id: string,
+    params?: EnrollmentByIdParams,
+    body?: unknown,
+  ): Promise<Enrollment> {
     const endpoint = `/api/v1/accounts/${account_id}/enrollments/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -40,7 +54,11 @@ export class Enrollments extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async enrollUser(course_id: string, params?: EnrollUserParams, body?: any): Promise<any> {
+  public async enrollUser(
+    course_id: string,
+    params?: EnrollUserParams,
+    body?: unknown,
+  ): Promise<Enrollment> {
     const endpoint = `/api/v1/courses/${course_id}/enrollments`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -56,7 +74,12 @@ export class Enrollments extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async concludeDeactivateOrDeleteAnEnrollment(course_id: string, id: string, params?: ConcludeDeactivateOrDeleteAnEnrollmentParams, body?: any): Promise<any> {
+  public async concludeDeactivateOrDeleteAnEnrollment(
+    course_id: string,
+    id: string,
+    params?: ConcludeDeactivateOrDeleteAnEnrollmentParams,
+    body?: unknown,
+  ): Promise<Enrollment> {
     const endpoint = `/api/v1/courses/${course_id}/enrollments/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -72,10 +95,14 @@ export class Enrollments extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async acceptCourseInvitation(course_id: string, id: string, body?: any): Promise<any> {
+  public async acceptCourseInvitation(
+    course_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/enrollments/${id}/accept`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -84,10 +111,14 @@ export class Enrollments extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async rejectCourseInvitation(course_id: string, id: string, body?: any): Promise<any> {
+  public async rejectCourseInvitation(
+    course_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/enrollments/${id}/reject`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -96,10 +127,15 @@ export class Enrollments extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async reactivateAnEnrollment(course_id: string, id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/enrollments/${id}/reactivate`;
+  public async reactivateAnEnrollment(
+    course_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<Enrollment> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/enrollments/${id}/reactivate`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -108,10 +144,15 @@ export class Enrollments extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async addsLastAttendedDateToStudentEnrollmentInCourse(course_id: string, user_id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/users/${user_id}/last_attended`;
+  public async addsLastAttendedDateToStudentEnrollmentInCourse(
+    course_id: string,
+    user_id: string,
+    body?: unknown,
+  ): Promise<Scope> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/users/${user_id}/last_attended`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -119,5 +160,4 @@ export class Enrollments extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

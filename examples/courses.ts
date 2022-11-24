@@ -1,10 +1,10 @@
-import { Configuration } from '../src/Configuration';
-import { Courses } from '../src/Courses';
+import { Configuration } from "../src/Configuration.ts";
+import { Courses } from "../src/Courses.ts";
 
 async function getCourses() {
   const thing = {
-    domain: 'https://csufullerton.instructure.com',
-    apiKey: '',
+    domain: "https://csufullerton.instructure.com",
+    apiKey: "",
   };
 
   const config = new Configuration(thing);

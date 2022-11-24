@@ -10,7 +10,14 @@
       "subtext": "Something something.",
       "url": "https://google.com",
       "type": "custom",
-      "available_to": ["user", "student", "teacher", "admin", "observer", "unenrolled"],
+      "available_to": [
+        "user",
+        "student",
+        "teacher",
+        "admin",
+        "observer",
+        "unenrolled"
+      ],
       "is_featured": true,
       "is_new": false,
       "feature_headline": "Check this out!"
@@ -30,7 +37,14 @@
       "feature_headline": ""
     },
     {
-      "available_to": ["user", "student", "teacher", "admin", "observer", "unenrolled"],
+      "available_to": [
+        "user",
+        "student",
+        "teacher",
+        "admin",
+        "observer",
+        "unenrolled"
+      ],
       "text": "Search the Canvas Guides",
       "subtext": "Find answers to common questions",
       "url": "https://community.canvaslms.com/t5/Guides/ct-p/guides",
@@ -41,7 +55,14 @@
       "feature_headline": ""
     },
     {
-      "available_to": ["user", "student", "teacher", "admin", "observer", "unenrolled"],
+      "available_to": [
+        "user",
+        "student",
+        "teacher",
+        "admin",
+        "observer",
+        "unenrolled"
+      ],
       "text": "Report a Problem",
       "subtext": "If Canvas misbehaves, tell us about it",
       "url": "#create_ticket",

@@ -100,7 +100,7 @@ def create_params_and_route(tag: PageElement) -> Route:
   entities = get_entities()
   returnStr = tag.get_text().split('Returns')[-1].strip()
   entity = [ele for ele in entities if(ele in returnStr)]
-  entity = entity[0] if len(entity) > 0 else "any"
+  entity = entity[0] if len(entity) > 0 else "unknown"
 
   if 'a list of' in returnStr:
     entity += '[]'
@@ -126,11 +126,11 @@ def create_interface(route: Route, interfaceName: str):
     "datetime": "Date",
     "date": "Date",
     "float": "number",
-    "file": "any",
+    "file": "unknown",
     "url": "string",
-    "array": "any[]",
-    "hash": "any",
-    "serializedhash": "any",
+    "array": "unknown[]",
+    "hash": "unknown",
+    "serializedhash": "unknown",
     "json": "object",
     "numeric": "number",
     "object": "object",
@@ -181,7 +181,7 @@ def create_class(className: str, routes: list[Route]) -> str:
   
   for route in routes:
     type = route.returnType.replace('[]', '')
-    if type != 'any' and type not in entities:
+    if type != 'unknown' and type not in entities:
       entities.append(type)
   
   params = [route.paramName for route in routes]
@@ -194,11 +194,11 @@ def create_class(className: str, routes: list[Route]) -> str:
     if param not in paramsText:
       params.remove(param)
 
-  entitiesImport = f"import {{ {', '.join(entities)} }} from '../types/models';"
-  paramImports = f"import {{ {', '.join(set(params))} }} from '../types/params';"
+  entitiesImport = f"import {{ {', '.join(entities)} }} from '../types/models.ts';"
+  paramImports = f"import {{ {', '.join(set(params))} }} from '../types/params.ts';"
 
-  out = f'''import {{ BaseApi }} from './BaseApi';
-import {{ Configuration }} from './Configuration';
+  out = f'''import {{ BaseApi }} from './BaseApi.ts';
+import {{ Configuration }} from './Configuration.ts';
 {entitiesImport if len(entities) > 0 else ''}
 {paramImports if len(params) > 0 else ''}
   
@@ -226,7 +226,7 @@ def create_function(route: Route) -> str:
     params.append(f"params?: {route.paramName}")
     paramSet = True
 
-  params.append('body?: any')
+  params.append('body?: unknown')
   
   routeWithParams = replace_route_params(route.route)
 
@@ -332,6 +332,7 @@ def main():
     if className is not None:
       className = className.find('h1').string.replace('API', '').split()
       className = ''.join(className)
+      className = className.replace('(', '').replace(')', '')
     else:
       className = 'NoWorkClass'
 

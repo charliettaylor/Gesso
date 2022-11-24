@@ -1,15 +1,21 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { Scope } from "../types/models.ts";
+import {
+  ConfirmImageSelectionParams,
+  FindImagesParams,
+} from "../types/params.ts";
 
-import { FindImagesParams, ConfirmImageSelectionParams } from '../types/params';
-  
 export class ImageSearch extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async findImages(params?: FindImagesParams, body?: any): Promise<any> {
-    const endpoint = '/api/v1/image_search';
+  public async findImages(
+    params?: FindImagesParams,
+    body?: unknown,
+  ): Promise<Scope> {
+    const endpoint = "/api/v1/image_search";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -24,7 +30,11 @@ export class ImageSearch extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async confirmImageSelection(id: string, params?: ConfirmImageSelectionParams, body?: any): Promise<any> {
+  public async confirmImageSelection(
+    id: string,
+    params?: ConfirmImageSelectionParams,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/image_selection/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -39,5 +49,4 @@ export class ImageSearch extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

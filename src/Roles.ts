@@ -1,14 +1,25 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { Role } from "../types/models.ts";
+import {
+  ActivateRoleParams,
+  CreateNewRoleParams,
+  DeactivateRoleParams,
+  GetSingleRoleParams,
+  ListRolesParams,
+  UpdateRoleParams,
+} from "../types/params.ts";
 
-import { ListRolesParams, UpdateRoleParams, CreateNewRoleParams, ActivateRoleParams, DeactivateRoleParams, GetSingleRoleParams } from '../types/params';
-  
 export class Roles extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listRoles(account_id: string, params?: ListRolesParams, body?: any): Promise<any[]> {
+  public async listRoles(
+    account_id: string,
+    params?: ListRolesParams,
+    body?: unknown,
+  ): Promise<Role[]> {
     const endpoint = `/api/v1/accounts/${account_id}/roles`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,7 +35,12 @@ export class Roles extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getSingleRole(account_id: string, id: string, params?: GetSingleRoleParams, body?: any): Promise<any> {
+  public async getSingleRole(
+    account_id: string,
+    id: string,
+    params?: GetSingleRoleParams,
+    body?: unknown,
+  ): Promise<Role> {
     const endpoint = `/api/v1/accounts/${account_id}/roles/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -40,7 +56,11 @@ export class Roles extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createNewRole(account_id: string, params?: CreateNewRoleParams, body?: any): Promise<any> {
+  public async createNewRole(
+    account_id: string,
+    params?: CreateNewRoleParams,
+    body?: unknown,
+  ): Promise<Role> {
     const endpoint = `/api/v1/accounts/${account_id}/roles`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -56,7 +76,12 @@ export class Roles extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deactivateRole(account_id: string, id: string, params?: DeactivateRoleParams, body?: any): Promise<any> {
+  public async deactivateRole(
+    account_id: string,
+    id: string,
+    params?: DeactivateRoleParams,
+    body?: unknown,
+  ): Promise<Role> {
     const endpoint = `/api/v1/accounts/${account_id}/roles/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -72,7 +97,12 @@ export class Roles extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async activateRole(account_id: string, id: string, params?: ActivateRoleParams, body?: any): Promise<any> {
+  public async activateRole(
+    account_id: string,
+    id: string,
+    params?: ActivateRoleParams,
+    body?: unknown,
+  ): Promise<Role> {
     const endpoint = `/api/v1/accounts/${account_id}/roles/${id}/activate`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -88,7 +118,12 @@ export class Roles extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateRole(account_id: string, id: string, params?: UpdateRoleParams, body?: any): Promise<any> {
+  public async updateRole(
+    account_id: string,
+    id: string,
+    params?: UpdateRoleParams,
+    body?: unknown,
+  ): Promise<Role> {
     const endpoint = `/api/v1/accounts/${account_id}/roles/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -103,5 +138,4 @@ export class Roles extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

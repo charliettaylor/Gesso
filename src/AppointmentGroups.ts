@@ -1,15 +1,27 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { CalendarEvent, Group, Scope, User } from "../types/models.ts";
+import {
+  CreateAnAppointmentGroupParams,
+  DeleteAnAppointmentGroupParams,
+  GetNextAppointmentParams,
+  GetSingleAppointmentGroupParams,
+  ListAppointmentGroupsParams,
+  ListStudentGroupParticipantsParams,
+  ListUserParticipantsParams,
+  UpdateAnAppointmentGroupParams,
+} from "../types/params.ts";
 
-import { ListStudentGroupParticipantsParams, DeleteAnAppointmentGroupParams, ListAppointmentGroupsParams, UpdateAnAppointmentGroupParams, ListUserParticipantsParams, GetNextAppointmentParams, GetSingleAppointmentGroupParams, CreateAnAppointmentGroupParams } from '../types/params';
-  
 export class AppointmentGroups extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listAppointmentGroups(params?: ListAppointmentGroupsParams, body?: any): Promise<any> {
-    const endpoint = '/api/v1/appointment_groups';
+  public async listAppointmentGroups(
+    params?: ListAppointmentGroupsParams,
+    body?: unknown,
+  ): Promise<Scope> {
+    const endpoint = "/api/v1/appointment_groups";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -24,8 +36,11 @@ export class AppointmentGroups extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createAnAppointmentGroup(params?: CreateAnAppointmentGroupParams, body?: any): Promise<any> {
-    const endpoint = '/api/v1/appointment_groups';
+  public async createAnAppointmentGroup(
+    params?: CreateAnAppointmentGroupParams,
+    body?: unknown,
+  ): Promise<Scope> {
+    const endpoint = "/api/v1/appointment_groups";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -40,7 +55,11 @@ export class AppointmentGroups extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getSingleAppointmentGroup(id: string, params?: GetSingleAppointmentGroupParams, body?: any): Promise<any> {
+  public async getSingleAppointmentGroup(
+    id: string,
+    params?: GetSingleAppointmentGroupParams,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/appointment_groups/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -56,7 +75,11 @@ export class AppointmentGroups extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateAnAppointmentGroup(id: string, params?: UpdateAnAppointmentGroupParams, body?: any): Promise<any> {
+  public async updateAnAppointmentGroup(
+    id: string,
+    params?: UpdateAnAppointmentGroupParams,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/appointment_groups/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -72,7 +95,11 @@ export class AppointmentGroups extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteAnAppointmentGroup(id: string, params?: DeleteAnAppointmentGroupParams, body?: any): Promise<any> {
+  public async deleteAnAppointmentGroup(
+    id: string,
+    params?: DeleteAnAppointmentGroupParams,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/appointment_groups/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -88,7 +115,11 @@ export class AppointmentGroups extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listUserParticipants(id: string, params?: ListUserParticipantsParams, body?: any): Promise<any> {
+  public async listUserParticipants(
+    id: string,
+    params?: ListUserParticipantsParams,
+    body?: unknown,
+  ): Promise<Group> {
     const endpoint = `/api/v1/appointment_groups/${id}/users`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -104,7 +135,11 @@ export class AppointmentGroups extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listStudentGroupParticipants(id: string, params?: ListStudentGroupParticipantsParams, body?: any): Promise<any> {
+  public async listStudentGroupParticipants(
+    id: string,
+    params?: ListStudentGroupParticipantsParams,
+    body?: unknown,
+  ): Promise<User> {
     const endpoint = `/api/v1/appointment_groups/${id}/groups`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -120,8 +155,11 @@ export class AppointmentGroups extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getNextAppointment(params?: GetNextAppointmentParams, body?: any): Promise<any[]> {
-    const endpoint = '/api/v1/appointment_groups/next_appointment';
+  public async getNextAppointment(
+    params?: GetNextAppointmentParams,
+    body?: unknown,
+  ): Promise<CalendarEvent[]> {
+    const endpoint = "/api/v1/appointment_groups/next_appointment";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -135,5 +173,4 @@ export class AppointmentGroups extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

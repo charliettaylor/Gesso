@@ -1,15 +1,18 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { JWT } from "../types/models.ts";
+import { CreateJwtParams, RefreshJwtParams } from "../types/params.ts";
 
-import { CreateJwtParams, RefreshJwtParams } from '../types/params';
-  
 export class JWTs extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async createJwt(params?: CreateJwtParams, body?: any): Promise<any> {
-    const endpoint = '/api/v1/jwts';
+  public async createJwt(
+    params?: CreateJwtParams,
+    body?: unknown,
+  ): Promise<JWT> {
+    const endpoint = "/api/v1/jwts";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -24,8 +27,11 @@ export class JWTs extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async refreshJwt(params?: RefreshJwtParams, body?: any): Promise<any> {
-    const endpoint = '/api/v1/jwts/refresh';
+  public async refreshJwt(
+    params?: RefreshJwtParams,
+    body?: unknown,
+  ): Promise<JWT> {
+    const endpoint = "/api/v1/jwts/refresh";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -39,5 +45,4 @@ export class JWTs extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

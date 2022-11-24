@@ -1,14 +1,18 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { GradingStandard } from "../types/models.ts";
+import { CreateNewGradingStandardParams } from "../types/params.ts";
 
-import { CreateNewGradingStandardParams } from '../types/params';
-  
 export class GradingStandards extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async createNewGradingStandard(account_id: string, params?: CreateNewGradingStandardParams, body?: any): Promise<any> {
+  public async createNewGradingStandard(
+    account_id: string,
+    params?: CreateNewGradingStandardParams,
+    body?: unknown,
+  ): Promise<GradingStandard> {
     const endpoint = `/api/v1/accounts/${account_id}/grading_standards`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,10 +28,13 @@ export class GradingStandards extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listTheGradingStandardsAvailableInContext(course_id: string, body?: any): Promise<any[]> {
+  public async listTheGradingStandardsAvailableInContext(
+    course_id: string,
+    body?: unknown,
+  ): Promise<GradingStandard[]> {
     const endpoint = `/api/v1/courses/${course_id}/grading_standards`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -36,10 +43,15 @@ export class GradingStandards extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getSingleGradingStandardInContext(course_id: string, grading_standard_id: string, body?: any): Promise<any> {
-    const endpoint = `/api/v1/courses/${course_id}/grading_standards/${grading_standard_id}`;
+  public async getSingleGradingStandardInContext(
+    course_id: string,
+    grading_standard_id: string,
+    body?: unknown,
+  ): Promise<GradingStandard> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/grading_standards/${grading_standard_id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -47,5 +59,4 @@ export class GradingStandards extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

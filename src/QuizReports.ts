@@ -1,14 +1,23 @@
-import { BaseApi } from './BaseApi';
-import { Configuration } from './Configuration';
-import { Report } from '../types/models';
-import { GetQuizReportParams, CreateQuizReportParams, RetrieveAllQuizReportsParams } from '../types/params';
-  
+import { BaseApi } from "./BaseApi.ts";
+import { Configuration } from "./Configuration.ts";
+import { Report } from "../types/models.ts";
+import {
+  CreateQuizReportParams,
+  GetQuizReportParams,
+  RetrieveAllQuizReportsParams,
+} from "../types/params.ts";
+
 export class QuizReports extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async retrieveAllQuizReports(course_id: string, quiz_id: string, params?: RetrieveAllQuizReportsParams, body?: any): Promise<Report[]> {
+  public async retrieveAllQuizReports(
+    course_id: string,
+    quiz_id: string,
+    params?: RetrieveAllQuizReportsParams,
+    body?: unknown,
+  ): Promise<Report[]> {
     const endpoint = `/api/v1/courses/${course_id}/quizzes/${quiz_id}/reports`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,7 +33,12 @@ export class QuizReports extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createQuizReport(course_id: string, quiz_id: string, params?: CreateQuizReportParams, body?: any): Promise<Report> {
+  public async createQuizReport(
+    course_id: string,
+    quiz_id: string,
+    params?: CreateQuizReportParams,
+    body?: unknown,
+  ): Promise<Report> {
     const endpoint = `/api/v1/courses/${course_id}/quizzes/${quiz_id}/reports`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -40,8 +54,15 @@ export class QuizReports extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getQuizReport(course_id: string, quiz_id: string, id: string, params?: GetQuizReportParams, body?: any): Promise<Report> {
-    const endpoint = `/api/v1/courses/${course_id}/quizzes/${quiz_id}/reports/${id}`;
+  public async getQuizReport(
+    course_id: string,
+    quiz_id: string,
+    id: string,
+    params?: GetQuizReportParams,
+    body?: unknown,
+  ): Promise<Report> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/quizzes/${quiz_id}/reports/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
@@ -56,10 +77,16 @@ export class QuizReports extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async abortTheGenerationOfReportOrRemovePreviouslyGeneratedOne(course_id: string, quiz_id: string, id: string, body?: any): Promise<Report> {
-    const endpoint = `/api/v1/courses/${course_id}/quizzes/${quiz_id}/reports/${id}`;
+  public async abortTheGenerationOfReportOrRemovePreviouslyGeneratedOne(
+    course_id: string,
+    quiz_id: string,
+    id: string,
+    body?: unknown,
+  ): Promise<Report> {
+    const endpoint =
+      `/api/v1/courses/${course_id}/quizzes/${quiz_id}/reports/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
-    
+
     const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -67,5 +94,4 @@ export class QuizReports extends BaseApi {
 
     return Promise.reject(response);
   }
-
 }

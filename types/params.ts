@@ -5,7 +5,7 @@ import {
   BlueprintRestriction,
   QuizSubmissionQuestion,
   RubricAssessment,
-} from './models';
+} from "./models.ts";
 
 export interface ListAvailableAccountCalendarsParams {
   /**
@@ -331,7 +331,7 @@ export interface UpdateAnAccountParams {
   /**
   Give this a set of keys and boolean values to enable or disable services
   matching the keys */
-  accountservices?: any;
+  accountservices?: unknown;
 }
 
 export interface CreateNewSubaccountParams {
@@ -456,7 +456,7 @@ export interface ListAnnouncementsParams {
   of users in each     section. (as part of the section json asked for above) (b)
   Else, includes at the root level the total number of users in the     topic's
   context (group or course) that the topic applies to. */
-  include?: any[];
+  include?: unknown[];
 }
 
 export interface ListScopesParams {
@@ -486,13 +486,13 @@ export interface CreateAnAppointmentGroupParams {
   Array of context codes (courses, e.g. course_1) this group should be linked to
   (1 or more). Users in the course(s) with appropriate permissions will be able to
   sign up for this appointment group. */
-  'appointment_group[context_codes]'?: string[];
+  "appointment_group[context_codes]"?: string[];
   /**
   Array of sub context codes (course sections or a single group category) this
   group should be linked to. Used to limit the appointment group to particular
   sections. If a group category is specified, students will sign up in groups and
   the participant_type will be “Group” instead of “User”. */
-  'appointment_group[sub_context_codes]'?: string[];
+  "appointment_group[sub_context_codes]"?: string[];
   /**
   Short title for the appointment group. */
   appointmentgrouptitle?: string;
@@ -524,7 +524,7 @@ export interface CreateAnAppointmentGroupParams {
   /**
   Nested array of start time/end time pairs indicating time slots for this
   appointment group. Refer to the example request. */
-  'appointment_group[new_appointments][X]'?: string[];
+  "appointment_group[new_appointments][X]"?: string[];
   /**
   Allowed values: private, protected */
   appointmentgroupparticipantvisibility?: string;
@@ -541,13 +541,13 @@ export interface UpdateAnAppointmentGroupParams {
   Array of context codes (courses, e.g. course_1) this group should be linked to
   (1 or more). Users in the course(s) with appropriate permissions will be able to
   sign up for this appointment group. */
-  'appointment_group[context_codes]'?: string[];
+  "appointment_group[context_codes]"?: string[];
   /**
   Array of sub context codes (course sections or a single group category) this
   group should be linked to. Used to limit the appointment group to particular
   sections. If a group category is specified, students will sign up in groups and
   the participant_type will be “Group” instead of “User”. */
-  'appointment_group[sub_context_codes]'?: string[];
+  "appointment_group[sub_context_codes]"?: string[];
   /**
   Short title for the appointment group. */
   appointmentgrouptitle?: string;
@@ -579,7 +579,7 @@ export interface UpdateAnAppointmentGroupParams {
   /**
   Nested array of start time/end time pairs indicating time slots for this
   appointment group. Refer to the example request. */
-  'appointment_group[new_appointments][X]'?: string[];
+  "appointment_group[new_appointments][X]"?: string[];
   /**
   Allowed values: private, protected */
   appointmentgroupparticipantvisibility?: string;
@@ -675,7 +675,7 @@ export interface CreateAnAssignmentGroupParams {
   sissourceid?: string;
   /**
   The integration data of the Assignment Group */
-  integrationdata?: object;
+  integrationdata?: Record<string, unknown>;
   /**
   The grading rules that are applied within this assignment group See the
   Assignment Group object definition for format */
@@ -754,11 +754,11 @@ export interface CreateAnAssignmentParams {
   Allowed values: online_quiz, none, on_paper, discussion_topic, external_tool,
   online_upload, online_text_entry, online_url, media_recording,
   student_annotation */
-  'assignment[submission_types]'?: string[];
+  "assignment[submission_types]"?: string[];
   /**
   Allowed extensions if submission_types includes “online_upload” Example:
   allowed_extensions: ["docx","ppt"] */
-  'assignment[allowed_extensions]'?: string[];
+  "assignment[allowed_extensions]"?: string[];
   /**
   Only applies when the Turnitin plugin is enabled for a course and the
   submission_types array includes “online_upload”. Toggles Turnitin submissions
@@ -833,7 +833,7 @@ export interface CreateAnAssignmentParams {
   assignmentassignmentgroupid?: number;
   /**
   List of overrides for the assignment. */
-  'assignment[assignment_overrides]'?: AssignmentOverride[];
+  "assignment[assignment_overrides]"?: AssignmentOverride[];
   /**
   Whether this assignment is only visible to overrides (Only useful if
   'differentiated assignments' account setting is on) */
@@ -898,119 +898,81 @@ export interface CreateAnAssignmentParams {
 }
 
 export interface EditAnAssignmentParams {
-  /**
-   */
+  /** */
   assignmentname?: string;
-  /**
-   */
+  /** */
   assignmentposition?: number;
-  /**
-   */
-  'assignment[submission_types]'?: string[];
-  /**
-   */
-  'assignment[allowed_extensions]'?: string[];
-  /**
-   */
+  /** */
+  "assignment[submission_types]"?: string[];
+  /** */
+  "assignment[allowed_extensions]"?: string[];
+  /** */
   assignmentturnitinenabled?: boolean;
-  /**
-   */
+  /** */
   assignmentvericiteenabled?: boolean;
-  /**
-   */
+  /** */
   assignmentturnitinsettings?: string;
-  /**
-   */
+  /** */
   assignmentsisassignmentid?: string;
-  /**
-   */
+  /** */
   assignmentintegrationdata?: string;
-  /**
-   */
+  /** */
   assignmentintegrationid?: string;
-  /**
-   */
+  /** */
   assignmentpeerreviews?: boolean;
-  /**
-   */
+  /** */
   assignmentautomaticpeerreviews?: boolean;
-  /**
-   */
+  /** */
   assignmentnotifyofupdate?: boolean;
-  /**
-   */
+  /** */
   assignmentgroupcategoryid?: number;
-  /**
-   */
+  /** */
   assignmentgradegroupstudentsindividually?: number;
-  /**
-   */
+  /** */
   assignmentexternaltooltagattributes?: string;
-  /**
-   */
+  /** */
   assignmentpointspossible?: number;
-  /**
-   */
+  /** */
   assignmentgradingtype?: string;
-  /**
-   */
+  /** */
   assignmentdueat?: Date;
-  /**
-   */
+  /** */
   assignmentlockat?: Date;
-  /**
-   */
+  /** */
   assignmentunlockat?: Date;
-  /**
-   */
+  /** */
   assignmentdescription?: string;
-  /**
-   */
+  /** */
   assignmentassignmentgroupid?: number;
-  /**
-   */
-  'assignment[assignment_overrides]'?: AssignmentOverride[];
-  /**
-   */
+  /** */
+  "assignment[assignment_overrides]"?: AssignmentOverride[];
+  /** */
   assignmentonlyvisibletooverrides?: boolean;
-  /**
-   */
+  /** */
   assignmentpublished?: boolean;
-  /**
-   */
+  /** */
   assignmentgradingstandardid?: number;
-  /**
-   */
+  /** */
   assignmentomitfromfinalgrade?: boolean;
-  /**
-   */
+  /** */
   assignmentmoderatedgrading?: boolean;
-  /**
-   */
+  /** */
   assignmentgradercount?: number;
-  /**
-   */
+  /** */
   assignmentfinalgraderid?: number;
-  /**
-   */
+  /** */
   assignmentgradercommentsvisibletograders?: boolean;
-  /**
-   */
+  /** */
   assignmentgradersanonymoustograders?: boolean;
-  /**
-   */
+  /** */
   assignmentgradersnamesvisibletofinalgrader?: boolean;
-  /**
-   */
+  /** */
   assignmentanonymousgrading?: boolean;
-  /**
-   */
+  /** */
   assignmentallowedattempts?: number;
-  /**
-   */
+  /** */
   assignmentannotatableattachmentid?: number;
-  /**
-   */
+  /** */
   assignmentforceupdatedat?: boolean;
 }
 
@@ -1019,7 +981,7 @@ export interface CreateAnAssignmentOverrideParams {
   The IDs of the override's target students. If present, the IDs must each
   identify a user with an active student enrollment in the course that is not
   already targetted by a different adhoc override. */
-  'assignment_override[student_ids]'?: number[];
+  "assignment_override[student_ids]"?: number[];
   /**
   The title of the adhoc assignment override. Required if student_ids is present,
   ignored otherwise (the title is set to the name of the targetted group or
@@ -1062,7 +1024,7 @@ export interface UpdateAnAssignmentOverrideParams {
   identify a user with an active student enrollment in the course that is not
   already targetted by a different adhoc override. Ignored unless the override
   being updated is adhoc. */
-  'assignment_override[student_ids]'?: number[];
+  "assignment_override[student_ids]"?: number[];
   /**
   The title of an adhoc assignment override. Ignored unless the override being
   updated is adhoc. */
@@ -1174,10 +1136,10 @@ export interface UpdateListOfBlackoutDatesParams {
 export interface UpdateAssociatedCoursesParams {
   /**
   Courses to add as associated courses */
-  courseidstoadd?: any[];
+  courseidstoadd?: unknown[];
   /**
   Courses to remove as associated courses */
-  courseidstoremove?: any[];
+  courseidstoremove?: unknown[];
 }
 
 export interface BeginMigrationToPushToAssociatedCoursesParams {
@@ -1276,11 +1238,11 @@ export interface ListCalendarEventsParams {
   /**
   Array of attributes to exclude. Possible values are “description”,
   “child_events” and “assignment” */
-  excludes?: any[][];
+  excludes?: unknown[][];
   /**
   Array of optional attributes to include. Possible values are “web_conferenes”
   and “series_natural_language” */
-  includes?: any[][];
+  includes?: unknown[][];
   /**
   Defaults to false. If true, only events with important dates set to true will be
   returned. */
@@ -1322,20 +1284,20 @@ export interface ListCalendarEventsForUserParams {
   /**
   Array of attributes to exclude. Possible values are “description”,
   “child_events” and “assignment” */
-  excludes?: any[][];
+  excludes?: unknown[][];
   /**
   When type is “assignment”, specifies the allowable submission types for returned
   assignments. Ignored if type is not “assignment” or if exclude_submission_types
   is provided. */
-  submission_types?: any[][];
+  submission_types?: unknown[][];
   /**
   When type is “assignment”, specifies the submission types to be excluded from
   the returned assignments. Ignored if type is not “assignment”. */
-  exclude_submission_types?: any[][];
+  exclude_submission_types?: unknown[][];
   /**
   Array of optional attributes to include. Possible values are “web_conferenes”
   and “series_natural_language” */
-  includes?: any[][];
+  includes?: unknown[][];
   /**
   Defaults to false If true, only events with important dates set to true will be
   returned. */
@@ -1497,7 +1459,7 @@ export interface SetCourseTimetableParams {
   An array of timetable objects for the course section specified by
   course_section_id. If course_section_id is set to “all”, events will be created
   for the entire course. */
-  'timetables[course_section_id]'?: any[][];
+  "timetables[course_section_id]"?: unknown[][];
   /**
   A comma-separated list of abbreviated weekdays (Mon-Monday, Tue-Tuesday, Wed-
   Wednesday, Thu-Thursday, Fri-Friday, Sat-Saturday, Sun-Sunday) */
@@ -1520,7 +1482,7 @@ export interface CreateOrUpdateEventsDirectlyForCourseTimetableParams {
   coursesectionid?: string;
   /**
   An array of event objects to use. */
-  events?: any[][];
+  events?: unknown[][];
   /**
   Start time for the event */
   eventsstartat?: Date;
@@ -1600,7 +1562,7 @@ export interface ExportContentParams {
   Allowed values: folders, files, attachments, quizzes, assignments,
   announcements, calendar_events, discussion_topics, modules, module_items, pages,
   rubrics */
-  select?: any;
+  select?: unknown;
 }
 
 export interface UpdateMigrationIssueParams {
@@ -1667,7 +1629,7 @@ export interface CreateContentMigrationParams {
   settingsmovetoassignmentgroupid?: number;
   /**
   Allowed values: all_course_settings, visibility_settings */
-  settingsimporterskips?: any[];
+  settingsimporterskips?: unknown[];
   /**
   Whether to shift dates in the copied course */
   dateshiftoptionsshiftdates?: boolean;
@@ -1703,7 +1665,7 @@ export interface CreateContentMigrationParams {
   Allowed values: folders, files, attachments, quizzes, assignments,
   announcements, calendar_events, discussion_topics, modules, module_items, pages,
   rubrics */
-  select?: any;
+  select?: unknown;
 }
 
 export interface ListItemsForSelectiveImportParams {
@@ -1737,7 +1699,7 @@ export interface AddAnAllowedDomainToAccountParams {
 export interface AddMultipleAllowedDomainsToAnAccountParams {
   /**
   no description */
-  domains?: any[];
+  domains?: unknown[];
 }
 
 export interface RemoveDomainFromAccountParams {
@@ -1749,7 +1711,7 @@ export interface RemoveDomainFromAccountParams {
 export interface CreateContentShareParams {
   /**
   IDs of users to share the content with. */
-  receiverids?: any[];
+  receiverids?: unknown[];
   /**
   Allowed values: assignment, discussion_topic, page, quiz, module, module_item */
   contenttype?: string;
@@ -1761,7 +1723,7 @@ export interface CreateContentShareParams {
 export interface AddUsersToContentShareParams {
   /**
   IDs of users to share the content with. */
-  receiverids?: any[];
+  receiverids?: unknown[];
 }
 
 export interface UpdateContentShareParams {
@@ -2584,7 +2546,7 @@ export interface UpdateColumnDataParams {
 export interface BulkUpdateColumnDataParams {
   /**
   Column content. Setting this to an empty string will delete the data object. */
-  column_data?: any[][];
+  column_data?: unknown[][];
 }
 
 export interface ListDiscussionTopicsParams {
@@ -2679,7 +2641,7 @@ export interface CreateNewDiscussionTopicParams {
   /**
   A multipart/form-data form-field-style attachment. Attachments larger than 1
   kilobyte are subject to quota restrictions. */
-  attachment?: any;
+  attachment?: unknown;
   /**
   A comma-separated list of sections ids to which the discussion topic should be
   made specific to.  If it is not desired to make the discussion topic specific to
@@ -3071,7 +3033,7 @@ export interface CreateErrorReportParams {
   will collect it based on information found in the request. (Doesn't have to be
   HTTPENV info, could be anything JSON object that can be serialized as a hash, a
   mobile app might include relevant metadata for itself) */
-  errorhttpenv?: any;
+  errorhttpenv?: unknown;
 }
 
 export interface ListExternalToolsParams {
@@ -3389,7 +3351,7 @@ export interface ListFilesParams {
   /**
   Array of information to restrict to. Overrides include[] “names”  only returns
   file name information */
-  only?: any[][];
+  only?: unknown[][];
   /**
   Allowed values: name, size, created_at, updated_at, content_type, user */
   sort?: string;
@@ -3689,7 +3651,7 @@ export interface ListUncollatedSubmissionVersionsParams {
 export interface CreateGradingPeriodSetParams {
   /**
   A list of associated term ids for the grading period set */
-  enrollment_term_ids?: any[][];
+  enrollment_term_ids?: unknown[][];
   /**
   The title of the grading period set */
   gradingperiodsettitle?: string;
@@ -3705,7 +3667,7 @@ export interface CreateGradingPeriodSetParams {
 export interface UpdateGradingPeriodSetParams {
   /**
   A list of associated term ids for the grading period set */
-  enrollment_term_ids?: any[][];
+  enrollment_term_ids?: unknown[][];
   /**
   The title of the grading period set */
   gradingperiodsettitle?: string;
@@ -4123,7 +4085,7 @@ export interface CreateLineItemParams {
   (EXTENSION) - Optional block to set Assignment Submission Type when creating a
   new assignment is created. type - 'none' or 'external_tool' external_tool_url -
   Submission URL only used when type: 'external_tool' */
-  httpscanvasinstructurecomltisubmissiontype?: object;
+  httpscanvasinstructurecomltisubmissiontype?: Record<string, unknown>;
 }
 
 export interface UpdateLineItemParams {
@@ -4343,7 +4305,7 @@ export interface CreateModuleParams {
   IDs of Modules that must be completed before this one is unlocked. Prerequisite
   modules must precede this module (i.e. have a lower position value), otherwise
   they will be ignored */
-  'module[prerequisite_module_ids]'?: string[];
+  "module[prerequisite_module_ids]"?: string[];
   /**
   Whether to publish the student's final grade for the course upon completion of
   this module. */
@@ -4367,7 +4329,7 @@ export interface UpdateModuleParams {
   IDs of Modules that must be completed before this one is unlocked Prerequisite
   modules must precede this module (i.e. have a lower position value), otherwise
   they will be ignored */
-  'module[prerequisite_module_ids]'?: string[];
+  "module[prerequisite_module_ids]"?: string[];
   /**
   Whether to publish the student's final grade for the course upon completion of
   this module. */
@@ -5204,21 +5166,21 @@ export interface CreateProficiencyRatingsParams {
 export interface UpdatePublicJwkParams {
   /**
   The new public jwk that will be set to the tools current public jwk. */
-  publicjwk?: object;
+  publicjwk?: Record<string, unknown>;
 }
 
 export interface RetrieveAssignmentoverriddenDatesForClassicQuizzesParams {
   /**
   An array of quiz IDs. If omitted, overrides for all quizzes available to the
   operating user will be returned. */
-  'quiz_assignment_overrides[0][quiz_ids]'?: number[];
+  "quiz_assignment_overrides[0][quiz_ids]"?: number[];
 }
 
 export interface RetrieveAssignmentoverriddenDatesForNewQuizzesParams {
   /**
   An array of quiz IDs. If omitted, overrides for all quizzes available to the
   operating user will be returned. */
-  'quiz_assignment_overrides[0][quiz_ids]'?: number[];
+  "quiz_assignment_overrides[0][quiz_ids]"?: number[];
 }
 
 export interface SetExtensionsForStudentQuizSubmissionsParams {
@@ -5432,7 +5394,7 @@ export interface FetchingTheLatestQuizStatisticsParams {
 export interface SubmitCapturedEventsParams {
   /**
   The submission events to be recorded */
-  quiz_submission_events?: any[][];
+  quiz_submission_events?: unknown[][];
 }
 
 export interface RetrieveCapturedEventsParams {
@@ -5509,7 +5471,7 @@ export interface UnflaggingQuestionParams {
 export interface SendMessageToUnsubmittedOrSubmittedUsersForTheQuizParams {
   /**
   Body and recipients to send the message to. */
-  conversations?: any;
+  conversations?: unknown;
 }
 
 export interface GetAllQuizSubmissionsParams {
@@ -5552,7 +5514,7 @@ export interface UpdateStudentQuestionScoresCommentsParams {
   A set of scores and comments for each question answered by the student. The keys
   are the question IDs, and the values are hashes of `score` and `comment`
   entries. See Appendix: Manual Scoring for more on this parameter. */
-  quizsubmissionsquestions?: any;
+  quizsubmissionsquestions?: unknown;
 }
 
 export interface CompleteTheQuizSubmissionturnItInParams {
@@ -5932,7 +5894,7 @@ export interface CreateSingleRubricParams {
   /**
   An indexed Hash of RubricCriteria objects where the keys are integer ids and the
   values are the RubricCriteria objects */
-  rubriccriteria?: any;
+  rubriccriteria?: unknown;
 }
 
 export interface UpdateSingleRubricParams {
@@ -5970,7 +5932,7 @@ export interface UpdateSingleRubricParams {
   /**
   An indexed Hash of RubricCriteria objects where the keys are integer ids and the
   values are the RubricCriteria objects */
-  rubriccriteria?: any;
+  rubriccriteria?: unknown;
 }
 
 export interface GetSingleRubricParams {
@@ -6009,7 +5971,7 @@ export interface CreateSingleRubricAssessmentParams {
   rubric_assessment[criterion_id][comments]  For each criterion_id, change the id
   by the criterion number, ex: criterion_123 If the criterion_id is not specified
   it defaults to false, and nothing is updated. */
-  rubricassessment?: any;
+  rubricassessment?: unknown;
 }
 
 export interface UpdateSingleRubricAssessmentParams {
@@ -6041,7 +6003,7 @@ export interface UpdateSingleRubricAssessmentParams {
   rubric_assessment[criterion_id][comments]  For each criterion_id, change the id
   by the criterion number, ex: criterion_123 If the criterion_id is not specified
   it defaults to false, and nothing is updated. */
-  rubricassessment?: any;
+  rubricassessment?: unknown;
 }
 
 export interface CreateRubricassociationParams {
@@ -6137,7 +6099,7 @@ export interface CreateScoreParams {
   comment?: string;
   /**
   (EXTENSION) Optional submission type and data. Fields listed below. */
-  httpscanvasinstructurecomltisubmission?: object;
+  httpscanvasinstructurecomltisubmission?: Record<string, unknown>;
   /**
   (EXTENSION field) flag to indicate that this is a new submission. Defaults to
   true unless submission_type is none. */
@@ -6167,7 +6129,7 @@ export interface CreateScoreParams {
   a title, and an explicit MIME type if needed (otherwise, MIME type will be
   inferred from the title or url). If any items are present, submission_type will
   be online_upload. */
-  httpscanvasinstructurecomltisubmissioncontentitems?: any[];
+  httpscanvasinstructurecomltisubmissioncontentitems?: unknown[];
 }
 
 export interface FindRecipientsParams {
@@ -6520,7 +6482,7 @@ export interface SubmitAnAssignmentParams {
   in the submitting user's files section (or the group's files section, for group
   assignments). To upload a new file to submit, see the submissions Upload a file
   API. Requires a submission_type of “online_upload”. */
-  'submission[file_ids]'?: number[];
+  "submission[file_ids]"?: number[];
   /**
   The media comment id to submit. Media comment ids can be submitted via this API,
   however, note that there is not yet an API to generate or list existing media
@@ -6650,7 +6612,7 @@ export interface GradeOrCommentOnSubmissionParams {
   /**
   Attach files to this comment that were previously uploaded using the Submission
   Comment API's files action */
-  'comment[file_ids]'?: number[];
+  "comment[file_ids]"?: number[];
   /**
   Whether this assignment is visible to the owner of the submission */
   includevisibility?: string;
@@ -6731,7 +6693,7 @@ export interface GradeOrCommentOnSubmissionByAnonymousIdParams {
   /**
   Attach files to this comment that were previously uploaded using the Submission
   Comment API's files action */
-  'comment[file_ids]'?: number[];
+  "comment[file_ids]"?: number[];
   /**
   Whether this assignment is visible to the owner of the submission */
   includevisibility?: string;
@@ -6823,7 +6785,7 @@ export interface GradeOrCommentOnMultipleSubmissionsParams {
   /**
   See documentation for the comment[] arguments in the Submissions Update
   documentation */
-  'grade_data[<student_id>][file_ids]'?: number[];
+  "grade_data[<student_id>][file_ids]"?: number[];
   /**
   Specifies which assignment to grade.  This argument is not necessary when using
   the assignment-specific endpoints. */
@@ -7238,7 +7200,7 @@ export interface StoreCustomDataParams {
   The data you want to store for the user, at the specified scope.  If the data is
   composed of (possibly nested) JSON objects, scopes will be generated for the
   (nested) keys (see examples). */
-  data?: object;
+  data?: Record<string, unknown>;
 }
 
 export interface LoadCustomDataParams {
@@ -7279,13 +7241,13 @@ export interface CreateWebhookSubscriptionParams {
   subscriptionContextType?: string;
   /**
   Array of strings representing the event types for the subscription. */
-  subscriptionEventTypes?: any[];
+  subscriptionEventTypes?: unknown[];
   /**
   Format to deliver the live events. Must be 'live-event' or 'caliper'. */
   subscriptionFormat?: string;
   /**
   An object with a single key: 'Url'. Example: { “Url”: “sqs.example” } */
-  subscriptionTransportMetadata?: object;
+  subscriptionTransportMetadata?: Record<string, unknown>;
   /**
   Must be either 'sqs' or 'https'. */
   subscriptionTransportType?: string;

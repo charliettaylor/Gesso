@@ -20,10 +20,15 @@
   "user": null,
 
   "processing_warnings": [
-    ["students.csv", "user John Doe has already claimed john_doe's requested login information, skipping"]
+    [
+      "students.csv",
+      "user John Doe has already claimed john_doe's requested login information, skipping"
+    ]
   ],
 
-  "processing_errors": [["students.csv", "Error while importing CSV. Please contact support."]],
+  "processing_errors": [
+    ["students.csv", "Error while importing CSV. Please contact support."]
+  ],
 
   "batch_mode": true,
 
