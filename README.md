@@ -7,7 +7,7 @@ _An ESM library for the Canvas LMS REST API_
 The goal of this library is to provide types and methods for the Canvas LMS REST
 API.
 
-Currently only available for Deno, NPM package is on the way!
+Also available on [NPM!](https://www.npmjs.com/package/gesso-canvas-api)
 
 ## Quick Start Example
 
