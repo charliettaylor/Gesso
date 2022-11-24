@@ -69,7 +69,7 @@ def create_params_and_route(tag: PageElement) -> Route:
   if routeName is not None:
     routeName = routeName.a.string.strip()
   else:
-    routeName = "FUCK ROUTE NAME"
+    routeName = "NoRouteName"
 
   routeNameList = convert_to_func_name(routeName)
   routeName = ''.join(routeNameList)
@@ -79,7 +79,7 @@ def create_params_and_route(tag: PageElement) -> Route:
   if thing is not None:
     method, endpoint = thing.string.strip().split()
   else:
-    method, endpoint = "FUCK METHOD", "FUCK ENDPOINT"
+    method, endpoint = "NoMethod", "NoEndpoint"
 
   endpoint = endpoint.replace("api/v1/", "")
 
@@ -333,7 +333,7 @@ def main():
       className = className.find('h1').string.replace('API', '').split()
       className = ''.join(className)
     else:
-      className = 'FUCK CLASS NAME'
+      className = 'NoWorkClass'
 
     routes = []
     for tag in tags:
