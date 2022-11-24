@@ -4,8 +4,7 @@ import { Courses } from "../src/Courses.ts";
 async function getCourses() {
   const thing = {
     domain: "https://csufullerton.instructure.com",
-    apiKey:
-      "349~bwrr0zgPrSgSMfo51RlALuFnBterZXNrXIdblDTT9utMJAbEGjfv61I3x7ez7QhD",
+    apiKey: "",
   };
 
   const config = new Configuration(thing);
