@@ -35,8 +35,8 @@ def main():
       name = tag.find('a')['name']
       content = remove_comments(
         tag.find('pre', class_='example code prettyprint').string)
-      # with open(f"../types/json/{name}.json", "w") as f:
-      #   f.write(content)
+      with open(f"../types/json/{name}.json", "w") as f:
+        f.write(content)
 
       with open(f"../temp/entities.txt", "a") as f:
         f.write(f'{name}\n')
