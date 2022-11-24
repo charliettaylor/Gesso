@@ -1,19 +1,22 @@
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
-import { Grade, Tab } from '../types/models';
-import { UpdateTabForCourseParams, ListAvailableTabsForCourseOrGroupParams } from '../types/params';
 
+import { ListAvailableTabsForCourseOrGroupParams, UpdateTabForCourseParams } from '../types/params';
+  
 export class Tabs extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listAvailableTabsForCourseOrGroup(
-    account_id: string,
-    params: ListAvailableTabsForCourseOrGroupParams,
-  ): Promise<Grade> {
-    const endpoint = `/accounts/${account_id}/tabs`;
-    const response = await this.get(endpoint, params);
+  public async listAvailableTabsForCourseOrGroup(account_id: string, params?: ListAvailableTabsForCourseOrGroupParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/accounts/${account_id}/tabs`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -21,13 +24,20 @@ export class Tabs extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateTabForCourse(course_id: string, tab_id: string, params: UpdateTabForCourseParams): Promise<Tab> {
-    const endpoint = `/courses/${course_id}/tabs/${tab_id}`;
-    const response = await this.put(endpoint, params);
+  public async updateTabForCourse(course_id: string, tab_id: string, params?: UpdateTabForCourseParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/tabs/${tab_id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

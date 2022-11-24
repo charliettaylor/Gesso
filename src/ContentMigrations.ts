@@ -1,20 +1,18 @@
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
-import { MigrationIssue, ContentMigration, Migrator, Scope } from '../types/models';
-import {
-  UpdateMigrationIssueParams,
-  CreateContentMigrationParams,
-  ListItemsForSelectiveImportParams,
-} from '../types/params';
 
+import { UpdateMigrationIssueParams, ListItemsForSelectiveImportParams, CreateContentMigrationParams } from '../types/params';
+  
 export class ContentMigrations extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listMigrationIssues(account_id: string, content_migration_id: string): Promise<MigrationIssue[]> {
-    const endpoint = `/accounts/${account_id}/content_migrations/${content_migration_id}/migration_issues`;
-    const response = await this.get(endpoint);
+  public async listMigrationIssues(account_id: string, content_migration_id: string, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/accounts/${account_id}/content_migrations/${content_migration_id}/migration_issues`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -22,13 +20,11 @@ export class ContentMigrations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getMigrationIssue(
-    account_id: string,
-    content_migration_id: string,
-    id: string,
-  ): Promise<MigrationIssue> {
-    const endpoint = `/accounts/${account_id}/content_migrations/${content_migration_id}/migration_issues/${id}`;
-    const response = await this.get(endpoint);
+  public async getMigrationIssue(account_id: string, content_migration_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/accounts/${account_id}/content_migrations/${content_migration_id}/migration_issues/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -36,14 +32,15 @@ export class ContentMigrations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateMigrationIssue(
-    account_id: string,
-    content_migration_id: string,
-    id: string,
-    params: UpdateMigrationIssueParams,
-  ): Promise<MigrationIssue> {
-    const endpoint = `/accounts/${account_id}/content_migrations/${content_migration_id}/migration_issues/${id}`;
-    const response = await this.put(endpoint, params);
+  public async updateMigrationIssue(account_id: string, content_migration_id: string, id: string, params?: UpdateMigrationIssueParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/accounts/${account_id}/content_migrations/${content_migration_id}/migration_issues/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -51,9 +48,11 @@ export class ContentMigrations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listContentMigrations(account_id: string): Promise<ContentMigration[]> {
-    const endpoint = `/accounts/${account_id}/content_migrations`;
-    const response = await this.get(endpoint);
+  public async listContentMigrations(account_id: string, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/accounts/${account_id}/content_migrations`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -61,9 +60,11 @@ export class ContentMigrations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getContentMigration(account_id: string, id: string): Promise<ContentMigration> {
-    const endpoint = `/accounts/${account_id}/content_migrations/${id}`;
-    const response = await this.get(endpoint);
+  public async getContentMigration(account_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/accounts/${account_id}/content_migrations/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -71,12 +72,15 @@ export class ContentMigrations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createContentMigration(
-    account_id: string,
-    params: CreateContentMigrationParams,
-  ): Promise<ContentMigration> {
-    const endpoint = `/accounts/${account_id}/content_migrations`;
-    const response = await this.post(endpoint, params);
+  public async createContentMigration(account_id: string, params?: CreateContentMigrationParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/accounts/${account_id}/content_migrations`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -84,9 +88,11 @@ export class ContentMigrations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateContentMigration(account_id: string, id: string): Promise<ContentMigration> {
-    const endpoint = `/accounts/${account_id}/content_migrations/${id}`;
-    const response = await this.put(endpoint);
+  public async updateContentMigration(account_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/accounts/${account_id}/content_migrations/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -94,9 +100,11 @@ export class ContentMigrations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listMigrationSystems(account_id: string): Promise<Migrator[]> {
-    const endpoint = `/accounts/${account_id}/content_migrations/migrators`;
-    const response = await this.get(endpoint);
+  public async listMigrationSystems(account_id: string, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/accounts/${account_id}/content_migrations/migrators`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -104,17 +112,20 @@ export class ContentMigrations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listItemsForSelectiveImport(
-    account_id: string,
-    id: string,
-    params: ListItemsForSelectiveImportParams,
-  ): Promise<Scope[]> {
-    const endpoint = `/accounts/${account_id}/content_migrations/${id}/selective_data`;
-    const response = await this.get(endpoint, params);
+  public async listItemsForSelectiveImport(account_id: string, id: string, params?: ListItemsForSelectiveImportParams, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/accounts/${account_id}/content_migrations/${id}/selective_data`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

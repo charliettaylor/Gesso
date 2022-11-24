@@ -1,16 +1,22 @@
-import { Scope } from '../types/models';
-import { QueryByAccountParams, QueryByLoginParams, QueryByUserParams } from '../types/params';
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
 
+import { QueryByUserParams, QueryByAccountParams, QueryByLoginParams } from '../types/params';
+  
 export class AuthenticationsLog extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async queryByLogin(login_id: string, params: QueryByLoginParams): Promise<Scope> {
-    const endpoint = `/audit/authentication/logins/${login_id}`;
-    const response = await this.get(endpoint, params);
+  public async queryByLogin(login_id: string, params?: QueryByLoginParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/audit/authentication/logins/${login_id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -18,9 +24,15 @@ export class AuthenticationsLog extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async queryByAccount(account_id: string, params: QueryByAccountParams): Promise<Scope> {
-    const endpoint = `/audit/authentication/accounts/${account_id}`;
-    const response = await this.get(endpoint, params);
+  public async queryByAccount(account_id: string, params?: QueryByAccountParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/audit/authentication/accounts/${account_id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -28,13 +40,20 @@ export class AuthenticationsLog extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async queryByUser(user_id: string, params: QueryByUserParams): Promise<Scope> {
-    const endpoint = `/audit/authentication/users/${user_id}`;
-    const response = await this.get(endpoint, params);
+  public async queryByUser(user_id: string, params?: QueryByUserParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/audit/authentication/users/${user_id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

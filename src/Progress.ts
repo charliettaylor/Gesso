@@ -1,15 +1,17 @@
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
-import { Progress as ProgressModel } from '../types/models';
+
 
 export class Progress extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async queryProgress(id: string): Promise<ProgressModel> {
-    const endpoint = `/progress/${id}`;
-    const response = await this.get(endpoint);
+  public async queryProgress(id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/progress/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -17,9 +19,11 @@ export class Progress extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async cancelProgress(id: string): Promise<ProgressModel> {
-    const endpoint = `/progress/${id}/cancel`;
-    const response = await this.post(endpoint);
+  public async cancelProgress(id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/progress/${id}/cancel`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -27,13 +31,16 @@ export class Progress extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async queryLtiProgress(course_id: string, id: string): Promise<ProgressModel> {
-    const endpoint = `/api/lti/courses/${course_id}/progress/${id}`;
-    const response = await this.get(endpoint);
+  public async queryLtiProgress(course_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/api/lti/courses/${course_id}/progress/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

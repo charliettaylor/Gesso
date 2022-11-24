@@ -17,7 +17,9 @@
     "quotes": ["warn", "single"],
     "semi": ["error", "always"],
     "@typescript-eslint/no-explicit-any": "off",
-    "unused-imports/no-unused-imports": "error"
+    "unused-imports/no-unused-imports": "error",
+    "no-prototype-builtins": "warn",
+    "no-empty": "warn"
   },
-  "ignorePatterns": ["node_modules/"]
+  "ignorePatterns": ["node_modules/", "output/"]
 }

@@ -1,16 +1,22 @@
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
-import { Scope } from '../types/models';
-import { FindRecipientsParams, ListAllCoursesParams } from '../types/params';
 
+import { ListAllCoursesParams, FindRecipientsParams } from '../types/params';
+  
 export class Search extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async findRecipients(params: FindRecipientsParams): Promise<Scope> {
-    const endpoint = `/conversations/find_recipients`;
-    const response = await this.get(endpoint, params);
+  public async findRecipients(params?: FindRecipientsParams, body?: any): Promise<any> {
+    const endpoint = '/api/v1/conversations/find_recipients';
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -18,13 +24,20 @@ export class Search extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listAllCourses(params: ListAllCoursesParams): Promise<Scope> {
-    const endpoint = `/search/all_courses`;
-    const response = await this.get(endpoint, params);
+  public async listAllCourses(params?: ListAllCoursesParams, body?: any): Promise<any> {
+    const endpoint = '/api/v1/search/all_courses';
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

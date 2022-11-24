@@ -1,16 +1,18 @@
-import { BlackoutDate, Scope } from '../types/models';
-import { CreateBlackoutDateParams, UpdateBlackoutDateParams, UpdateListOfBlackoutDatesParams } from '../types/params';
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
 
+import { UpdateBlackoutDateParams, CreateBlackoutDateParams, UpdateListOfBlackoutDatesParams } from '../types/params';
+  
 export class BlackoutDates extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listBlackoutDates(course_id: string): Promise<BlackoutDate[]> {
-    const endpoint = `/courses/${course_id}/blackout_dates`;
-    const response = await this.get(endpoint);
+  public async listBlackoutDates(course_id: string, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/courses/${course_id}/blackout_dates`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -18,9 +20,11 @@ export class BlackoutDates extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getSingleBlackoutDate(course_id: string, id: string): Promise<BlackoutDate> {
-    const endpoint = `/courses/${course_id}/blackout_dates/${id}`;
-    const response = await this.get(endpoint);
+  public async getSingleBlackoutDate(course_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/blackout_dates/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -28,9 +32,11 @@ export class BlackoutDates extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async newBlackoutDate(course_id: string): Promise<BlackoutDate> {
-    const endpoint = `/courses/${course_id}/blackout_dates/new`;
-    const response = await this.get(endpoint);
+  public async newBlackoutDate(course_id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/blackout_dates/new`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -38,9 +44,15 @@ export class BlackoutDates extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createBlackoutDate(course_id: string, params: CreateBlackoutDateParams): Promise<BlackoutDate> {
-    const endpoint = `/courses/${course_id}/blackout_dates`;
-    const response = await this.post(endpoint, params);
+  public async createBlackoutDate(course_id: string, params?: CreateBlackoutDateParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/blackout_dates`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -48,13 +60,15 @@ export class BlackoutDates extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateBlackoutDate(
-    course_id: string,
-    id: string,
-    params: UpdateBlackoutDateParams,
-  ): Promise<BlackoutDate> {
-    const endpoint = `/courses/${course_id}/blackout_dates/${id}`;
-    const response = await this.put(endpoint, params);
+  public async updateBlackoutDate(course_id: string, id: string, params?: UpdateBlackoutDateParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/blackout_dates/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -62,9 +76,11 @@ export class BlackoutDates extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteBlackoutDate(course_id: string, id: string): Promise<BlackoutDate> {
-    const endpoint = `/courses/${course_id}/blackout_dates/${id}`;
-    const response = await this.delete(endpoint);
+  public async deleteBlackoutDate(course_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/blackout_dates/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -72,13 +88,20 @@ export class BlackoutDates extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateListOfBlackoutDates(course_id: string, params: UpdateListOfBlackoutDatesParams): Promise<Scope[]> {
-    const endpoint = `/courses/${course_id}/blackout_dates`;
-    const response = await this.put(endpoint, params);
+  public async updateListOfBlackoutDates(course_id: string, params?: UpdateListOfBlackoutDatesParams, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/courses/${course_id}/blackout_dates`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

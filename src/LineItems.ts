@@ -1,16 +1,22 @@
-import { LineItem } from '../types/models';
-import { CreateLineItemParams, ListLineItemsParams, ShowLineItemParams, UpdateLineItemParams } from '../types/params';
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
 
+import { ShowLineItemParams, ListLineItemsParams, UpdateLineItemParams, CreateLineItemParams } from '../types/params';
+  
 export class LineItems extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async createLineItem(course_id: string, params: CreateLineItemParams): Promise<LineItem> {
-    const endpoint = `/api/lti/courses/${course_id}/line_items`;
-    const response = await this.post(endpoint, params);
+  public async createLineItem(course_id: string, params?: CreateLineItemParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -18,9 +24,15 @@ export class LineItems extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateLineItem(course_id: string, id: string, params: UpdateLineItemParams): Promise<LineItem> {
-    const endpoint = `/api/lti/courses/${course_id}/line_items/${id}`;
-    const response = await this.put(endpoint, params);
+  public async updateLineItem(course_id: string, id: string, params?: UpdateLineItemParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -28,9 +40,15 @@ export class LineItems extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showLineItem(course_id: string, id: string, params: ShowLineItemParams): Promise<LineItem> {
-    const endpoint = `/api/lti/courses/${course_id}/line_items/${id}`;
-    const response = await this.get(endpoint, params);
+  public async showLineItem(course_id: string, id: string, params?: ShowLineItemParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -38,9 +56,15 @@ export class LineItems extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listLineItems(course_id: string, params: ListLineItemsParams): Promise<LineItem> {
-    const endpoint = `/api/lti/courses/${course_id}/line_items`;
-    const response = await this.get(endpoint, params);
+  public async listLineItems(course_id: string, params?: ListLineItemsParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -48,13 +72,16 @@ export class LineItems extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteLineItem(course_id: string, id: string): Promise<LineItem> {
-    const endpoint = `/api/lti/courses/${course_id}/line_items/${id}`;
-    const response = await this.delete(endpoint);
+  public async deleteLineItem(course_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

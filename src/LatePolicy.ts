@@ -1,16 +1,18 @@
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
-import { LatePolicy as LatePolicyModel, Scope } from '../types/models';
-import { PatchLatePolicyParams, CreateLatePolicyParams } from '../types/params';
 
+import { CreateLatePolicyParams, PatchLatePolicyParams } from '../types/params';
+  
 export class LatePolicy extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async getLatePolicy(id: string): Promise<LatePolicyModel> {
-    const endpoint = `/courses/${id}/late_policy`;
-    const response = await this.get(endpoint);
+  public async getLatePolicy(id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${id}/late_policy`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -18,9 +20,15 @@ export class LatePolicy extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createLatePolicy(id: string, params: CreateLatePolicyParams): Promise<Scope> {
-    const endpoint = `/courses/${id}/late_policy`;
-    const response = await this.post(endpoint, params);
+  public async createLatePolicy(id: string, params?: CreateLatePolicyParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${id}/late_policy`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -28,13 +36,20 @@ export class LatePolicy extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async patchLatePolicy(id: string, params: PatchLatePolicyParams): Promise<Scope> {
-    const endpoint = `/courses/${id}/late_policy`;
-    const response = await this.patch(endpoint, params);
+  public async patchLatePolicy(id: string, params?: PatchLatePolicyParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${id}/late_policy`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.patch(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

@@ -1,27 +1,22 @@
-import { Assignment, Module, Scope } from '../types/models';
-import {
-  CreateModuleItemParams,
-  CreateModuleParams,
-  GetModuleItemSequenceParams,
-  ListModuleItemsParams,
-  ListModulesParams,
-  SelectMasteryPathParams,
-  ShowModuleItemParams,
-  ShowModuleParams,
-  UpdateModuleItemParams,
-  UpdateModuleParams,
-} from '../types/params';
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
 
+import { CreateModuleItemParams, SelectMasteryPathParams, UpdateModuleItemParams, GetModuleItemSequenceParams, ShowModuleParams, UpdateModuleParams, ListModuleItemsParams, CreateModuleParams, ShowModuleItemParams, ListModulesParams } from '../types/params';
+  
 export class Modules extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listModules(course_id: string, params: ListModulesParams): Promise<Module[]> {
-    const endpoint = `/courses/${course_id}/modules`;
-    const response = await this.get(endpoint, params);
+  public async listModules(course_id: string, params?: ListModulesParams, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/courses/${course_id}/modules`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -29,9 +24,15 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showModule(course_id: string, id: string, params: ShowModuleParams): Promise<Module> {
-    const endpoint = `/courses/${course_id}/modules/${id}`;
-    const response = await this.get(endpoint, params);
+  public async showModule(course_id: string, id: string, params?: ShowModuleParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/modules/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -39,9 +40,15 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createModule(course_id: string, params: CreateModuleParams): Promise<Module> {
-    const endpoint = `/courses/${course_id}/modules`;
-    const response = await this.post(endpoint, params);
+  public async createModule(course_id: string, params?: CreateModuleParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/modules`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -49,9 +56,15 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateModule(course_id: string, id: string, params: UpdateModuleParams): Promise<Module> {
-    const endpoint = `/courses/${course_id}/modules/${id}`;
-    const response = await this.put(endpoint, params);
+  public async updateModule(course_id: string, id: string, params?: UpdateModuleParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/modules/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -59,9 +72,11 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteModule(course_id: string, id: string): Promise<Module> {
-    const endpoint = `/courses/${course_id}/modules/${id}`;
-    const response = await this.delete(endpoint);
+  public async deleteModule(course_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/modules/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -69,9 +84,11 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async relockModuleProgressions(course_id: string, id: string): Promise<Module> {
-    const endpoint = `/courses/${course_id}/modules/${id}/relock`;
-    const response = await this.put(endpoint);
+  public async relockModuleProgressions(course_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/modules/${id}/relock`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -79,9 +96,15 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listModuleItems(course_id: string, module_id: string, params: ListModuleItemsParams): Promise<Module[]> {
-    const endpoint = `/courses/${course_id}/modules/${module_id}/items`;
-    const response = await this.get(endpoint, params);
+  public async listModuleItems(course_id: string, module_id: string, params?: ListModuleItemsParams, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -89,14 +112,15 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showModuleItem(
-    course_id: string,
-    module_id: string,
-    id: string,
-    params: ShowModuleItemParams,
-  ): Promise<Module> {
-    const endpoint = `/courses/${course_id}/modules/${module_id}/items/${id}`;
-    const response = await this.get(endpoint, params);
+  public async showModuleItem(course_id: string, module_id: string, id: string, params?: ShowModuleItemParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -104,9 +128,15 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createModuleItem(course_id: string, module_id: string, params: CreateModuleItemParams): Promise<Module> {
-    const endpoint = `/courses/${course_id}/modules/${module_id}/items`;
-    const response = await this.post(endpoint, params);
+  public async createModuleItem(course_id: string, module_id: string, params?: CreateModuleItemParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -114,14 +144,15 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateModuleItem(
-    course_id: string,
-    module_id: string,
-    id: string,
-    params: UpdateModuleItemParams,
-  ): Promise<Module> {
-    const endpoint = `/courses/${course_id}/modules/${module_id}/items/${id}`;
-    const response = await this.put(endpoint, params);
+  public async updateModuleItem(course_id: string, module_id: string, id: string, params?: UpdateModuleItemParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -129,14 +160,15 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async selectMasteryPath(
-    course_id: string,
-    module_id: string,
-    id: string,
-    params: SelectMasteryPathParams,
-  ): Promise<Assignment> {
-    const endpoint = `/courses/${course_id}/modules/${module_id}/items/${id}/select_mastery_path`;
-    const response = await this.post(endpoint, params);
+  public async selectMasteryPath(course_id: string, module_id: string, id: string, params?: SelectMasteryPathParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}/select_mastery_path`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -144,9 +176,11 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteModuleItem(course_id: string, module_id: string, id: string): Promise<Module> {
-    const endpoint = `/courses/${course_id}/modules/${module_id}/items/${id}`;
-    const response = await this.delete(endpoint);
+  public async deleteModuleItem(course_id: string, module_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -154,9 +188,11 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async markModuleItemAsDoneDone(course_id: string, module_id: string, id: string): Promise<Scope> {
-    const endpoint = `/courses/${course_id}/modules/${module_id}/items/${id}/done`;
-    const response = await this.put(endpoint);
+  public async markModuleItemAsDoneDone(course_id: string, module_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}/done`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -164,9 +200,15 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getModuleItemSequence(course_id: string, params: GetModuleItemSequenceParams): Promise<Module> {
-    const endpoint = `/courses/${course_id}/module_item_sequence`;
-    const response = await this.get(endpoint, params);
+  public async getModuleItemSequence(course_id: string, params?: GetModuleItemSequenceParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/module_item_sequence`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -174,13 +216,16 @@ export class Modules extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async markModuleItemRead(course_id: string, module_id: string, id: string): Promise<Scope> {
-    const endpoint = `/courses/${course_id}/modules/${module_id}/items/${id}/mark_read`;
-    const response = await this.post(endpoint);
+  public async markModuleItemRead(course_id: string, module_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}/mark_read`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

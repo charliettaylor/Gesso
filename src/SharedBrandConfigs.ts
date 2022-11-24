@@ -1,19 +1,22 @@
-import { SharedBrandConfig } from '../types/models';
-import { ShareBrandconfigthemeParams } from '../types/params';
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
 
+import { ShareBrandconfigthemeParams } from '../types/params';
+  
 export class SharedBrandConfigs extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async shareBrandconfigtheme(
-    account_id: string,
-    params: ShareBrandconfigthemeParams,
-  ): Promise<SharedBrandConfig> {
-    const endpoint = `/accounts/${account_id}/shared_brand_configs`;
-    const response = await this.post(endpoint, params);
+  public async shareBrandconfigtheme(account_id: string, params?: ShareBrandconfigthemeParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/accounts/${account_id}/shared_brand_configs`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -21,9 +24,11 @@ export class SharedBrandConfigs extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateSharedTheme(account_id: string, id: string): Promise<SharedBrandConfig> {
-    const endpoint = `/accounts/${account_id}/shared_brand_configs/${id}`;
-    const response = await this.put(endpoint);
+  public async updateSharedTheme(account_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/accounts/${account_id}/shared_brand_configs/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -31,13 +36,16 @@ export class SharedBrandConfigs extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async unshareBrandconfigtheme(id: string): Promise<SharedBrandConfig> {
-    const endpoint = `/shared_brand_configs/${id}`;
-    const response = await this.delete(endpoint);
+  public async unshareBrandconfigtheme(id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/shared_brand_configs/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

@@ -2,15 +2,14 @@ import { Configuration } from '../src/Configuration';
 import { Courses } from '../src/Courses';
 
 async function getCourses() {
-
   const thing = {
-    domain: 'https://csufullerton.instructure.com', 
-    apiKey: ''
+    domain: 'https://csufullerton.instructure.com',
+    apiKey: '',
   };
 
   const config = new Configuration(thing);
   const courseApi = new Courses(config);
-  
+
   try {
     return await courseApi.listCourses();
   } catch (error) {
@@ -18,4 +17,4 @@ async function getCourses() {
   }
 }
 
-getCourses().then(t => console.log(t));
+getCourses().then((t) => console.log(t));

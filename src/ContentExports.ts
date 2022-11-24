@@ -1,16 +1,18 @@
-import { ContentExport } from '../types/models';
-import { ExportContentParams } from '../types/params';
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
 
+import { ExportContentParams } from '../types/params';
+  
 export class ContentExports extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listContentExports(course_id: string): Promise<ContentExport[]> {
-    const endpoint = `/courses/${course_id}/content_exports`;
-    const response = await this.get(endpoint);
+  public async listContentExports(course_id: string, body?: any): Promise<any[]> {
+    const endpoint = `/api/v1/courses/${course_id}/content_exports`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -18,9 +20,11 @@ export class ContentExports extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showContentExport(course_id: string, id: string): Promise<ContentExport> {
-    const endpoint = `/courses/${course_id}/content_exports/${id}`;
-    const response = await this.get(endpoint);
+  public async showContentExport(course_id: string, id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/content_exports/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -28,13 +32,20 @@ export class ContentExports extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async exportContent(course_id: string, params: ExportContentParams): Promise<ContentExport> {
-    const endpoint = `/courses/${course_id}/content_exports`;
-    const response = await this.post(endpoint, params);
+  public async exportContent(course_id: string, params?: ExportContentParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/courses/${course_id}/content_exports`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

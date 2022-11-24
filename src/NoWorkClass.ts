@@ -3,7 +3,7 @@ import { Configuration } from './Configuration';
 
 
   
-export class ImmersiveReader extends BaseApi {
+export class NoWorkClass extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }

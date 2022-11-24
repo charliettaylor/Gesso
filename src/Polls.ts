@@ -1,16 +1,18 @@
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
-import { Poll, Scope } from '../types/models';
-import { CreateSinglePollParams, UpdateSinglePollParams } from '../types/params';
 
+import { UpdateSinglePollParams, CreateSinglePollParams } from '../types/params';
+  
 export class Polls extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async listPolls(): Promise<Poll> {
-    const endpoint = `/polls`;
-    const response = await this.get(endpoint);
+  public async listPolls(body?: any): Promise<any> {
+    const endpoint = '/api/v1/polls';
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -18,9 +20,11 @@ export class Polls extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getSinglePoll(id: string): Promise<Poll> {
-    const endpoint = `/polls/${id}`;
-    const response = await this.get(endpoint);
+  public async getSinglePoll(id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/polls/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -28,9 +32,15 @@ export class Polls extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createSinglePoll(params: CreateSinglePollParams): Promise<Scope> {
-    const endpoint = `/polls`;
-    const response = await this.post(endpoint, params);
+  public async createSinglePoll(params?: CreateSinglePollParams, body?: any): Promise<any> {
+    const endpoint = '/api/v1/polls';
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -38,9 +48,15 @@ export class Polls extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateSinglePoll(id: string, params: UpdateSinglePollParams): Promise<Scope> {
-    const endpoint = `/polls/${id}`;
-    const response = await this.put(endpoint, params);
+  public async updateSinglePoll(id: string, params?: UpdateSinglePollParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/polls/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.put(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -48,13 +64,16 @@ export class Polls extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deletePoll(id: string): Promise<Scope> {
-    const endpoint = `/polls/${id}`;
-    const response = await this.delete(endpoint);
+  public async deletePoll(id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/polls/${id}`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.delete(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }

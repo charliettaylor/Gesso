@@ -230,11 +230,11 @@ def create_function(route: Route) -> str:
   
   routeWithParams = replace_route_params(route.route)
 
-  paramsSetter = '''if (params !== undefined) {{
-  for (const [key, value] of Object.entries(params)) {{
+  paramsSetter = '''if (params !== undefined) {
+  for (const [key, value] of Object.entries(params)) {
     url.searchParams.set(key, JSON.stringify(value));
-  }}
-}}'''
+  }
+}'''
 
   joinParams = ', '.join(params)
 
@@ -248,10 +248,10 @@ def create_function(route: Route) -> str:
     }}
 
     return Promise.reject(response);
-  }}
+  }}\n
 '''
  
-  # function = textwrap.indent(function, '  ')
+  function = textwrap.indent(function, '  ')
 
   return function
 

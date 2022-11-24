@@ -15,9 +15,7 @@
 
   "participant_count": 2,
 
-  "reserved_times": [
-    { "id": 987, "start_at": "2012-07-20T15:00:00-06:00", "end_at": "2012-07-20T15:00:00-06:00" }
-  ],
+  "reserved_times": [{ "id": 987, "start_at": "2012-07-20T15:00:00-06:00", "end_at": "2012-07-20T15:00:00-06:00" }],
 
   "context_codes": ["course_123"],
 

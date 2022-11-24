@@ -1,19 +1,22 @@
 import { BaseApi } from './BaseApi';
 import { Configuration } from './Configuration';
-import { Proficiency } from '../types/models';
-import { CreateProficiencyRatingsParams } from '../types/params';
 
+import { CreateProficiencyRatingsParams } from '../types/params';
+  
 export class ProficiencyRatings extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async createProficiencyRatings(
-    account_id: string,
-    params: CreateProficiencyRatingsParams,
-  ): Promise<Proficiency> {
-    const endpoint = `/accounts/${account_id}/outcome_proficiency`;
-    const response = await this.post(endpoint, params);
+  public async createProficiencyRatings(account_id: string, params?: CreateProficiencyRatingsParams, body?: any): Promise<any> {
+    const endpoint = `/api/v1/accounts/${account_id}/outcome_proficiency`;
+    const url = new URL(endpoint, this.configuration.domain);
+    if (params !== undefined) {
+      for (const [key, value] of Object.entries(params)) {
+        url.searchParams.set(key, JSON.stringify(value));
+      }
+    }
+    const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
@@ -21,13 +24,16 @@ export class ProficiencyRatings extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getProficiencyRatings(account_id: string): Promise<Proficiency> {
-    const endpoint = `/accounts/${account_id}/outcome_proficiency`;
-    const response = await this.get(endpoint);
+  public async getProficiencyRatings(account_id: string, body?: any): Promise<any> {
+    const endpoint = `/api/v1/accounts/${account_id}/outcome_proficiency`;
+    const url = new URL(endpoint, this.configuration.domain);
+    
+    const response = await this.get(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
     }
 
     return Promise.reject(response);
   }
+
 }
