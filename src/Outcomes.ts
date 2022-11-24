@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Outcome, Scope } from "../types/models.ts";
 import { ShowAnOutcomeParams, UpdateAnOutcomeParams } from "../types/params.ts";
 
 export class Outcomes extends BaseApi {
@@ -12,7 +12,7 @@ export class Outcomes extends BaseApi {
     id: string,
     params?: ShowAnOutcomeParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Outcome> {
     const endpoint = `/api/v1/outcomes/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -32,7 +32,7 @@ export class Outcomes extends BaseApi {
     id: string,
     params?: UpdateAnOutcomeParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Outcome> {
     const endpoint = `/api/v1/outcomes/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -51,7 +51,7 @@ export class Outcomes extends BaseApi {
   public async getAlignedAssignmentsForAnOutcomeInCourseForParticularStudent(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/outcome_alignments`;
     const url = new URL(endpoint, this.configuration.domain);
 

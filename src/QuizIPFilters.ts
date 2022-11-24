@@ -1,5 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
+import { Scope } from "../types/models.ts";
 
 export class QuizIPFilters extends BaseApi {
   constructor(config: Configuration) {
@@ -10,7 +11,7 @@ export class QuizIPFilters extends BaseApi {
     course_id: string,
     quiz_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/ip_filters`;
     const url = new URL(endpoint, this.configuration.domain);

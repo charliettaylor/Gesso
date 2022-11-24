@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { ContentShare, Scope } from "../types/models.ts";
 import {
   AddUsersToContentShareParams,
   CreateContentShareParams,
@@ -16,7 +16,7 @@ export class ContentShares extends BaseApi {
     user_id: string,
     params?: CreateContentShareParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ContentShare> {
     const endpoint = `/api/v1/users/${user_id}/content_shares`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -32,7 +32,10 @@ export class ContentShares extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listContentShares(user_id: string, body?: unknown): Promise<unknown[]> {
+  public async listContentShares(
+    user_id: string,
+    body?: unknown,
+  ): Promise<ContentShare[]> {
     const endpoint = `/api/v1/users/${user_id}/content_shares/sent`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -44,7 +47,10 @@ export class ContentShares extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getUnreadSharesCount(user_id: string, body?: unknown): Promise<unknown> {
+  public async getUnreadSharesCount(
+    user_id: string,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${user_id}/content_shares/unread_count`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -60,7 +66,7 @@ export class ContentShares extends BaseApi {
     user_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ContentShare> {
     const endpoint = `/api/v1/users/${user_id}/content_shares/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -76,7 +82,7 @@ export class ContentShares extends BaseApi {
     user_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${user_id}/content_shares/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -93,7 +99,7 @@ export class ContentShares extends BaseApi {
     id: string,
     params?: AddUsersToContentShareParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ContentShare> {
     const endpoint = `/api/v1/users/${user_id}/content_shares/${id}/add_users`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -114,7 +120,7 @@ export class ContentShares extends BaseApi {
     id: string,
     params?: UpdateContentShareParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ContentShare> {
     const endpoint = `/api/v1/users/${user_id}/content_shares/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

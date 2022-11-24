@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Assignment, Progress, Scope } from "../types/models.ts";
 import {
   BatchCreateOverridesInCourseParams,
   BatchRetrieveOverridesInCourseParams,
@@ -23,7 +23,7 @@ export class Assignments extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint = `/api/v1/courses/${course_id}/assignments/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -39,7 +39,7 @@ export class Assignments extends BaseApi {
     course_id: string,
     params?: ListAssignmentsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Assignment[]> {
     const endpoint = `/api/v1/courses/${course_id}/assignments`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -77,7 +77,7 @@ export class Assignments extends BaseApi {
     assignment_id: string,
     params?: DuplicateAssignnmentParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/duplicate`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -99,7 +99,7 @@ export class Assignments extends BaseApi {
     id: string,
     params?: GetSingleAssignmentParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint = `/api/v1/courses/${course_id}/assignments/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -119,7 +119,7 @@ export class Assignments extends BaseApi {
     course_id: string,
     params?: CreateAnAssignmentParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint = `/api/v1/courses/${course_id}/assignments`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -140,7 +140,7 @@ export class Assignments extends BaseApi {
     id: string,
     params?: EditAnAssignmentParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint = `/api/v1/courses/${course_id}/assignments/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -159,7 +159,7 @@ export class Assignments extends BaseApi {
   public async bulkUpdateAssignmentDates(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Progress> {
     const endpoint = `/api/v1/courses/${course_id}/assignments/bulk_update`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -175,7 +175,7 @@ export class Assignments extends BaseApi {
     course_id: string,
     assignment_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Assignment[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/overrides`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -193,7 +193,7 @@ export class Assignments extends BaseApi {
     assignment_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/overrides/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -210,7 +210,7 @@ export class Assignments extends BaseApi {
     group_id: string,
     assignment_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/groups/${group_id}/assignments/${assignment_id}/override`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -227,7 +227,7 @@ export class Assignments extends BaseApi {
     course_section_id: string,
     assignment_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/sections/${course_section_id}/assignments/${assignment_id}/override`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -245,7 +245,7 @@ export class Assignments extends BaseApi {
     assignment_id: string,
     params?: CreateAnAssignmentOverrideParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/overrides`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -268,7 +268,7 @@ export class Assignments extends BaseApi {
     id: string,
     params?: UpdateAnAssignmentOverrideParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/overrides/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -290,7 +290,7 @@ export class Assignments extends BaseApi {
     assignment_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/overrides/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -307,7 +307,7 @@ export class Assignments extends BaseApi {
     course_id: string,
     params?: BatchRetrieveOverridesInCourseParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Assignment[]> {
     const endpoint = `/api/v1/courses/${course_id}/assignments/overrides`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -327,7 +327,7 @@ export class Assignments extends BaseApi {
     course_id: string,
     params?: BatchCreateOverridesInCourseParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Assignment[]> {
     const endpoint = `/api/v1/courses/${course_id}/assignments/overrides`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -347,7 +347,7 @@ export class Assignments extends BaseApi {
     course_id: string,
     params?: BatchUpdateOverridesInCourseParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Assignment[]> {
     const endpoint = `/api/v1/courses/${course_id}/assignments/overrides`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

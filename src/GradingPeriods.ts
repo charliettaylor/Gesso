@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { GradingPeriod, Scope } from "../types/models.ts";
 import {
   BatchUpdateGradingPeriodsParams,
   UpdateSingleGradingPeriodParams,
@@ -14,7 +14,7 @@ export class GradingPeriods extends BaseApi {
   public async listGradingPeriods(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<GradingPeriod> {
     const endpoint = `/api/v1/accounts/${account_id}/grading_periods`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -30,7 +30,7 @@ export class GradingPeriods extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<GradingPeriod> {
     const endpoint = `/api/v1/courses/${course_id}/grading_periods/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -47,7 +47,7 @@ export class GradingPeriods extends BaseApi {
     id: string,
     params?: UpdateSingleGradingPeriodParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/grading_periods/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -67,7 +67,7 @@ export class GradingPeriods extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/grading_periods/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -83,7 +83,7 @@ export class GradingPeriods extends BaseApi {
     course_id: string,
     params?: BatchUpdateGradingPeriodsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/grading_periods/batch_update`;
     const url = new URL(endpoint, this.configuration.domain);

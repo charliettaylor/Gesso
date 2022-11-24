@@ -1,6 +1,12 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import {
+  Group,
+  GroupCategory,
+  Progress,
+  Scope,
+  User,
+} from "../types/models.ts";
 import {
   AssignUnassignedMembersParams,
   CreateGroupCategoryParams,
@@ -17,7 +23,7 @@ export class GroupCategories extends BaseApi {
   public async listGroupCategoriesForContext(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<GroupCategory[]> {
     const endpoint = `/api/v1/accounts/${account_id}/group_categories`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -32,7 +38,7 @@ export class GroupCategories extends BaseApi {
   public async getSingleGroupCategory(
     group_category_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<GroupCategory> {
     const endpoint = `/api/v1/group_categories/${group_category_id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -48,7 +54,7 @@ export class GroupCategories extends BaseApi {
     account_id: string,
     params?: CreateGroupCategoryParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<GroupCategory> {
     const endpoint = `/api/v1/accounts/${account_id}/group_categories`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -68,7 +74,7 @@ export class GroupCategories extends BaseApi {
     group_category_id: string,
     params?: ImportCategoryGroupsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Progress> {
     const endpoint = `/api/v1/group_categories/${group_category_id}/import`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -88,7 +94,7 @@ export class GroupCategories extends BaseApi {
     group_category_id: string,
     params?: UpdateGroupCategoryParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<GroupCategory> {
     const endpoint = `/api/v1/group_categories/${group_category_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -107,7 +113,7 @@ export class GroupCategories extends BaseApi {
   public async deleteGroupCategory(
     group_category_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/group_categories/${group_category_id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -122,7 +128,7 @@ export class GroupCategories extends BaseApi {
   public async listGroupsInGroupCategory(
     group_category_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Group[]> {
     const endpoint = `/api/v1/group_categories/${group_category_id}/groups`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -153,7 +159,7 @@ export class GroupCategories extends BaseApi {
     group_category_id: string,
     params?: ListUsersInGroupCategoryParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<User[]> {
     const endpoint = `/api/v1/group_categories/${group_category_id}/users`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -173,7 +179,7 @@ export class GroupCategories extends BaseApi {
     group_category_id: string,
     params?: AssignUnassignedMembersParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/group_categories/${group_category_id}/assign_unassigned_members`;
     const url = new URL(endpoint, this.configuration.domain);

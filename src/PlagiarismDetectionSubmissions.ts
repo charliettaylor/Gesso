@@ -1,5 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
+import { Scope } from "../types/models.ts";
 
 export class PlagiarismDetectionSubmissions extends BaseApi {
   constructor(config: Configuration) {
@@ -10,7 +11,7 @@ export class PlagiarismDetectionSubmissions extends BaseApi {
     assignment_id: string,
     submission_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/api/lti/assignments/${assignment_id}/submissions/${submission_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -27,7 +28,7 @@ export class PlagiarismDetectionSubmissions extends BaseApi {
     assignment_id: string,
     submission_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint =
       `/api/v1/api/lti/assignments/${assignment_id}/submissions/${submission_id}/history`;
     const url = new URL(endpoint, this.configuration.domain);

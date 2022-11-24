@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-import { Account } from "../types/models.ts";
+import { Account, Scope } from "../types/models.ts";
 import {
   GetOutcomeResultRollupsParams,
   GetOutcomeResultsParams,
@@ -15,7 +15,7 @@ export class OutcomeResults extends BaseApi {
     course_id: string,
     params?: GetOutcomeResultsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/outcome_results`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

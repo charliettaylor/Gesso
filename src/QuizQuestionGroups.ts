@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Group, Scope } from "../types/models.ts";
 import {
   CreateQuestionGroupParams,
   ReorderQuestionGroupsParams,
@@ -17,7 +17,7 @@ export class QuizQuestionGroups extends BaseApi {
     quiz_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Group> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/groups/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -35,7 +35,7 @@ export class QuizQuestionGroups extends BaseApi {
     quiz_id: string,
     params?: CreateQuestionGroupParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/quizzes/${quiz_id}/groups`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -57,7 +57,7 @@ export class QuizQuestionGroups extends BaseApi {
     id: string,
     params?: UpdateQuestionGroupParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/groups/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -79,7 +79,7 @@ export class QuizQuestionGroups extends BaseApi {
     quiz_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/groups/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -98,7 +98,7 @@ export class QuizQuestionGroups extends BaseApi {
     id: string,
     params?: ReorderQuestionGroupsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/groups/${id}/reorder`;
     const url = new URL(endpoint, this.configuration.domain);

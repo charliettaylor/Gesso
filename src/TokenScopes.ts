@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import { ListScopesParams } from "../types/params.ts";
 
 export class TokenScopes extends BaseApi {
@@ -12,7 +12,7 @@ export class TokenScopes extends BaseApi {
     account_id: string,
     params?: ListScopesParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint = `/api/v1/accounts/${account_id}/scopes`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

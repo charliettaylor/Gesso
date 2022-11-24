@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Conference } from "../types/models.ts";
 import { ListConferencesForTheCurrentUserParams } from "../types/params.ts";
 
 export class Conferences extends BaseApi {
@@ -8,7 +8,10 @@ export class Conferences extends BaseApi {
     super(config);
   }
 
-  public async listConferences(course_id: string, body?: unknown): Promise<unknown[]> {
+  public async listConferences(
+    course_id: string,
+    body?: unknown,
+  ): Promise<Conference[]> {
     const endpoint = `/api/v1/courses/${course_id}/conferences`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -23,7 +26,7 @@ export class Conferences extends BaseApi {
   public async listConferencesForTheCurrentUser(
     params?: ListConferencesForTheCurrentUserParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Conference[]> {
     const endpoint = "/api/v1/conferences";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

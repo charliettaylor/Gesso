@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope, SubmissionComment } from "../types/models.ts";
 import { EditSubmissionCommentParams } from "../types/params.ts";
 
 export class SubmissionComments extends BaseApi {
@@ -15,7 +15,7 @@ export class SubmissionComments extends BaseApi {
     id: string,
     params?: EditSubmissionCommentParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<SubmissionComment> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}/comments/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -38,7 +38,7 @@ export class SubmissionComments extends BaseApi {
     user_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<SubmissionComment> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}/comments/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -56,7 +56,7 @@ export class SubmissionComments extends BaseApi {
     assignment_id: string,
     user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}/comments/files`;
     const url = new URL(endpoint, this.configuration.domain);

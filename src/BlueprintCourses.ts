@@ -1,6 +1,13 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import {
+  BlueprintMigration,
+  BlueprintSubscription,
+  BlueprintTemplate,
+  ChangeRecord,
+  Course,
+  Scope,
+} from "../types/models.ts";
 import {
   BeginMigrationToPushToAssociatedCoursesParams,
   SetOrRemoveRestrictionsOnBlueprintCourseObjectParams,
@@ -16,7 +23,7 @@ export class BlueprintCourses extends BaseApi {
     course_id: string,
     template_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<BlueprintTemplate> {
     const endpoint =
       `/api/v1/courses/${course_id}/blueprint_templates/${template_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -33,7 +40,7 @@ export class BlueprintCourses extends BaseApi {
     course_id: string,
     template_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Course[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/blueprint_templates/${template_id}/associated_courses`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -51,7 +58,7 @@ export class BlueprintCourses extends BaseApi {
     template_id: string,
     params?: UpdateAssociatedCoursesParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/blueprint_templates/${template_id}/update_associations`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -73,7 +80,7 @@ export class BlueprintCourses extends BaseApi {
     template_id: string,
     params?: BeginMigrationToPushToAssociatedCoursesParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<BlueprintMigration> {
     const endpoint =
       `/api/v1/courses/${course_id}/blueprint_templates/${template_id}/migrations`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -95,7 +102,7 @@ export class BlueprintCourses extends BaseApi {
     template_id: string,
     params?: SetOrRemoveRestrictionsOnBlueprintCourseObjectParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/blueprint_templates/${template_id}/restrict_item`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -116,7 +123,7 @@ export class BlueprintCourses extends BaseApi {
     course_id: string,
     template_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<ChangeRecord[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/blueprint_templates/${template_id}/unsynced_changes`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -133,7 +140,7 @@ export class BlueprintCourses extends BaseApi {
     course_id: string,
     template_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<BlueprintMigration[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/blueprint_templates/${template_id}/migrations`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -151,7 +158,7 @@ export class BlueprintCourses extends BaseApi {
     template_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<BlueprintMigration> {
     const endpoint =
       `/api/v1/courses/${course_id}/blueprint_templates/${template_id}/migrations/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -169,7 +176,7 @@ export class BlueprintCourses extends BaseApi {
     template_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<ChangeRecord[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/blueprint_templates/${template_id}/migrations/${id}/details`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -185,7 +192,7 @@ export class BlueprintCourses extends BaseApi {
   public async listBlueprintSubscriptions(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<BlueprintSubscription[]> {
     const endpoint = `/api/v1/courses/${course_id}/blueprint_subscriptions`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -201,7 +208,7 @@ export class BlueprintCourses extends BaseApi {
     course_id: string,
     subscription_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<BlueprintMigration[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/blueprint_subscriptions/${subscription_id}/migrations`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -219,7 +226,7 @@ export class BlueprintCourses extends BaseApi {
     subscription_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<BlueprintMigration> {
     const endpoint =
       `/api/v1/courses/${course_id}/blueprint_subscriptions/${subscription_id}/migrations/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -237,7 +244,7 @@ export class BlueprintCourses extends BaseApi {
     subscription_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<ChangeRecord[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/blueprint_subscriptions/${subscription_id}/migrations/${id}/details`;
     const url = new URL(endpoint, this.configuration.domain);

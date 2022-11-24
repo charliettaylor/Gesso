@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Term } from "../types/models.ts";
 import {
   CreateEnrollmentTermParams,
   ListEnrollmentTermsParams,
@@ -16,7 +16,7 @@ export class EnrollmentTerms extends BaseApi {
     account_id: string,
     params?: CreateEnrollmentTermParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Term> {
     const endpoint = `/api/v1/accounts/${account_id}/terms`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -37,7 +37,7 @@ export class EnrollmentTerms extends BaseApi {
     id: string,
     params?: UpdateEnrollmentTermParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Term> {
     const endpoint = `/api/v1/accounts/${account_id}/terms/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -57,7 +57,7 @@ export class EnrollmentTerms extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Term> {
     const endpoint = `/api/v1/accounts/${account_id}/terms/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -73,7 +73,7 @@ export class EnrollmentTerms extends BaseApi {
     account_id: string,
     params?: ListEnrollmentTermsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Term> {
     const endpoint = `/api/v1/accounts/${account_id}/terms`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -93,7 +93,7 @@ export class EnrollmentTerms extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Term> {
     const endpoint = `/api/v1/accounts/${account_id}/terms/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 

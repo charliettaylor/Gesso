@@ -1,6 +1,12 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import {
+  Assignment,
+  Conversation,
+  Course,
+  Grade,
+  Page,
+} from "../types/models.ts";
 import {
   GetCourselevelAssignmentDataParams,
   GetCourselevelStudentSummaryDataParams,
@@ -15,7 +21,7 @@ export class Analytics extends BaseApi {
     account_id: string,
     term_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Course> {
     const endpoint =
       `/api/v1/accounts/${account_id}/analytics/terms/${term_id}/activity`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -32,7 +38,7 @@ export class Analytics extends BaseApi {
     account_id: string,
     term_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Grade> {
     const endpoint =
       `/api/v1/accounts/${account_id}/analytics/terms/${term_id}/grades`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -82,7 +88,7 @@ export class Analytics extends BaseApi {
   public async getCourselevelParticipationData(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Page> {
     const endpoint = `/api/v1/courses/${course_id}/analytics/activity`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -98,7 +104,7 @@ export class Analytics extends BaseApi {
     course_id: string,
     params?: GetCourselevelAssignmentDataParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Assignment[]> {
     const endpoint = `/api/v1/courses/${course_id}/analytics/assignments`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -155,7 +161,7 @@ export class Analytics extends BaseApi {
     course_id: string,
     student_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Assignment[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/analytics/users/${student_id}/assignments`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -172,7 +178,7 @@ export class Analytics extends BaseApi {
     course_id: string,
     student_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Conversation> {
     const endpoint =
       `/api/v1/courses/${course_id}/analytics/users/${student_id}/communication`;
     const url = new URL(endpoint, this.configuration.domain);

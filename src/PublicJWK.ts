@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { DeveloperKey } from "../types/models.ts";
 import { UpdatePublicJwkParams } from "../types/params.ts";
 
 export class PublicJWK extends BaseApi {
@@ -11,7 +11,7 @@ export class PublicJWK extends BaseApi {
   public async updatePublicJwk(
     params?: UpdatePublicJwkParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<DeveloperKey> {
     const endpoint = "/api/v1/api/lti/developer_key/update_public_jwk";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

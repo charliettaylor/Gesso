@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import { SendMessageToUnsubmittedOrSubmittedUsersForTheQuizParams } from "../types/params.ts";
 
 export class QuizSubmissionUserList extends BaseApi {
@@ -13,7 +13,7 @@ export class QuizSubmissionUserList extends BaseApi {
     id: string,
     params?: SendMessageToUnsubmittedOrSubmittedUsersForTheQuizParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${id}/submission_users/message`;
     const url = new URL(endpoint, this.configuration.domain);

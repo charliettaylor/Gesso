@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { LineItem } from "../types/models.ts";
 import {
   CreateLineItemParams,
   ListLineItemsParams,
@@ -17,7 +17,7 @@ export class LineItems extends BaseApi {
     course_id: string,
     params?: CreateLineItemParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<LineItem> {
     const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -38,7 +38,7 @@ export class LineItems extends BaseApi {
     id: string,
     params?: UpdateLineItemParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<LineItem> {
     const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -59,7 +59,7 @@ export class LineItems extends BaseApi {
     id: string,
     params?: ShowLineItemParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<LineItem> {
     const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -79,7 +79,7 @@ export class LineItems extends BaseApi {
     course_id: string,
     params?: ListLineItemsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<LineItem> {
     const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -99,7 +99,7 @@ export class LineItems extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<LineItem> {
     const endpoint = `/api/v1/api/lti/courses/${course_id}/line_items/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 

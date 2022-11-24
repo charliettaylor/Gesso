@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Grade, Tab } from "../types/models.ts";
 import {
   ListAvailableTabsForCourseOrGroupParams,
   UpdateTabForCourseParams,
@@ -15,7 +15,7 @@ export class Tabs extends BaseApi {
     account_id: string,
     params?: ListAvailableTabsForCourseOrGroupParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Grade> {
     const endpoint = `/api/v1/accounts/${account_id}/tabs`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -36,7 +36,7 @@ export class Tabs extends BaseApi {
     tab_id: string,
     params?: UpdateTabForCourseParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Tab> {
     const endpoint = `/api/v1/courses/${course_id}/tabs/${tab_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { CalendarEvent, Group, Scope, User } from "../types/models.ts";
 import {
   CreateAnAppointmentGroupParams,
   DeleteAnAppointmentGroupParams,
@@ -20,7 +20,7 @@ export class AppointmentGroups extends BaseApi {
   public async listAppointmentGroups(
     params?: ListAppointmentGroupsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = "/api/v1/appointment_groups";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -39,7 +39,7 @@ export class AppointmentGroups extends BaseApi {
   public async createAnAppointmentGroup(
     params?: CreateAnAppointmentGroupParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = "/api/v1/appointment_groups";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -79,7 +79,7 @@ export class AppointmentGroups extends BaseApi {
     id: string,
     params?: UpdateAnAppointmentGroupParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/appointment_groups/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -99,7 +99,7 @@ export class AppointmentGroups extends BaseApi {
     id: string,
     params?: DeleteAnAppointmentGroupParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/appointment_groups/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -119,7 +119,7 @@ export class AppointmentGroups extends BaseApi {
     id: string,
     params?: ListUserParticipantsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Group> {
     const endpoint = `/api/v1/appointment_groups/${id}/users`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -139,7 +139,7 @@ export class AppointmentGroups extends BaseApi {
     id: string,
     params?: ListStudentGroupParticipantsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/appointment_groups/${id}/groups`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -158,7 +158,7 @@ export class AppointmentGroups extends BaseApi {
   public async getNextAppointment(
     params?: GetNextAppointmentParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<CalendarEvent[]> {
     const endpoint = "/api/v1/appointment_groups/next_appointment";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

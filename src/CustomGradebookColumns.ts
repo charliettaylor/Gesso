@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { ColumnDatum, CustomColumn, Progress, Scope } from "../types/models.ts";
 import {
   BulkUpdateColumnDataParams,
   CreateCustomGradebookColumnParams,
@@ -19,7 +19,7 @@ export class CustomGradebookColumns extends BaseApi {
     course_id: string,
     params?: ListCustomGradebookColumnsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<CustomColumn[]> {
     const endpoint = `/api/v1/courses/${course_id}/custom_gradebook_columns`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -39,7 +39,7 @@ export class CustomGradebookColumns extends BaseApi {
     course_id: string,
     params?: CreateCustomGradebookColumnParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<CustomColumn> {
     const endpoint = `/api/v1/courses/${course_id}/custom_gradebook_columns`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -59,7 +59,7 @@ export class CustomGradebookColumns extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<CustomColumn> {
     const endpoint =
       `/api/v1/courses/${course_id}/custom_gradebook_columns/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -76,7 +76,7 @@ export class CustomGradebookColumns extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<CustomColumn> {
     const endpoint =
       `/api/v1/courses/${course_id}/custom_gradebook_columns/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -93,7 +93,7 @@ export class CustomGradebookColumns extends BaseApi {
     course_id: string,
     params?: ReorderCustomColumnsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/custom_gradebook_columns/reorder`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -115,7 +115,7 @@ export class CustomGradebookColumns extends BaseApi {
     id: string,
     params?: ListEntriesForColumnParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<ColumnDatum[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/custom_gradebook_columns/${id}/data`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -138,7 +138,7 @@ export class CustomGradebookColumns extends BaseApi {
     user_id: string,
     params?: UpdateColumnDataParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ColumnDatum> {
     const endpoint =
       `/api/v1/courses/${course_id}/custom_gradebook_columns/${id}/data/${user_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -159,7 +159,7 @@ export class CustomGradebookColumns extends BaseApi {
     course_id: string,
     params?: BulkUpdateColumnDataParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Progress> {
     const endpoint =
       `/api/v1/courses/${course_id}/custom_gradebook_column_data`;
     const url = new URL(endpoint, this.configuration.domain);

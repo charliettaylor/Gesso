@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { GradingPeriod, Scope } from "../types/models.ts";
 import {
   CreateGradingPeriodSetParams,
   UpdateGradingPeriodSetParams,
@@ -14,7 +14,7 @@ export class GradingPeriodSets extends BaseApi {
   public async listGradingPeriodSets(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<GradingPeriod> {
     const endpoint = `/api/v1/accounts/${account_id}/grading_period_sets`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -30,7 +30,7 @@ export class GradingPeriodSets extends BaseApi {
     account_id: string,
     params?: CreateGradingPeriodSetParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/accounts/${account_id}/grading_period_sets`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -51,7 +51,7 @@ export class GradingPeriodSets extends BaseApi {
     id: string,
     params?: UpdateGradingPeriodSetParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/accounts/${account_id}/grading_period_sets/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -71,7 +71,7 @@ export class GradingPeriodSets extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/accounts/${account_id}/grading_period_sets/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 

@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { CalendarEvent, Scope } from "../types/models.ts";
 import {
   CreateCalendarEventParams,
   CreateOrUpdateEventsDirectlyForCourseTimetableParams,
@@ -20,7 +20,7 @@ export class CalendarEvents extends BaseApi {
   public async listCalendarEvents(
     params?: ListCalendarEventsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<CalendarEvent[]> {
     const endpoint = "/api/v1/calendar_events";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -40,7 +40,7 @@ export class CalendarEvents extends BaseApi {
     user_id: string,
     params?: ListCalendarEventsForUserParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<CalendarEvent[]> {
     const endpoint = `/api/v1/users/${user_id}/calendar_events`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -59,7 +59,7 @@ export class CalendarEvents extends BaseApi {
   public async createCalendarEvent(
     params?: CreateCalendarEventParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = "/api/v1/calendar_events";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -78,7 +78,7 @@ export class CalendarEvents extends BaseApi {
   public async getSingleCalendarEventOrAssignment(
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/calendar_events/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -94,7 +94,7 @@ export class CalendarEvents extends BaseApi {
     id: string,
     params?: ReserveTimeSlotParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/calendar_events/${id}/reservations`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -114,7 +114,7 @@ export class CalendarEvents extends BaseApi {
     id: string,
     params?: UpdateCalendarEventParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/calendar_events/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -134,7 +134,7 @@ export class CalendarEvents extends BaseApi {
     id: string,
     params?: DeleteCalendarEventParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/calendar_events/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -152,7 +152,7 @@ export class CalendarEvents extends BaseApi {
 
   public async saveEnabledAccountCalendarsCreatesUpdatesTheEnabledaccountcalendarsMarkfeatureasseenUserPreferences(
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = "/api/v1/calendar_events/save_enabled_account_calendars";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -168,7 +168,7 @@ export class CalendarEvents extends BaseApi {
     course_id: string,
     params?: SetCourseTimetableParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/calendar_events/timetable`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -184,7 +184,10 @@ export class CalendarEvents extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getCourseTimetable(course_id: string, body?: unknown): Promise<unknown> {
+  public async getCourseTimetable(
+    course_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/calendar_events/timetable`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -200,7 +203,7 @@ export class CalendarEvents extends BaseApi {
     course_id: string,
     params?: CreateOrUpdateEventsDirectlyForCourseTimetableParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/calendar_events/timetable_events`;
     const url = new URL(endpoint, this.configuration.domain);

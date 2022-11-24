@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-import { Report } from "../types/models.ts";
+import { Grade, Report } from "../types/models.ts";
 import { StartReportParams } from "../types/params.ts";
 
 export class AccountReports extends BaseApi {
@@ -11,7 +11,7 @@ export class AccountReports extends BaseApi {
   public async listAvailableReports(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Grade> {
     const endpoint = `/api/v1/accounts/${account_id}/reports`;
     const url = new URL(endpoint, this.configuration.domain);
 

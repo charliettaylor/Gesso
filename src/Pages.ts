@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Page } from "../types/models.ts";
 import {
   CreatePageParams,
   ListPagesParams,
@@ -15,7 +15,7 @@ export class Pages extends BaseApi {
     super(config);
   }
 
-  public async showFrontPage(course_id: string, body?: unknown): Promise<unknown> {
+  public async showFrontPage(course_id: string, body?: unknown): Promise<Page> {
     const endpoint = `/api/v1/courses/${course_id}/front_page`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -31,7 +31,7 @@ export class Pages extends BaseApi {
     course_id: string,
     url_or_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Page> {
     const endpoint =
       `/api/v1/courses/${course_id}/pages/${url_or_id}/duplicate`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -48,7 +48,7 @@ export class Pages extends BaseApi {
     course_id: string,
     params?: UpdateFrontPageParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Page> {
     const endpoint = `/api/v1/courses/${course_id}/front_page`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -68,7 +68,7 @@ export class Pages extends BaseApi {
     course_id: string,
     params?: ListPagesParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Page[]> {
     const endpoint = `/api/v1/courses/${course_id}/pages`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -88,7 +88,7 @@ export class Pages extends BaseApi {
     course_id: string,
     params?: CreatePageParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Page> {
     const endpoint = `/api/v1/courses/${course_id}/pages`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -108,7 +108,7 @@ export class Pages extends BaseApi {
     course_id: string,
     url_or_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Page> {
     const endpoint = `/api/v1/courses/${course_id}/pages/${url_or_id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -125,7 +125,7 @@ export class Pages extends BaseApi {
     url_or_id: string,
     params?: UpdatePageParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Page> {
     const endpoint = `/api/v1/courses/${course_id}/pages/${url_or_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -145,7 +145,7 @@ export class Pages extends BaseApi {
     course_id: string,
     url_or_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Page> {
     const endpoint = `/api/v1/courses/${course_id}/pages/${url_or_id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -161,7 +161,7 @@ export class Pages extends BaseApi {
     course_id: string,
     url_or_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Page[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/pages/${url_or_id}/revisions`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -179,7 +179,7 @@ export class Pages extends BaseApi {
     url_or_id: string,
     params?: ShowRevisionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Page> {
     const endpoint =
       `/api/v1/courses/${course_id}/pages/${url_or_id}/revisions/latest`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -202,7 +202,7 @@ export class Pages extends BaseApi {
     revision_id: string,
     params?: RevertToRevisionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Page> {
     const endpoint =
       `/api/v1/courses/${course_id}/pages/${url_or_id}/revisions/${revision_id}`;
     const url = new URL(endpoint, this.configuration.domain);

@@ -1,5 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
+import { Course, EpubExport } from "../types/models.ts";
 
 export class ePubExports extends BaseApi {
   constructor(config: Configuration) {
@@ -8,7 +9,7 @@ export class ePubExports extends BaseApi {
 
   public async listCoursesWithTheirLatestEpubExport(
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Course[]> {
     const endpoint = "/api/v1/epub_exports";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -20,7 +21,10 @@ export class ePubExports extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async createEpubExport(course_id: string, body?: unknown): Promise<unknown> {
+  public async createEpubExport(
+    course_id: string,
+    body?: unknown,
+  ): Promise<EpubExport> {
     const endpoint = `/api/v1/courses/${course_id}/epub_exports`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -36,7 +40,7 @@ export class ePubExports extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<EpubExport> {
     const endpoint = `/api/v1/courses/${course_id}/epub_exports/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 

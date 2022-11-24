@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import { CreateUserLoginParams, EditUserLoginParams } from "../types/params.ts";
 
 export class Logins extends BaseApi {
@@ -8,7 +8,10 @@ export class Logins extends BaseApi {
     super(config);
   }
 
-  public async listUserLogins(account_id: string, body?: unknown): Promise<unknown> {
+  public async listUserLogins(
+    account_id: string,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/accounts/${account_id}/logins`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -20,7 +23,7 @@ export class Logins extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async kickoffPasswordRecoveryFlow(body?: unknown): Promise<unknown> {
+  public async kickoffPasswordRecoveryFlow(body?: unknown): Promise<Scope> {
     const endpoint = "/api/v1/users/reset_password";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -36,7 +39,7 @@ export class Logins extends BaseApi {
     account_id: string,
     params?: CreateUserLoginParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/accounts/${account_id}/logins`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -57,7 +60,7 @@ export class Logins extends BaseApi {
     id: string,
     params?: EditUserLoginParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/accounts/${account_id}/logins/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -77,7 +80,7 @@ export class Logins extends BaseApi {
     user_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${user_id}/logins/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 

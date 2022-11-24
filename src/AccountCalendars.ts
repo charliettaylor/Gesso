@@ -66,7 +66,7 @@ export class AccountCalendars extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateMunknownCalendarsVisibility(
+  public async updateManyCalendarsVisibility(
     account_id: string,
     body?: unknown,
   ): Promise<AccountCalendar> {

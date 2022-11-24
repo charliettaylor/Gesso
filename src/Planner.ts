@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { PlannerNote, PlannerOverride, Scope } from "../types/models.ts";
 import {
   CreatePlannerNoteParams,
   CreatePlannerOverrideParams,
@@ -18,7 +18,7 @@ export class Planner extends BaseApi {
   public async listPlannerItems(
     params?: ListPlannerItemsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = "/api/v1/planner/items";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -37,7 +37,7 @@ export class Planner extends BaseApi {
   public async listPlannerNotes(
     params?: ListPlannerNotesParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<PlannerNote[]> {
     const endpoint = "/api/v1/planner_notes";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -53,7 +53,10 @@ export class Planner extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showPlannerNote(id: string, body?: unknown): Promise<unknown> {
+  public async showPlannerNote(
+    id: string,
+    body?: unknown,
+  ): Promise<PlannerNote> {
     const endpoint = `/api/v1/planner_notes/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -69,7 +72,7 @@ export class Planner extends BaseApi {
     id: string,
     params?: UpdatePlannerNoteParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<PlannerNote> {
     const endpoint = `/api/v1/planner_notes/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -88,7 +91,7 @@ export class Planner extends BaseApi {
   public async createPlannerNote(
     params?: CreatePlannerNoteParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<PlannerNote> {
     const endpoint = "/api/v1/planner_notes";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -104,7 +107,10 @@ export class Planner extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deletePlannerNote(id: string, body?: unknown): Promise<unknown> {
+  public async deletePlannerNote(
+    id: string,
+    body?: unknown,
+  ): Promise<PlannerNote> {
     const endpoint = `/api/v1/planner_notes/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -116,7 +122,9 @@ export class Planner extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listPlannerOverrides(body?: unknown): Promise<unknown[]> {
+  public async listPlannerOverrides(
+    body?: unknown,
+  ): Promise<PlannerOverride[]> {
     const endpoint = "/api/v1/planner/overrides";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -128,7 +136,10 @@ export class Planner extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showPlannerOverride(id: string, body?: unknown): Promise<unknown> {
+  public async showPlannerOverride(
+    id: string,
+    body?: unknown,
+  ): Promise<PlannerOverride> {
     const endpoint = `/api/v1/planner/overrides/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -144,7 +155,7 @@ export class Planner extends BaseApi {
     id: string,
     params?: UpdatePlannerOverrideParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<PlannerOverride> {
     const endpoint = `/api/v1/planner/overrides/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -163,7 +174,7 @@ export class Planner extends BaseApi {
   public async createPlannerOverride(
     params?: CreatePlannerOverrideParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<PlannerOverride> {
     const endpoint = "/api/v1/planner/overrides";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -179,7 +190,10 @@ export class Planner extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deletePlannerOverride(id: string, body?: unknown): Promise<unknown> {
+  public async deletePlannerOverride(
+    id: string,
+    body?: unknown,
+  ): Promise<PlannerOverride> {
     const endpoint = `/api/v1/planner/overrides/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 

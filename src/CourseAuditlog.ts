@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { CourseEvent } from "../types/models.ts";
 import { QueryByAccountParams, QueryByCourseParams } from "../types/params.ts";
 
 export class CourseAuditlog extends BaseApi {
@@ -12,7 +12,7 @@ export class CourseAuditlog extends BaseApi {
     course_id: string,
     params?: QueryByCourseParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<CourseEvent[]> {
     const endpoint = `/api/v1/audit/course/courses/${course_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -32,7 +32,7 @@ export class CourseAuditlog extends BaseApi {
     account_id: string,
     params?: QueryByAccountParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<CourseEvent[]> {
     const endpoint = `/api/v1/audit/course/accounts/${account_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

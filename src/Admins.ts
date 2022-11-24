@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Admin } from "../types/models.ts";
 import {
   ListAccountAdminsParams,
   MakeAnAccountAdminParams,
@@ -16,7 +16,7 @@ export class Admins extends BaseApi {
     account_id: string,
     params?: MakeAnAccountAdminParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Admin> {
     const endpoint = `/api/v1/accounts/${account_id}/admins`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -37,7 +37,7 @@ export class Admins extends BaseApi {
     user_id: string,
     params?: RemoveAccountAdminParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Admin> {
     const endpoint = `/api/v1/accounts/${account_id}/admins/${user_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -57,7 +57,7 @@ export class Admins extends BaseApi {
     account_id: string,
     params?: ListAccountAdminsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Admin[]> {
     const endpoint = `/api/v1/accounts/${account_id}/admins`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

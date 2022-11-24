@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import {
   CompleteTheQuizSubmissionturnItInParams,
   CreateTheQuizSubmissionstartQuiztakingSessionParams,
@@ -20,7 +20,7 @@ export class QuizSubmissions extends BaseApi {
     quiz_id: string,
     params?: GetAllQuizSubmissionsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/submissions`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -42,7 +42,7 @@ export class QuizSubmissions extends BaseApi {
     quiz_id: string,
     params?: GetTheQuizSubmissionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/submission`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -65,7 +65,7 @@ export class QuizSubmissions extends BaseApi {
     id: string,
     params?: GetSingleQuizSubmissionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/submissions/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -87,7 +87,7 @@ export class QuizSubmissions extends BaseApi {
     quiz_id: string,
     params?: CreateTheQuizSubmissionstartQuiztakingSessionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/submissions`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -110,7 +110,7 @@ export class QuizSubmissions extends BaseApi {
     id: string,
     params?: UpdateStudentQuestionScoresCommentsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/submissions/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -133,7 +133,7 @@ export class QuizSubmissions extends BaseApi {
     id: string,
     params?: CompleteTheQuizSubmissionturnItInParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/submissions/${id}/complete`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -155,7 +155,7 @@ export class QuizSubmissions extends BaseApi {
     quiz_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/submissions/${id}/time`;
     const url = new URL(endpoint, this.configuration.domain);

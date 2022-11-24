@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import { SetExtensionsForStudentQuizSubmissionsParams } from "../types/params.ts";
 
 export class CourseQuizExtensions extends BaseApi {
@@ -12,7 +12,7 @@ export class CourseQuizExtensions extends BaseApi {
     course_id: string,
     params?: SetExtensionsForStudentQuizSubmissionsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/quiz_extensions`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Proficiency } from "../types/models.ts";
 import { CreateProficiencyRatingsParams } from "../types/params.ts";
 
 export class ProficiencyRatings extends BaseApi {
@@ -12,7 +12,7 @@ export class ProficiencyRatings extends BaseApi {
     account_id: string,
     params?: CreateProficiencyRatingsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Proficiency> {
     const endpoint = `/api/v1/accounts/${account_id}/outcome_proficiency`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -31,7 +31,7 @@ export class ProficiencyRatings extends BaseApi {
   public async getProficiencyRatings(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Proficiency> {
     const endpoint = `/api/v1/accounts/${account_id}/outcome_proficiency`;
     const url = new URL(endpoint, this.configuration.domain);
 

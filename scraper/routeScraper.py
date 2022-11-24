@@ -100,7 +100,7 @@ def create_params_and_route(tag: PageElement) -> Route:
   entities = get_entities()
   returnStr = tag.get_text().split('Returns')[-1].strip()
   entity = [ele for ele in entities if(ele in returnStr)]
-  entity = entity[0] if len(entity) > 0 else "any"
+  entity = entity[0] if len(entity) > 0 else "unknown"
 
   if 'a list of' in returnStr:
     entity += '[]'
@@ -126,11 +126,11 @@ def create_interface(route: Route, interfaceName: str):
     "datetime": "Date",
     "date": "Date",
     "float": "number",
-    "file": "any",
+    "file": "unknown",
     "url": "string",
-    "array": "any[]",
-    "hash": "any",
-    "serializedhash": "any",
+    "array": "unknown[]",
+    "hash": "unknown",
+    "serializedhash": "unknown",
     "json": "object",
     "numeric": "number",
     "object": "object",
@@ -181,7 +181,7 @@ def create_class(className: str, routes: list[Route]) -> str:
   
   for route in routes:
     type = route.returnType.replace('[]', '')
-    if type != 'any' and type not in entities:
+    if type != 'unknown' and type not in entities:
       entities.append(type)
   
   params = [route.paramName for route in routes]

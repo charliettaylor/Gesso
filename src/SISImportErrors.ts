@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { SisImportError } from "../types/models.ts";
 import { GetSisImportErrorListParams } from "../types/params.ts";
 
 export class SISImportErrors extends BaseApi {
@@ -13,7 +13,7 @@ export class SISImportErrors extends BaseApi {
     id: string,
     params?: GetSisImportErrorListParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<SisImportError[]> {
     const endpoint = `/api/v1/accounts/${account_id}/sis_imports/${id}/errors`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

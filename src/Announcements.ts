@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { DiscussionTopic } from "../types/models.ts";
 import { ListAnnouncementsParams } from "../types/params.ts";
 
 export class Announcements extends BaseApi {
@@ -11,7 +11,7 @@ export class Announcements extends BaseApi {
   public async listAnnouncements(
     params?: ListAnnouncementsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<DiscussionTopic[]> {
     const endpoint = "/api/v1/announcements";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

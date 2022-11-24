@@ -1,6 +1,11 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import {
+  ContentMigration,
+  MigrationIssue,
+  Migrator,
+  Scope,
+} from "../types/models.ts";
 import {
   CreateContentMigrationParams,
   ListItemsForSelectiveImportParams,
@@ -16,7 +21,7 @@ export class ContentMigrations extends BaseApi {
     account_id: string,
     content_migration_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<MigrationIssue[]> {
     const endpoint =
       `/api/v1/accounts/${account_id}/content_migrations/${content_migration_id}/migration_issues`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -34,7 +39,7 @@ export class ContentMigrations extends BaseApi {
     content_migration_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<MigrationIssue> {
     const endpoint =
       `/api/v1/accounts/${account_id}/content_migrations/${content_migration_id}/migration_issues/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -53,7 +58,7 @@ export class ContentMigrations extends BaseApi {
     id: string,
     params?: UpdateMigrationIssueParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<MigrationIssue> {
     const endpoint =
       `/api/v1/accounts/${account_id}/content_migrations/${content_migration_id}/migration_issues/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -73,7 +78,7 @@ export class ContentMigrations extends BaseApi {
   public async listContentMigrations(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<ContentMigration[]> {
     const endpoint = `/api/v1/accounts/${account_id}/content_migrations`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -89,7 +94,7 @@ export class ContentMigrations extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ContentMigration> {
     const endpoint = `/api/v1/accounts/${account_id}/content_migrations/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -105,7 +110,7 @@ export class ContentMigrations extends BaseApi {
     account_id: string,
     params?: CreateContentMigrationParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ContentMigration> {
     const endpoint = `/api/v1/accounts/${account_id}/content_migrations`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -125,7 +130,7 @@ export class ContentMigrations extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ContentMigration> {
     const endpoint = `/api/v1/accounts/${account_id}/content_migrations/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -140,7 +145,7 @@ export class ContentMigrations extends BaseApi {
   public async listMigrationSystems(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Migrator[]> {
     const endpoint =
       `/api/v1/accounts/${account_id}/content_migrations/migrators`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -158,7 +163,7 @@ export class ContentMigrations extends BaseApi {
     id: string,
     params?: ListItemsForSelectiveImportParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint =
       `/api/v1/accounts/${account_id}/content_migrations/${id}/selective_data`;
     const url = new URL(endpoint, this.configuration.domain);

@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Collaboration, Collaborator, User } from "../types/models.ts";
 import { ListMembersOfCollaborationParams } from "../types/params.ts";
 
 export class Collaborations extends BaseApi {
@@ -11,7 +11,7 @@ export class Collaborations extends BaseApi {
   public async listCollaborations(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Collaboration[]> {
     const endpoint = `/api/v1/courses/${course_id}/collaborations`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -27,7 +27,7 @@ export class Collaborations extends BaseApi {
     id: string,
     params?: ListMembersOfCollaborationParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Collaborator[]> {
     const endpoint = `/api/v1/collaborations/${id}/members`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -46,7 +46,7 @@ export class Collaborations extends BaseApi {
   public async listPotentialMembers(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<User[]> {
     const endpoint = `/api/v1/courses/${course_id}/potential_collaborators`;
     const url = new URL(endpoint, this.configuration.domain);
 

@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Bookmark, Folder, Scope } from "../types/models.ts";
 import { CreateBookmarkParams, UpdateBookmarkParams } from "../types/params.ts";
 
 export class Bookmarks extends BaseApi {
@@ -8,7 +8,7 @@ export class Bookmarks extends BaseApi {
     super(config);
   }
 
-  public async listBookmarks(body?: unknown): Promise<unknown[]> {
+  public async listBookmarks(body?: unknown): Promise<Bookmark[]> {
     const endpoint = "/api/v1/users/self/bookmarks";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -23,7 +23,7 @@ export class Bookmarks extends BaseApi {
   public async createBookmark(
     params?: CreateBookmarkParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Bookmark> {
     const endpoint = "/api/v1/users/self/bookmarks";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -39,7 +39,7 @@ export class Bookmarks extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getBookmark(id: string, body?: unknown): Promise<unknown> {
+  public async getBookmark(id: string, body?: unknown): Promise<Bookmark> {
     const endpoint = `/api/v1/users/self/bookmarks/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -55,7 +55,7 @@ export class Bookmarks extends BaseApi {
     id: string,
     params?: UpdateBookmarkParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Folder> {
     const endpoint = `/api/v1/users/self/bookmarks/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -71,7 +71,7 @@ export class Bookmarks extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteBookmark(id: string, body?: unknown): Promise<unknown> {
+  public async deleteBookmark(id: string, body?: unknown): Promise<Scope> {
     const endpoint = `/api/v1/users/self/bookmarks/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 

@@ -1,6 +1,15 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import {
+  Assignment,
+  Avatar,
+  Conversation,
+  Course,
+  Page,
+  Profile,
+  Scope,
+  User,
+} from "../types/models.ts";
 import {
   CreateUserParams,
   DeleteCustomDataParams,
@@ -30,7 +39,7 @@ export class Users extends BaseApi {
     account_id: string,
     params?: ListUsersInAccountParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<User[]> {
     const endpoint = `/api/v1/accounts/${account_id}/users`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -49,7 +58,7 @@ export class Users extends BaseApi {
   public async listTheActivityStream(
     params?: ListTheActivityStreamParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint = "/api/v1/users/self/activity_stream";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -65,7 +74,7 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async activityStreamSummary(body?: unknown): Promise<unknown> {
+  public async activityStreamSummary(body?: unknown): Promise<Conversation> {
     const endpoint = "/api/v1/users/self/activity_stream/summary";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -80,7 +89,7 @@ export class Users extends BaseApi {
   public async listTheTodoItems(
     params?: ListTheTodoItemsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = "/api/v1/users/self/todo";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -99,7 +108,7 @@ export class Users extends BaseApi {
   public async listCountsForTodoItems(
     params?: ListCountsForTodoItemsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = "/api/v1/users/self/todo_item_count";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -115,7 +124,9 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listUpcomingAssignmentsCalendarEvents(body?: unknown): Promise<unknown> {
+  public async listUpcomingAssignmentsCalendarEvents(
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = "/api/v1/users/self/upcoming_events";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -131,7 +142,7 @@ export class Users extends BaseApi {
     user_id: string,
     params?: ListMissingSubmissionsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Assignment[]> {
     const endpoint = `/api/v1/users/${user_id}/missing_submissions`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -147,7 +158,7 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async hideStreamItem(id: string, body?: unknown): Promise<unknown> {
+  public async hideStreamItem(id: string, body?: unknown): Promise<Scope> {
     const endpoint = `/api/v1/users/self/activity_stream/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -159,7 +170,7 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async hideAllStreamItems(body?: unknown): Promise<unknown> {
+  public async hideAllStreamItems(body?: unknown): Promise<Scope> {
     const endpoint = "/api/v1/users/self/activity_stream";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -171,7 +182,7 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async uploadFile(user_id: string, body?: unknown): Promise<unknown> {
+  public async uploadFile(user_id: string, body?: unknown): Promise<Scope> {
     const endpoint = `/api/v1/users/${user_id}/files`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -187,7 +198,7 @@ export class Users extends BaseApi {
     id: string,
     params?: ShowUserDetailsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/users/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -207,7 +218,7 @@ export class Users extends BaseApi {
     account_id: string,
     params?: CreateUserParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/accounts/${account_id}/users`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -227,7 +238,7 @@ export class Users extends BaseApi {
     account_id: string,
     params?: deprecatedSelfRegisterUserParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/accounts/${account_id}/self_registration`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -247,7 +258,7 @@ export class Users extends BaseApi {
     id: string,
     params?: UpdateUserSettingsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${id}/settings`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -296,7 +307,7 @@ export class Users extends BaseApi {
     asset_string: string,
     params?: UpdateCustomColorParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${id}/colors/${asset_string}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -312,7 +323,10 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getDashboardPositions(id: string, body?: unknown): Promise<unknown> {
+  public async getDashboardPositions(
+    id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/users/${id}/dashboard_positions`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -324,7 +338,10 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateDashboardPositions(id: string, body?: unknown): Promise<unknown> {
+  public async updateDashboardPositions(
+    id: string,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${id}/dashboard_positions`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -340,7 +357,7 @@ export class Users extends BaseApi {
     id: string,
     params?: EditUserParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/users/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -356,7 +373,10 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async terminateAllUserSessions(id: string, body?: unknown): Promise<unknown> {
+  public async terminateAllUserSessions(
+    id: string,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${id}/sessions`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -372,7 +392,7 @@ export class Users extends BaseApi {
     id: string,
     destination_user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/users/${id}/merge_into/${destination_user_id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -387,7 +407,7 @@ export class Users extends BaseApi {
   public async splitMergedUsersIntoSeparateUsers(
     id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<User[]> {
     const endpoint = `/api/v1/users/${id}/split`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -421,7 +441,7 @@ export class Users extends BaseApi {
   public async getUsersMostRecentlyGradedSubmissions(
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${id}/graded_submissions`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -433,7 +453,10 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getUserProfile(user_id: string, body?: unknown): Promise<unknown> {
+  public async getUserProfile(
+    user_id: string,
+    body?: unknown,
+  ): Promise<Profile> {
     const endpoint = `/api/v1/users/${user_id}/profile`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -445,7 +468,10 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listAvatarOptions(user_id: string, body?: unknown): Promise<unknown[]> {
+  public async listAvatarOptions(
+    user_id: string,
+    body?: unknown,
+  ): Promise<Avatar[]> {
     const endpoint = `/api/v1/users/${user_id}/avatars`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -461,7 +487,7 @@ export class Users extends BaseApi {
     user_id: string,
     params?: ListUserPageViewsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Page[]> {
     const endpoint = `/api/v1/users/${user_id}/page_views`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -481,7 +507,7 @@ export class Users extends BaseApi {
     user_id: string,
     params?: StoreCustomDataParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${user_id}/custom_data(/*scope)`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -501,7 +527,7 @@ export class Users extends BaseApi {
     user_id: string,
     params?: LoadCustomDataParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${user_id}/custom_data(/*scope)`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -521,7 +547,7 @@ export class Users extends BaseApi {
     user_id: string,
     params?: DeleteCustomDataParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${user_id}/custom_data(/*scope)`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -537,7 +563,7 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listCourseNicknames(body?: unknown): Promise<unknown[]> {
+  public async listCourseNicknames(body?: unknown): Promise<Course[]> {
     const endpoint = "/api/v1/users/self/course_nicknames";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -549,7 +575,10 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getCourseNickname(course_id: string, body?: unknown): Promise<unknown> {
+  public async getCourseNickname(
+    course_id: string,
+    body?: unknown,
+  ): Promise<Course> {
     const endpoint = `/api/v1/users/self/course_nicknames/${course_id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -565,7 +594,7 @@ export class Users extends BaseApi {
     course_id: string,
     params?: SetCourseNicknameParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Course> {
     const endpoint = `/api/v1/users/self/course_nicknames/${course_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -584,7 +613,7 @@ export class Users extends BaseApi {
   public async removeCourseNickname(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Course> {
     const endpoint = `/api/v1/users/self/course_nicknames/${course_id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -596,7 +625,7 @@ export class Users extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async clearCourseNicknames(body?: unknown): Promise<unknown> {
+  public async clearCourseNicknames(body?: unknown): Promise<Scope> {
     const endpoint = "/api/v1/users/self/course_nicknames";
     const url = new URL(endpoint, this.configuration.domain);
 

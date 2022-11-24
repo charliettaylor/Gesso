@@ -1,6 +1,12 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import {
+  Admin,
+  Conversation,
+  Progress,
+  Scope,
+  Submission,
+} from "../types/models.ts";
 import {
   AddMessageParams,
   AddRecipientsParams,
@@ -20,7 +26,7 @@ export class Conversations extends BaseApi {
   public async listConversations(
     params?: ListConversationsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Conversation[]> {
     const endpoint = "/api/v1/conversations";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -39,7 +45,7 @@ export class Conversations extends BaseApi {
   public async createConversation(
     params?: CreateConversationParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = "/api/v1/conversations";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -55,7 +61,7 @@ export class Conversations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getRunningBatches(body?: unknown): Promise<unknown> {
+  public async getRunningBatches(body?: unknown): Promise<Conversation> {
     const endpoint = "/api/v1/conversations/batches";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -71,7 +77,7 @@ export class Conversations extends BaseApi {
     id: string,
     params?: GetSingleConversationParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Submission> {
     const endpoint = `/api/v1/conversations/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -91,7 +97,7 @@ export class Conversations extends BaseApi {
     id: string,
     params?: EditConversationParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/conversations/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -107,7 +113,7 @@ export class Conversations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async markAllAsRead(body?: unknown): Promise<unknown> {
+  public async markAllAsRead(body?: unknown): Promise<Scope> {
     const endpoint = "/api/v1/conversations/mark_all_as_read";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -119,7 +125,7 @@ export class Conversations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteConversation(id: string, body?: unknown): Promise<unknown> {
+  public async deleteConversation(id: string, body?: unknown): Promise<Scope> {
     const endpoint = `/api/v1/conversations/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -135,7 +141,7 @@ export class Conversations extends BaseApi {
     id: string,
     params?: AddRecipientsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Admin> {
     const endpoint = `/api/v1/conversations/${id}/add_recipients`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -155,7 +161,7 @@ export class Conversations extends BaseApi {
     id: string,
     params?: AddMessageParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/conversations/${id}/add_message`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -175,7 +181,7 @@ export class Conversations extends BaseApi {
     id: string,
     params?: DeleteMessageParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/conversations/${id}/remove_messages`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -194,7 +200,7 @@ export class Conversations extends BaseApi {
   public async batchUpdateConversations(
     params?: BatchUpdateConversationsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Progress> {
     const endpoint = "/api/v1/conversations";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -210,7 +216,7 @@ export class Conversations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async findRecipients(body?: unknown): Promise<unknown> {
+  public async findRecipients(body?: unknown): Promise<Scope> {
     const endpoint = "/api/v1/conversations/find_recipients";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -222,7 +228,7 @@ export class Conversations extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async unreadCount(body?: unknown): Promise<unknown> {
+  public async unreadCount(body?: unknown): Promise<Scope> {
     const endpoint = "/api/v1/conversations/unread_count";
     const url = new URL(endpoint, this.configuration.domain);
 

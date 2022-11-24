@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { NotificationPreference, Scope } from "../types/models.ts";
 import {
   UpdateMultiplePreferencesParams,
   UpdatePreferenceParams,
@@ -16,7 +16,7 @@ export class NotificationPreferences extends BaseApi {
     user_id: string,
     communication_channel_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<NotificationPreference[]> {
     const endpoint =
       `/api/v1/users/${user_id}/communication_channels/${communication_channel_id}/notification_preferences`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -33,7 +33,7 @@ export class NotificationPreferences extends BaseApi {
     user_id: string,
     communication_channel_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/users/${user_id}/communication_channels/${communication_channel_id}/notification_preference_categories`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -51,7 +51,7 @@ export class NotificationPreferences extends BaseApi {
     communication_channel_id: string,
     notification: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<NotificationPreference> {
     const endpoint =
       `/api/v1/users/${user_id}/communication_channels/${communication_channel_id}/notification_preferences/${notification}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -69,7 +69,7 @@ export class NotificationPreferences extends BaseApi {
     notification: string,
     params?: UpdatePreferenceParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/users/self/communication_channels/${communication_channel_id}/notification_preferences/${notification}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -91,7 +91,7 @@ export class NotificationPreferences extends BaseApi {
     category: string,
     params?: UpdatePreferencesByCategoryParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/users/self/communication_channels/${communication_channel_id}/notification_preference_categories/${category}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -112,7 +112,7 @@ export class NotificationPreferences extends BaseApi {
     communication_channel_id: string,
     params?: UpdateMultiplePreferencesParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/users/self/communication_channels/${communication_channel_id}/notification_preferences`;
     const url = new URL(endpoint, this.configuration.domain);

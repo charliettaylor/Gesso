@@ -1,12 +1,13 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
+import { Scope } from "../types/models.ts";
 
 export class Services extends BaseApi {
   constructor(config: Configuration) {
     super(config);
   }
 
-  public async getKalturaConfig(body?: unknown): Promise<unknown> {
+  public async getKalturaConfig(body?: unknown): Promise<Scope> {
     const endpoint = "/api/v1/services/kaltura";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -18,7 +19,7 @@ export class Services extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async startKalturaSession(body?: unknown): Promise<unknown> {
+  public async startKalturaSession(body?: unknown): Promise<Scope> {
     const endpoint = "/api/v1/services/kaltura_session";
     const url = new URL(endpoint, this.configuration.domain);
 

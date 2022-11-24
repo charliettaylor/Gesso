@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope, User } from "../types/models.ts";
 import {
   SelectStudentsForModerationParams,
   ShowProvisionalGradeStatusForStudentParams,
@@ -15,7 +15,7 @@ export class ModeratedGrading extends BaseApi {
     course_id: string,
     assignment_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<User[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/moderated_students`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -33,7 +33,7 @@ export class ModeratedGrading extends BaseApi {
     assignment_id: string,
     params?: SelectStudentsForModerationParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<User[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/moderated_students`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -54,7 +54,7 @@ export class ModeratedGrading extends BaseApi {
     course_id: string,
     assignment_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/provisional_grades/bulk_select`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -72,7 +72,7 @@ export class ModeratedGrading extends BaseApi {
     assignment_id: string,
     params?: ShowProvisionalGradeStatusForStudentParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/provisional_grades/status`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -94,7 +94,7 @@ export class ModeratedGrading extends BaseApi {
     assignment_id: string,
     provisional_grade_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/provisional_grades/${provisional_grade_id}/select`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -111,7 +111,7 @@ export class ModeratedGrading extends BaseApi {
     course_id: string,
     assignment_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/provisional_grades/publish`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -129,7 +129,7 @@ export class ModeratedGrading extends BaseApi {
     assignment_id: string,
     params?: ShowProvisionalGradeStatusForStudentParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/anonymous_provisional_grades/status`;
     const url = new URL(endpoint, this.configuration.domain);

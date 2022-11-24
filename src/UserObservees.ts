@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { PairingCode, User } from "../types/models.ts";
 import {
   AddAnObserveeParams,
   AddAnObserveeWithCredentialsParams,
@@ -18,7 +18,7 @@ export class UserObservees extends BaseApi {
     user_id: string,
     params?: ListObserveesParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<User[]> {
     const endpoint = `/api/v1/users/${user_id}/observees`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -38,7 +38,7 @@ export class UserObservees extends BaseApi {
     user_id: string,
     params?: ListObserversParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<User[]> {
     const endpoint = `/api/v1/users/${user_id}/observers`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -58,7 +58,7 @@ export class UserObservees extends BaseApi {
     user_id: string,
     params?: AddAnObserveeWithCredentialsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/users/${user_id}/observees`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -78,7 +78,7 @@ export class UserObservees extends BaseApi {
     user_id: string,
     observee_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/users/${user_id}/observees/${observee_id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -94,7 +94,7 @@ export class UserObservees extends BaseApi {
     user_id: string,
     observer_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/users/${user_id}/observers/${observer_id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -111,7 +111,7 @@ export class UserObservees extends BaseApi {
     observee_id: string,
     params?: AddAnObserveeParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/users/${user_id}/observees/${observee_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -132,7 +132,7 @@ export class UserObservees extends BaseApi {
     observee_id: string,
     params?: RemoveAnObserveeParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/users/${user_id}/observees/${observee_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -151,7 +151,7 @@ export class UserObservees extends BaseApi {
   public async createObserverPairingCode(
     user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<PairingCode> {
     const endpoint = `/api/v1/users/${user_id}/observer_pairing_codes`;
     const url = new URL(endpoint, this.configuration.domain);
 

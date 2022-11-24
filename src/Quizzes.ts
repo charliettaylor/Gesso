@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Quiz, Scope } from "../types/models.ts";
 import {
   CreateQuizParams,
   EditQuizParams,
@@ -18,7 +18,7 @@ export class Quizzes extends BaseApi {
     course_id: string,
     params?: ListQuizzesInCourseParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Quiz[]> {
     const endpoint = `/api/v1/courses/${course_id}/quizzes`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -38,7 +38,7 @@ export class Quizzes extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Quiz> {
     const endpoint = `/api/v1/courses/${course_id}/quizzes/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -54,7 +54,7 @@ export class Quizzes extends BaseApi {
     course_id: string,
     params?: CreateQuizParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Quiz> {
     const endpoint = `/api/v1/courses/${course_id}/quizzes`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -75,7 +75,7 @@ export class Quizzes extends BaseApi {
     id: string,
     params?: EditQuizParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Quiz> {
     const endpoint = `/api/v1/courses/${course_id}/quizzes/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -95,7 +95,7 @@ export class Quizzes extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/quizzes/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -112,7 +112,7 @@ export class Quizzes extends BaseApi {
     id: string,
     params?: ReorderQuizItemsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/quizzes/${id}/reorder`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -133,7 +133,7 @@ export class Quizzes extends BaseApi {
     id: string,
     params?: ValidateQuizAccessCodeParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${id}/validate_access_code`;
     const url = new URL(endpoint, this.configuration.domain);

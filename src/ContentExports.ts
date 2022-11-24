@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { ContentExport } from "../types/models.ts";
 import { ExportContentParams } from "../types/params.ts";
 
 export class ContentExports extends BaseApi {
@@ -11,7 +11,7 @@ export class ContentExports extends BaseApi {
   public async listContentExports(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<ContentExport[]> {
     const endpoint = `/api/v1/courses/${course_id}/content_exports`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -27,7 +27,7 @@ export class ContentExports extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ContentExport> {
     const endpoint = `/api/v1/courses/${course_id}/content_exports/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -43,7 +43,7 @@ export class ContentExports extends BaseApi {
     course_id: string,
     params?: ExportContentParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ContentExport> {
     const endpoint = `/api/v1/courses/${course_id}/content_exports`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

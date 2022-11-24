@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import {
   QueryByAccountParams,
   QueryByLoginParams,
@@ -16,7 +16,7 @@ export class AuthenticationsLog extends BaseApi {
     login_id: string,
     params?: QueryByLoginParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/audit/authentication/logins/${login_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -36,7 +36,7 @@ export class AuthenticationsLog extends BaseApi {
     account_id: string,
     params?: QueryByAccountParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/audit/authentication/accounts/${account_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -56,7 +56,7 @@ export class AuthenticationsLog extends BaseApi {
     user_id: string,
     params?: QueryByUserParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/audit/authentication/users/${user_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

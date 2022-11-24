@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import { UploadFileParams } from "../types/params.ts";
 
 export class QuizSubmissionFiles extends BaseApi {
@@ -13,7 +13,7 @@ export class QuizSubmissionFiles extends BaseApi {
     quiz_id: string,
     params?: UploadFileParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/submissions/self/files`;
     const url = new URL(endpoint, this.configuration.domain);

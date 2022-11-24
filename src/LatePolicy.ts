@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { LatePolicy, Scope } from "../types/models.ts";
 import {
   CreateLatePolicyParams,
   PatchLatePolicyParams,
@@ -11,7 +11,7 @@ export class LatePolicy extends BaseApi {
     super(config);
   }
 
-  public async getLatePolicy(id: string, body?: unknown): Promise<unknown> {
+  public async getLatePolicy(id: string, body?: unknown): Promise<LatePolicy> {
     const endpoint = `/api/v1/courses/${id}/late_policy`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -27,7 +27,7 @@ export class LatePolicy extends BaseApi {
     id: string,
     params?: CreateLatePolicyParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${id}/late_policy`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -47,7 +47,7 @@ export class LatePolicy extends BaseApi {
     id: string,
     params?: PatchLatePolicyParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${id}/late_policy`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

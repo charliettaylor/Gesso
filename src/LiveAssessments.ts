@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Assessment, Result, Scope } from "../types/models.ts";
 import { ListLiveAssessmentResultsParams } from "../types/params.ts";
 
 export class LiveAssessments extends BaseApi {
@@ -12,7 +12,7 @@ export class LiveAssessments extends BaseApi {
     course_id: string,
     assessment_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/live_assessments/${assessment_id}/results`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -30,7 +30,7 @@ export class LiveAssessments extends BaseApi {
     assessment_id: string,
     params?: ListLiveAssessmentResultsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Result> {
     const endpoint =
       `/api/v1/courses/${course_id}/live_assessments/${assessment_id}/results`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -50,7 +50,7 @@ export class LiveAssessments extends BaseApi {
   public async createOrFindLiveAssessment(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/live_assessments`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -65,7 +65,7 @@ export class LiveAssessments extends BaseApi {
   public async listLiveAssessments(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assessment> {
     const endpoint = `/api/v1/courses/${course_id}/live_assessments`;
     const url = new URL(endpoint, this.configuration.domain);
 

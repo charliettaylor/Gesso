@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { OutcomeImport, Scope } from "../types/models.ts";
 import { ImportOutcomesParams } from "../types/params.ts";
 
 export class OutcomeImports extends BaseApi {
@@ -13,15 +13,16 @@ export class OutcomeImports extends BaseApi {
     learning_outcome_group_id: string,
     params?: ImportOutcomesParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<OutcomeImport> {
     const endpoint =
-      `/api/v1/accounts/${account_id}/outcome_imports/group/${learning_outcome_group_id})`;
+      `/api/v1/accounts/${account_id}/outcome_imports(/group/${learning_outcome_group_id})`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
         url.searchParams.set(key, JSON.stringify(value));
       }
     }
+
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -35,15 +36,16 @@ export class OutcomeImports extends BaseApi {
     learning_outcome_group_id: string,
     params?: ImportOutcomesParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<OutcomeImport> {
     const endpoint =
-      `/api/v1/accounts/${course_id}/outcome_imports/group/${learning_outcome_group_id})`;
+      `/api/v1/accounts/${course_id}/outcome_imports(/group/${learning_outcome_group_id})`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
       for (const [key, value] of Object.entries(params)) {
         url.searchParams.set(key, JSON.stringify(value));
       }
     }
+
     const response = await this.post(url, JSON.stringify(body));
     if (response.ok) {
       return await response.json();
@@ -56,7 +58,7 @@ export class OutcomeImports extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<OutcomeImport> {
     const endpoint = `/api/v1/accounts/${account_id}/outcome_imports/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -72,7 +74,7 @@ export class OutcomeImports extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/accounts/${account_id}/outcome_imports/${id}/created_group_ids`;
     const url = new URL(endpoint, this.configuration.domain);

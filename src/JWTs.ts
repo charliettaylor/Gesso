@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { JWT } from "../types/models.ts";
 import { CreateJwtParams, RefreshJwtParams } from "../types/params.ts";
 
 export class JWTs extends BaseApi {
@@ -8,7 +8,10 @@ export class JWTs extends BaseApi {
     super(config);
   }
 
-  public async createJwt(params?: CreateJwtParams, body?: unknown): Promise<unknown> {
+  public async createJwt(
+    params?: CreateJwtParams,
+    body?: unknown,
+  ): Promise<JWT> {
     const endpoint = "/api/v1/jwts";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -24,7 +27,10 @@ export class JWTs extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async refreshJwt(params?: RefreshJwtParams, body?: unknown): Promise<unknown> {
+  public async refreshJwt(
+    params?: RefreshJwtParams,
+    body?: unknown,
+  ): Promise<JWT> {
     const endpoint = "/api/v1/jwts/refresh";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

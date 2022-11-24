@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { BlackoutDate, Scope } from "../types/models.ts";
 import {
   CreateBlackoutDateParams,
   UpdateBlackoutDateParams,
@@ -15,7 +15,7 @@ export class BlackoutDates extends BaseApi {
   public async listBlackoutDates(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<BlackoutDate[]> {
     const endpoint = `/api/v1/courses/${course_id}/blackout_dates`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -31,7 +31,7 @@ export class BlackoutDates extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<BlackoutDate> {
     const endpoint = `/api/v1/courses/${course_id}/blackout_dates/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -43,7 +43,10 @@ export class BlackoutDates extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async newBlackoutDate(course_id: string, body?: unknown): Promise<unknown> {
+  public async newBlackoutDate(
+    course_id: string,
+    body?: unknown,
+  ): Promise<BlackoutDate> {
     const endpoint = `/api/v1/courses/${course_id}/blackout_dates/new`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -59,7 +62,7 @@ export class BlackoutDates extends BaseApi {
     course_id: string,
     params?: CreateBlackoutDateParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<BlackoutDate> {
     const endpoint = `/api/v1/courses/${course_id}/blackout_dates`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -80,7 +83,7 @@ export class BlackoutDates extends BaseApi {
     id: string,
     params?: UpdateBlackoutDateParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<BlackoutDate> {
     const endpoint = `/api/v1/courses/${course_id}/blackout_dates/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -100,7 +103,7 @@ export class BlackoutDates extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<BlackoutDate> {
     const endpoint = `/api/v1/courses/${course_id}/blackout_dates/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -116,7 +119,7 @@ export class BlackoutDates extends BaseApi {
     course_id: string,
     params?: UpdateListOfBlackoutDatesParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint = `/api/v1/courses/${course_id}/blackout_dates`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

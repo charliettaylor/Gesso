@@ -1,6 +1,12 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-import { Account } from "../types/models.ts";
+import {
+  Account,
+  Progress,
+  Scope,
+  Submission,
+  UserDisplay,
+} from "../types/models.ts";
 import {
   GetSingleSubmissionByAnonymousIdParams,
   GetSingleSubmissionParams,
@@ -24,7 +30,7 @@ export class Submissions extends BaseApi {
     assignment_id: string,
     params?: SubmitAnAssignmentParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -46,7 +52,7 @@ export class Submissions extends BaseApi {
     assignment_id: string,
     params?: ListAssignmentSubmissionsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Submission[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -67,7 +73,7 @@ export class Submissions extends BaseApi {
     course_id: string,
     params?: ListSubmissionsForMultipleAssignmentsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/students/submissions`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -89,7 +95,7 @@ export class Submissions extends BaseApi {
     user_id: string,
     params?: GetSingleSubmissionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -112,7 +118,7 @@ export class Submissions extends BaseApi {
     anonymous_id: string,
     params?: GetSingleSubmissionByAnonymousIdParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/anonymous_submissions/${anonymous_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -134,7 +140,7 @@ export class Submissions extends BaseApi {
     assignment_id: string,
     user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}/files`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -197,7 +203,7 @@ export class Submissions extends BaseApi {
     course_id: string,
     assignment_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<UserDisplay[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/gradeable_students`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -214,7 +220,7 @@ export class Submissions extends BaseApi {
     course_id: string,
     params?: ListMultipleAssignmentsGradeableStudentsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/gradeable_students`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -235,7 +241,7 @@ export class Submissions extends BaseApi {
     course_id: string,
     params?: GradeOrCommentOnMultipleSubmissionsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Progress> {
     const endpoint = `/api/v1/courses/${course_id}/submissions/update_grades`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -256,7 +262,7 @@ export class Submissions extends BaseApi {
     assignment_id: string,
     user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}/read`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -274,7 +280,7 @@ export class Submissions extends BaseApi {
     assignment_id: string,
     user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}/read`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -293,7 +299,7 @@ export class Submissions extends BaseApi {
     user_id: string,
     item: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}/read/${item}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -311,7 +317,7 @@ export class Submissions extends BaseApi {
     assignment_id: string,
     user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}/rubric_comments/read`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -329,7 +335,7 @@ export class Submissions extends BaseApi {
     assignment_id: string,
     user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}/rubric_comments/read`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -347,7 +353,7 @@ export class Submissions extends BaseApi {
     assignment_id: string,
     user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}/document_annotations/read`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -365,7 +371,7 @@ export class Submissions extends BaseApi {
     assignment_id: string,
     user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${user_id}/document_annotations/read`;
     const url = new URL(endpoint, this.configuration.domain);

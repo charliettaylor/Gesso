@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import {
   RetrieveCapturedEventsParams,
   SubmitCapturedEventsParams,
@@ -17,7 +17,7 @@ export class QuizSubmissionEvents extends BaseApi {
     id: string,
     params?: SubmitCapturedEventsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/submissions/${id}/events`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -40,7 +40,7 @@ export class QuizSubmissionEvents extends BaseApi {
     id: string,
     params?: RetrieveCapturedEventsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/submissions/${id}/events`;
     const url = new URL(endpoint, this.configuration.domain);

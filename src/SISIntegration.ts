@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import {
   DisableAssignmentsCurrentlyEnabledForGradeExportToSisParams,
   RetrieveAssignmentsEnabledForGradeExportToSisParams,
@@ -15,7 +15,7 @@ export class SISIntegration extends BaseApi {
     account_id: string,
     params?: RetrieveAssignmentsEnabledForGradeExportToSisParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint = `/api/v1/api/sis/accounts/${account_id}/assignments`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -35,7 +35,7 @@ export class SISIntegration extends BaseApi {
     course_id: string,
     params?: DisableAssignmentsCurrentlyEnabledForGradeExportToSisParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/api/sis/courses/${course_id}/disable_post_to_sis`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

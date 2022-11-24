@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { AssignmentGroup } from "../types/models.ts";
 import {
   CreateAnAssignmentGroupParams,
   DestroyAnAssignmentGroupParams,
@@ -17,7 +17,7 @@ export class AssignmentGroups extends BaseApi {
     course_id: string,
     params?: ListAssignmentGroupsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<AssignmentGroup[]> {
     const endpoint = `/api/v1/courses/${course_id}/assignment_groups`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -38,7 +38,7 @@ export class AssignmentGroups extends BaseApi {
     assignment_group_id: string,
     params?: GetAnAssignmentGroupParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<AssignmentGroup> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignment_groups/${assignment_group_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -59,7 +59,7 @@ export class AssignmentGroups extends BaseApi {
     course_id: string,
     params?: CreateAnAssignmentGroupParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<AssignmentGroup> {
     const endpoint = `/api/v1/courses/${course_id}/assignment_groups`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -79,7 +79,7 @@ export class AssignmentGroups extends BaseApi {
     course_id: string,
     assignment_group_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<AssignmentGroup> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignment_groups/${assignment_group_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -97,7 +97,7 @@ export class AssignmentGroups extends BaseApi {
     assignment_group_id: string,
     params?: DestroyAnAssignmentGroupParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<AssignmentGroup> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignment_groups/${assignment_group_id}`;
     const url = new URL(endpoint, this.configuration.domain);

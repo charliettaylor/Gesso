@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { NamesAndRoleMembership } from "../types/models.ts";
 import {
   ListCourseMembershipsParams,
   ListGroupMembershipsParams,
@@ -15,7 +15,7 @@ export class NamesandRole extends BaseApi {
     course_id: string,
     params?: ListCourseMembershipsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<NamesAndRoleMembership> {
     const endpoint = `/api/v1/api/lti/courses/${course_id}/names_and_roles`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -35,7 +35,7 @@ export class NamesandRole extends BaseApi {
     group_id: string,
     params?: ListGroupMembershipsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<NamesAndRoleMembership> {
     const endpoint = `/api/v1/api/lti/groups/${group_id}/names_and_roles`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { CommunicationChannel, Scope } from "../types/models.ts";
 import { CreateCommunicationChannelParams } from "../types/params.ts";
 
 export class CommunicationChannels extends BaseApi {
@@ -11,7 +11,7 @@ export class CommunicationChannels extends BaseApi {
   public async listUserCommunicationChannels(
     user_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<CommunicationChannel[]> {
     const endpoint = `/api/v1/users/${user_id}/communication_channels`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -27,7 +27,7 @@ export class CommunicationChannels extends BaseApi {
     user_id: string,
     params?: CreateCommunicationChannelParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<CommunicationChannel> {
     const endpoint = `/api/v1/users/${user_id}/communication_channels`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -47,7 +47,7 @@ export class CommunicationChannels extends BaseApi {
     user_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<CommunicationChannel> {
     const endpoint = `/api/v1/users/${user_id}/communication_channels/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -59,7 +59,7 @@ export class CommunicationChannels extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deletePushNotificationEndpoint(body?: unknown): Promise<unknown> {
+  public async deletePushNotificationEndpoint(body?: unknown): Promise<Scope> {
     const endpoint = "/api/v1/users/self/communication_channels/push";
     const url = new URL(endpoint, this.configuration.domain);
 

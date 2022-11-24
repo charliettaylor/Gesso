@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Enrollment, Scope } from "../types/models.ts";
 import {
   ConcludeDeactivateOrDeleteAnEnrollmentParams,
   EnrollmentByIdParams,
@@ -17,7 +17,7 @@ export class Enrollments extends BaseApi {
     course_id: string,
     params?: ListEnrollmentsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Enrollment[]> {
     const endpoint = `/api/v1/courses/${course_id}/enrollments`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -38,7 +38,7 @@ export class Enrollments extends BaseApi {
     id: string,
     params?: EnrollmentByIdParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Enrollment> {
     const endpoint = `/api/v1/accounts/${account_id}/enrollments/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -58,7 +58,7 @@ export class Enrollments extends BaseApi {
     course_id: string,
     params?: EnrollUserParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Enrollment> {
     const endpoint = `/api/v1/courses/${course_id}/enrollments`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -79,7 +79,7 @@ export class Enrollments extends BaseApi {
     id: string,
     params?: ConcludeDeactivateOrDeleteAnEnrollmentParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Enrollment> {
     const endpoint = `/api/v1/courses/${course_id}/enrollments/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -99,7 +99,7 @@ export class Enrollments extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/enrollments/${id}/accept`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -115,7 +115,7 @@ export class Enrollments extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/enrollments/${id}/reject`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -131,7 +131,7 @@ export class Enrollments extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Enrollment> {
     const endpoint =
       `/api/v1/courses/${course_id}/enrollments/${id}/reactivate`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -148,7 +148,7 @@ export class Enrollments extends BaseApi {
     course_id: string,
     user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/users/${user_id}/last_attended`;
     const url = new URL(endpoint, this.configuration.domain);

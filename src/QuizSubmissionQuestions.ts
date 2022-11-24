@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { QuizSubmissionQuestion, Scope } from "../types/models.ts";
 import {
   AnsweringQuestionsParams,
   FlaggingQuestionParams,
@@ -18,7 +18,7 @@ export class QuizSubmissionQuestions extends BaseApi {
     quiz_submission_id: string,
     params?: GetAllQuizSubmissionQuestionsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint = `/api/v1/quiz_submissions/${quiz_submission_id}/questions`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -38,7 +38,7 @@ export class QuizSubmissionQuestions extends BaseApi {
     quiz_submission_id: string,
     params?: AnsweringQuestionsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<QuizSubmissionQuestion[]> {
     const endpoint = `/api/v1/quiz_submissions/${quiz_submission_id}/questions`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -59,7 +59,7 @@ export class QuizSubmissionQuestions extends BaseApi {
     id: string,
     params?: GetFormattedStudentNumericalAnswerParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/quiz_submissions/${quiz_submission_id}/questions/${id}/formatted_answer`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -81,7 +81,7 @@ export class QuizSubmissionQuestions extends BaseApi {
     id: string,
     params?: FlaggingQuestionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/quiz_submissions/${quiz_submission_id}/questions/${id}/flag`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -103,7 +103,7 @@ export class QuizSubmissionQuestions extends BaseApi {
     id: string,
     params?: UnflaggingQuestionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/quiz_submissions/${quiz_submission_id}/questions/${id}/unflag`;
     const url = new URL(endpoint, this.configuration.domain);

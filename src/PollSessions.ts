@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { PollSession, Scope } from "../types/models.ts";
 import {
   CreateSinglePollSessionParams,
   UpdateSinglePollSessionParams,
@@ -14,7 +14,7 @@ export class PollSessions extends BaseApi {
   public async listPollSessionsForPoll(
     poll_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<PollSession> {
     const endpoint = `/api/v1/polls/${poll_id}/poll_sessions`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -30,7 +30,7 @@ export class PollSessions extends BaseApi {
     poll_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<PollSession> {
     const endpoint = `/api/v1/polls/${poll_id}/poll_sessions/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -46,7 +46,7 @@ export class PollSessions extends BaseApi {
     poll_id: string,
     params?: CreateSinglePollSessionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/polls/${poll_id}/poll_sessions`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -67,7 +67,7 @@ export class PollSessions extends BaseApi {
     id: string,
     params?: UpdateSinglePollSessionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/polls/${poll_id}/poll_sessions/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -87,7 +87,7 @@ export class PollSessions extends BaseApi {
     poll_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/polls/${poll_id}/poll_sessions/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -103,7 +103,7 @@ export class PollSessions extends BaseApi {
     poll_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/polls/${poll_id}/poll_sessions/${id}/open`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -119,7 +119,7 @@ export class PollSessions extends BaseApi {
     poll_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/polls/${poll_id}/poll_sessions/${id}/close`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -131,7 +131,7 @@ export class PollSessions extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listOpenedPollSessions(body?: unknown): Promise<unknown> {
+  public async listOpenedPollSessions(body?: unknown): Promise<Scope> {
     const endpoint = "/api/v1/poll_sessions/opened";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -143,7 +143,7 @@ export class PollSessions extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listClosedPollSessions(body?: unknown): Promise<unknown> {
+  public async listClosedPollSessions(body?: unknown): Promise<Scope> {
     const endpoint = "/api/v1/poll_sessions/closed";
     const url = new URL(endpoint, this.configuration.domain);
 

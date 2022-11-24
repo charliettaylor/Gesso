@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { DiscussionTopic, Scope } from "../types/models.ts";
 import {
   CreateNewDiscussionTopicParams,
   GetSingleTopicParams,
@@ -27,7 +27,7 @@ export class DiscussionTopics extends BaseApi {
     course_id: string,
     params?: ListDiscussionTopicsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<DiscussionTopic[]> {
     const endpoint = `/api/v1/courses/${course_id}/discussion_topics`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -47,7 +47,7 @@ export class DiscussionTopics extends BaseApi {
     course_id: string,
     params?: CreateNewDiscussionTopicParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/discussion_topics`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -68,7 +68,7 @@ export class DiscussionTopics extends BaseApi {
     topic_id: string,
     params?: UpdateTopicParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -89,7 +89,7 @@ export class DiscussionTopics extends BaseApi {
     course_id: string,
     topic_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -106,7 +106,7 @@ export class DiscussionTopics extends BaseApi {
     course_id: string,
     params?: ReorderPinnedTopicsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/discussion_topics/reorder`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -128,7 +128,7 @@ export class DiscussionTopics extends BaseApi {
     id: string,
     params?: UpdateAnEntryParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/entries/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -150,7 +150,7 @@ export class DiscussionTopics extends BaseApi {
     topic_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/entries/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -189,7 +189,7 @@ export class DiscussionTopics extends BaseApi {
     course_id: string,
     topic_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/view`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -228,7 +228,7 @@ export class DiscussionTopics extends BaseApi {
     course_id: string,
     topic_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<DiscussionTopic> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/duplicate`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -245,7 +245,7 @@ export class DiscussionTopics extends BaseApi {
     course_id: string,
     topic_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/entries`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -286,7 +286,7 @@ export class DiscussionTopics extends BaseApi {
     topic_id: string,
     entry_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/entries/${entry_id}/replies`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -304,7 +304,7 @@ export class DiscussionTopics extends BaseApi {
     topic_id: string,
     params?: ListEntriesParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/entry_list`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -325,7 +325,7 @@ export class DiscussionTopics extends BaseApi {
     course_id: string,
     topic_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/read`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -342,7 +342,7 @@ export class DiscussionTopics extends BaseApi {
     course_id: string,
     topic_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/read`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -360,7 +360,7 @@ export class DiscussionTopics extends BaseApi {
     topic_id: string,
     params?: MarkAllEntriesAsReadParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/read_all`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -382,7 +382,7 @@ export class DiscussionTopics extends BaseApi {
     topic_id: string,
     params?: MarkAllEntriesAsUnreadParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/read_all`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -405,7 +405,7 @@ export class DiscussionTopics extends BaseApi {
     entry_id: string,
     params?: MarkEntryAsReadParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/entries/${entry_id}/read`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -428,7 +428,7 @@ export class DiscussionTopics extends BaseApi {
     entry_id: string,
     params?: MarkEntryAsUnreadParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/entries/${entry_id}/read`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -451,7 +451,7 @@ export class DiscussionTopics extends BaseApi {
     entry_id: string,
     params?: RateEntryParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/entries/${entry_id}/rating`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -472,7 +472,7 @@ export class DiscussionTopics extends BaseApi {
     course_id: string,
     topic_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/subscribed`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -489,7 +489,7 @@ export class DiscussionTopics extends BaseApi {
     course_id: string,
     topic_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/discussion_topics/${topic_id}/subscribed`;
     const url = new URL(endpoint, this.configuration.domain);

@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-import { Account } from "../types/models.ts";
+import { Account, Feature, Scope } from "../types/models.ts";
 import { SetFeatureFlagParams } from "../types/params.ts";
 
 export class FeatureFlags extends BaseApi {
@@ -8,7 +8,10 @@ export class FeatureFlags extends BaseApi {
     super(config);
   }
 
-  public async listFeatures(course_id: string, body?: unknown): Promise<unknown[]> {
+  public async listFeatures(
+    course_id: string,
+    body?: unknown,
+  ): Promise<Feature[]> {
     const endpoint = `/api/v1/courses/${course_id}/features`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -35,7 +38,7 @@ export class FeatureFlags extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listEnvironmentFeatures(body?: unknown): Promise<unknown> {
+  public async listEnvironmentFeatures(body?: unknown): Promise<Scope> {
     const endpoint = "/api/v1/features/environment";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -51,7 +54,7 @@ export class FeatureFlags extends BaseApi {
     course_id: string,
     feature: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Feature> {
     const endpoint = `/api/v1/courses/${course_id}/features/flags/${feature}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -68,7 +71,7 @@ export class FeatureFlags extends BaseApi {
     feature: string,
     params?: SetFeatureFlagParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Feature> {
     const endpoint = `/api/v1/courses/${course_id}/features/flags/${feature}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -88,7 +91,7 @@ export class FeatureFlags extends BaseApi {
     course_id: string,
     feature: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Feature> {
     const endpoint = `/api/v1/courses/${course_id}/features/flags/${feature}`;
     const url = new URL(endpoint, this.configuration.domain);
 

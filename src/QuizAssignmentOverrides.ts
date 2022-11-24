@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Assignment } from "../types/models.ts";
 import {
   RetrieveAssignmentoverriddenDatesForClassicQuizzesParams,
   RetrieveAssignmentoverriddenDatesForNewQuizzesParams,
@@ -15,7 +15,7 @@ export class QuizAssignmentOverrides extends BaseApi {
     course_id: string,
     params?: RetrieveAssignmentoverriddenDatesForClassicQuizzesParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/assignment_overrides`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -36,7 +36,7 @@ export class QuizAssignmentOverrides extends BaseApi {
     course_id: string,
     params?: RetrieveAssignmentoverriddenDatesForNewQuizzesParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint =
       `/api/v1/courses/${course_id}/new_quizzes/assignment_overrides`;
     const url = new URL(endpoint, this.configuration.domain);

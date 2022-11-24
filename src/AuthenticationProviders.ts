@@ -1,5 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
+import { AuthenticationProvider, Scope, SSOSettings } from "../types/models.ts";
 
 export class AuthenticationProviders extends BaseApi {
   constructor(config: Configuration) {
@@ -9,7 +10,7 @@ export class AuthenticationProviders extends BaseApi {
   public async listAuthenticationProviders(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<AuthenticationProvider[]> {
     const endpoint = `/api/v1/accounts/${account_id}/authentication_providers`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -24,7 +25,7 @@ export class AuthenticationProviders extends BaseApi {
   public async addAuthenticationProvider(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<AuthenticationProvider> {
     const endpoint = `/api/v1/accounts/${account_id}/authentication_providers`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -40,7 +41,7 @@ export class AuthenticationProviders extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<AuthenticationProvider> {
     const endpoint =
       `/api/v1/accounts/${account_id}/authentication_providers/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -57,7 +58,7 @@ export class AuthenticationProviders extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<AuthenticationProvider> {
     const endpoint =
       `/api/v1/accounts/${account_id}/authentication_providers/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -74,7 +75,7 @@ export class AuthenticationProviders extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/accounts/${account_id}/authentication_providers/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -90,7 +91,7 @@ export class AuthenticationProviders extends BaseApi {
   public async showAccountAuthSettings(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<SSOSettings> {
     const endpoint = `/api/v1/accounts/${account_id}/sso_settings`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -105,7 +106,7 @@ export class AuthenticationProviders extends BaseApi {
   public async updateAccountAuthSettings(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<SSOSettings> {
     const endpoint = `/api/v1/accounts/${account_id}/sso_settings`;
     const url = new URL(endpoint, this.configuration.domain);
 

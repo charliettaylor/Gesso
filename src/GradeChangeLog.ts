@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Grade } from "../types/models.ts";
 import {
   AdvancedQueryParams,
   QueryByAssignmentParams,
@@ -18,7 +18,7 @@ export class GradeChangeLog extends BaseApi {
     assignment_id: string,
     params?: QueryByAssignmentParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Grade[]> {
     const endpoint = `/api/v1/audit/grade_change/assignments/${assignment_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -38,7 +38,7 @@ export class GradeChangeLog extends BaseApi {
     course_id: string,
     params?: QueryByCourseParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Grade[]> {
     const endpoint = `/api/v1/audit/grade_change/courses/${course_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -58,7 +58,7 @@ export class GradeChangeLog extends BaseApi {
     student_id: string,
     params?: QueryByStudentParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Grade[]> {
     const endpoint = `/api/v1/audit/grade_change/students/${student_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -78,7 +78,7 @@ export class GradeChangeLog extends BaseApi {
     grader_id: string,
     params?: QueryByGraderParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Grade[]> {
     const endpoint = `/api/v1/audit/grade_change/graders/${grader_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -97,7 +97,7 @@ export class GradeChangeLog extends BaseApi {
   public async advancedQuery(
     params?: AdvancedQueryParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Grade[]> {
     const endpoint = "/api/v1/audit/grade_change";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

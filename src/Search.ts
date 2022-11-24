@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import { FindRecipientsParams, ListAllCoursesParams } from "../types/params.ts";
 
 export class Search extends BaseApi {
@@ -11,7 +11,7 @@ export class Search extends BaseApi {
   public async findRecipients(
     params?: FindRecipientsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = "/api/v1/conversations/find_recipients";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -30,7 +30,7 @@ export class Search extends BaseApi {
   public async listAllCourses(
     params?: ListAllCoursesParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = "/api/v1/search/all_courses";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

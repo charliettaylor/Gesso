@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { GradingStandard } from "../types/models.ts";
 import { CreateNewGradingStandardParams } from "../types/params.ts";
 
 export class GradingStandards extends BaseApi {
@@ -12,7 +12,7 @@ export class GradingStandards extends BaseApi {
     account_id: string,
     params?: CreateNewGradingStandardParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<GradingStandard> {
     const endpoint = `/api/v1/accounts/${account_id}/grading_standards`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -31,7 +31,7 @@ export class GradingStandards extends BaseApi {
   public async listTheGradingStandardsAvailableInContext(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<GradingStandard[]> {
     const endpoint = `/api/v1/courses/${course_id}/grading_standards`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -47,7 +47,7 @@ export class GradingStandards extends BaseApi {
     course_id: string,
     grading_standard_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<GradingStandard> {
     const endpoint =
       `/api/v1/courses/${course_id}/grading_standards/${grading_standard_id}`;
     const url = new URL(endpoint, this.configuration.domain);

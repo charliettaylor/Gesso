@@ -1,6 +1,11 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import {
+  Day,
+  Grade,
+  SubmissionHistory,
+  SubmissionVersion,
+} from "../types/models.ts";
 import {
   DaysInGradebookHistoryForThisCourseParams,
   DetailsForGivenDateInGradebookHistoryForThisCourseParams,
@@ -17,7 +22,7 @@ export class GradebookHistory extends BaseApi {
     course_id: string,
     params?: DaysInGradebookHistoryForThisCourseParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Day[]> {
     const endpoint = `/api/v1/courses/${course_id}/gradebook_history/days`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -38,7 +43,7 @@ export class GradebookHistory extends BaseApi {
     date: string,
     params?: DetailsForGivenDateInGradebookHistoryForThisCourseParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Grade[]> {
     const endpoint = `/api/v1/courses/${course_id}/gradebook_history/${date}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -61,7 +66,7 @@ export class GradebookHistory extends BaseApi {
     assignment_id: string,
     params?: ListsSubmissionsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<SubmissionHistory[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/gradebook_history/${date}/graders/${grader_id}/assignments/${assignment_id}/submissions`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -82,7 +87,7 @@ export class GradebookHistory extends BaseApi {
     course_id: string,
     params?: ListUncollatedSubmissionVersionsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<SubmissionVersion[]> {
     const endpoint = `/api/v1/courses/${course_id}/gradebook_history/feed`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

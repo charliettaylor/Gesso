@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { CommMessage } from "../types/models.ts";
 import { ListOfCommmessagesForUserParams } from "../types/params.ts";
 
 export class CommMessages extends BaseApi {
@@ -11,7 +11,7 @@ export class CommMessages extends BaseApi {
   public async listOfCommmessagesForUser(
     params?: ListOfCommmessagesForUserParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<CommMessage[]> {
     const endpoint = "/api/v1/comm_messages";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { File, Folder, License, Scope, UsageRights } from "../types/models.ts";
 import {
   CopyFileParams,
   CopyFolderParams,
@@ -40,7 +40,7 @@ export class Files extends BaseApi {
     course_id: string,
     params?: ListFilesParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<File[]> {
     const endpoint = `/api/v1/courses/${course_id}/files`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -60,7 +60,7 @@ export class Files extends BaseApi {
     id: string,
     params?: GetPublicInlinePreviewUrlParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/files/${id}/public_url`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -80,7 +80,7 @@ export class Files extends BaseApi {
     id: string,
     params?: GetFileParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<File> {
     const endpoint = `/api/v1/files/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -100,7 +100,7 @@ export class Files extends BaseApi {
     course_id: string,
     migration_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<File> {
     const endpoint =
       `/api/v1/courses/${course_id}/files/file_ref/${migration_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -117,7 +117,7 @@ export class Files extends BaseApi {
     id: string,
     params?: UpdateFileParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<File> {
     const endpoint = `/api/v1/files/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -137,7 +137,7 @@ export class Files extends BaseApi {
     id: string,
     params?: DeleteFileParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<File> {
     const endpoint = `/api/v1/files/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -165,7 +165,7 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async resetLinkVerifier(id: string, body?: unknown): Promise<unknown> {
+  public async resetLinkVerifier(id: string, body?: unknown): Promise<File> {
     const endpoint = `/api/v1/files/${id}/reset_verifier`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -177,7 +177,7 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listFolders(id: string, body?: unknown): Promise<unknown[]> {
+  public async listFolders(id: string, body?: unknown): Promise<Folder[]> {
     const endpoint = `/api/v1/folders/${id}/folders`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -189,7 +189,10 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listAllFolders(course_id: string, body?: unknown): Promise<unknown[]> {
+  public async listAllFolders(
+    course_id: string,
+    body?: unknown,
+  ): Promise<Folder[]> {
     const endpoint = `/api/v1/courses/${course_id}/folders`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -201,7 +204,10 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async resolvePath(course_id: string, body?: unknown): Promise<unknown[]> {
+  public async resolvePath(
+    course_id: string,
+    body?: unknown,
+  ): Promise<Folder[]> {
     const endpoint = `/api/v1/courses/${course_id}/folders/by_path/*full_path`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -217,7 +223,7 @@ export class Files extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Folder> {
     const endpoint = `/api/v1/courses/${course_id}/folders/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -233,7 +239,7 @@ export class Files extends BaseApi {
     id: string,
     params?: UpdateFolderParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Folder> {
     const endpoint = `/api/v1/folders/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -253,7 +259,7 @@ export class Files extends BaseApi {
     course_id: string,
     params?: CreateFolderParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Folder> {
     const endpoint = `/api/v1/courses/${course_id}/folders`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -273,7 +279,7 @@ export class Files extends BaseApi {
     id: string,
     params?: DeleteFolderParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/folders/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -289,7 +295,7 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async uploadFile(folder_id: string, body?: unknown): Promise<unknown> {
+  public async uploadFile(folder_id: string, body?: unknown): Promise<Scope> {
     const endpoint = `/api/v1/folders/${folder_id}/files`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -305,7 +311,7 @@ export class Files extends BaseApi {
     dest_folder_id: string,
     params?: CopyFileParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<File> {
     const endpoint = `/api/v1/folders/${dest_folder_id}/copy_file`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -325,7 +331,7 @@ export class Files extends BaseApi {
     dest_folder_id: string,
     params?: CopyFolderParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Folder> {
     const endpoint = `/api/v1/folders/${dest_folder_id}/copy_folder`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -344,7 +350,7 @@ export class Files extends BaseApi {
   public async getUploadedMediaFolderForUser(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Folder> {
     const endpoint = `/api/v1/courses/${course_id}/folders/media`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -360,7 +366,7 @@ export class Files extends BaseApi {
     course_id: string,
     params?: SetUsageRightsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<UsageRights> {
     const endpoint = `/api/v1/courses/${course_id}/usage_rights`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -380,7 +386,7 @@ export class Files extends BaseApi {
     course_id: string,
     params?: RemoveUsageRightsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/usage_rights`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -396,7 +402,10 @@ export class Files extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listLicenses(course_id: string, body?: unknown): Promise<unknown[]> {
+  public async listLicenses(
+    course_id: string,
+    body?: unknown,
+  ): Promise<License[]> {
     const endpoint = `/api/v1/courses/${course_id}/content_licenses`;
     const url = new URL(endpoint, this.configuration.domain);
 

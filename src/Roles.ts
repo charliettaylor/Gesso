@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Role } from "../types/models.ts";
 import {
   ActivateRoleParams,
   CreateNewRoleParams,
@@ -19,7 +19,7 @@ export class Roles extends BaseApi {
     account_id: string,
     params?: ListRolesParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Role[]> {
     const endpoint = `/api/v1/accounts/${account_id}/roles`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -40,7 +40,7 @@ export class Roles extends BaseApi {
     id: string,
     params?: GetSingleRoleParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Role> {
     const endpoint = `/api/v1/accounts/${account_id}/roles/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -60,7 +60,7 @@ export class Roles extends BaseApi {
     account_id: string,
     params?: CreateNewRoleParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Role> {
     const endpoint = `/api/v1/accounts/${account_id}/roles`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -81,7 +81,7 @@ export class Roles extends BaseApi {
     id: string,
     params?: DeactivateRoleParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Role> {
     const endpoint = `/api/v1/accounts/${account_id}/roles/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -102,7 +102,7 @@ export class Roles extends BaseApi {
     id: string,
     params?: ActivateRoleParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Role> {
     const endpoint = `/api/v1/accounts/${account_id}/roles/${id}/activate`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -123,7 +123,7 @@ export class Roles extends BaseApi {
     id: string,
     params?: UpdateRoleParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Role> {
     const endpoint = `/api/v1/accounts/${account_id}/roles/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

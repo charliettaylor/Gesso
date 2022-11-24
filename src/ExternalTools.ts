@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import {
   CreateAnExternalToolParams,
   GetSessionlessLaunchUrlForAnExternalToolParams,
@@ -75,7 +75,7 @@ export class ExternalTools extends BaseApi {
     course_id: string,
     params?: CreateAnExternalToolParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/external_tools`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -95,7 +95,7 @@ export class ExternalTools extends BaseApi {
     course_id: string,
     external_tool_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/external_tools/${external_tool_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -112,7 +112,7 @@ export class ExternalTools extends BaseApi {
     course_id: string,
     external_tool_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/external_tools/${external_tool_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -129,7 +129,7 @@ export class ExternalTools extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/accounts/${account_id}/external_tools/rce_favorites/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -146,7 +146,7 @@ export class ExternalTools extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/accounts/${account_id}/external_tools/rce_favorites/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -162,7 +162,7 @@ export class ExternalTools extends BaseApi {
   public async getVisibleCourseNavigationTools(
     params?: GetVisibleCourseNavigationToolsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint = "/api/v1/external_tools/visible_course_nav_tools";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -181,7 +181,7 @@ export class ExternalTools extends BaseApi {
   public async getVisibleCourseNavigationToolsForSingleCourse(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Scope[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/external_tools/visible_course_nav_tools`;
     const url = new URL(endpoint, this.configuration.domain);

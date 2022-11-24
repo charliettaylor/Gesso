@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { ExternalFeed } from "../types/models.ts";
 import { CreateAnExternalFeedParams } from "../types/params.ts";
 
 export class AnnouncementExternalFeeds extends BaseApi {
@@ -11,7 +11,7 @@ export class AnnouncementExternalFeeds extends BaseApi {
   public async listExternalFeeds(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<ExternalFeed[]> {
     const endpoint = `/api/v1/courses/${course_id}/external_feeds`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -27,7 +27,7 @@ export class AnnouncementExternalFeeds extends BaseApi {
     course_id: string,
     params?: CreateAnExternalFeedParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ExternalFeed> {
     const endpoint = `/api/v1/courses/${course_id}/external_feeds`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -47,7 +47,7 @@ export class AnnouncementExternalFeeds extends BaseApi {
     course_id: string,
     external_feed_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ExternalFeed> {
     const endpoint =
       `/api/v1/courses/${course_id}/external_feeds/${external_feed_id}`;
     const url = new URL(endpoint, this.configuration.domain);

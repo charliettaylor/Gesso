@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Assignment, Module, Scope } from "../types/models.ts";
 import {
   CreateModuleItemParams,
   CreateModuleParams,
@@ -23,7 +23,7 @@ export class Modules extends BaseApi {
     course_id: string,
     params?: ListModulesParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Module[]> {
     const endpoint = `/api/v1/courses/${course_id}/modules`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -44,7 +44,7 @@ export class Modules extends BaseApi {
     id: string,
     params?: ShowModuleParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Module> {
     const endpoint = `/api/v1/courses/${course_id}/modules/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -64,7 +64,7 @@ export class Modules extends BaseApi {
     course_id: string,
     params?: CreateModuleParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Module> {
     const endpoint = `/api/v1/courses/${course_id}/modules`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -85,7 +85,7 @@ export class Modules extends BaseApi {
     id: string,
     params?: UpdateModuleParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Module> {
     const endpoint = `/api/v1/courses/${course_id}/modules/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -105,7 +105,7 @@ export class Modules extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Module> {
     const endpoint = `/api/v1/courses/${course_id}/modules/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -121,7 +121,7 @@ export class Modules extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Module> {
     const endpoint = `/api/v1/courses/${course_id}/modules/${id}/relock`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -138,7 +138,7 @@ export class Modules extends BaseApi {
     module_id: string,
     params?: ListModuleItemsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Module[]> {
     const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -160,7 +160,7 @@ export class Modules extends BaseApi {
     id: string,
     params?: ShowModuleItemParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Module> {
     const endpoint =
       `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -182,7 +182,7 @@ export class Modules extends BaseApi {
     module_id: string,
     params?: CreateModuleItemParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Module> {
     const endpoint = `/api/v1/courses/${course_id}/modules/${module_id}/items`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -204,7 +204,7 @@ export class Modules extends BaseApi {
     id: string,
     params?: UpdateModuleItemParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Module> {
     const endpoint =
       `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -227,7 +227,7 @@ export class Modules extends BaseApi {
     id: string,
     params?: SelectMasteryPathParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint =
       `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}/select_mastery_path`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -249,7 +249,7 @@ export class Modules extends BaseApi {
     module_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Module> {
     const endpoint =
       `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -267,7 +267,7 @@ export class Modules extends BaseApi {
     module_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}/done`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -284,7 +284,7 @@ export class Modules extends BaseApi {
     course_id: string,
     params?: GetModuleItemSequenceParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Module> {
     const endpoint = `/api/v1/courses/${course_id}/module_item_sequence`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -305,7 +305,7 @@ export class Modules extends BaseApi {
     module_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/modules/${module_id}/items/${id}/mark_read`;
     const url = new URL(endpoint, this.configuration.domain);

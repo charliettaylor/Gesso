@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { PeerReview } from "../types/models.ts";
 import {
   CreatePeerReviewParams,
   DeletePeerReviewParams,
@@ -17,7 +17,7 @@ export class PeerReviews extends BaseApi {
     assignment_id: string,
     params?: GetAllPeerReviewsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<PeerReview[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/peer_reviews`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -40,7 +40,7 @@ export class PeerReviews extends BaseApi {
     submission_id: string,
     params?: CreatePeerReviewParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<PeerReview> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${submission_id}/peer_reviews`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -63,7 +63,7 @@ export class PeerReviews extends BaseApi {
     submission_id: string,
     params?: DeletePeerReviewParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<PeerReview> {
     const endpoint =
       `/api/v1/courses/${course_id}/assignments/${assignment_id}/submissions/${submission_id}/peer_reviews`;
     const url = new URL(endpoint, this.configuration.domain);

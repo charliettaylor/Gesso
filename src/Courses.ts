@@ -1,6 +1,13 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-import { Account } from "../types/models.ts";
+import {
+  Account,
+  Course,
+  CourseProgress,
+  Progress,
+  Scope,
+  User,
+} from "../types/models.ts";
 import {
   CopyCourseContentParams,
   CreateNewCourseParams,
@@ -26,7 +33,7 @@ export class Courses extends BaseApi {
   public async listCourses(
     params?: ListCoursesParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Course[]> {
     const endpoint = "/api/v1/courses";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -46,7 +53,7 @@ export class Courses extends BaseApi {
     user_id: string,
     params?: ListCoursesForUserParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Course[]> {
     const endpoint = `/api/v1/users/${user_id}/courses`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -66,7 +73,7 @@ export class Courses extends BaseApi {
     course_id: string,
     user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<CourseProgress> {
     const endpoint = `/api/v1/courses/${course_id}/users/${user_id}/progress`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -82,7 +89,7 @@ export class Courses extends BaseApi {
     account_id: string,
     params?: CreateNewCourseParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Course> {
     const endpoint = `/api/v1/accounts/${account_id}/courses`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -98,7 +105,7 @@ export class Courses extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async uploadFile(course_id: string, body?: unknown): Promise<unknown> {
+  public async uploadFile(course_id: string, body?: unknown): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/files`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -110,7 +117,10 @@ export class Courses extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listStudents(course_id: string, body?: unknown): Promise<unknown[]> {
+  public async listStudents(
+    course_id: string,
+    body?: unknown,
+  ): Promise<User[]> {
     const endpoint = `/api/v1/courses/${course_id}/students`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -126,7 +136,7 @@ export class Courses extends BaseApi {
     course_id: string,
     params?: ListUsersInCourseParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<User[]> {
     const endpoint = `/api/v1/courses/${course_id}/users`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -145,7 +155,7 @@ export class Courses extends BaseApi {
   public async listRecentlyLoggedInStudents(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<User[]> {
     const endpoint = `/api/v1/courses/${course_id}/recent_students`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -161,7 +171,7 @@ export class Courses extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/courses/${course_id}/users/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -177,7 +187,7 @@ export class Courses extends BaseApi {
     course_id: string,
     params?: SearchForContentShareUsersParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<User[]> {
     const endpoint = `/api/v1/courses/${course_id}/content_share_users`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -197,7 +207,7 @@ export class Courses extends BaseApi {
     course_id: string,
     params?: PreviewProcessedHtmlParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/preview_html`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -243,7 +253,10 @@ export class Courses extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async courseTodoItems(course_id: string, body?: unknown): Promise<unknown> {
+  public async courseTodoItems(
+    course_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/todo`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -259,7 +272,7 @@ export class Courses extends BaseApi {
     id: string,
     params?: DeleteCourseParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -275,7 +288,10 @@ export class Courses extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getCourseSettings(course_id: string, body?: unknown): Promise<unknown> {
+  public async getCourseSettings(
+    course_id: string,
+    body?: unknown,
+  ): Promise<unknown> {
     const endpoint = `/api/v1/courses/${course_id}/settings`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -291,7 +307,7 @@ export class Courses extends BaseApi {
     course_id: string,
     params?: UpdateCourseSettingsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/settings`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -310,7 +326,7 @@ export class Courses extends BaseApi {
   public async returnTestStudentForCourse(
     course_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/courses/${course_id}/student_view_student`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -326,7 +342,7 @@ export class Courses extends BaseApi {
     id: string,
     params?: GetSingleCourseParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Course> {
     const endpoint = `/api/v1/courses/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -346,7 +362,7 @@ export class Courses extends BaseApi {
     id: string,
     params?: UpdateCourseParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -366,7 +382,7 @@ export class Courses extends BaseApi {
     account_id: string,
     params?: UpdateCoursesParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Progress> {
     const endpoint = `/api/v1/accounts/${account_id}/courses`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -382,7 +398,7 @@ export class Courses extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async resetCourse(course_id: string, body?: unknown): Promise<unknown> {
+  public async resetCourse(course_id: string, body?: unknown): Promise<Course> {
     const endpoint = `/api/v1/courses/${course_id}/reset_content`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -449,7 +465,10 @@ export class Courses extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async removeQuizMigrationAlert(id: string, body?: unknown): Promise<unknown> {
+  public async removeQuizMigrationAlert(
+    id: string,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${id}/dismiss_migration_limitation_message`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -466,7 +485,7 @@ export class Courses extends BaseApi {
     course_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/course_copy/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -482,7 +501,7 @@ export class Courses extends BaseApi {
     course_id: string,
     params?: CopyCourseContentParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/courses/${course_id}/course_copy`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

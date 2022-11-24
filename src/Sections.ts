@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Section } from "../types/models.ts";
 import {
   CreateCourseSectionParams,
   CrosslistSectionParams,
@@ -19,7 +19,7 @@ export class Sections extends BaseApi {
     course_id: string,
     params?: ListCourseSectionsParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Section[]> {
     const endpoint = `/api/v1/courses/${course_id}/sections`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -39,7 +39,7 @@ export class Sections extends BaseApi {
     course_id: string,
     params?: CreateCourseSectionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Section> {
     const endpoint = `/api/v1/courses/${course_id}/sections`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -60,7 +60,7 @@ export class Sections extends BaseApi {
     new_course_id: string,
     params?: CrosslistSectionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Section> {
     const endpoint = `/api/v1/sections/${id}/crosslist/${new_course_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -80,7 +80,7 @@ export class Sections extends BaseApi {
     id: string,
     params?: DecrosslistSectionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Section> {
     const endpoint = `/api/v1/sections/${id}/crosslist`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -100,7 +100,7 @@ export class Sections extends BaseApi {
     id: string,
     params?: EditSectionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Section> {
     const endpoint = `/api/v1/sections/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -121,7 +121,7 @@ export class Sections extends BaseApi {
     id: string,
     params?: GetSectionInformationParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Section> {
     const endpoint = `/api/v1/courses/${course_id}/sections/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -137,7 +137,7 @@ export class Sections extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteSection(id: string, body?: unknown): Promise<unknown> {
+  public async deleteSection(id: string, body?: unknown): Promise<Section> {
     const endpoint = `/api/v1/sections/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 

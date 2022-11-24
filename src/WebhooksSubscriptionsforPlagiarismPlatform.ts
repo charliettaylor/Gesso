@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import { CreateWebhookSubscriptionParams } from "../types/params.ts";
 
 export class WebhooksSubscriptionsforPlagiarismPlatform extends BaseApi {
@@ -11,7 +11,7 @@ export class WebhooksSubscriptionsforPlagiarismPlatform extends BaseApi {
   public async createWebhookSubscription(
     params?: CreateWebhookSubscriptionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = "/api/v1/api/lti/subscriptions";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -27,7 +27,10 @@ export class WebhooksSubscriptionsforPlagiarismPlatform extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteWebhookSubscription(id: string, body?: unknown): Promise<unknown> {
+  public async deleteWebhookSubscription(
+    id: string,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/api/lti/subscriptions/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -42,7 +45,7 @@ export class WebhooksSubscriptionsforPlagiarismPlatform extends BaseApi {
   public async showSingleWebhookSubscription(
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/api/lti/subscriptions/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -54,7 +57,10 @@ export class WebhooksSubscriptionsforPlagiarismPlatform extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async updateWebhookSubscription(id: string, body?: unknown): Promise<unknown> {
+  public async updateWebhookSubscription(
+    id: string,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = `/api/v1/api/lti/subscriptions/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -68,7 +74,7 @@ export class WebhooksSubscriptionsforPlagiarismPlatform extends BaseApi {
 
   public async listAllWebhookSubscriptionForToolProxy(
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = "/api/v1/api/lti/subscriptions";
     const url = new URL(endpoint, this.configuration.domain);
 

@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Assignment } from "../types/models.ts";
 import { GetSingleAssignmentltiParams } from "../types/params.ts";
 
 export class PlagiarismDetectionPlatformAssignments extends BaseApi {
@@ -12,7 +12,7 @@ export class PlagiarismDetectionPlatformAssignments extends BaseApi {
     assignment_id: string,
     params?: GetSingleAssignmentltiParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Assignment> {
     const endpoint = `/api/v1/api/lti/assignments/${assignment_id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

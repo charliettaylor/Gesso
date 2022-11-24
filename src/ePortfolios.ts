@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { ePortfolio, Scope } from "../types/models.ts";
 import {
   GetAllEportfoliosForUserParams,
   ModerateAllEportfoliosForUserParams,
@@ -16,7 +16,7 @@ export class ePortfolios extends BaseApi {
     user_id: string,
     params?: GetAllEportfoliosForUserParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<ePortfolio[]> {
     const endpoint = `/api/v1/users/${user_id}/eportfolios`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -32,7 +32,10 @@ export class ePortfolios extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getAnEportfolio(id: string, body?: unknown): Promise<unknown> {
+  public async getAnEportfolio(
+    id: string,
+    body?: unknown,
+  ): Promise<ePortfolio> {
     const endpoint = `/api/v1/eportfolios/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -44,7 +47,10 @@ export class ePortfolios extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteAnEportfolio(id: string, body?: unknown): Promise<unknown> {
+  public async deleteAnEportfolio(
+    id: string,
+    body?: unknown,
+  ): Promise<ePortfolio> {
     const endpoint = `/api/v1/eportfolios/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -59,7 +65,7 @@ export class ePortfolios extends BaseApi {
   public async getEportfolioPages(
     eportfolio_id: string,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<ePortfolio[]> {
     const endpoint = `/api/v1/eportfolios/${eportfolio_id}/pages`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -75,7 +81,7 @@ export class ePortfolios extends BaseApi {
     eportfolio_id: string,
     params?: ModerateAnEportfolioParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ePortfolio> {
     const endpoint = `/api/v1/eportfolios/${eportfolio_id}/moderate`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -95,7 +101,7 @@ export class ePortfolios extends BaseApi {
     user_id: string,
     params?: ModerateAllEportfoliosForUserParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/users/${user_id}/eportfolios`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -114,7 +120,7 @@ export class ePortfolios extends BaseApi {
   public async restoreDeletedEportfolio(
     eportfolio_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<ePortfolio> {
     const endpoint = `/api/v1/eportfolios/${eportfolio_id}/restore`;
     const url = new URL(endpoint, this.configuration.domain);
 

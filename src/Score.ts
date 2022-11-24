@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Grade } from "../types/models.ts";
 import { CreateScoreParams } from "../types/params.ts";
 
 export class Score extends BaseApi {
@@ -13,7 +13,7 @@ export class Score extends BaseApi {
     line_item_id: string,
     params?: CreateScoreParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Grade> {
     const endpoint =
       `/api/v1/api/lti/courses/${course_id}/line_items/${line_item_id}/scores`;
     const url = new URL(endpoint, this.configuration.domain);

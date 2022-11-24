@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Group, OutcomeLink, Scope } from "../types/models.ts";
 import {
   CreateAnOutcomeParams,
   CreateSubgroupParams,
@@ -14,7 +14,9 @@ export class OutcomeGroups extends BaseApi {
     super(config);
   }
 
-  public async redirectToRootOutcomeGroupForContext(body?: unknown): Promise<unknown> {
+  public async redirectToRootOutcomeGroupForContext(
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = "/api/v1/global/root_outcome_group";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -29,7 +31,7 @@ export class OutcomeGroups extends BaseApi {
   public async getAllOutcomeGroupsForContext(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/accounts/${account_id}/outcome_groups`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -44,7 +46,7 @@ export class OutcomeGroups extends BaseApi {
   public async getAllOutcomeLinksForContext(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/accounts/${account_id}/outcome_group_links`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -56,7 +58,7 @@ export class OutcomeGroups extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async showAnOutcomeGroup(id: string, body?: unknown): Promise<unknown> {
+  public async showAnOutcomeGroup(id: string, body?: unknown): Promise<Scope> {
     const endpoint = `/api/v1/global/outcome_groups/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -72,7 +74,7 @@ export class OutcomeGroups extends BaseApi {
     id: string,
     params?: UpdateAnOutcomeGroupParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Group> {
     const endpoint = `/api/v1/global/outcome_groups/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -88,7 +90,10 @@ export class OutcomeGroups extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async deleteAnOutcomeGroup(id: string, body?: unknown): Promise<unknown> {
+  public async deleteAnOutcomeGroup(
+    id: string,
+    body?: unknown,
+  ): Promise<Group> {
     const endpoint = `/api/v1/global/outcome_groups/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -104,7 +109,7 @@ export class OutcomeGroups extends BaseApi {
     id: string,
     params?: ListLinkedOutcomesParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<OutcomeLink[]> {
     const endpoint = `/api/v1/global/outcome_groups/${id}/outcomes`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -124,7 +129,7 @@ export class OutcomeGroups extends BaseApi {
     id: string,
     params?: CreateAnOutcomeParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<OutcomeLink> {
     const endpoint = `/api/v1/global/outcome_groups/${id}/outcomes`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -144,7 +149,7 @@ export class OutcomeGroups extends BaseApi {
     id: string,
     outcome_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<OutcomeLink> {
     const endpoint =
       `/api/v1/global/outcome_groups/${id}/outcomes/${outcome_id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -157,7 +162,7 @@ export class OutcomeGroups extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async listSubgroups(id: string, body?: unknown): Promise<unknown[]> {
+  public async listSubgroups(id: string, body?: unknown): Promise<Group[]> {
     const endpoint = `/api/v1/global/outcome_groups/${id}/subgroups`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -173,7 +178,7 @@ export class OutcomeGroups extends BaseApi {
     id: string,
     params?: CreateSubgroupParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Group> {
     const endpoint = `/api/v1/global/outcome_groups/${id}/subgroups`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -193,7 +198,7 @@ export class OutcomeGroups extends BaseApi {
     id: string,
     params?: ImportAnOutcomeGroupParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Group> {
     const endpoint = `/api/v1/global/outcome_groups/${id}/import`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

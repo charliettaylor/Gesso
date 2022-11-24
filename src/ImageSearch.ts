@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Scope } from "../types/models.ts";
 import {
   ConfirmImageSelectionParams,
   FindImagesParams,
@@ -11,7 +11,10 @@ export class ImageSearch extends BaseApi {
     super(config);
   }
 
-  public async findImages(params?: FindImagesParams, body?: unknown): Promise<unknown> {
+  public async findImages(
+    params?: FindImagesParams,
+    body?: unknown,
+  ): Promise<Scope> {
     const endpoint = "/api/v1/image_search";
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -31,7 +34,7 @@ export class ImageSearch extends BaseApi {
     id: string,
     params?: ConfirmImageSelectionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint = `/api/v1/image_selection/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {

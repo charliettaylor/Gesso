@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { Progress, Scope, SisImport } from "../types/models.ts";
 import {
   GetSisImportListParams,
   ImportSisDataParams,
@@ -16,7 +16,7 @@ export class SISImports extends BaseApi {
     account_id: string,
     params?: GetSisImportListParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<SisImport[]> {
     const endpoint = `/api/v1/accounts/${account_id}/sis_imports`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -35,7 +35,7 @@ export class SISImports extends BaseApi {
   public async getTheCurrentImportingSisImport(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<SisImport> {
     const endpoint = `/api/v1/accounts/${account_id}/sis_imports/importing`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -51,7 +51,7 @@ export class SISImports extends BaseApi {
     account_id: string,
     params?: ImportSisDataParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<SisImport> {
     const endpoint = `/api/v1/accounts/${account_id}/sis_imports`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -71,7 +71,7 @@ export class SISImports extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<SisImport> {
     const endpoint = `/api/v1/accounts/${account_id}/sis_imports/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -88,7 +88,7 @@ export class SISImports extends BaseApi {
     id: string,
     params?: RestoreWorkflowstatesOfSisImportedItemsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Progress> {
     const endpoint =
       `/api/v1/accounts/${account_id}/sis_imports/${id}/restore_states`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -109,7 +109,7 @@ export class SISImports extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<SisImport> {
     const endpoint = `/api/v1/accounts/${account_id}/sis_imports/${id}/abort`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -124,7 +124,7 @@ export class SISImports extends BaseApi {
   public async abortAllPendingSisImports(
     account_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/accounts/${account_id}/sis_imports/abort_all_pending`;
     const url = new URL(endpoint, this.configuration.domain);

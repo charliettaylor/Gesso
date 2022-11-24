@@ -1,6 +1,12 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-import { Account, HelpLink, TermsOfService } from "../types/models.ts";
+import {
+  Account,
+  Course,
+  HelpLink,
+  TermsOfService,
+  User,
+} from "../types/models.ts";
 import {
   CreateNewSubaccountParams,
   GetTheSubaccountsOfAnAccountParams,
@@ -34,7 +40,9 @@ export class Accounts extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getAccountsThatAdminsCanManage(body?: unknown): Promise<Account[]> {
+  public async getAccountsThatAdminsCanManage(
+    body?: unknown,
+  ): Promise<Account[]> {
     const endpoint = "/api/v1/manageable_accounts";
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -86,7 +94,7 @@ export class Accounts extends BaseApi {
     account_id: string,
     params?: PermissionsParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Course> {
     const endpoint = `/api/v1/accounts/${account_id}/permissions`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -137,7 +145,10 @@ export class Accounts extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async getHelpLinks(account_id: string, body?: unknown): Promise<HelpLink> {
+  public async getHelpLinks(
+    account_id: string,
+    body?: unknown,
+  ): Promise<HelpLink> {
     const endpoint = `/api/v1/accounts/${account_id}/help_links`;
     const url = new URL(endpoint, this.configuration.domain);
 
@@ -167,7 +178,7 @@ export class Accounts extends BaseApi {
     account_id: string,
     params?: ListActiveCoursesInAnAccountParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<Course[]> {
     const endpoint = `/api/v1/accounts/${account_id}/courses`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -207,7 +218,7 @@ export class Accounts extends BaseApi {
     account_id: string,
     user_id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<User> {
     const endpoint = `/api/v1/accounts/${account_id}/users/${user_id}`;
     const url = new URL(endpoint, this.configuration.domain);
 

@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { SharedBrandConfig } from "../types/models.ts";
 import { ShareBrandconfigthemeParams } from "../types/params.ts";
 
 export class SharedBrandConfigs extends BaseApi {
@@ -12,7 +12,7 @@ export class SharedBrandConfigs extends BaseApi {
     account_id: string,
     params?: ShareBrandconfigthemeParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<SharedBrandConfig> {
     const endpoint = `/api/v1/accounts/${account_id}/shared_brand_configs`;
     const url = new URL(endpoint, this.configuration.domain);
     if (params !== undefined) {
@@ -32,7 +32,7 @@ export class SharedBrandConfigs extends BaseApi {
     account_id: string,
     id: string,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<SharedBrandConfig> {
     const endpoint =
       `/api/v1/accounts/${account_id}/shared_brand_configs/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -45,7 +45,10 @@ export class SharedBrandConfigs extends BaseApi {
     return Promise.reject(response);
   }
 
-  public async unshareBrandconfigtheme(id: string, body?: unknown): Promise<unknown> {
+  public async unshareBrandconfigtheme(
+    id: string,
+    body?: unknown,
+  ): Promise<SharedBrandConfig> {
     const endpoint = `/api/v1/shared_brand_configs/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
 

@@ -1,6 +1,6 @@
 import { BaseApi } from "./BaseApi.ts";
 import { Configuration } from "./Configuration.ts";
-
+import { QuizQuestion, Scope } from "../types/models.ts";
 import {
   CreateSingleQuizQuestionParams,
   DeleteQuizQuestionParams,
@@ -19,7 +19,7 @@ export class QuizQuestions extends BaseApi {
     quiz_id: string,
     params?: ListQuestionsInQuizOrSubmissionParams,
     body?: unknown,
-  ): Promise<unknown[]> {
+  ): Promise<QuizQuestion[]> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/questions`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -42,7 +42,7 @@ export class QuizQuestions extends BaseApi {
     id: string,
     params?: GetSingleQuizQuestionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<QuizQuestion> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/questions/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -64,7 +64,7 @@ export class QuizQuestions extends BaseApi {
     quiz_id: string,
     params?: CreateSingleQuizQuestionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<QuizQuestion> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/questions`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -87,7 +87,7 @@ export class QuizQuestions extends BaseApi {
     id: string,
     params?: UpdateAnExistingQuizQuestionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<QuizQuestion> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/questions/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
@@ -110,7 +110,7 @@ export class QuizQuestions extends BaseApi {
     id: string,
     params?: DeleteQuizQuestionParams,
     body?: unknown,
-  ): Promise<unknown> {
+  ): Promise<Scope> {
     const endpoint =
       `/api/v1/courses/${course_id}/quizzes/${quiz_id}/questions/${id}`;
     const url = new URL(endpoint, this.configuration.domain);
