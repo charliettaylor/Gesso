@@ -1,56 +1,46 @@
 import { Configuration } from './Configuration';
 
+type Resolvable = | { [k: string]: Resolvable }
+| string | null
+| number | Resolvable[];
+
 export class BaseApi {
-  private configuration: Configuration;
+  public configuration: Configuration;
 
   constructor(config: Configuration) {
     this.configuration = config;
   }
 
-  public async get(route: string, params?: {}, body?: {}) {
-    const endpoint = this.configuration.apiDomain + route + this.serializeParams(params);
-    return await fetch(endpoint, this.makeRequest('GET', body));
+  public async get(route: URL, body?: any) {
+    return await fetch(route, this.makeRequest('GET', body));
   }
 
-  public async post(route: string, params?: {}, body?: any) {
-    const endpoint = this.configuration.apiDomain + route + this.serializeParams(params);
-    return await fetch(endpoint, this.makeRequest('POST', body));
+  public async post(route: URL, body?: any) {
+    return await fetch(route, this.makeRequest('POST', body));
   }
 
-  public async patch(route: string, params?: {}, body?: any) {
-    const endpoint = this.configuration.apiDomain + route + this.serializeParams(params);
-    return await fetch(endpoint, this.makeRequest('PATCH', body));
+  public async patch(route: URL, body?: any) {
+    return await fetch(route, this.makeRequest('PATCH', body));
   }
 
-  public async put(route: string, params?: {}, body?: any) {
-    const endpoint = this.configuration.apiDomain + route + this.serializeParams(params);
-    return await fetch(endpoint, this.makeRequest('PUT', body));
+  public async put(route: URL, body?: any) {
+    return await fetch(route, this.makeRequest('PUT', body));
   }
 
-  public async delete(route: string, params?: {}, body?: any) {
-    const endpoint = this.configuration.apiDomain + route + this.serializeParams(params);
-    return await fetch(endpoint, this.makeRequest('DELETE', body));
+  public async delete(route: URL, body?: any) {
+    return await fetch(route, this.makeRequest('DELETE', body));
   }
 
-  private makeRequest(method: string, body?: {}): RequestInit {
+  private makeRequest(method: string, body?: any): RequestInit {
     return {
       method,
       headers: new Headers({
-        Accept: 'application/json',
+        // Accept: 'application/json',
         'Content-Type': 'application/json',
         Authorization: this.resolveAuth(),
       }),
       body: body ? JSON.stringify(body) : null,
     };
-  }
-
-  private serializeParams(params) {
-    let str: string[] = [];
-    for (let p in params)
-      if (params.hasOwnProperty(p)) {
-        str.push(encodeURIComponent(p) + '=' + encodeURIComponent(params[p]));
-      }
-    return '?' + str.join('&');
   }
 
   private resolveAuth() {

@@ -318,7 +318,7 @@ def main():
   progCount = 0
   total = len(endpoints)
 
-  for end in ['https://canvas.instructure.com/doc/api/courses.html']:
+  for end in endpoints:
     page = requests.get(end.strip())
 
     if page.status_code == 403:
