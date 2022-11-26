@@ -8,9 +8,6 @@ jobs:
   npm-release:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup Deno
-      uses: denoland/setup-deno@v1.1.1
-
     - name: Get tag version
       if: startsWith(github.ref, 'refs/tags/')
       id: get_tag_version
@@ -19,6 +16,10 @@ jobs:
       with:
         node-version: '16.x'
         registry-url: 'https://registry.npmjs.org'
+    - name: Setup Deno
+    - uses: denoland/setup-deno@v1
+      with:
+        deno-version: v1.x
     - name: npm build
       run: deno run -A ./scripts/build_npm.ts ${{steps.get_tag_version.outputs.TAG_VERSION}}
     - name: npm publish
