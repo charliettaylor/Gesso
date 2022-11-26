@@ -248,7 +248,7 @@ export interface AccountNotification {
 export interface Admin {
   id: number;
   role: string;
-  user: unknown;
+  user: UserDisplay;
   workflow_state: string;
 }
 
@@ -292,7 +292,7 @@ export interface AppointmentGroup {
   workflow_state: string;
   requiring_action: boolean;
   appointments_count: number;
-  appointments: unknown[];
+  appointments: unknown[]; // CalendarEvent?
   new_appointments: unknown[];
   max_appointments_per_participant: number;
   min_appointments_per_participant: number;
@@ -328,7 +328,7 @@ export interface Assignment {
   lock_at: Date;
   unlock_at: Date;
   has_overrides: boolean;
-  all_dates: unknown;
+  all_dates: unknown[];
   course_id: number;
   html_url: string;
   submissions_download_url: string;
@@ -338,9 +338,9 @@ export interface Assignment {
   max_name_length: number;
   turnitin_enabled: boolean;
   vericite_enabled: boolean;
-  turnitin_settings: unknown;
+  turnitin_settings: TurnitinSettings;
   grade_group_students_individually: boolean;
-  external_tool_tag_attributes: unknown;
+  external_tool_tag_attributes: ExternalToolTagAttributes;
   peer_reviews: boolean;
   automatic_peer_reviews: boolean;
   peer_review_count: number;
@@ -357,25 +357,25 @@ export interface Assignment {
   submission_types: string[];
   has_submitted_submissions: boolean;
   grading_type: string;
-  grading_standard_id: unknown;
+  grading_standard_id: number;
   published: boolean;
   unpublishable: boolean;
   only_visible_to_overrides: boolean;
   locked_for_user: boolean;
-  lock_info: unknown;
+  lock_info: LockInfo;
   lock_explanation: string;
   quiz_id: number;
   anonymous_submissions: boolean;
-  discussion_topic: unknown;
+  discussion_topic: DiscussionTopic;
   freeze_on_copy: boolean;
   frozen: boolean;
   frozen_attributes: string[];
-  submission: unknown;
+  submission: Submission;
   use_rubric_for_grading: boolean;
   rubric_settings: RubricSettings;
-  rubric: unknown;
+  rubric: RubricCriteria;
   assignment_visibility: number[];
-  overrides: unknown;
+  overrides: AssignmentOverride[];
   omit_from_final_grade: boolean;
   moderated_grading: boolean;
   grader_count: number;
@@ -386,9 +386,9 @@ export interface Assignment {
   anonymous_grading: boolean;
   allowed_attempts: number;
   post_manually: boolean;
-  score_statistics: unknown;
+  score_statistics: ScoreStatistic[];
   can_submit: boolean;
-  annotatable_attachment_id: unknown;
+  annotatable_attachment_id: number;
   anonymize_students: boolean;
   require_lockdown_browser: boolean;
   important_dates: boolean;
@@ -450,8 +450,8 @@ export interface AssignmentGroup {
   group_weight: number;
   sis_source_id: string;
   integration_data: IntegrationData;
-  assignments: unknown[];
-  rules: unknown;
+  assignments: Assignment[];
+  rules: GradingRules;
 }
 
 export interface AssignmentGroupAttributes {
@@ -504,7 +504,7 @@ export interface AuthenticationProvider {
   sig_alg: string;
   jit_provisioning: unknown;
   federated_attributes: unknown;
-  mfa_required: unknown;
+  mfa_required: boolean | unknown;
 }
 
 export interface Avatar {
@@ -558,7 +558,7 @@ export interface BlueprintTemplate {
   course_id: number;
   last_export_completed_at: Date;
   associated_course_count: number;
-  latest_migration: unknown;
+  latest_migration: BlueprintMigration | null;
 }
 
 export interface Bookmark {
@@ -582,12 +582,12 @@ export interface CalendarEvent {
   location_name: string;
   location_address: string;
   context_code: string;
-  effective_context_code: unknown;
+  effective_context_code: string | null;
   context_name: string;
   all_context_codes: string;
   workflow_state: string;
   hidden: boolean;
-  parent_event_id: unknown;
+  parent_event_id: number | null;
   child_events_count: number;
   child_events: unknown;
   url: string;
@@ -596,20 +596,20 @@ export interface CalendarEvent {
   all_day: boolean;
   created_at: Date;
   updated_at: Date;
-  appointment_group_id: unknown;
-  appointment_group_url: unknown;
+  appointment_group_id: number | null;
+  appointment_group_url: string | null;
   own_reservation: boolean;
-  reserve_url: unknown;
+  reserve_url: string | null;
   reserved: boolean;
   participant_type: string;
-  participants_per_appointment: unknown;
-  available_slots: unknown;
-  user: unknown;
-  group: unknown;
+  participants_per_appointment: number | null;
+  available_slots: number | null;
+  user: User | unknown;
+  group: Group | null;
   important_dates: boolean;
-  series_uuid: unknown;
-  rrule: unknown;
-  series_natural_language: unknown;
+  series_uuid: string | null;
+  rrule: string | null;
+  series_natural_language: string | null;
   blackout_date: boolean;
 }
 
@@ -639,13 +639,13 @@ export interface Collaboration {
   user_id: number;
   context_id: number;
   context_type: string;
-  url: unknown;
+  url: string | null;
   created_at: Date;
   updated_at: Date;
-  description: unknown;
-  title: unknown;
+  description: string | null;
+  title: string | null;
   type: string;
-  update_url: unknown;
+  update_url: string | null;
   user_name: string;
 }
 
@@ -696,11 +696,11 @@ export interface Conference {
   has_advanced_settings: boolean;
   long_running: boolean;
   user_settings: UserSettings;
-  recordings: unknown;
-  url: unknown;
-  join_url: unknown;
-  context_type: unknown;
-  context_id: unknown;
+  recordings: ConferenceRecording[] | null;
+  url: string | null;
+  join_url: string | null;
+  context_type: string | null;
+  context_id: string | null;
 }
 
 export interface UserSettings {
@@ -818,10 +818,10 @@ export interface Conversation {
   private: boolean;
   starred: boolean;
   properties: unknown;
-  audience: unknown;
+  audience: unknown[];
   audience_contexts: unknown;
   avatar_url: string;
-  participants: unknown;
+  participants: ConversationParticipant[];
   visible: boolean;
   context_name: string;
 }
@@ -835,9 +835,9 @@ export interface ConversationParticipant {
 
 export interface Course {
   id: number;
-  sis_course_id: unknown;
+  sis_course_id: string | null;
   uuid: string;
-  integration_id: unknown;
+  integration_id: string | null;
   sis_import_id: number;
   name: string;
   course_code: string;
@@ -846,21 +846,21 @@ export interface Course {
   account_id: number;
   root_account_id: number;
   enrollment_term_id: number;
-  grading_periods: unknown;
+  grading_periods: GradingPeriod[] | null;
   grading_standard_id: number;
   grade_passback_setting: string;
   created_at: Date;
   start_at: Date;
   end_at: Date;
   locale: string;
-  enrollments: unknown;
+  enrollments: Enrollment[] | null;
   total_students: number;
   calendar: unknown;
   default_view: string;
   syllabus_body: string;
   needs_grading_count: number;
-  term: unknown;
-  course_progress: unknown;
+  term: EnrollmentTerm | null;
+  course_progress: CourseProgress | null;
   apply_assignment_group_weights: boolean;
   permissions: CoursePermissions;
   is_public: boolean;
@@ -923,7 +923,7 @@ export interface CourseAttributes {
 export interface CourseEpubExport {
   id: number;
   name: string;
-  epub_export: unknown;
+  epub_export: EpubExport;
 }
 
 export interface CourseEvent {
@@ -991,7 +991,7 @@ export interface CustomColumn {
 
 export interface Day {
   date: Date;
-  graders: unknown[];
+  graders: Grader[];
 }
 
 export interface DeveloperKey {
@@ -1041,14 +1041,14 @@ export interface DiscussionTopic {
   unread_count: number;
   subscribed: boolean;
   subscription_hold: string;
-  assignment_id: unknown;
-  delayed_post_at: unknown;
+  assignment_id: number | null;
+  delayed_post_at: Date;
   published: boolean;
-  lock_at: unknown;
+  lock_at: Date | null;
   locked: boolean;
   pinned: boolean;
   locked_for_user: boolean;
-  lock_info: unknown;
+  lock_info: unknown | null;
   lock_explanation: string;
   user_name: string;
   topic_children: number[];
@@ -1056,8 +1056,8 @@ export interface DiscussionTopic {
   root_topic_id: unknown;
   podcast_url: string;
   discussion_type: string;
-  group_category_id: unknown;
-  attachments: unknown;
+  group_category_id: number | null;
+  attachments: FileAttachment[] | null;
   permissions: DiscussionTopicPermissions;
   allow_rating: boolean;
   only_graders_can_rate: boolean;
@@ -1089,7 +1089,7 @@ export interface Enrollment {
   root_account_id: number;
   type: string;
   user_id: number;
-  associated_user_id: unknown;
+  associated_user_id: number | null;
   role: string;
   role_id: number;
   created_at: Date;
@@ -1123,9 +1123,9 @@ export interface Enrollment {
 export interface Grades {
   html_url: string;
   current_score: number;
-  current_grade: unknown;
+  current_grade: string;
   final_score: number;
-  final_grade: unknown;
+  final_grade: string;
 }
 
 export interface UserClass {
@@ -1157,7 +1157,7 @@ export interface StudentEnrollment {
 }
 
 export interface EnrollmentTermsList {
-  enrollment_terms: unknown[];
+  enrollment_terms: EnrollmentTerm[];
 }
 
 export interface ErrorReport {
@@ -1265,7 +1265,7 @@ export interface Folder {
   name: string;
   parent_folder_id: number;
   created_at: Date;
-  unlock_at: unknown;
+  unlock_at: Date;
   hidden: boolean;
   hidden_for_user: boolean;
   locked: boolean;
@@ -1298,7 +1298,7 @@ export interface GradeChangeEvent {
   graded_anonymously: boolean;
   version_number: string;
   request_id: string;
-  links: unknown;
+  links: GradeChangeEventLinks[] | unknown;
 }
 
 export interface GradeChangeEventLinks {
@@ -1353,7 +1353,7 @@ export interface GradingSchemeEntry {
 export interface Group {
   id: number;
   name: string;
-  description: unknown;
+  description: string | null;
   is_public: boolean;
   followed_by_user: boolean;
   join_level: string;
@@ -1361,13 +1361,13 @@ export interface Group {
   avatar_url: string;
   context_type: string;
   course_id: number;
-  role: unknown;
+  role: string | null;
   group_category_id: number;
   sis_group_id: string;
   sis_import_id: number;
   storage_quota_mb: number;
   permissions: CoursePermissions;
-  users: unknown;
+  users: User[];
 }
 
 export interface GroupCategory {
@@ -1375,13 +1375,13 @@ export interface GroupCategory {
   name: string;
   role: string;
   self_signup: unknown;
-  auto_leader: unknown;
+  auto_leader: string | null;
   context_type: string;
   account_id: number;
-  group_limit: unknown;
-  sis_group_category_id: unknown;
-  sis_import_id: unknown;
-  progress: unknown;
+  group_limit: number | null;
+  sis_group_category_id: string | null;
+  sis_import_id: string | null;
+  progress: unknown; //Progress?
 }
 
 export interface GroupMembership {
@@ -1600,10 +1600,10 @@ export interface Module {
   prerequisite_module_ids: number[];
   items_count: number;
   items_url: string;
-  items: unknown;
+  items: ModuleItem[] | null;
   state: string;
-  completed_at: unknown;
-  publish_final_grade: unknown;
+  completed_at: Date | null;
+  publish_final_grade: boolean | null;
   published: boolean;
 }
 
@@ -1645,9 +1645,9 @@ export interface ModuleItemSequence {
 }
 
 export interface ModuleItemSequenceNode {
-  prev: unknown;
-  current: Current;
-  next: Current;
+  prev: ModuleItem;
+  current: ModuleItem;
+  next: ModuleItem;
   mastery_path: MasteryPath;
 }
 
@@ -1660,6 +1660,7 @@ export interface Current {
 
 export interface MasteryPath {
   locked: boolean;
+  // https://canvas.instructure.com/doc/api/modules.html
   assignment_sets: unknown[];
   selected_set_id: unknown;
   awaiting_choice: boolean;
@@ -1721,9 +1722,9 @@ export interface OriginalityReport {
   originality_score: number;
   originality_report_file_id: number;
   originality_report_url: string;
-  tool_setting: unknown;
-  error_report: unknown;
-  submission_time: unknown;
+  tool_setting: ToolSetting | null;
+  error_report: string | null;
+  submission_time: Date | null;
   root_account_id: number;
 }
 
@@ -1778,9 +1779,9 @@ export interface OutcomeImport {
   ended_at: Date;
   updated_at: Date;
   workflow_state: string;
-  data: unknown;
+  data: OutcomeImportData | null;
   progress: string;
-  user: unknown;
+  user: User | null;
   processing_errors: Array<Array<number | string>>;
 }
 
@@ -1792,15 +1793,15 @@ export interface OutcomeLink {
   url: string;
   context_id: number;
   context_type: string;
-  outcome_group: unknown;
-  outcome: unknown;
+  outcome_group: OutcomeGroup | unknown;
+  outcome: Outcome | unknown;
   assessed: boolean;
   can_unlink: unknown;
 }
 
 export interface OutcomePath {
   id: number;
-  parts: unknown;
+  parts: OutcomePathPart[] | null;
 }
 
 export interface OutcomePathPart {
@@ -1822,7 +1823,7 @@ export interface OutcomeResultLinks {
 }
 
 export interface OutcomeRollup {
-  scores: unknown;
+  scores: OutcomeRollupScore[] | null;
   name: string;
   links: OutcomeRollupLinks;
 }
@@ -1855,13 +1856,13 @@ export interface Page {
   updated_at: Date;
   hide_from_students: boolean;
   editing_roles: string;
-  last_edited_by: unknown;
+  last_edited_by: User | null;
   body: string;
   published: boolean;
   publish_at: Date;
   front_page: boolean;
   locked_for_user: boolean;
-  lock_info: unknown;
+  lock_info: LockInfo | unknown | null;
   lock_explanation: string;
 }
 
@@ -1869,7 +1870,7 @@ export interface PageRevision {
   revision_id: number;
   updated_at: Date;
   latest: boolean;
-  edited_by: unknown;
+  edited_by: User | null;
   url: string;
   title: string;
   body: string;
@@ -1981,7 +1982,7 @@ export interface PollSession {
   has_public_results: boolean;
   created_at: Date;
   results: { [key: string]: number };
-  poll_submissions: unknown;
+  poll_submissions: PollSubmission[] | null;
 }
 
 export interface PollSubmission {
@@ -1992,7 +1993,7 @@ export interface PollSubmission {
 }
 
 export interface Proficiency {
-  ratings: unknown[];
+  ratings: ProficiencyRating[] | null;
 }
 
 export interface ProficiencyRating {
@@ -2007,16 +2008,16 @@ export interface Profile {
   name: string;
   short_name: string;
   sortable_name: string;
-  title: unknown;
-  bio: unknown;
+  title: string | null;
+  bio: string | null;
   primary_email: string;
   login_id: string;
   sis_user_id: string;
-  lti_user_id: unknown;
+  lti_user_id: string | null;
   avatar_url: string;
-  calendar: unknown;
+  calendar: AccountCalendar | unknown;
   time_zone: string;
-  locale: unknown;
+  locale: string | unknown;
   k5_user: boolean;
 }
 
@@ -2075,30 +2076,39 @@ export interface Quiz {
   access_code: string;
   ip_filter: string;
   due_at: Date;
-  lock_at: unknown;
+  lock_at: Date | null;
   unlock_at: Date;
   published: boolean;
   unpublishable: boolean;
   locked_for_user: boolean;
-  lock_info: unknown;
+  lock_info: LockInfo | null;
   lock_explanation: string;
   speedgrader_url: string;
   quiz_extensions_url: string;
-  permissions: unknown;
-  all_dates: unknown;
+  permissions: QuizPermissions[] | QuizPermissions | null;
+  all_dates: unknown[];
   version_number: number;
   question_types: string[];
   anonymous_submissions: boolean;
 }
 
+export interface QuizAssignmentOverride {
+  id:        number;
+  due_at:    Date;
+  unlock_at: Date | null;
+  lock_at:   Date;
+  title:     string;
+  base:      boolean;
+}
+
 export interface QuizAssignmentOverrideSet {
   quiz_id: string;
-  due_dates: unknown;
-  all_dates: unknown;
+  due_dates: QuizAssignmentOverride[];
+  all_dates: QuizAssignmentOverride[];
 }
 
 export interface QuizAssignmentOverrideSetContainer {
-  quiz_assignment_overrides: unknown;
+  quiz_assignment_overrides: QuizAssignmentOverrideSet;
 }
 
 export interface QuizGroup {
@@ -2138,7 +2148,7 @@ export interface QuizQuestion {
   correct_comments: string;
   incorrect_comments: string;
   neutral_comments: string;
-  answers: unknown;
+  answers: Answer[];
 }
 
 export interface QuizReport {
@@ -2152,9 +2162,9 @@ export interface QuizReport {
   created_at: Date;
   updated_at: Date;
   url: string;
-  file: unknown;
-  progress_url: unknown;
-  progress: unknown;
+  file: File | null;
+  progress_url: string | null;
+  progress: unknown; // Progress?
 }
 
 export interface QuizStatistics {
@@ -2165,9 +2175,9 @@ export interface QuizStatistics {
   generated_at: Date;
   url: string;
   html_url: string;
-  question_statistics: unknown;
-  submission_statistics: unknown;
-  links: unknown;
+  question_statistics: QuizStatisticsQuestionStatistics;
+  submission_statistics: QuizStatisticsSubmissionStatistics;
+  links: QuizStatisticsLinks;
 }
 
 export interface QuizStatisticsAnswerPointBiserial {
@@ -2190,7 +2200,7 @@ export interface QuizStatisticsLinks {
 
 export interface QuizStatisticsQuestionStatistics {
   responses: number;
-  answers: unknown;
+  answers: QuizStatisticsAnswerStatistics;
 }
 
 export interface QuizStatisticsSubmissionStatistics {
@@ -2240,8 +2250,8 @@ export interface EventData {
 export interface QuizSubmissionQuestion {
   id: number;
   flagged: boolean;
-  answer: unknown;
-  answers: unknown;
+  answer: Answer | null;
+  answers: Answer[] | null;
 }
 
 export interface QuizSubmissionUserList {
@@ -2316,7 +2326,7 @@ export interface Result {
   userId: string;
   resultScore: number;
   resultMaximum: number;
-  comment: unknown;
+  comment: string | null;
   scoreOf: string;
 }
 
@@ -2378,9 +2388,9 @@ export interface Rubric {
   read_only: boolean;
   free_form_criterion_comments: boolean;
   hide_score_total: boolean;
-  data: unknown;
-  assessments: unknown;
-  associations: unknown;
+  data: RubricCriteria[] | RubricCriterion[] | unknown;
+  assessments: RubricAssessment[] | null;
+  associations: RubricAssociation[] | null;
 }
 
 export interface RubricAssessment {
@@ -2418,24 +2428,24 @@ export interface RubricCriteria {
   description: string;
   long_description: string;
   criterion_use_range: boolean;
-  ratings: unknown;
+  ratings: RubricRating[] | null;
   ignore_for_scoring: boolean;
 }
 
 export interface RubricCriterion {
   id: string;
-  description: unknown;
-  long_description: unknown;
+  description: string | null;
+  long_description: string | null;
   points: number;
   criterion_use_range: boolean;
-  ratings: unknown;
+  ratings: RubricRating[] | null;
 }
 
 export interface RubricRating {
   id: string;
   criterion_id: string;
-  description: unknown;
-  long_description: unknown;
+  description: string | null;
+  long_description: string | null;
   points: number;
 }
 
@@ -2483,7 +2493,7 @@ export interface Section {
   course_id: number;
   sis_course_id: string;
   start_at: Date;
-  end_at: unknown;
+  end_at: Date | null;
   restrict_enrollments_to_section_dates: unknown;
   nonxlist_course_id: unknown;
   total_students: number;
@@ -2521,9 +2531,9 @@ export interface SisAssignment {
   integration_id: string;
   integration_data: string;
   include_in_final_grade: boolean;
-  assignment_group: unknown;
-  sections: unknown;
-  user_overrides: unknown;
+  assignment_group: AssignmentGroupAttributes;
+  sections: SectionAttributes;
+  user_overrides: UserAssignmentOverrideAttributes;
 }
 
 export interface SisImport {
@@ -2532,11 +2542,11 @@ export interface SisImport {
   ended_at: Date;
   updated_at: Date;
   workflow_state: string;
-  data: unknown;
-  statistics: unknown;
+  data: SisImportData | null;
+  statistics: SisImportStatistic | null;
   progress: string;
-  errors_attachment: unknown;
-  user: unknown;
+  errors_attachment: SisImportError | unknown;
+  user: User | null;
   processing_warnings: Array<string[]>;
   processing_errors: Array<string[]>;
   batch_mode: boolean;
@@ -2556,7 +2566,7 @@ export interface SisImport {
 export interface SisImportData {
   import_type: string;
   supplied_batches: string[];
-  counts: unknown;
+  counts: number | null;
 }
 
 export interface SisImportError {
@@ -2588,7 +2598,7 @@ export interface Submission {
   body: string;
   submission_type: string;
   submitted_at: Date;
-  url: unknown;
+  url: string | null;
   user_id: number;
   eula_agreement_timestamp: string;
   workflow_state: string;
@@ -2603,7 +2613,7 @@ export interface SubmissionComment {
   comment: string;
   created_at: Date;
   edited_at: Date;
-  media_comment: unknown;
+  media_comment: MediaComment | null;
 }
 
 export interface SubmissionHistory {
@@ -2632,7 +2642,7 @@ export interface SubmissionVersion {
   score: number;
   user_name: string;
   submission_type: string;
-  url: unknown;
+  url: string | null;
   user_id: number;
   workflow_state: string;
 }
@@ -2701,7 +2711,7 @@ export interface User {
   login_id: string;
   avatar_url: string;
   avatar_state: string;
-  enrollments: unknown;
+  enrollments: Enrollment[] | null;
   email: string;
   locale: string;
   last_login: Date;
@@ -2718,7 +2728,7 @@ export interface EPortfolio {
   updated_at: Date;
   workflow_state: string;
   deleted_at: Date;
-  spam_status: unknown;
+  spam_status: string | null;
 }
 
 export interface EPortfolioPage {
