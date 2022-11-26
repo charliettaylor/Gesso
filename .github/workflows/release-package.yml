@@ -8,6 +8,9 @@ jobs:
   npm-release:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - uses: denoland/setup-deno@v1
       with:
         deno-version: ~1.x
