@@ -7,9 +7,14 @@ on:
 jobs:
   npm-release:
     runs-on: ubuntu-latest
+    
+    permissions: 
+      contents: read
+      packages: write 
+      
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - uses: denoland/setup-deno@v1
       with:
@@ -32,3 +37,14 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: cd npm && npm publish
+    
+    - name: gh packages
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16.x'
+        registry-url: 'https://npm.pkg.github.com'
+    - run: npm ci
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
