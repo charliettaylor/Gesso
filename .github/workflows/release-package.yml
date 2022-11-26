@@ -22,7 +22,7 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
         
     - name: npm build
-      run: deno run -A ./scripts/build_npm.ts ${{steps.get_tag_version.outputs.TAG_VERSION}}
+      run: deno run -A build_npm.ts ${{steps.get_tag_version.outputs.TAG_VERSION}}
       
     - name: npm publish
       if: startsWith(github.ref, 'refs/tags/')
