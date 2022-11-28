@@ -2093,12 +2093,12 @@ export interface Quiz {
 }
 
 export interface QuizAssignmentOverride {
-  id:        number;
-  due_at:    Date;
+  id: number;
+  due_at: Date;
   unlock_at: Date | null;
-  lock_at:   Date;
-  title:     string;
-  base:      boolean;
+  lock_at: Date;
+  title: string;
+  base: boolean;
 }
 
 export interface QuizAssignmentOverrideSet {
