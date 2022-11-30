@@ -31,7 +31,7 @@ export class Quizzes extends BaseApi {
       return await response.json() as Quiz[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleQuiz(
@@ -47,7 +47,7 @@ export class Quizzes extends BaseApi {
       return await response.json() as Quiz;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createQuiz(
@@ -67,7 +67,7 @@ export class Quizzes extends BaseApi {
       return await response.json() as Quiz;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async editQuiz(
@@ -88,7 +88,7 @@ export class Quizzes extends BaseApi {
       return await response.json() as Quiz;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteQuiz(
@@ -104,7 +104,7 @@ export class Quizzes extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async reorderQuizItems(
@@ -125,7 +125,7 @@ export class Quizzes extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async validateQuizAccessCode(
@@ -147,6 +147,6 @@ export class Quizzes extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

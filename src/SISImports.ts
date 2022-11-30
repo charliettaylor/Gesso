@@ -29,7 +29,7 @@ export class SISImports extends BaseApi {
       return await response.json() as SisImport[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getTheCurrentImportingSisImport(
@@ -44,7 +44,7 @@ export class SISImports extends BaseApi {
       return await response.json() as SisImport;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async importSisData(
@@ -64,7 +64,7 @@ export class SISImports extends BaseApi {
       return await response.json() as SisImport;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSisImportStatus(
@@ -80,7 +80,7 @@ export class SISImports extends BaseApi {
       return await response.json() as SisImport;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async restoreWorkflowstatesOfSisImportedItems(
@@ -102,7 +102,7 @@ export class SISImports extends BaseApi {
       return await response.json() as Progress;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async abortSisImport(
@@ -118,7 +118,7 @@ export class SISImports extends BaseApi {
       return await response.json() as SisImport;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async abortAllPendingSisImports(
@@ -134,6 +134,6 @@ export class SISImports extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

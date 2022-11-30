@@ -39,7 +39,7 @@ export class Conversations extends BaseApi {
       return await response.json() as Conversation[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createConversation(
@@ -58,7 +58,7 @@ export class Conversations extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getRunningBatches(body?: unknown): Promise<Conversation> {
@@ -70,7 +70,7 @@ export class Conversations extends BaseApi {
       return await response.json() as Conversation;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleConversation(
@@ -90,7 +90,7 @@ export class Conversations extends BaseApi {
       return await response.json() as Submission;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async editConversation(
@@ -110,7 +110,7 @@ export class Conversations extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markAllAsRead(body?: unknown): Promise<Scope> {
@@ -122,7 +122,7 @@ export class Conversations extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteConversation(id: string, body?: unknown): Promise<Scope> {
@@ -134,7 +134,7 @@ export class Conversations extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async addRecipients(
@@ -154,7 +154,7 @@ export class Conversations extends BaseApi {
       return await response.json() as Admin;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async addMessage(
@@ -174,7 +174,7 @@ export class Conversations extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteMessage(
@@ -194,7 +194,7 @@ export class Conversations extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async batchUpdateConversations(
@@ -213,7 +213,7 @@ export class Conversations extends BaseApi {
       return await response.json() as Progress;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async findRecipients(body?: unknown): Promise<Scope> {
@@ -225,7 +225,7 @@ export class Conversations extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async unreadCount(body?: unknown): Promise<Scope> {
@@ -237,6 +237,6 @@ export class Conversations extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

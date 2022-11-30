@@ -30,7 +30,7 @@ export class OriginalityReports extends BaseApi {
       return await response.json() as Report;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async editAnOriginalityReport(
@@ -53,7 +53,7 @@ export class OriginalityReports extends BaseApi {
       return await response.json() as Report;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showAnOriginalityReport(
@@ -71,6 +71,6 @@ export class OriginalityReports extends BaseApi {
       return await response.json() as Report;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

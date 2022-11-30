@@ -21,7 +21,7 @@ export class Result extends BaseApi {
       return await response.json() as ResultModel;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showResult(
@@ -39,6 +39,6 @@ export class Result extends BaseApi {
       return await response.json() as ResultModel;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

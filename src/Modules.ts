@@ -36,7 +36,7 @@ export class Modules extends BaseApi {
       return await response.json() as Module[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showModule(
@@ -57,7 +57,7 @@ export class Modules extends BaseApi {
       return await response.json() as Module;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createModule(
@@ -77,7 +77,7 @@ export class Modules extends BaseApi {
       return await response.json() as Module;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateModule(
@@ -98,7 +98,7 @@ export class Modules extends BaseApi {
       return await response.json() as Module;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteModule(
@@ -114,7 +114,7 @@ export class Modules extends BaseApi {
       return await response.json() as Module;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async relockModuleProgressions(
@@ -130,7 +130,7 @@ export class Modules extends BaseApi {
       return await response.json() as Module;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listModuleItems(
@@ -151,7 +151,7 @@ export class Modules extends BaseApi {
       return await response.json() as Module[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showModuleItem(
@@ -174,7 +174,7 @@ export class Modules extends BaseApi {
       return await response.json() as Module;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createModuleItem(
@@ -195,7 +195,7 @@ export class Modules extends BaseApi {
       return await response.json() as Module;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateModuleItem(
@@ -218,7 +218,7 @@ export class Modules extends BaseApi {
       return await response.json() as Module;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async selectMasteryPath(
@@ -241,7 +241,7 @@ export class Modules extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteModuleItem(
@@ -259,7 +259,7 @@ export class Modules extends BaseApi {
       return await response.json() as Module;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markModuleItemAsDoneDone(
@@ -277,7 +277,7 @@ export class Modules extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getModuleItemSequence(
@@ -297,7 +297,7 @@ export class Modules extends BaseApi {
       return await response.json() as Module;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markModuleItemRead(
@@ -315,6 +315,6 @@ export class Modules extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

@@ -33,7 +33,7 @@ export class CalendarEvents extends BaseApi {
       return await response.json() as CalendarEvent[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listCalendarEventsForUser(
@@ -53,7 +53,7 @@ export class CalendarEvents extends BaseApi {
       return await response.json() as CalendarEvent[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createCalendarEvent(
@@ -72,7 +72,7 @@ export class CalendarEvents extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleCalendarEventOrAssignment(
@@ -87,7 +87,7 @@ export class CalendarEvents extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async reserveTimeSlot(
@@ -107,7 +107,7 @@ export class CalendarEvents extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateCalendarEvent(
@@ -127,7 +127,7 @@ export class CalendarEvents extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteCalendarEvent(
@@ -147,7 +147,7 @@ export class CalendarEvents extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async saveEnabledAccountCalendarsCreatesUpdatesTheEnabledaccountcalendarsMarkfeatureasseenUserPreferences(
@@ -161,7 +161,7 @@ export class CalendarEvents extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async setCourseTimetable(
@@ -181,7 +181,7 @@ export class CalendarEvents extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getCourseTimetable(
@@ -196,7 +196,7 @@ export class CalendarEvents extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createOrUpdateEventsDirectlyForCourseTimetable(
@@ -217,6 +217,6 @@ export class CalendarEvents extends BaseApi {
       return await response.json() as Scope[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

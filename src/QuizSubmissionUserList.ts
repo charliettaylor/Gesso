@@ -27,6 +27,6 @@ export class QuizSubmissionUserList extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

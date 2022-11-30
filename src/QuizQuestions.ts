@@ -33,7 +33,7 @@ export class QuizQuestions extends BaseApi {
       return await response.json() as QuizQuestion[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleQuizQuestion(
@@ -56,7 +56,7 @@ export class QuizQuestions extends BaseApi {
       return await response.json() as QuizQuestion;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createSingleQuizQuestion(
@@ -78,7 +78,7 @@ export class QuizQuestions extends BaseApi {
       return await response.json() as QuizQuestion;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateAnExistingQuizQuestion(
@@ -101,7 +101,7 @@ export class QuizQuestions extends BaseApi {
       return await response.json() as QuizQuestion;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteQuizQuestion(
@@ -124,6 +124,6 @@ export class QuizQuestions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

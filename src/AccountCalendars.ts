@@ -28,7 +28,7 @@ export class AccountCalendars extends BaseApi {
       return await response.json() as AccountCalendar[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleAccountCalendar(
@@ -43,7 +43,7 @@ export class AccountCalendars extends BaseApi {
       return await response.json() as AccountCalendar;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateCalendarsVisibility(
@@ -63,7 +63,7 @@ export class AccountCalendars extends BaseApi {
       return await response.json() as AccountCalendar;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateManyCalendarsVisibility(
@@ -78,7 +78,7 @@ export class AccountCalendars extends BaseApi {
       return await response.json() as AccountCalendar;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listAllAccountCalendars(
@@ -98,7 +98,7 @@ export class AccountCalendars extends BaseApi {
       return await response.json() as AccountCalendar[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async countOfAllVisibleAccountCalendars(
@@ -113,6 +113,6 @@ export class AccountCalendars extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

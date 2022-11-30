@@ -31,7 +31,7 @@ export class QuizSubmissionQuestions extends BaseApi {
       return await response.json() as Scope[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async answeringQuestions(
@@ -51,7 +51,7 @@ export class QuizSubmissionQuestions extends BaseApi {
       return await response.json() as QuizSubmissionQuestion[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getFormattedStudentNumericalAnswer(
@@ -73,7 +73,7 @@ export class QuizSubmissionQuestions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async flaggingQuestion(
@@ -95,7 +95,7 @@ export class QuizSubmissionQuestions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async unflaggingQuestion(
@@ -117,6 +117,6 @@ export class QuizSubmissionQuestions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

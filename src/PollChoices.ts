@@ -23,7 +23,7 @@ export class PollChoices extends BaseApi {
       return await response.json() as PollChoice;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSinglePollChoice(
@@ -39,7 +39,7 @@ export class PollChoices extends BaseApi {
       return await response.json() as PollChoice;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createSinglePollChoice(
@@ -59,7 +59,7 @@ export class PollChoices extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateSinglePollChoice(
@@ -80,7 +80,7 @@ export class PollChoices extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deletePollChoice(
@@ -96,6 +96,6 @@ export class PollChoices extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

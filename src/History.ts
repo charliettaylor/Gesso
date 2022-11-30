@@ -19,6 +19,6 @@ export class History extends BaseApi {
       return await response.json() as HistoryEntry[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

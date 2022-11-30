@@ -29,7 +29,7 @@ export class MediaObjects extends BaseApi {
       return await response.json() as MediaTrack[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateMediaTracks(
@@ -49,7 +49,7 @@ export class MediaObjects extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listMediaObjects(
@@ -68,7 +68,7 @@ export class MediaObjects extends BaseApi {
       return await response.json() as MediaObject[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateMediaObject(
@@ -83,6 +83,6 @@ export class MediaObjects extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

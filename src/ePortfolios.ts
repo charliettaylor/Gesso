@@ -29,7 +29,7 @@ export class ePortfolios extends BaseApi {
       return await response.json() as EPortfolio[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getAnEportfolio(
@@ -44,7 +44,7 @@ export class ePortfolios extends BaseApi {
       return await response.json() as EPortfolio;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteAnEportfolio(
@@ -59,7 +59,7 @@ export class ePortfolios extends BaseApi {
       return await response.json() as EPortfolio;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getEportfolioPages(
@@ -74,7 +74,7 @@ export class ePortfolios extends BaseApi {
       return await response.json() as EPortfolio[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async moderateAnEportfolio(
@@ -94,7 +94,7 @@ export class ePortfolios extends BaseApi {
       return await response.json() as EPortfolio;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async moderateAllEportfoliosForUser(
@@ -114,7 +114,7 @@ export class ePortfolios extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async restoreDeletedEportfolio(
@@ -129,6 +129,6 @@ export class ePortfolios extends BaseApi {
       return await response.json() as EPortfolio;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

@@ -25,7 +25,7 @@ export class SharedBrandConfigs extends BaseApi {
       return await response.json() as SharedBrandConfig;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateSharedTheme(
@@ -42,7 +42,7 @@ export class SharedBrandConfigs extends BaseApi {
       return await response.json() as SharedBrandConfig;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async unshareBrandconfigtheme(
@@ -57,6 +57,6 @@ export class SharedBrandConfigs extends BaseApi {
       return await response.json() as SharedBrandConfig;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

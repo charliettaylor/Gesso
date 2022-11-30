@@ -30,7 +30,7 @@ export class QuizReports extends BaseApi {
       return await response.json() as Report[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createQuizReport(
@@ -51,7 +51,7 @@ export class QuizReports extends BaseApi {
       return await response.json() as Report;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getQuizReport(
@@ -74,7 +74,7 @@ export class QuizReports extends BaseApi {
       return await response.json() as Report;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async abortTheGenerationOfReportOrRemovePreviouslyGeneratedOne(
@@ -92,6 +92,6 @@ export class QuizReports extends BaseApi {
       return await response.json() as Report;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

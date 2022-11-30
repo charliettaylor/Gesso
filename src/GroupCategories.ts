@@ -32,7 +32,7 @@ export class GroupCategories extends BaseApi {
       return await response.json() as GroupCategory[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleGroupCategory(
@@ -47,7 +47,7 @@ export class GroupCategories extends BaseApi {
       return await response.json() as GroupCategory;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createGroupCategory(
@@ -67,7 +67,7 @@ export class GroupCategories extends BaseApi {
       return await response.json() as GroupCategory;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async importCategoryGroups(
@@ -87,7 +87,7 @@ export class GroupCategories extends BaseApi {
       return await response.json() as Progress;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateGroupCategory(
@@ -107,7 +107,7 @@ export class GroupCategories extends BaseApi {
       return await response.json() as GroupCategory;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteGroupCategory(
@@ -122,7 +122,7 @@ export class GroupCategories extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listGroupsInGroupCategory(
@@ -137,7 +137,7 @@ export class GroupCategories extends BaseApi {
       return await response.json() as Group[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async exportGroupsInUsersInCategory(
@@ -152,7 +152,7 @@ export class GroupCategories extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listUsersInGroupCategory(
@@ -172,7 +172,7 @@ export class GroupCategories extends BaseApi {
       return await response.json() as User[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async assignUnassignedMembers(
@@ -193,6 +193,6 @@ export class GroupCategories extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

@@ -22,7 +22,7 @@ export class LiveAssessments extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listLiveAssessmentResults(
@@ -44,7 +44,7 @@ export class LiveAssessments extends BaseApi {
       return await response.json() as Result;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createOrFindLiveAssessment(
@@ -59,7 +59,7 @@ export class LiveAssessments extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listLiveAssessments(
@@ -74,6 +74,6 @@ export class LiveAssessments extends BaseApi {
       return await response.json() as Assessment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

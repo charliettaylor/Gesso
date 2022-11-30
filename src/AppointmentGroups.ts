@@ -33,7 +33,7 @@ export class AppointmentGroups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createAnAppointmentGroup(
@@ -52,7 +52,7 @@ export class AppointmentGroups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleAppointmentGroup(
@@ -72,7 +72,7 @@ export class AppointmentGroups extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateAnAppointmentGroup(
@@ -92,7 +92,7 @@ export class AppointmentGroups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteAnAppointmentGroup(
@@ -112,7 +112,7 @@ export class AppointmentGroups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listUserParticipants(
@@ -132,7 +132,7 @@ export class AppointmentGroups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listStudentGroupParticipants(
@@ -152,7 +152,7 @@ export class AppointmentGroups extends BaseApi {
       return await response.json() as User;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getNextAppointment(
@@ -171,6 +171,6 @@ export class AppointmentGroups extends BaseApi {
       return await response.json() as CalendarEvent[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

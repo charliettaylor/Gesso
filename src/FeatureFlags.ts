@@ -20,7 +20,7 @@ export class FeatureFlags extends BaseApi {
       return await response.json() as Feature[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listEnabledFeatures(
@@ -35,7 +35,7 @@ export class FeatureFlags extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listEnvironmentFeatures(body?: unknown): Promise<Scope> {
@@ -47,7 +47,7 @@ export class FeatureFlags extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getFeatureFlag(
@@ -63,7 +63,7 @@ export class FeatureFlags extends BaseApi {
       return await response.json() as Feature;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async setFeatureFlag(
@@ -84,7 +84,7 @@ export class FeatureFlags extends BaseApi {
       return await response.json() as Feature;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async removeFeatureFlag(
@@ -100,6 +100,6 @@ export class FeatureFlags extends BaseApi {
       return await response.json() as Feature;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

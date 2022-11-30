@@ -27,7 +27,7 @@ export class OutcomeImports extends BaseApi {
       return await response.json() as OutcomeImport;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async importCourseOutcomes(
@@ -49,7 +49,7 @@ export class OutcomeImports extends BaseApi {
       return await response.json() as OutcomeImport;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getOutcomeImportStatus(
@@ -65,7 +65,7 @@ export class OutcomeImports extends BaseApi {
       return await response.json() as OutcomeImport;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getIdsOfOutcomeGroupsCreatedAfterSuccessfulImport(
@@ -82,6 +82,6 @@ export class OutcomeImports extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

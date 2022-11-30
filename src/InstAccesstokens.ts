@@ -16,6 +16,6 @@ export class InstAccesstokens extends BaseApi {
       return await response.json() as InstAccessToken;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

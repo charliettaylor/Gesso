@@ -24,6 +24,6 @@ export class PublicJWK extends BaseApi {
       return await response.json() as DeveloperKey;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

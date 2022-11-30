@@ -29,7 +29,7 @@ export class AuthenticationsLog extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async queryByAccount(
@@ -49,7 +49,7 @@ export class AuthenticationsLog extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async queryByUser(
@@ -69,6 +69,6 @@ export class AuthenticationsLog extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

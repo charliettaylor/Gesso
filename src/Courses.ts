@@ -46,7 +46,7 @@ export class Courses extends BaseApi {
       return await response.json() as Course[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listCoursesForUser(
@@ -66,7 +66,7 @@ export class Courses extends BaseApi {
       return await response.json() as Course[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getUserProgress(
@@ -82,7 +82,7 @@ export class Courses extends BaseApi {
       return await response.json() as CourseProgress;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createNewCourse(
@@ -102,7 +102,7 @@ export class Courses extends BaseApi {
       return await response.json() as Course;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async uploadFile(course_id: string, body?: unknown): Promise<Scope> {
@@ -114,7 +114,7 @@ export class Courses extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listStudents(
@@ -129,7 +129,7 @@ export class Courses extends BaseApi {
       return await response.json() as User[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listUsersInCourse(
@@ -149,7 +149,7 @@ export class Courses extends BaseApi {
       return await response.json() as User[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listRecentlyLoggedInStudents(
@@ -164,7 +164,7 @@ export class Courses extends BaseApi {
       return await response.json() as User[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleUser(
@@ -180,7 +180,7 @@ export class Courses extends BaseApi {
       return await response.json() as User;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async searchForContentShareUsers(
@@ -200,7 +200,7 @@ export class Courses extends BaseApi {
       return await response.json() as User[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async previewProcessedHtml(
@@ -220,7 +220,7 @@ export class Courses extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async courseActivityStream(
@@ -235,7 +235,7 @@ export class Courses extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async courseActivityStreamSummary(
@@ -250,7 +250,7 @@ export class Courses extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async courseTodoItems(
@@ -265,7 +265,7 @@ export class Courses extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteCourse(
@@ -285,7 +285,7 @@ export class Courses extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getCourseSettings(
@@ -300,7 +300,7 @@ export class Courses extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateCourseSettings(
@@ -320,7 +320,7 @@ export class Courses extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async returnTestStudentForCourse(
@@ -335,7 +335,7 @@ export class Courses extends BaseApi {
       return await response.json() as User;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleCourse(
@@ -355,7 +355,7 @@ export class Courses extends BaseApi {
       return await response.json() as Course;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateCourse(
@@ -375,7 +375,7 @@ export class Courses extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateCourses(
@@ -395,7 +395,7 @@ export class Courses extends BaseApi {
       return await response.json() as Progress;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async resetCourse(course_id: string, body?: unknown): Promise<Course> {
@@ -407,7 +407,7 @@ export class Courses extends BaseApi {
       return await response.json() as Course;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getEffectiveDueDates(
@@ -427,7 +427,7 @@ export class Courses extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async permissions(
@@ -447,7 +447,7 @@ export class Courses extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getBulkUserProgress(
@@ -462,7 +462,7 @@ export class Courses extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async removeQuizMigrationAlert(
@@ -478,7 +478,7 @@ export class Courses extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getCourseCopyStatus(
@@ -494,7 +494,7 @@ export class Courses extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async copyCourseContent(
@@ -514,6 +514,6 @@ export class Courses extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

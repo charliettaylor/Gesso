@@ -32,7 +32,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listAssignments(
@@ -52,7 +52,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listAssignmentsForUser(
@@ -69,7 +69,7 @@ export class Assignments extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async duplicateAssignnment(
@@ -91,7 +91,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleAssignment(
@@ -112,7 +112,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createAnAssignment(
@@ -132,7 +132,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async editAnAssignment(
@@ -153,7 +153,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async bulkUpdateAssignmentDates(
@@ -168,7 +168,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Progress;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listAssignmentOverrides(
@@ -185,7 +185,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleAssignmentOverride(
@@ -203,7 +203,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async redirectToTheAssignmentOverrideForGroup(
@@ -220,7 +220,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async redirectToTheAssignmentOverrideForSection(
@@ -237,7 +237,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createAnAssignmentOverride(
@@ -259,7 +259,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateAnAssignmentOverride(
@@ -282,7 +282,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteAnAssignmentOverride(
@@ -300,7 +300,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async batchRetrieveOverridesInCourse(
@@ -320,7 +320,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async batchCreateOverridesInCourse(
@@ -340,7 +340,7 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async batchUpdateOverridesInCourse(
@@ -360,6 +360,6 @@ export class Assignments extends BaseApi {
       return await response.json() as Assignment[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

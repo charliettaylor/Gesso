@@ -29,7 +29,7 @@ export class EnrollmentTerms extends BaseApi {
       return await response.json() as Term;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateEnrollmentTerm(
@@ -50,7 +50,7 @@ export class EnrollmentTerms extends BaseApi {
       return await response.json() as Term;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteEnrollmentTerm(
@@ -66,7 +66,7 @@ export class EnrollmentTerms extends BaseApi {
       return await response.json() as Term;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listEnrollmentTerms(
@@ -86,7 +86,7 @@ export class EnrollmentTerms extends BaseApi {
       return await response.json() as Term;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async retrieveEnrollmentTerm(
@@ -102,6 +102,6 @@ export class EnrollmentTerms extends BaseApi {
       return await response.json() as Term;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

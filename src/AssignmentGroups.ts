@@ -30,7 +30,7 @@ export class AssignmentGroups extends BaseApi {
       return await response.json() as AssignmentGroup[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getAnAssignmentGroup(
@@ -52,7 +52,7 @@ export class AssignmentGroups extends BaseApi {
       return await response.json() as AssignmentGroup;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createAnAssignmentGroup(
@@ -72,7 +72,7 @@ export class AssignmentGroups extends BaseApi {
       return await response.json() as AssignmentGroup;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async editAnAssignmentGroup(
@@ -89,7 +89,7 @@ export class AssignmentGroups extends BaseApi {
       return await response.json() as AssignmentGroup;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async destroyAnAssignmentGroup(
@@ -111,6 +111,6 @@ export class AssignmentGroups extends BaseApi {
       return await response.json() as AssignmentGroup;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

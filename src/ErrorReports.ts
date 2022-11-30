@@ -24,6 +24,6 @@ export class ErrorReports extends BaseApi {
       return await response.json() as Report;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

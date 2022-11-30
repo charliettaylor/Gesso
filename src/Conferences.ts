@@ -20,7 +20,7 @@ export class Conferences extends BaseApi {
       return await response.json() as Conference[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listConferencesForTheCurrentUser(
@@ -39,6 +39,6 @@ export class Conferences extends BaseApi {
       return await response.json() as Conference[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

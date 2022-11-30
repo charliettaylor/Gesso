@@ -30,7 +30,7 @@ export class Enrollments extends BaseApi {
       return await response.json() as Enrollment[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async enrollmentById(
@@ -51,7 +51,7 @@ export class Enrollments extends BaseApi {
       return await response.json() as Enrollment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async enrollUser(
@@ -71,7 +71,7 @@ export class Enrollments extends BaseApi {
       return await response.json() as Enrollment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async concludeDeactivateOrDeleteAnEnrollment(
@@ -92,7 +92,7 @@ export class Enrollments extends BaseApi {
       return await response.json() as Enrollment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async acceptCourseInvitation(
@@ -108,7 +108,7 @@ export class Enrollments extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async rejectCourseInvitation(
@@ -124,7 +124,7 @@ export class Enrollments extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async reactivateAnEnrollment(
@@ -141,7 +141,7 @@ export class Enrollments extends BaseApi {
       return await response.json() as Enrollment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async addsLastAttendedDateToStudentEnrollmentInCourse(
@@ -158,6 +158,6 @@ export class Enrollments extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

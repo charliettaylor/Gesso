@@ -31,7 +31,7 @@ export class Planner extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listPlannerNotes(
@@ -50,7 +50,7 @@ export class Planner extends BaseApi {
       return await response.json() as PlannerNote[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showPlannerNote(
@@ -65,7 +65,7 @@ export class Planner extends BaseApi {
       return await response.json() as PlannerNote;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updatePlannerNote(
@@ -85,7 +85,7 @@ export class Planner extends BaseApi {
       return await response.json() as PlannerNote;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createPlannerNote(
@@ -104,7 +104,7 @@ export class Planner extends BaseApi {
       return await response.json() as PlannerNote;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deletePlannerNote(
@@ -119,7 +119,7 @@ export class Planner extends BaseApi {
       return await response.json() as PlannerNote;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listPlannerOverrides(
@@ -133,7 +133,7 @@ export class Planner extends BaseApi {
       return await response.json() as PlannerOverride[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showPlannerOverride(
@@ -148,7 +148,7 @@ export class Planner extends BaseApi {
       return await response.json() as PlannerOverride;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updatePlannerOverride(
@@ -168,7 +168,7 @@ export class Planner extends BaseApi {
       return await response.json() as PlannerOverride;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createPlannerOverride(
@@ -187,7 +187,7 @@ export class Planner extends BaseApi {
       return await response.json() as PlannerOverride;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deletePlannerOverride(
@@ -202,6 +202,6 @@ export class Planner extends BaseApi {
       return await response.json() as PlannerOverride;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

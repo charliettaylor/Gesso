@@ -37,7 +37,7 @@ export class Accounts extends BaseApi {
       return await response.json() as Account[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getAccountsThatAdminsCanManage(
@@ -51,7 +51,7 @@ export class Accounts extends BaseApi {
       return await response.json() as Account[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listAccountsForCourseAdmins(body?: unknown): Promise<Account[]> {
@@ -63,7 +63,7 @@ export class Accounts extends BaseApi {
       return await response.json() as Account[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleAccount(id: string, body?: unknown): Promise<Account> {
@@ -75,7 +75,7 @@ export class Accounts extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async settings(account_id: string, body?: unknown): Promise<Account> {
@@ -87,7 +87,7 @@ export class Accounts extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async permissions(
@@ -107,7 +107,7 @@ export class Accounts extends BaseApi {
       return await response.json() as Course;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getTheSubaccountsOfAnAccount(
@@ -127,7 +127,7 @@ export class Accounts extends BaseApi {
       return await response.json() as Account[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getTheTermsOfService(
@@ -142,7 +142,7 @@ export class Accounts extends BaseApi {
       return await response.json() as TermsOfService;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getHelpLinks(
@@ -157,7 +157,7 @@ export class Accounts extends BaseApi {
       return await response.json() as HelpLink;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getTheManuallycreatedCoursesSubaccountForTheDomainRootAccount(
@@ -171,7 +171,7 @@ export class Accounts extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listActiveCoursesInAnAccount(
@@ -191,7 +191,7 @@ export class Accounts extends BaseApi {
       return await response.json() as Course[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateAnAccount(
@@ -211,7 +211,7 @@ export class Accounts extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteUserFromTheRootAccount(
@@ -227,7 +227,7 @@ export class Accounts extends BaseApi {
       return await response.json() as User;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createNewSubaccount(
@@ -247,7 +247,7 @@ export class Accounts extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteSubaccount(
@@ -263,6 +263,6 @@ export class Accounts extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

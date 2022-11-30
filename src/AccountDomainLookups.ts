@@ -24,6 +24,6 @@ export class AccountDomainLookups extends BaseApi {
       return await response.json() as unknown[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

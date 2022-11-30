@@ -23,7 +23,7 @@ export class GradingPeriodSets extends BaseApi {
       return await response.json() as GradingPeriod;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createGradingPeriodSet(
@@ -43,7 +43,7 @@ export class GradingPeriodSets extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateGradingPeriodSet(
@@ -64,7 +64,7 @@ export class GradingPeriodSets extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteGradingPeriodSet(
@@ -80,6 +80,6 @@ export class GradingPeriodSets extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

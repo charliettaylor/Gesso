@@ -31,7 +31,7 @@ export class PeerReviews extends BaseApi {
       return await response.json() as PeerReview[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createPeerReview(
@@ -54,7 +54,7 @@ export class PeerReviews extends BaseApi {
       return await response.json() as PeerReview;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deletePeerReview(
@@ -77,6 +77,6 @@ export class PeerReviews extends BaseApi {
       return await response.json() as PeerReview;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

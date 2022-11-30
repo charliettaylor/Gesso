@@ -29,7 +29,7 @@ export class ContentShares extends BaseApi {
       return await response.json() as ContentShare;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listContentShares(
@@ -44,7 +44,7 @@ export class ContentShares extends BaseApi {
       return await response.json() as ContentShare[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getUnreadSharesCount(
@@ -59,7 +59,7 @@ export class ContentShares extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getContentShare(
@@ -75,7 +75,7 @@ export class ContentShares extends BaseApi {
       return await response.json() as ContentShare;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async removeContentShare(
@@ -91,7 +91,7 @@ export class ContentShares extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async addUsersToContentShare(
@@ -112,7 +112,7 @@ export class ContentShares extends BaseApi {
       return await response.json() as ContentShare;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateContentShare(
@@ -133,6 +133,6 @@ export class ContentShares extends BaseApi {
       return await response.json() as ContentShare;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

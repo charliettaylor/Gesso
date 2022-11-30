@@ -31,7 +31,7 @@ export class UserObservees extends BaseApi {
       return await response.json() as User[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listObservers(
@@ -51,7 +51,7 @@ export class UserObservees extends BaseApi {
       return await response.json() as User[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async addAnObserveeWithCredentials(
@@ -71,7 +71,7 @@ export class UserObservees extends BaseApi {
       return await response.json() as User;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showAnObservee(
@@ -87,7 +87,7 @@ export class UserObservees extends BaseApi {
       return await response.json() as User;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showAnObserver(
@@ -103,7 +103,7 @@ export class UserObservees extends BaseApi {
       return await response.json() as User;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async addAnObservee(
@@ -124,7 +124,7 @@ export class UserObservees extends BaseApi {
       return await response.json() as User;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async removeAnObservee(
@@ -145,7 +145,7 @@ export class UserObservees extends BaseApi {
       return await response.json() as User;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createObserverPairingCode(
@@ -160,6 +160,6 @@ export class UserObservees extends BaseApi {
       return await response.json() as PairingCode;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

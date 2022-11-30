@@ -24,7 +24,7 @@ export class BlackoutDates extends BaseApi {
       return await response.json() as BlackoutDate[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleBlackoutDate(
@@ -40,7 +40,7 @@ export class BlackoutDates extends BaseApi {
       return await response.json() as BlackoutDate;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async newBlackoutDate(
@@ -55,7 +55,7 @@ export class BlackoutDates extends BaseApi {
       return await response.json() as BlackoutDate;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createBlackoutDate(
@@ -75,7 +75,7 @@ export class BlackoutDates extends BaseApi {
       return await response.json() as BlackoutDate;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateBlackoutDate(
@@ -96,7 +96,7 @@ export class BlackoutDates extends BaseApi {
       return await response.json() as BlackoutDate;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteBlackoutDate(
@@ -112,7 +112,7 @@ export class BlackoutDates extends BaseApi {
       return await response.json() as BlackoutDate;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateListOfBlackoutDates(
@@ -132,6 +132,6 @@ export class BlackoutDates extends BaseApi {
       return await response.json() as Scope[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

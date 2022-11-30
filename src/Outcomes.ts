@@ -25,7 +25,7 @@ export class Outcomes extends BaseApi {
       return await response.json() as Outcome;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateAnOutcome(
@@ -45,7 +45,7 @@ export class Outcomes extends BaseApi {
       return await response.json() as Outcome;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getAlignedAssignmentsForAnOutcomeInCourseForParticularStudent(
@@ -60,6 +60,6 @@ export class Outcomes extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

@@ -34,7 +34,7 @@ export class QuizSubmissions extends BaseApi {
       return await response.json() as Scope[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getTheQuizSubmission(
@@ -56,7 +56,7 @@ export class QuizSubmissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleQuizSubmission(
@@ -79,7 +79,7 @@ export class QuizSubmissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createTheQuizSubmissionstartQuiztakingSession(
@@ -101,7 +101,7 @@ export class QuizSubmissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateStudentQuestionScoresComments(
@@ -124,7 +124,7 @@ export class QuizSubmissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async completeTheQuizSubmissionturnItIn(
@@ -147,7 +147,7 @@ export class QuizSubmissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getCurrentQuizSubmissionTimes(
@@ -165,6 +165,6 @@ export class QuizSubmissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

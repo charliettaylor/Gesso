@@ -29,7 +29,7 @@ export class AccountNotifications extends BaseApi {
       return await response.json() as AccountNotification[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showGlobalNotification(
@@ -46,7 +46,7 @@ export class AccountNotifications extends BaseApi {
       return await response.json() as AccountNotification;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async closeNotificationForUser(
@@ -63,7 +63,7 @@ export class AccountNotifications extends BaseApi {
       return await response.json() as AccountNotification;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createGlobalNotification(
@@ -83,7 +83,7 @@ export class AccountNotifications extends BaseApi {
       return await response.json() as AccountNotification;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateGlobalNotification(
@@ -105,6 +105,6 @@ export class AccountNotifications extends BaseApi {
       return await response.json() as AccountNotification;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

@@ -35,7 +35,7 @@ export class GradebookHistory extends BaseApi {
       return await response.json() as Day[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async detailsForGivenDateInGradebookHistoryForThisCourse(
@@ -56,7 +56,7 @@ export class GradebookHistory extends BaseApi {
       return await response.json() as Grade[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listsSubmissions(
@@ -80,7 +80,7 @@ export class GradebookHistory extends BaseApi {
       return await response.json() as SubmissionHistory[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listUncollatedSubmissionVersions(
@@ -100,6 +100,6 @@ export class GradebookHistory extends BaseApi {
       return await response.json() as SubmissionVersion[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

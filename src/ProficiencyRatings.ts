@@ -25,7 +25,7 @@ export class ProficiencyRatings extends BaseApi {
       return await response.json() as Proficiency;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getProficiencyRatings(
@@ -40,6 +40,6 @@ export class ProficiencyRatings extends BaseApi {
       return await response.json() as Proficiency;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

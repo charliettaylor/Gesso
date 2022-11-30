@@ -18,7 +18,7 @@ export class ePubExports extends BaseApi {
       return await response.json() as Course[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createEpubExport(
@@ -33,7 +33,7 @@ export class ePubExports extends BaseApi {
       return await response.json() as EpubExport;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showEpubExport(
@@ -49,6 +49,6 @@ export class ePubExports extends BaseApi {
       return await response.json() as EpubExport;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

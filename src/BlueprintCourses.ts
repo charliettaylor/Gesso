@@ -33,7 +33,7 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as BlueprintTemplate;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getAssociatedCourseInformation(
@@ -50,7 +50,7 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as Course[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateAssociatedCourses(
@@ -72,7 +72,7 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as Scope[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async beginMigrationToPushToAssociatedCourses(
@@ -94,7 +94,7 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as BlueprintMigration;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async setOrRemoveRestrictionsOnBlueprintCourseObject(
@@ -116,7 +116,7 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getUnsyncedChanges(
@@ -133,7 +133,7 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as ChangeRecord[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listBlueprintMigrations(
@@ -150,7 +150,7 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as BlueprintMigration[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showBlueprintMigration(
@@ -168,7 +168,7 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as BlueprintMigration;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getMigrationDetails(
@@ -186,7 +186,7 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as ChangeRecord[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listBlueprintSubscriptions(
@@ -201,7 +201,7 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as BlueprintSubscription[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listBlueprintImports(
@@ -218,7 +218,7 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as BlueprintMigration[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showBlueprintImport(
@@ -236,7 +236,7 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as BlueprintMigration;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getImportDetails(
@@ -254,6 +254,6 @@ export class BlueprintCourses extends BaseApi {
       return await response.json() as ChangeRecord[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

@@ -20,7 +20,7 @@ export class Logins extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async kickoffPasswordRecoveryFlow(body?: unknown): Promise<Scope> {
@@ -32,7 +32,7 @@ export class Logins extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createUserLogin(
@@ -52,7 +52,7 @@ export class Logins extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async editUserLogin(
@@ -73,7 +73,7 @@ export class Logins extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteUserLogin(
@@ -89,6 +89,6 @@ export class Logins extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

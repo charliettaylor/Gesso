@@ -27,7 +27,7 @@ export class ImageSearch extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async confirmImageSelection(
@@ -47,6 +47,6 @@ export class ImageSearch extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

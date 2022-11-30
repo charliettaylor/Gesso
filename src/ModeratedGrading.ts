@@ -25,7 +25,7 @@ export class ModeratedGrading extends BaseApi {
       return await response.json() as User[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async selectStudentsForModeration(
@@ -47,7 +47,7 @@ export class ModeratedGrading extends BaseApi {
       return await response.json() as User[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async bulkSelectProvisionalGrades(
@@ -64,7 +64,7 @@ export class ModeratedGrading extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showProvisionalGradeStatusForStudent(
@@ -86,7 +86,7 @@ export class ModeratedGrading extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async selectProvisionalGrade(
@@ -104,7 +104,7 @@ export class ModeratedGrading extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async publishProvisionalGradesForAnAssignment(
@@ -121,7 +121,7 @@ export class ModeratedGrading extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showAnonProvisionalGradeStatusForStudent(
@@ -143,6 +143,6 @@ export class ModeratedGrading extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

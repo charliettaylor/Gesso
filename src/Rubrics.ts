@@ -33,7 +33,7 @@ export class Rubrics extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateSingleRubric(
@@ -54,7 +54,7 @@ export class Rubrics extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteSingleRubric(
@@ -70,7 +70,7 @@ export class Rubrics extends BaseApi {
       return await response.json() as Rubric;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listRubrics(
@@ -85,7 +85,7 @@ export class Rubrics extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleRubric(
@@ -106,7 +106,7 @@ export class Rubrics extends BaseApi {
       return await response.json() as Rubric;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createSingleRubricAssessment(
@@ -128,7 +128,7 @@ export class Rubrics extends BaseApi {
       return await response.json() as Assessment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateSingleRubricAssessment(
@@ -151,7 +151,7 @@ export class Rubrics extends BaseApi {
       return await response.json() as Assessment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteSingleRubricAssessment(
@@ -169,7 +169,7 @@ export class Rubrics extends BaseApi {
       return await response.json() as Assessment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createRubricassociation(
@@ -189,7 +189,7 @@ export class Rubrics extends BaseApi {
       return await response.json() as Rubric;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateRubricassociation(
@@ -210,7 +210,7 @@ export class Rubrics extends BaseApi {
       return await response.json() as Rubric;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteRubricassociation(
@@ -226,6 +226,6 @@ export class Rubrics extends BaseApi {
       return await response.json() as Rubric;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

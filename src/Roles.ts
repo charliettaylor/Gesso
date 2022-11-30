@@ -32,7 +32,7 @@ export class Roles extends BaseApi {
       return await response.json() as Role[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleRole(
@@ -53,7 +53,7 @@ export class Roles extends BaseApi {
       return await response.json() as Role;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createNewRole(
@@ -73,7 +73,7 @@ export class Roles extends BaseApi {
       return await response.json() as Role;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deactivateRole(
@@ -94,7 +94,7 @@ export class Roles extends BaseApi {
       return await response.json() as Role;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async activateRole(
@@ -115,7 +115,7 @@ export class Roles extends BaseApi {
       return await response.json() as Role;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateRole(
@@ -136,6 +136,6 @@ export class Roles extends BaseApi {
       return await response.json() as Role;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

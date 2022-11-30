@@ -37,7 +37,7 @@ export class Groups extends BaseApi {
       return await response.json() as Group[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listTheGroupsAvailableInContext(
@@ -57,7 +57,7 @@ export class Groups extends BaseApi {
       return await response.json() as Group[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleGroup(
@@ -77,7 +77,7 @@ export class Groups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createGroup(
@@ -96,7 +96,7 @@ export class Groups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async editGroup(
@@ -116,7 +116,7 @@ export class Groups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteGroup(group_id: string, body?: unknown): Promise<Group> {
@@ -128,7 +128,7 @@ export class Groups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async inviteOthersToGroup(
@@ -148,7 +148,7 @@ export class Groups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listGroupsUsers(
@@ -168,7 +168,7 @@ export class Groups extends BaseApi {
       return await response.json() as User[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async uploadFile(group_id: string, body?: unknown): Promise<Scope> {
@@ -180,7 +180,7 @@ export class Groups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async previewProcessedHtml(
@@ -200,7 +200,7 @@ export class Groups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async groupActivityStream(
@@ -215,7 +215,7 @@ export class Groups extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async groupActivityStreamSummary(
@@ -230,7 +230,7 @@ export class Groups extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async permissions(
@@ -250,7 +250,7 @@ export class Groups extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listGroupMemberships(
@@ -270,7 +270,7 @@ export class Groups extends BaseApi {
       return await response.json() as Group[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleGroupMembership(
@@ -286,7 +286,7 @@ export class Groups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createMembership(
@@ -306,7 +306,7 @@ export class Groups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateMembership(
@@ -327,7 +327,7 @@ export class Groups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async leaveGroup(
@@ -343,6 +343,6 @@ export class Groups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

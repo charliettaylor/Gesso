@@ -24,7 +24,7 @@ export class WebhooksSubscriptionsforPlagiarismPlatform extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteWebhookSubscription(
@@ -39,7 +39,7 @@ export class WebhooksSubscriptionsforPlagiarismPlatform extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showSingleWebhookSubscription(
@@ -54,7 +54,7 @@ export class WebhooksSubscriptionsforPlagiarismPlatform extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateWebhookSubscription(
@@ -69,7 +69,7 @@ export class WebhooksSubscriptionsforPlagiarismPlatform extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listAllWebhookSubscriptionForToolProxy(
@@ -83,6 +83,6 @@ export class WebhooksSubscriptionsforPlagiarismPlatform extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

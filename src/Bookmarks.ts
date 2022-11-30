@@ -17,7 +17,7 @@ export class Bookmarks extends BaseApi {
       return await response.json() as Bookmark[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(new Error(response.statusText));
   }
 
   public async createBookmark(
@@ -36,7 +36,7 @@ export class Bookmarks extends BaseApi {
       return await response.json() as Bookmark;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getBookmark(id: string, body?: unknown): Promise<Bookmark> {
@@ -48,7 +48,7 @@ export class Bookmarks extends BaseApi {
       return await response.json() as Bookmark;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateBookmark(
@@ -68,7 +68,7 @@ export class Bookmarks extends BaseApi {
       return await response.json() as Folder;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteBookmark(id: string, body?: unknown): Promise<Scope> {
@@ -80,6 +80,6 @@ export class Bookmarks extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

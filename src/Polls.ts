@@ -20,7 +20,7 @@ export class Polls extends BaseApi {
       return await response.json() as Poll;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSinglePoll(id: string, body?: unknown): Promise<Poll> {
@@ -32,7 +32,7 @@ export class Polls extends BaseApi {
       return await response.json() as Poll;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createSinglePoll(
@@ -51,7 +51,7 @@ export class Polls extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateSinglePoll(
@@ -71,7 +71,7 @@ export class Polls extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deletePoll(id: string, body?: unknown): Promise<Scope> {
@@ -83,6 +83,6 @@ export class Polls extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

@@ -24,6 +24,6 @@ export class CommMessages extends BaseApi {
       return await response.json() as CommMessage[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

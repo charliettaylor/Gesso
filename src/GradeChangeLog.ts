@@ -31,7 +31,7 @@ export class GradeChangeLog extends BaseApi {
       return await response.json() as Grade[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async queryByCourse(
@@ -51,7 +51,7 @@ export class GradeChangeLog extends BaseApi {
       return await response.json() as Grade[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async queryByStudent(
@@ -71,7 +71,7 @@ export class GradeChangeLog extends BaseApi {
       return await response.json() as Grade[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async queryByGrader(
@@ -91,7 +91,7 @@ export class GradeChangeLog extends BaseApi {
       return await response.json() as Grade[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async advancedQuery(
@@ -110,6 +110,6 @@ export class GradeChangeLog extends BaseApi {
       return await response.json() as Grade[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

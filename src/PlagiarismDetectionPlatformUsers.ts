@@ -16,7 +16,7 @@ export class PlagiarismDetectionPlatformUsers extends BaseApi {
       return await response.json() as User;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getAllUsersInGrouplti(
@@ -31,6 +31,6 @@ export class PlagiarismDetectionPlatformUsers extends BaseApi {
       return await response.json() as User[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

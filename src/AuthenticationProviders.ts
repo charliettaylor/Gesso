@@ -19,7 +19,7 @@ export class AuthenticationProviders extends BaseApi {
       return await response.json() as AuthenticationProvider[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async addAuthenticationProvider(
@@ -34,7 +34,7 @@ export class AuthenticationProviders extends BaseApi {
       return await response.json() as AuthenticationProvider;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateAuthenticationProvider(
@@ -51,7 +51,7 @@ export class AuthenticationProviders extends BaseApi {
       return await response.json() as AuthenticationProvider;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getAuthenticationProvider(
@@ -68,7 +68,7 @@ export class AuthenticationProviders extends BaseApi {
       return await response.json() as AuthenticationProvider;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteAuthenticationProvider(
@@ -85,7 +85,7 @@ export class AuthenticationProviders extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showAccountAuthSettings(
@@ -100,7 +100,7 @@ export class AuthenticationProviders extends BaseApi {
       return await response.json() as SSOSettings;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateAccountAuthSettings(
@@ -115,6 +115,6 @@ export class AuthenticationProviders extends BaseApi {
       return await response.json() as SSOSettings;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

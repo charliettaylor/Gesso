@@ -26,6 +26,6 @@ export class SISImportErrors extends BaseApi {
       return await response.json() as SisImportError[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

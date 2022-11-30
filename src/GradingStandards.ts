@@ -25,7 +25,7 @@ export class GradingStandards extends BaseApi {
       return await response.json() as GradingStandard;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listTheGradingStandardsAvailableInContext(
@@ -40,7 +40,7 @@ export class GradingStandards extends BaseApi {
       return await response.json() as GradingStandard[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleGradingStandardInContext(
@@ -57,6 +57,6 @@ export class GradingStandards extends BaseApi {
       return await response.json() as GradingStandard;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

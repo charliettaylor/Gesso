@@ -19,6 +19,6 @@ export class AccountsLTI extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

@@ -31,7 +31,7 @@ export class ContentMigrations extends BaseApi {
       return await response.json() as MigrationIssue[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getMigrationIssue(
@@ -49,7 +49,7 @@ export class ContentMigrations extends BaseApi {
       return await response.json() as MigrationIssue;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateMigrationIssue(
@@ -72,7 +72,7 @@ export class ContentMigrations extends BaseApi {
       return await response.json() as MigrationIssue;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listContentMigrations(
@@ -87,7 +87,7 @@ export class ContentMigrations extends BaseApi {
       return await response.json() as ContentMigration[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getContentMigration(
@@ -103,7 +103,7 @@ export class ContentMigrations extends BaseApi {
       return await response.json() as ContentMigration;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createContentMigration(
@@ -123,7 +123,7 @@ export class ContentMigrations extends BaseApi {
       return await response.json() as ContentMigration;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateContentMigration(
@@ -139,7 +139,7 @@ export class ContentMigrations extends BaseApi {
       return await response.json() as ContentMigration;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listMigrationSystems(
@@ -155,7 +155,7 @@ export class ContentMigrations extends BaseApi {
       return await response.json() as Migrator[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listItemsForSelectiveImport(
@@ -177,6 +177,6 @@ export class ContentMigrations extends BaseApi {
       return await response.json() as Scope[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

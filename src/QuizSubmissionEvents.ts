@@ -31,7 +31,7 @@ export class QuizSubmissionEvents extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async retrieveCapturedEvents(
@@ -54,6 +54,6 @@ export class QuizSubmissionEvents extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

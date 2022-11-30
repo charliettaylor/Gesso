@@ -44,7 +44,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listAssignmentSubmissions(
@@ -66,7 +66,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Submission[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listSubmissionsForMultipleAssignments(
@@ -86,7 +86,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleSubmission(
@@ -109,7 +109,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleSubmissionByAnonymousId(
@@ -132,7 +132,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async uploadFile(
@@ -150,7 +150,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async gradeOrCommentOnSubmission(
@@ -173,7 +173,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async gradeOrCommentOnSubmissionByAnonymousId(
@@ -196,7 +196,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listGradeableStudents(
@@ -213,7 +213,7 @@ export class Submissions extends BaseApi {
       return await response.json() as UserDisplay[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listMultipleAssignmentsGradeableStudents(
@@ -234,7 +234,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async gradeOrCommentOnMultipleSubmissions(
@@ -254,7 +254,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Progress;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markSubmissionAsRead(
@@ -272,7 +272,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markSubmissionAsUnread(
@@ -290,7 +290,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markSubmissionItemAsRead(
@@ -309,7 +309,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getRubricAssessmentsReadState(
@@ -327,7 +327,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markRubricAssessmentsAsRead(
@@ -345,7 +345,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getDocumentAnnotationsReadState(
@@ -363,7 +363,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markDocumentAnnotationsAsRead(
@@ -381,7 +381,7 @@ export class Submissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async submissionSummary(
@@ -403,6 +403,6 @@ export class Submissions extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

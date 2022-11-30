@@ -23,7 +23,7 @@ export class LatePolicy extends BaseApi {
       return await response.json() as LatePolicyModel;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createLatePolicy(
@@ -43,7 +43,7 @@ export class LatePolicy extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async patchLatePolicy(
@@ -63,6 +63,6 @@ export class LatePolicy extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

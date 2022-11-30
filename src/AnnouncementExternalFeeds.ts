@@ -20,7 +20,7 @@ export class AnnouncementExternalFeeds extends BaseApi {
       return await response.json() as ExternalFeed[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createAnExternalFeed(
@@ -40,7 +40,7 @@ export class AnnouncementExternalFeeds extends BaseApi {
       return await response.json() as ExternalFeed;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteAnExternalFeed(
@@ -57,6 +57,6 @@ export class AnnouncementExternalFeeds extends BaseApi {
       return await response.json() as ExternalFeed;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

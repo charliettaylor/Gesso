@@ -23,7 +23,7 @@ export class PollSessions extends BaseApi {
       return await response.json() as PollSession;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getTheResultsForSinglePollSession(
@@ -39,7 +39,7 @@ export class PollSessions extends BaseApi {
       return await response.json() as PollSession;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createSinglePollSession(
@@ -59,7 +59,7 @@ export class PollSessions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateSinglePollSession(
@@ -80,7 +80,7 @@ export class PollSessions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deletePollSession(
@@ -96,7 +96,7 @@ export class PollSessions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async openPollSession(
@@ -112,7 +112,7 @@ export class PollSessions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async closeAnOpenedPollSession(
@@ -128,7 +128,7 @@ export class PollSessions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listOpenedPollSessions(body?: unknown): Promise<Scope> {
@@ -140,7 +140,7 @@ export class PollSessions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listClosedPollSessions(body?: unknown): Promise<Scope> {
@@ -152,6 +152,6 @@ export class PollSessions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

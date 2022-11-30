@@ -20,7 +20,7 @@ export class Collaborations extends BaseApi {
       return await response.json() as Collaboration[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listMembersOfCollaboration(
@@ -40,7 +40,7 @@ export class Collaborations extends BaseApi {
       return await response.json() as Collaborator[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listPotentialMembers(
@@ -55,6 +55,6 @@ export class Collaborations extends BaseApi {
       return await response.json() as User[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

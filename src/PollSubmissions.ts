@@ -23,7 +23,7 @@ export class PollSubmissions extends BaseApi {
       return await response.json() as Poll;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createSinglePollSubmission(
@@ -45,6 +45,6 @@ export class PollSubmissions extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

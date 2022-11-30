@@ -27,6 +27,6 @@ export class Score extends BaseApi {
       return await response.json() as Grade;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

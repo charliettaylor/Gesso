@@ -24,6 +24,6 @@ export class Announcements extends BaseApi {
       return await response.json() as DiscussionTopic[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

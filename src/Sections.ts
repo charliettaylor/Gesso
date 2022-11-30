@@ -32,7 +32,7 @@ export class Sections extends BaseApi {
       return await response.json() as Section[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createCourseSection(
@@ -52,7 +52,7 @@ export class Sections extends BaseApi {
       return await response.json() as Section;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async crosslistSection(
@@ -73,7 +73,7 @@ export class Sections extends BaseApi {
       return await response.json() as Section;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async decrosslistSection(
@@ -93,7 +93,7 @@ export class Sections extends BaseApi {
       return await response.json() as Section;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async editSection(
@@ -113,7 +113,7 @@ export class Sections extends BaseApi {
       return await response.json() as Section;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSectionInformation(
@@ -134,7 +134,7 @@ export class Sections extends BaseApi {
       return await response.json() as Section;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteSection(id: string, body?: unknown): Promise<Section> {
@@ -146,6 +146,6 @@ export class Sections extends BaseApi {
       return await response.json() as Section;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

@@ -40,7 +40,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as DiscussionTopic[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createNewDiscussionTopic(
@@ -60,7 +60,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateTopic(
@@ -82,7 +82,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteTopic(
@@ -99,7 +99,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async reorderPinnedTopics(
@@ -119,7 +119,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateAnEntry(
@@ -142,7 +142,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteAnEntry(
@@ -160,7 +160,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleTopic(
@@ -182,7 +182,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getTheFullTopic(
@@ -199,7 +199,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async postAnEntry(
@@ -221,7 +221,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async duplicateDiscussionTopic(
@@ -238,7 +238,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as DiscussionTopic;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listTopicEntries(
@@ -255,7 +255,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async postReply(
@@ -278,7 +278,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listEntryReplies(
@@ -296,7 +296,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listEntries(
@@ -318,7 +318,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markTopicAsRead(
@@ -335,7 +335,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markTopicAsUnread(
@@ -352,7 +352,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markAllEntriesAsRead(
@@ -374,7 +374,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markAllEntriesAsUnread(
@@ -396,7 +396,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markEntryAsRead(
@@ -419,7 +419,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async markEntryAsUnread(
@@ -442,7 +442,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async rateEntry(
@@ -465,7 +465,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async subscribeToTopic(
@@ -482,7 +482,7 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async unsubscribeFromTopic(
@@ -499,6 +499,6 @@ export class DiscussionTopics extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

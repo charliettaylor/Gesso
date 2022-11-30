@@ -29,7 +29,7 @@ export class Admins extends BaseApi {
       return await response.json() as Admin;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async removeAccountAdmin(
@@ -50,7 +50,7 @@ export class Admins extends BaseApi {
       return await response.json() as Admin;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listAccountAdmins(
@@ -70,6 +70,6 @@ export class Admins extends BaseApi {
       return await response.json() as Admin[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

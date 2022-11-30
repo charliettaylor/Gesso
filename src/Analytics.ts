@@ -31,7 +31,7 @@ export class Analytics extends BaseApi {
       return await response.json() as Course;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getDepartmentlevelGradeData(
@@ -48,7 +48,7 @@ export class Analytics extends BaseApi {
       return await response.json() as Grade;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getDepartmentlevelStatistics(
@@ -65,7 +65,7 @@ export class Analytics extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getDepartmentlevelStatisticsBrokenDownBySubaccount(
@@ -82,7 +82,7 @@ export class Analytics extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getCourselevelParticipationData(
@@ -97,7 +97,7 @@ export class Analytics extends BaseApi {
       return await response.json() as Page;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getCourselevelAssignmentData(
@@ -117,7 +117,7 @@ export class Analytics extends BaseApi {
       return await response.json() as Assignment[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getCourselevelStudentSummaryData(
@@ -137,7 +137,7 @@ export class Analytics extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getUserinacourselevelParticipationData(
@@ -154,7 +154,7 @@ export class Analytics extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getUserinacourselevelAssignmentData(
@@ -171,7 +171,7 @@ export class Analytics extends BaseApi {
       return await response.json() as Assignment[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getUserinacourselevelMessagingData(
@@ -188,6 +188,6 @@ export class Analytics extends BaseApi {
       return await response.json() as Conversation;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

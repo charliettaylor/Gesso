@@ -30,7 +30,7 @@ export class LineItems extends BaseApi {
       return await response.json() as LineItem;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateLineItem(
@@ -51,7 +51,7 @@ export class LineItems extends BaseApi {
       return await response.json() as LineItem;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showLineItem(
@@ -72,7 +72,7 @@ export class LineItems extends BaseApi {
       return await response.json() as LineItem;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listLineItems(
@@ -92,7 +92,7 @@ export class LineItems extends BaseApi {
       return await response.json() as LineItem;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteLineItem(
@@ -108,6 +108,6 @@ export class LineItems extends BaseApi {
       return await response.json() as LineItem;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

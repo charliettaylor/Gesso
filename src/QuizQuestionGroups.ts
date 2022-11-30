@@ -27,7 +27,7 @@ export class QuizQuestionGroups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createQuestionGroup(
@@ -48,7 +48,7 @@ export class QuizQuestionGroups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateQuestionGroup(
@@ -71,7 +71,7 @@ export class QuizQuestionGroups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteQuestionGroup(
@@ -89,7 +89,7 @@ export class QuizQuestionGroups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async reorderQuestionGroups(
@@ -112,6 +112,6 @@ export class QuizQuestionGroups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

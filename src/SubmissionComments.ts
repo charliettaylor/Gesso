@@ -29,7 +29,7 @@ export class SubmissionComments extends BaseApi {
       return await response.json() as SubmissionComment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteSubmissionComment(
@@ -48,7 +48,7 @@ export class SubmissionComments extends BaseApi {
       return await response.json() as SubmissionComment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async uploadFile(
@@ -66,6 +66,6 @@ export class SubmissionComments extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

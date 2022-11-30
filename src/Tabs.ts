@@ -28,7 +28,7 @@ export class Tabs extends BaseApi {
       return await response.json() as Grade;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateTabForCourse(
@@ -49,6 +49,6 @@ export class Tabs extends BaseApi {
       return await response.json() as Tab;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

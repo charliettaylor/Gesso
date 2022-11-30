@@ -19,7 +19,7 @@ export class Progress extends BaseApi {
       return await response.json() as ProgressModel;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async cancelProgress(
@@ -34,7 +34,7 @@ export class Progress extends BaseApi {
       return await response.json() as ProgressModel;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async queryLtiProgress(
@@ -50,6 +50,6 @@ export class Progress extends BaseApi {
       return await response.json() as ProgressModel;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

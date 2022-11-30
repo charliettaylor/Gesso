@@ -30,7 +30,7 @@ export class ExternalTools extends BaseApi {
       return await response.json() as unknown[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSessionlessLaunchUrlForAnExternalTool(
@@ -51,7 +51,7 @@ export class ExternalTools extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleExternalTool(
@@ -68,7 +68,7 @@ export class ExternalTools extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createAnExternalTool(
@@ -88,7 +88,7 @@ export class ExternalTools extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async editAnExternalTool(
@@ -105,7 +105,7 @@ export class ExternalTools extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteAnExternalTool(
@@ -122,7 +122,7 @@ export class ExternalTools extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async addToolToRceFavorites(
@@ -139,7 +139,7 @@ export class ExternalTools extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async removeToolFromRceFavorites(
@@ -156,7 +156,7 @@ export class ExternalTools extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getVisibleCourseNavigationTools(
@@ -175,7 +175,7 @@ export class ExternalTools extends BaseApi {
       return await response.json() as Scope[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getVisibleCourseNavigationToolsForSingleCourse(
@@ -191,6 +191,6 @@ export class ExternalTools extends BaseApi {
       return await response.json() as Scope[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

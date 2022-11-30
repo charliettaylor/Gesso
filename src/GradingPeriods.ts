@@ -23,7 +23,7 @@ export class GradingPeriods extends BaseApi {
       return await response.json() as GradingPeriod;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getSingleGradingPeriod(
@@ -39,7 +39,7 @@ export class GradingPeriods extends BaseApi {
       return await response.json() as GradingPeriod;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateSingleGradingPeriod(
@@ -60,7 +60,7 @@ export class GradingPeriods extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteGradingPeriod(
@@ -76,7 +76,7 @@ export class GradingPeriods extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async batchUpdateGradingPeriods(
@@ -97,6 +97,6 @@ export class GradingPeriods extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

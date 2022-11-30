@@ -32,7 +32,7 @@ export class CustomGradebookColumns extends BaseApi {
       return await response.json() as CustomColumn[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createCustomGradebookColumn(
@@ -52,7 +52,7 @@ export class CustomGradebookColumns extends BaseApi {
       return await response.json() as CustomColumn;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateCustomGradebookColumn(
@@ -69,7 +69,7 @@ export class CustomGradebookColumns extends BaseApi {
       return await response.json() as CustomColumn;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteCustomGradebookColumn(
@@ -86,7 +86,7 @@ export class CustomGradebookColumns extends BaseApi {
       return await response.json() as CustomColumn;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async reorderCustomColumns(
@@ -107,7 +107,7 @@ export class CustomGradebookColumns extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listEntriesForColumn(
@@ -129,7 +129,7 @@ export class CustomGradebookColumns extends BaseApi {
       return await response.json() as ColumnDatum[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateColumnData(
@@ -152,7 +152,7 @@ export class CustomGradebookColumns extends BaseApi {
       return await response.json() as ColumnDatum;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async bulkUpdateColumnData(
@@ -173,6 +173,6 @@ export class CustomGradebookColumns extends BaseApi {
       return await response.json() as Progress;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

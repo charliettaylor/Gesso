@@ -24,7 +24,7 @@ export class Pages extends BaseApi {
       return await response.json() as Page;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async duplicatePage(
@@ -41,7 +41,7 @@ export class Pages extends BaseApi {
       return await response.json() as Page;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateFrontPage(
@@ -61,7 +61,7 @@ export class Pages extends BaseApi {
       return await response.json() as Page;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listPages(
@@ -81,7 +81,7 @@ export class Pages extends BaseApi {
       return await response.json() as Page[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createPage(
@@ -101,7 +101,7 @@ export class Pages extends BaseApi {
       return await response.json() as Page;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showPage(
@@ -117,7 +117,7 @@ export class Pages extends BaseApi {
       return await response.json() as Page;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updatePage(
@@ -138,7 +138,7 @@ export class Pages extends BaseApi {
       return await response.json() as Page;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deletePage(
@@ -154,7 +154,7 @@ export class Pages extends BaseApi {
       return await response.json() as Page;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listRevisions(
@@ -171,7 +171,7 @@ export class Pages extends BaseApi {
       return await response.json() as Page[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showRevision(
@@ -193,7 +193,7 @@ export class Pages extends BaseApi {
       return await response.json() as Page;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async revertToRevision(
@@ -216,6 +216,6 @@ export class Pages extends BaseApi {
       return await response.json() as Page;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

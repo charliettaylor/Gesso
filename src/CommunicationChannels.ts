@@ -20,7 +20,7 @@ export class CommunicationChannels extends BaseApi {
       return await response.json() as CommunicationChannel[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createCommunicationChannel(
@@ -40,7 +40,7 @@ export class CommunicationChannels extends BaseApi {
       return await response.json() as CommunicationChannel;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteCommunicationChannel(
@@ -56,7 +56,7 @@ export class CommunicationChannels extends BaseApi {
       return await response.json() as CommunicationChannel;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deletePushNotificationEndpoint(body?: unknown): Promise<Scope> {
@@ -68,6 +68,6 @@ export class CommunicationChannels extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

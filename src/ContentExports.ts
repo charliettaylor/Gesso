@@ -20,7 +20,7 @@ export class ContentExports extends BaseApi {
       return await response.json() as ContentExport[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showContentExport(
@@ -36,7 +36,7 @@ export class ContentExports extends BaseApi {
       return await response.json() as ContentExport;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async exportContent(
@@ -56,6 +56,6 @@ export class ContentExports extends BaseApi {
       return await response.json() as ContentExport;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

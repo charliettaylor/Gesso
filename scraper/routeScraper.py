@@ -247,7 +247,7 @@ def create_function(route: Route) -> str:
       return await response.json() as {route.returnType};
     }}
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }}\n
 '''
  

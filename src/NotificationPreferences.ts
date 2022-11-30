@@ -26,7 +26,7 @@ export class NotificationPreferences extends BaseApi {
       return await response.json() as NotificationPreference[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listOfPreferenceCategories(
@@ -43,7 +43,7 @@ export class NotificationPreferences extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getPreference(
@@ -61,7 +61,7 @@ export class NotificationPreferences extends BaseApi {
       return await response.json() as NotificationPreference;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updatePreference(
@@ -83,7 +83,7 @@ export class NotificationPreferences extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updatePreferencesByCategory(
@@ -105,7 +105,7 @@ export class NotificationPreferences extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateMultiplePreferences(
@@ -126,6 +126,6 @@ export class NotificationPreferences extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

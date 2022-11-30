@@ -25,6 +25,6 @@ export class PlagiarismDetectionPlatformAssignments extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

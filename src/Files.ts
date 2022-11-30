@@ -33,7 +33,7 @@ export class Files extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listFiles(
@@ -53,7 +53,7 @@ export class Files extends BaseApi {
       return await response.json() as File[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getPublicInlinePreviewUrl(
@@ -73,7 +73,7 @@ export class Files extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getFile(
@@ -93,7 +93,7 @@ export class Files extends BaseApi {
       return await response.json() as File;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async translateFileReference(
@@ -110,7 +110,7 @@ export class Files extends BaseApi {
       return await response.json() as File;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateFile(
@@ -130,7 +130,7 @@ export class Files extends BaseApi {
       return await response.json() as File;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteFile(
@@ -150,7 +150,7 @@ export class Files extends BaseApi {
       return await response.json() as File;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getIconMetadata(id: string, body?: unknown): Promise<unknown> {
@@ -162,7 +162,7 @@ export class Files extends BaseApi {
       return await response.json() as unknown;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async resetLinkVerifier(id: string, body?: unknown): Promise<File> {
@@ -174,7 +174,7 @@ export class Files extends BaseApi {
       return await response.json() as File;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listFolders(id: string, body?: unknown): Promise<Folder[]> {
@@ -186,7 +186,7 @@ export class Files extends BaseApi {
       return await response.json() as Folder[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listAllFolders(
@@ -201,7 +201,7 @@ export class Files extends BaseApi {
       return await response.json() as Folder[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async resolvePath(
@@ -216,7 +216,7 @@ export class Files extends BaseApi {
       return await response.json() as Folder[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getFolder(
@@ -232,7 +232,7 @@ export class Files extends BaseApi {
       return await response.json() as Folder;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateFolder(
@@ -252,7 +252,7 @@ export class Files extends BaseApi {
       return await response.json() as Folder;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createFolder(
@@ -272,7 +272,7 @@ export class Files extends BaseApi {
       return await response.json() as Folder;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteFolder(
@@ -292,7 +292,7 @@ export class Files extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async uploadFile(folder_id: string, body?: unknown): Promise<Scope> {
@@ -304,7 +304,7 @@ export class Files extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async copyFile(
@@ -324,7 +324,7 @@ export class Files extends BaseApi {
       return await response.json() as File;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async copyFolder(
@@ -344,7 +344,7 @@ export class Files extends BaseApi {
       return await response.json() as Folder;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getUploadedMediaFolderForUser(
@@ -359,7 +359,7 @@ export class Files extends BaseApi {
       return await response.json() as Folder;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async setUsageRights(
@@ -379,7 +379,7 @@ export class Files extends BaseApi {
       return await response.json() as UsageRights;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async removeUsageRights(
@@ -399,7 +399,7 @@ export class Files extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listLicenses(
@@ -414,6 +414,6 @@ export class Files extends BaseApi {
       return await response.json() as License[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

@@ -26,7 +26,7 @@ export class ContentSecurityPolicySettings extends BaseApi {
       return await response.json() as Account;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async enableDisableOrClearExplicitCspSetting(
@@ -46,7 +46,7 @@ export class ContentSecurityPolicySettings extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async lockOrUnlockCurrentCspSettingsForSubaccountsCourses(
@@ -66,7 +66,7 @@ export class ContentSecurityPolicySettings extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async addAnAllowedDomainToAccount(
@@ -86,7 +86,7 @@ export class ContentSecurityPolicySettings extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async addMultipleAllowedDomainsToAnAccount(
@@ -107,7 +107,7 @@ export class ContentSecurityPolicySettings extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async retrieveReportedCspViolationsForAccount(
@@ -122,7 +122,7 @@ export class ContentSecurityPolicySettings extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async removeDomainFromAccount(
@@ -142,6 +142,6 @@ export class ContentSecurityPolicySettings extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

@@ -25,7 +25,7 @@ export class OutcomeGroups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getAllOutcomeGroupsForContext(
@@ -40,7 +40,7 @@ export class OutcomeGroups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async getAllOutcomeLinksForContext(
@@ -55,7 +55,7 @@ export class OutcomeGroups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async showAnOutcomeGroup(id: string, body?: unknown): Promise<Scope> {
@@ -67,7 +67,7 @@ export class OutcomeGroups extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async updateAnOutcomeGroup(
@@ -87,7 +87,7 @@ export class OutcomeGroups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteAnOutcomeGroup(
@@ -102,7 +102,7 @@ export class OutcomeGroups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listLinkedOutcomes(
@@ -122,7 +122,7 @@ export class OutcomeGroups extends BaseApi {
       return await response.json() as OutcomeLink[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createAnOutcome(
@@ -142,7 +142,7 @@ export class OutcomeGroups extends BaseApi {
       return await response.json() as OutcomeLink;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async unlinkAnOutcome(
@@ -159,7 +159,7 @@ export class OutcomeGroups extends BaseApi {
       return await response.json() as OutcomeLink;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listSubgroups(id: string, body?: unknown): Promise<Group[]> {
@@ -171,7 +171,7 @@ export class OutcomeGroups extends BaseApi {
       return await response.json() as Group[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async createSubgroup(
@@ -191,7 +191,7 @@ export class OutcomeGroups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async importAnOutcomeGroup(
@@ -211,6 +211,6 @@ export class OutcomeGroups extends BaseApi {
       return await response.json() as Group;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

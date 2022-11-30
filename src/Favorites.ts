@@ -30,7 +30,7 @@ export class Favorites extends BaseApi {
       return await response.json() as Course[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async listFavoriteGroups(body?: unknown): Promise<Group[]> {
@@ -42,7 +42,7 @@ export class Favorites extends BaseApi {
       return await response.json() as Group[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async addCourseToFavorites(
@@ -62,7 +62,7 @@ export class Favorites extends BaseApi {
       return await response.json() as Favorite;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async addGroupToFavorites(
@@ -82,7 +82,7 @@ export class Favorites extends BaseApi {
       return await response.json() as Favorite;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async removeCourseFromFavorites(
@@ -102,7 +102,7 @@ export class Favorites extends BaseApi {
       return await response.json() as Favorite;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async removeGroupFromFavorites(
@@ -122,7 +122,7 @@ export class Favorites extends BaseApi {
       return await response.json() as Favorite;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async resetCourseFavorites(body?: unknown): Promise<Scope> {
@@ -134,7 +134,7 @@ export class Favorites extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async resetGroupFavorites(body?: unknown): Promise<Scope> {
@@ -146,6 +146,6 @@ export class Favorites extends BaseApi {
       return await response.json() as Scope;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

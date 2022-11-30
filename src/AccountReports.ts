@@ -20,7 +20,7 @@ export class AccountReports extends BaseApi {
       return await response.json() as Grade;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async startReport(
@@ -41,7 +41,7 @@ export class AccountReports extends BaseApi {
       return await response.json() as Report;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async indexOfReports(
@@ -57,7 +57,7 @@ export class AccountReports extends BaseApi {
       return await response.json() as Report[];
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async statusOfReport(
@@ -74,7 +74,7 @@ export class AccountReports extends BaseApi {
       return await response.json() as Report;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async deleteReport(
@@ -91,6 +91,6 @@ export class AccountReports extends BaseApi {
       return await response.json() as Report;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }

@@ -29,7 +29,7 @@ export class QuizAssignmentOverrides extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 
   public async retrieveAssignmentoverriddenDatesForNewQuizzes(
@@ -50,6 +50,6 @@ export class QuizAssignmentOverrides extends BaseApi {
       return await response.json() as Assignment;
     }
 
-    return Promise.reject(response);
+    return Promise.reject(response.statusText);
   }
 }
