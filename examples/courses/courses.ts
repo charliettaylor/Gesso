@@ -1,5 +1,5 @@
-import { Configuration } from "../src/Configuration.ts";
-import { Courses } from "../src/Courses.ts";
+import { Configuration } from "../../src/Configuration.ts";
+import { Courses } from "../../src/Courses.ts";
 
 async function getCourses() {
   const thing = {
