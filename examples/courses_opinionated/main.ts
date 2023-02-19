@@ -18,14 +18,31 @@ if (import.meta.main) {
 
 async function handle(r: Request): Promise<Response> {
   const url = new URL(r.url);
-  const courses = await client.courses.listCourses(
-    fromURLParams(url.searchParams),
-  );
-  const body = JSON.stringify(courses, null, 2);
-  return new Response(body, {
-    headers: {
-      "content-type": "application/json",
-    },
+  if (url.pathname.startsWith("/courses")) {
+    const courses = await client.courses.listCourses(
+      fromURLParams(url.searchParams),
+    );
+
+    const body = JSON.stringify(courses, null, 2);
+    return new Response(
+      `<!DOCTYPE html>
+<html>
+<body>
+
+<pre>${body}</pre>
+
+</body>
+</html>`,
+      {
+        headers: {
+          "content-type": "text/html; charset=UTF-8",
+        },
+      },
+    );
+  }
+
+  return new Response("Not found", {
+    status: 404,
   });
 }
 
