@@ -4,3 +4,4 @@ output
 venv
 .vscode
 npm
+.env
